@@ -1,0 +1,75 @@
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build artifacts
+# Note: build/ directories are included for Packagist distribution
+dist/
+
+# WordPress
+*.log
+wp-config.php
+wp-content/advanced-cache.php
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/mu-plugins/
+wp-content/wp-cache-config.php
+wp-content/plugins/hello.php
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# Composer
+vendor/
+composer.lock
+
+# PHPCS local configuration override
+phpcs.xml
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Test artifacts
+tests/screenshots/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+create-pr.sh
+.playwright-mcp/
+
+# plugin release script
+release-plugin.sh
+
+# translation extraction script
+extract-translations.sh
