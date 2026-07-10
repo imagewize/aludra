@@ -1,0 +1,642 @@
+/**
+ * Mega Menu Block Styles
+ * Applied both on the front-end and in the editor.
+ */
+
+// Variables for reusability
+$transition-speed: 0.1s;
+$icon-size: 0.6em;
+$border-radius: var(--wp--preset--spacing--20, 0.5rem);
+$z-index-menu: 1000;
+$z-index-close-button: 100;
+
+// Mobile menu positioning mixin
+@mixin mobile-menu-full-width {
+    left: 1rem;
+    right: 1rem;
+    width: calc(100vw - 2rem);
+    max-width: none;
+    min-width: auto;
+}
+
+.wp-block-aludra-mega-menu {
+    list-style: none;
+    position: relative;
+
+    // Toggle button and its states
+    &__toggle {
+        background-color: initial;
+        border: none;
+        color: currentColor;
+        cursor: pointer;
+        font: inherit;
+        padding: 0;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 0.25em;
+
+        &-icon {
+            align-self: center;
+            display: inline-block;
+            font-size: inherit;
+            height: $icon-size;
+            line-height: 0;
+            padding: 0;
+            width: $icon-size;
+
+            svg {
+                stroke: currentColor;
+                display: inline-block;
+                height: inherit;
+                margin-top: 0.075em;
+                width: inherit;
+                transition: all $transition-speed linear;
+                transform: rotate(0deg);
+            }
+        }
+
+        // Expanded state
+        &[aria-expanded="true"] {
+            .wp-block-aludra-mega-menu__toggle-icon svg {
+                transform: rotate(180deg);
+            }
+
+            & ~ .aludra-mega-menu,
+            & ~ .wp-block-aludra-mega-menu__menu-container {
+                opacity: 1;
+                overflow: visible;
+                visibility: visible;
+                box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            }
+        }
+    }
+}
+
+// Menu container (shared styles for both classes)
+.aludra-mega-menu,
+.wp-block-aludra-mega-menu__menu-container {
+    // Base positioning and appearance
+    height: auto;
+    left: -1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: calc(100% + var(--mm-dropdown-spacing, 16px));
+    transition: opacity $transition-speed linear;
+    visibility: hidden;
+    z-index: $z-index-menu;
+    background: var(--wp--preset--color--base, #ffffff);
+    border-radius: $border-radius;
+
+    // Close button
+    .menu-container__close-button {
+        align-items: center;
+        backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        border-radius: 999999px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        opacity: 0;
+        padding: 4px;
+        position: absolute;
+        right: 12px;
+        text-align: center;
+        top: 12px;
+        transition: opacity 0.2s ease;
+        z-index: $z-index-close-button;
+
+        &:focus,
+        &:hover {
+            opacity: 1;
+        }
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    }
+
+    &:hover .menu-container__close-button {
+        opacity: 1;
+    }
+
+    // Inner block styling
+    .is-responsive {
+        display: flex;
+    }
+
+    .wp-block-template-part {
+        width: 100%;
+        max-width: none;
+
+        &[data-type="menu"] {
+            width: 100%;
+            flex: 1;
+        }
+    }
+
+    .wp-block-group,
+    .wp-block-columns {
+        width: 100%;
+        max-width: none;
+
+        .wp-block-column {
+            min-width: 0; // Allow columns to shrink if needed
+        }
+    }
+
+}
+
+// Mobile navigation container overrides
+// Only apply on mobile/tablet screens (max-width: 782px matches WordPress admin bar breakpoint)
+@media (max-width: 782px) {
+    .wp-block-navigation__responsive-container,
+    .wp-block-navigation__responsive-container-content {
+        .aludra-mega-menu,
+        .wp-block-aludra-mega-menu__menu-container {
+            // Override all width settings when inside mobile navigation
+            left: 0 !important;
+            right: auto !important;
+            transform: none !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: auto !important;
+            position: absolute !important;
+
+            // When menu is open (visible), use relative positioning
+            &[style*="visibility: visible"],
+            &[style*="opacity: 1"] {
+                position: relative !important;
+            }
+        }
+    }
+}
+
+// Screen reader only text for accessibility
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+// ============================================================
+// PHASE 2: LAYOUT MODES & ADVANCED FEATURES
+// ============================================================
+
+// Icon positioning in toggle button
+.mm-icon-position-left {
+    .mm-menu-icon {
+        margin-right: 0.5em;
+    }
+}
+
+.mm-icon-position-right {
+    .mm-menu-icon {
+        margin-left: 0.5em;
+    }
+}
+
+.mm-icon-position-top {
+    .mm-icon-above {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25em;
+    }
+}
+
+// Layout Mode: Dropdown (Enhanced - default behavior)
+.wp-block-aludra-mega-menu.mm-layout-dropdown {
+    // Uses existing dropdown styles as base
+    // No additional overrides needed for default dropdown
+}
+
+// Layout Mode: Overlay (Legacy - only applies when NOT using new panel system)
+.wp-block-aludra-mega-menu.mm-layout-overlay {
+    .mm-overlay-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+
+        &.mm-backdrop-blur {
+            backdrop-filter: blur(4px);
+        }
+    }
+
+    .aludra-mega-menu:not(.wp-block-aludra-mega-menu__panel),
+    .wp-block-aludra-mega-menu__menu-container:not(.wp-block-aludra-mega-menu__panel) {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) !important;
+        max-width: 90vw;
+        max-height: 90vh;
+        overflow-y: auto;
+        z-index: 1000;
+        width: auto;
+    }
+
+    &.wp-block-navigation-item[aria-expanded="true"] {
+        .mm-overlay-backdrop {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    // Close button more prominent in overlay - positioned bottom-left
+    .menu-container__close-button {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        top: auto;
+        bottom: 20px;
+        right: auto;
+        left: 20px;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    }
+}
+
+
+// ============================================================
+// ANIMATION SYSTEM
+// ============================================================
+
+.mm-animations-enabled {
+    // Animation: Fade
+    &.mm-animation-fade {
+        .aludra-mega-menu,
+        .wp-block-aludra-mega-menu__menu-container {
+            transition: opacity var(--mm-animation-speed, 300ms) ease,
+                        visibility var(--mm-animation-speed, 300ms) ease;
+        }
+    }
+
+    // Animation: Slide
+    &.mm-animation-slide {
+        .aludra-mega-menu,
+        .wp-block-aludra-mega-menu__menu-container {
+            transition: transform var(--mm-animation-speed, 300ms) ease,
+                        opacity var(--mm-animation-speed, 300ms) ease,
+                        visibility var(--mm-animation-speed, 300ms) ease;
+            transform: translateY(-10px);
+        }
+
+        &.wp-block-navigation-item[aria-expanded="true"] {
+            .aludra-mega-menu,
+            .wp-block-aludra-mega-menu__menu-container {
+                transform: translateY(0);
+            }
+        }
+
+        // Override for overlay mode
+        &.mm-layout-overlay {
+            .aludra-mega-menu,
+            .wp-block-aludra-mega-menu__menu-container {
+                transform: translate(-50%, -55%) !important;
+            }
+
+            &.wp-block-navigation-item[aria-expanded="true"] {
+                .aludra-mega-menu,
+                .wp-block-aludra-mega-menu__menu-container {
+                    transform: translate(-50%, -50%) !important;
+                }
+            }
+        }
+    }
+
+    // Animation: Scale
+    &.mm-animation-scale {
+        .aludra-mega-menu,
+        .wp-block-aludra-mega-menu__menu-container {
+            transition: transform var(--mm-animation-speed, 300ms) ease,
+                        opacity var(--mm-animation-speed, 300ms) ease,
+                        visibility var(--mm-animation-speed, 300ms) ease;
+            transform-origin: top center;
+            transform: scale(0.95);
+        }
+
+        &.wp-block-navigation-item[aria-expanded="true"] {
+            .aludra-mega-menu,
+            .wp-block-aludra-mega-menu__menu-container {
+                transform: scale(1);
+            }
+        }
+
+        // Override for overlay mode
+        &.mm-layout-overlay {
+            .aludra-mega-menu,
+            .wp-block-aludra-mega-menu__menu-container {
+                transform: translate(-50%, -50%) scale(0.95) !important;
+                transform-origin: center;
+            }
+
+            &.wp-block-navigation-item[aria-expanded="true"] {
+                .aludra-mega-menu,
+                .wp-block-aludra-mega-menu__menu-container {
+                    transform: translate(-50%, -50%) scale(1) !important;
+                }
+            }
+        }
+    }
+
+    // Animation: Slide + Fade
+    &.mm-animation-slidefade {
+        .aludra-mega-menu,
+        .wp-block-aludra-mega-menu__menu-container {
+            transition: transform var(--mm-animation-speed, 300ms) ease,
+                        opacity var(--mm-animation-speed, 300ms) ease,
+                        visibility var(--mm-animation-speed, 300ms) ease;
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+
+        &.wp-block-navigation-item[aria-expanded="true"] {
+            .aludra-mega-menu,
+            .wp-block-aludra-mega-menu__menu-container {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        // Override for overlay mode
+        &.mm-layout-overlay {
+            .aludra-mega-menu,
+            .wp-block-aludra-mega-menu__menu-container {
+                transform: translate(-50%, -55%) !important;
+            }
+
+            &.wp-block-navigation-item[aria-expanded="true"] {
+                .aludra-mega-menu,
+                .wp-block-aludra-mega-menu__menu-container {
+                    transform: translate(-50%, -50%) !important;
+                }
+            }
+        }
+    }
+}
+
+// ============================================================
+// PHASE 2C: ENHANCED LAYOUT SYSTEM
+// ============================================================
+
+.wp-block-aludra-mega-menu {
+	// Base panel styles (shared across all layouts)
+	&__panel {
+		position: absolute;
+		z-index: 1000;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+
+		&.is-open {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	// Layout Mode: Dropdown (Enhanced)
+	&--layout-dropdown {
+		.wp-block-aludra-mega-menu__panel {
+			position: absolute;
+			top: calc(100% + var(--mm-dropdown-spacing, 16px));
+			width: auto;
+			min-width: min(var(--mm-dropdown-max-width, 600px), calc(100vw - 40px));
+			max-width: calc(100vw - 40px);
+			background: #fff;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+			border-radius: 4px;
+			padding: 20px;
+
+			// Alignment variants - CSS-only, no JavaScript needed
+			&.align-left {
+				left: 0;
+				right: auto;
+				transform: none !important; // Override any legacy transforms
+			}
+
+			&.align-right {
+				left: auto;
+				right: 0;
+				transform: none !important; // Override any legacy transforms
+			}
+
+			&.align-center {
+				left: 50%;
+				right: auto;
+				transform: translateX(-50%) !important; // Center with transform
+			}
+
+			// Full Width Mode - Uses JavaScript to calculate position
+			// Positions dropdown to align with page content container
+			&.mm-full-width {
+				// JS will set inline styles for positioning (top, left, width)
+				// Default fallback: centered on viewport
+				position: fixed !important;
+				left: 50% !important;
+				right: auto !important;
+				width: var(--wp--style--global--wide-size, 1280px) !important;
+				max-width: calc(100vw - 40px) !important;
+				min-width: auto !important;
+				transform: translateX(-50%) !important;
+			}
+		}
+	}
+
+	// Layout Mode: Overlay (Full viewport coverage)
+	&--layout-overlay {
+		.wp-block-aludra-mega-menu__panel {
+			position: fixed !important;
+			top: 0 !important;
+			left: 0 !important;
+			right: auto !important;
+			width: 100vw;
+			height: 100vh;
+			background: #fff;
+			overflow-y: auto;
+			padding: 60px 40px 40px;
+			transform: none !important;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease, visibility 0.3s ease;
+
+			&.is-open {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			// Close button using ::before pseudo-element
+			&::before {
+				content: '×';
+				position: absolute;
+				top: 20px;
+				right: 20px;
+				font-size: 40px;
+				line-height: 1;
+				cursor: pointer;
+				color: #333;
+				transition: color 0.2s ease;
+
+				&:hover {
+					color: #000;
+				}
+			}
+		}
+
+		// Backdrop
+		.wp-block-aludra-mega-menu__backdrop {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: 999;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease, visibility 0.3s ease;
+
+			&.is-visible {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	// Hover activation state
+	&.has-hover-activation {
+		.wp-block-aludra-mega-menu__trigger:hover ~ .wp-block-aludra-mega-menu__panel {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+// Body scroll lock (when overlay open)
+body.mega-menu-overlay-open {
+	overflow: hidden;
+}
+
+// ============================================================
+// RESPONSIVE BEHAVIOR
+// ============================================================
+
+@media (max-width: 768px) {
+	// Dropdown becomes full-screen on mobile
+	// Needs !important to override WordPress responsive navigation container positioning
+	.wp-block-aludra-mega-menu--layout-dropdown,
+	.wp-block-navigation__responsive-container .wp-block-aludra-mega-menu--layout-dropdown,
+	.wp-block-navigation__responsive-container-content .wp-block-aludra-mega-menu--layout-dropdown {
+		.wp-block-aludra-mega-menu__panel {
+			position: fixed !important;
+			top: 0 !important;
+			left: 0 !important;
+			right: 0 !important;
+			width: 100% !important;
+			height: 100vh !important;
+			max-width: none !important;
+			border-radius: 0 !important;
+			padding: 60px 20px 20px !important;
+			transform: none !important;
+			overflow-y: auto !important; // Enable vertical scrolling for long content
+			box-sizing: border-box !important; // Ensure padding is included in width calculation
+		}
+
+		// Keep close button visible at all times on mobile
+		.menu-container__close-button {
+			position: fixed !important; // Fixed positioning keeps button visible while scrolling
+			top: 20px !important;
+			right: 20px !important;
+			z-index: 101 !important; // Ensure button stays above scrolling content
+		}
+	}
+
+	// Overlay takes full width on mobile
+	.wp-block-aludra-mega-menu.mm-layout-overlay {
+		.aludra-mega-menu,
+		.wp-block-aludra-mega-menu__menu-container {
+			max-width: 100vw;
+			width: 100vw;
+		}
+	}
+}
+
+// ============================================================
+// ACCESSIBILITY ENHANCEMENTS
+// ============================================================
+
+// Focus trap styling
+.wp-block-aludra-mega-menu__panel {
+	&:focus {
+		outline: 2px solid #007cba;
+		outline-offset: 2px;
+	}
+
+	// Focus visible for keyboard navigation
+	a:focus-visible,
+	button:focus-visible {
+		outline: 2px solid #007cba;
+		outline-offset: 2px;
+	}
+}
+
+
+// Box Shadow Presets (for panel container)
+.wp-block-aludra-mega-menu__panel {
+	&.mm-shadow-none {
+		box-shadow: none !important;
+	}
+
+	&.mm-shadow-small {
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+	}
+
+	&.mm-shadow-medium {
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+	}
+
+	&.mm-shadow-large {
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+	}
+
+	&.mm-shadow-default {
+		// Uses existing box-shadow from base styles
+	}
+}
+
+// Backdrop Blur Support (overlay only)
+.wp-block-aludra-mega-menu__panel.mm-backdrop-blur-enabled {
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+// RTL Support
+[dir="rtl"] {
+	.wp-block-aludra-mega-menu {
+		&--layout-dropdown {
+			.wp-block-aludra-mega-menu__panel {
+				&.align-left {
+					left: auto;
+					right: 0;
+				}
+
+				&.align-right {
+					right: auto;
+					left: 0;
+				}
+			}
+		}
+	}
+}

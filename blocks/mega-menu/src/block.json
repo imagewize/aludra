@@ -1,0 +1,149 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "aludra/mega-menu",
+	"version": "0.1.3",
+	"title": "Mega Menu",
+	"category": "design",
+	"icon": "menu-alt",
+	"description": "Create dynamic mega menus with template parts and advanced styling options.",
+	"keywords": [ "menu", "navigation", "mega menu", "dropdown" ],
+	"parent": [ "core/navigation", "aludra/nav-builder" ],
+	"attributes": {
+		"label": {
+			"type": "string",
+			"default": ""
+		},
+		"labelColor": {
+			"type": "string"
+		},
+		"description": {
+			"type": "string",
+			"default": ""
+		},
+		"menuSlug": {
+			"type": "string",
+			"default": ""
+		},
+		"layoutMode": {
+			"type": "string",
+			"default": "dropdown",
+			"enum": [ "dropdown", "overlay" ]
+		},
+		"enableAnimations": {
+			"type": "boolean",
+			"default": false
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade",
+			"enum": [ "fade", "slide", "scale", "slidefade" ]
+		},
+		"animationSpeed": {
+			"type": "number",
+			"default": 300
+		},
+		"enableIcon": {
+			"type": "boolean",
+			"default": false
+		},
+		"iconName": {
+			"type": "string",
+			"default": ""
+		},
+		"iconPosition": {
+			"type": "string",
+			"default": "left",
+			"enum": [ "left", "right", "top" ]
+		},
+		"customSVG": {
+			"type": "string",
+			"default": ""
+		},
+		"enableMobileMode": {
+			"type": "boolean",
+			"default": true
+		},
+		"mobileBreakpoint": {
+			"type": "number",
+			"default": 768
+		},
+		"dropdownAlignment": {
+			"type": "string",
+			"default": "left",
+			"enum": [ "left", "right", "center" ]
+		},
+		"dropdownSpacing": {
+			"type": "number",
+			"default": 16
+		},
+		"dropdownMaxWidth": {
+			"type": "number",
+			"default": 600
+		},
+		"useFullWidth": {
+			"type": "boolean",
+			"default": false
+		},
+		"overlayBackdropColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.5)"
+		},
+		"enableHoverActivation": {
+			"type": "boolean",
+			"default": false
+		},
+		"panelBoxShadow": {
+			"type": "string",
+			"default": "default"
+		},
+		"panelBorderRadius": {
+			"type": "number",
+			"default": 4
+		},
+		"panelBorderWidth": {
+			"type": "number",
+			"default": 0
+		},
+		"panelBorderColor": {
+			"type": "string",
+			"default": ""
+		},
+		"panelBackdropBlur": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"example": {
+		"attributes": {
+			"label": "Features",
+			"description": "Explore our powerful features"
+		}
+	},
+	"supports": {
+		"html": false,
+		"interactivity": true,
+		"renaming": false,
+		"reusable": false,
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontWeight": true,
+			"__experimentalFontStyle": true,
+			"__experimentalTextTransform": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		},
+		"__experimentalSlashInserter": true
+	},
+	"textdomain": "aludra",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScriptModule": "file:./view.js",
+	"render": "file:./render.php"
+}
