@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "aludra/feature-cards",
+	"version": "1.0.0",
+	"title": "Feature Cards",
+	"category": "design",
+	"icon": "grid-view",
+	"description": "A responsive grid of feature highlight cards with icons, hover effects, and a section header.",
+	"keywords": ["features", "cards", "grid", "icons", "highlights"],
+	"textdomain": "aludra",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": ["wide", "full"],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"example": {
+		"attributes": {}
+	}
+}

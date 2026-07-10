@@ -1,0 +1,29 @@
+/**
+ * Editor-only styles for aludra/icon-grid.
+ *
+ * The `style` stylesheet already loads in the editor, but the block editor adds
+ * default block spacing to inner blocks. Re-assert the grid on the group element
+ * and neutralise the editor's margin so the preview matches the frontend.
+ */
+.wp-block-aludra-icon-grid {
+	.icon-grid__grid.wp-block-group {
+		display: grid !important;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 16px;
+
+		@media (max-width: 640px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.icon-grid__item.wp-block-group {
+		display: flex !important;
+		align-items: center !important;
+		gap: 12px !important;
+	}
+
+	.icon-grid__grid.wp-block-group > *,
+	.icon-grid__item.wp-block-group > * {
+		margin-block-start: 0 !important;
+	}
+}

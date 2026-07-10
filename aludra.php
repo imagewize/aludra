@@ -33,6 +33,75 @@ if ( is_admin() ) {
 }
 
 /**
+ * Register the aludra/icon block binding source.
+ *
+ * Blocks that render SVG icons (feature-cards, and future icon-grid, trust-bar,
+ * contact-section, service-hero, expect-list) store a binding reference with an
+ * icon filename instead of a hard-coded URL, so the correct plugin asset URL is
+ * resolved at render time and survives site moves / rebuilds.
+ *
+ * Usage in a block template:
+ *   metadata: { bindings: { url: { source: 'aludra/icon', args: { path: 'icon-fse.svg' } } } }
+ *
+ * Paths are relative to assets/icons/.
+ */
+add_action(
+	'init',
+	function () {
+		if ( ! function_exists( 'register_block_bindings_source' ) ) {
+			return;
+		}
+
+		register_block_bindings_source(
+			'aludra/icon',
+			array(
+				'label'              => __( 'Aludra Icon', 'aludra' ),
+				'get_value_callback' => function ( $source_args, $block_instance, $attribute_name ) {
+					if ( 'url' !== $attribute_name || empty( $source_args['path'] ) ) {
+						return null;
+					}
+
+					$icon_path = ltrim( str_replace( '..', '', $source_args['path'] ), '/' );
+
+					if ( ! file_exists( ALUDRA_PLUGIN_DIR . 'assets/icons/' . $icon_path ) ) {
+						return null;
+					}
+
+					return ALUDRA_PLUGIN_URL . 'assets/icons/' . $icon_path;
+				},
+			)
+		);
+	}
+);
+
+/**
+ * Expose plugin icon URLs to the block editor as window.aludraIcons.
+ *
+ * Block edit.js templates use these as the initial `url` on core/image so icons
+ * display while editing; the aludra/icon binding resolves the frontend URL.
+ */
+add_action(
+	'enqueue_block_editor_assets',
+	function () {
+		$icons      = array();
+		$icon_files = glob( ALUDRA_PLUGIN_DIR . 'assets/icons/*.svg' );
+
+		if ( $icon_files ) {
+			foreach ( $icon_files as $file ) {
+				$name           = basename( $file );
+				$icons[ $name ] = ALUDRA_PLUGIN_URL . 'assets/icons/' . $name;
+			}
+		}
+
+		wp_add_inline_script(
+			'wp-blocks',
+			'window.aludraIcons = ' . wp_json_encode( $icons ) . ';',
+			'before'
+		);
+	}
+);
+
+/**
  * Register custom blocks with conditional registration based on settings.
  */
 add_action(
@@ -54,6 +123,9 @@ add_action(
 				'faq-tabs'               => true,
 				'faq-tab-answer'         => true,
 				'search-overlay-trigger' => true,
+				'feature-cards'          => true,
+				'icon-grid'              => true,
+				'trust-bar'              => true,
 			)
 		);
 

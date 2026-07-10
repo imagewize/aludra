@@ -1,0 +1,24 @@
+/**
+ * Editor-only styles for aludra/trust-bar.
+ *
+ * Force flex on the items container and each item in the editor, and neutralise
+ * the block editor's default vertical margins so the bar previews inline.
+ */
+.wp-block-aludra-trust-bar {
+	.trust-bar__items.wp-block-group {
+		display: flex !important;
+		flex-wrap: wrap;
+		gap: 32px;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.trust-item.wp-block-group {
+		flex: 0 0 auto;
+	}
+
+	.trust-bar__items.wp-block-group > *,
+	.trust-item.wp-block-group > * {
+		margin-block-start: 0 !important;
+	}
+}
