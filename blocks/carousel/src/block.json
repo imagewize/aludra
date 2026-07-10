@@ -1,0 +1,153 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "aludra/carousel",
+    "version": "1.0.0",
+    "title": "Carousel",
+    "category": "design",
+    "icon": "slides",
+    "description": "Create a customizable slideshow of content with this carousel block.",
+    "supports": {
+        "align": [
+            "wide",
+            "full"
+        ],
+        "html": false,
+        "anchor": true
+    },
+    "textdomain": "aludra",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css",
+    "viewScript": "file:./view.js",
+    "attributes": {
+        "slidesToShow": {
+            "type": "number",
+            "default": 3
+        },
+        "slidesToScroll": {
+            "type": "number",
+            "default": 1
+        },
+        "arrows": {
+            "type": "boolean",
+            "default": true
+        },
+        "dots": {
+            "type": "boolean",
+            "default": true
+        },
+        "infinite": {
+            "type": "boolean",
+            "default": true
+        },
+        "autoplay": {
+            "type": "boolean",
+            "default": false
+        },
+        "autoplaySpeed": {
+            "type": "number",
+            "default": 3000
+        },
+        "speed": {
+            "type": "number",
+            "default": 300
+        },
+        "rtl": {
+            "type": "boolean",
+            "default": false
+        },
+        "responsiveWidth": {
+            "type": "number",
+            "default": 768
+        },
+        "responsiveSlides": {
+            "type": "number",
+            "default": 1
+        },
+        "responsiveSlidesToScroll": {
+            "type": "number",
+            "default": 1
+        },
+        "slides": {
+            "type": "number",
+            "default": 4
+        },
+        "slidePadding": {
+            "type": "boolean",
+            "default": true
+        },
+        "arrowColor": {
+            "type": "string",
+            "default": "#000000"
+        },
+        "arrowBackground": {
+            "type": "string",
+            "default": "transparent"
+        },
+        "arrowHoverColor": {
+            "type": "string",
+            "default": "#000000"
+        },
+        "arrowHoverBackground": {
+            "type": "string",
+            "default": "transparent"
+        },
+        "dotsBottomSpacing": {
+            "type": "string",
+            "default": "0px"
+        },
+        "adaptiveHeight": {
+            "type": "boolean",
+            "default": false
+        },
+        "enableThumbnails": {
+            "type": "boolean",
+            "default": false
+        },
+        "thumbnailsToShow": {
+            "type": "number",
+            "default": 4
+        },
+        "thumbnailPosition": {
+            "type": "string",
+            "default": "below"
+        },
+        "thumbnailSpacing": {
+            "type": "string",
+            "default": "30px"
+        },
+        "centerMode": {
+            "type": "boolean",
+            "default": false
+        },
+        "centerPadding": {
+            "type": "string",
+            "default": "60px"
+        },
+        "variableWidth": {
+            "type": "boolean",
+            "default": false
+        },
+        "lazyLoad": {
+            "type": "string",
+            "default": "ondemand"
+        },
+        "arrowStyle": {
+            "type": "string",
+            "default": "arrow"
+        },
+        "arrowBackgroundStyle": {
+            "type": "string",
+            "default": "none"
+        },
+        "arrowSize": {
+            "type": "number",
+            "default": 40
+        },
+        "customArrowSvg": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}

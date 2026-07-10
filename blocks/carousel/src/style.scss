@@ -1,0 +1,524 @@
+/**
+ * Carousel Block - Frontend & Backend Styles
+ * Styles applied to both the editor and frontend
+ */
+
+.wp-block-aludra-carousel {
+    position: relative;
+}
+
+.wp-block-aludra-carousel .slick-slide {
+    overflow: hidden;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+}
+
+.wp-block-aludra-carousel .slick-dots {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: var(--dots-top, 0) !important;
+    width: 100%;
+}
+
+.wp-block-aludra-carousel .slick-dots li {
+    margin: 0 4px;
+}
+
+.wp-block-aludra-carousel .slick-dots li button {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border: 2px solid #000;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.wp-block-aludra-carousel .slick-dots li button::before {
+    display: none;
+}
+
+.wp-block-aludra-carousel .slick-dots li:not(.slick-active) button:not(:hover):not(:active) {
+    background-color: transparent;
+}
+
+.wp-block-aludra-carousel .slick-dots li button:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.wp-block-aludra-carousel .slick-dots li.slick-active button {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+}
+
+.wp-block-aludra-carousel .slick-next,
+.wp-block-aludra-carousel .slick-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1;
+    border: none;
+    border-radius: 50%;
+    background: var(--arrow-background, rgba(255, 255, 255, 0.8));
+}
+
+.wp-block-aludra-carousel .slick-next:not(:hover):not(:active),
+.wp-block-aludra-carousel .slick-prev:not(:hover):not(:active) {
+    background-color: var(--arrow-background, rgba(255, 255, 255, 0.8));
+}
+
+.wp-block-aludra-carousel .slick-next:not(:hover):not(:active)::before,
+.wp-block-aludra-carousel .slick-prev:not(:hover):not(:active)::before {
+    color: var(--arrow-color, #000);
+}
+
+.wp-block-aludra-carousel .slick-next:hover,
+.wp-block-aludra-carousel .slick-prev:hover {
+    background: var(--arrow-hover-background, rgba(255, 255, 255, 1));
+}
+
+.wp-block-aludra-carousel .slick-next:hover::before,
+.wp-block-aludra-carousel .slick-prev:hover::before {
+    color: var(--arrow-hover-color, #000);
+}
+
+.wp-block-aludra-carousel .slick-next::before,
+.wp-block-aludra-carousel .slick-prev::before {
+    color: var(--arrow-color, #000);
+    font-size: 20px;
+    opacity: 1;
+}
+
+.wp-block-aludra-carousel .slick-prev {
+    left: 25px;
+}
+
+.wp-block-aludra-carousel .slick-next {
+    right: 25px;
+}
+
+.wp-block-aludra-carousel.alignfull .slick-next,
+.wp-block-aludra-carousel.alignfull .slick-prev {
+    z-index: 1;
+}
+
+.wp-block-aludra-carousel.alignfull .slick-prev {
+    left: 25px;
+}
+
+.wp-block-aludra-carousel.alignfull .slick-next {
+    right: 25px;
+}
+
+/**
+ * Arrow Background Styles
+ */
+/* Circle (default) */
+.wp-block-aludra-carousel.cb-arrow-bg-circle .slick-next,
+.wp-block-aludra-carousel.cb-arrow-bg-circle .slick-prev {
+    border-radius: 50%;
+}
+
+/* Rounded Square */
+.wp-block-aludra-carousel.cb-arrow-bg-rounded .slick-next,
+.wp-block-aludra-carousel.cb-arrow-bg-rounded .slick-prev {
+    border-radius: 8px;
+}
+
+/* Square */
+.wp-block-aludra-carousel.cb-arrow-bg-square .slick-next,
+.wp-block-aludra-carousel.cb-arrow-bg-square .slick-prev {
+    border-radius: 0;
+}
+
+/* No Background */
+.wp-block-aludra-carousel.cb-arrow-bg-none .slick-next,
+.wp-block-aludra-carousel.cb-arrow-bg-none .slick-prev {
+    background: transparent !important;
+}
+
+.wp-block-aludra-carousel.cb-arrow-bg-none .slick-next:hover,
+.wp-block-aludra-carousel.cb-arrow-bg-none .slick-prev:hover {
+    background: transparent !important;
+}
+
+/**
+ * SVG Arrow Styles
+ * All arrow styles use SVG files loaded dynamically via view.js
+ */
+.wp-block-aludra-carousel .slick-prev::before,
+.wp-block-aludra-carousel .slick-next::before {
+    content: '';
+}
+
+.wp-block-aludra-carousel .carousel-arrow-svg {
+    width: 60%;
+    height: 60%;
+    display: block;
+    margin: auto;
+    color: currentColor;
+}
+
+.wp-block-aludra-carousel .slick-prev .carousel-arrow-svg,
+.wp-block-aludra-carousel .slick-next .carousel-arrow-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Ensure SVG inherits arrow color */
+.wp-block-aludra-carousel .slick-prev svg,
+.wp-block-aludra-carousel .slick-next svg {
+    color: var(--arrow-color, #000);
+}
+
+.wp-block-aludra-carousel .slick-prev:hover svg,
+.wp-block-aludra-carousel .slick-next:hover svg {
+    color: var(--arrow-hover-color, #000);
+}
+
+.wp-block-aludra-carousel.cb-arrow-style-custom .slick-prev svg,
+.wp-block-aludra-carousel.cb-arrow-style-custom .slick-next svg {
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: currentColor;
+}
+
+.wp-block-aludra-carousel.cb-arrow-style-custom .slick-next svg {
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.wp-block-aludra-carousel .wp-block-cover,
+.wp-block-aludra-carousel .wp-block-image {
+    margin-bottom: 0;
+}
+
+.wp-block-aludra-carousel .wp-block-cover.aligncenter,
+.wp-block-aludra-carousel .wp-block-image.aligncenter {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.is-layout-flex .wp-block-aludra-carousel {
+    width: 100%;
+}
+
+/**
+ * Thumbnail Navigation Styles
+ */
+.carousel-thumbnails-wrapper {
+    margin-top: 0;
+}
+
+.carousel-thumbnails-wrapper.is-thumbnails-above {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.carousel-thumbnails {
+    position: relative;
+    margin: 0 auto;
+}
+
+.carousel-thumbnail {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    padding: 5px;
+    outline: none;
+}
+
+.carousel-thumbnail:hover,
+.carousel-thumbnail:focus {
+    opacity: 0.8;
+}
+
+.carousel-thumbnail.slick-current {
+    opacity: 1;
+}
+
+.carousel-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.carousel-thumbnail.slick-current img {
+    border-color: currentColor;
+}
+
+.carousel-thumbnail span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Thumbnail position: above */
+.carousel-thumbnails-wrapper + .wp-block-aludra-carousel {
+    margin-top: 0;
+}
+
+/* Thumbnail position: below (default) */
+.wp-block-aludra-carousel + .carousel-thumbnails-wrapper {
+    margin-top: 0;
+}
+
+/* Thumbnail position: left/right (side-by-side layout) */
+.carousel-with-thumbnails {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.carousel-with-thumbnails.carousel-thumbnails-left {
+    flex-direction: row;
+}
+
+.carousel-with-thumbnails.carousel-thumbnails-right {
+    flex-direction: row-reverse;
+}
+
+.carousel-with-thumbnails .carousel-thumbnails-wrapper {
+    flex-shrink: 0;
+    width: 150px;
+    margin: 0;
+}
+
+.carousel-with-thumbnails .wp-block-aludra-carousel {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+/* Vertical thumbnail carousel */
+.carousel-thumbnails.slick-vertical {
+    max-height: 500px;
+}
+
+.carousel-thumbnails.slick-vertical .slick-slide {
+    border: none;
+    margin-bottom: 10px;
+}
+
+/* Thumbnail navigation arrows */
+.carousel-thumbnails .slick-prev,
+.carousel-thumbnails .slick-next {
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-thumbnails .slick-prev:hover,
+.carousel-thumbnails .slick-next:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-thumbnails .slick-prev::before,
+.carousel-thumbnails .slick-next::before {
+    font-size: 16px;
+    color: #fff;
+}
+
+/* Vertical thumbnail arrows */
+.carousel-thumbnails.slick-vertical .slick-prev {
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+}
+
+.carousel-thumbnails.slick-vertical .slick-next {
+    bottom: -35px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+}
+
+/**
+ * Center Mode with Peek Styles
+ */
+.wp-block-aludra-carousel.cb-center-mode {
+    padding: 0 10px;
+}
+
+.wp-block-aludra-carousel.cb-center-mode .slick-slide {
+    opacity: 0.5;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(0.9);
+}
+
+.wp-block-aludra-carousel.cb-center-mode .slick-slide.slick-center {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+}
+
+.wp-block-aludra-carousel.cb-center-mode .slick-list {
+    overflow: visible;
+}
+
+/* Adjust arrows for center mode */
+.wp-block-aludra-carousel.cb-center-mode .slick-prev {
+    left: 10px;
+}
+
+.wp-block-aludra-carousel.cb-center-mode .slick-next {
+    right: 10px;
+}
+
+/**
+ * Variable Width Slides
+ */
+.wp-block-aludra-carousel.cb-variable-width .slick-slide {
+    width: auto !important;
+}
+
+.wp-block-aludra-carousel.cb-variable-width .wp-block-aludra-slide {
+    display: inline-block !important;
+    vertical-align: top;
+}
+
+/* Ensure variable width slides respect their content */
+.wp-block-aludra-carousel.cb-variable-width .slick-track {
+    display: flex;
+    align-items: stretch;
+}
+
+/**
+ * Lazy Loading Styles
+ */
+.wp-block-aludra-carousel .slick-slide img.slick-loading {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.wp-block-aludra-carousel .slick-slide img {
+    opacity: 1;
+}
+
+/* Lazy load placeholder */
+.wp-block-aludra-carousel .slick-loading {
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.05) 25%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/**
+ * Adaptive Height Transitions
+ */
+.wp-block-aludra-carousel .slick-list.dragging {
+    transition: none;
+}
+
+.wp-block-aludra-carousel .slick-track {
+    display: flex;
+}
+
+/**
+ * Responsive Adjustments
+ */
+@media (max-width: 768px) {
+    /* Disable center mode peek on mobile */
+    .wp-block-aludra-carousel.cb-center-mode .slick-slide {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Stack thumbnails vertically on mobile */
+    .carousel-with-thumbnails {
+        flex-direction: column;
+    }
+
+    .carousel-with-thumbnails .carousel-thumbnails-wrapper {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Reduce thumbnail size on mobile */
+    .carousel-thumbnails {
+        max-width: 100%;
+    }
+
+    /* Adjust arrow positioning on mobile */
+    .wp-block-aludra-carousel .slick-prev {
+        left: 10px;
+    }
+
+    .wp-block-aludra-carousel .slick-next {
+        right: 10px;
+    }
+
+    /* Smaller arrows on mobile */
+    .wp-block-aludra-carousel .slick-next,
+    .wp-block-aludra-carousel .slick-prev {
+        width: 32px;
+        height: 32px;
+    }
+
+    .wp-block-aludra-carousel .slick-next::before,
+    .wp-block-aludra-carousel .slick-prev::before {
+        font-size: 16px;
+    }
+}
+
+/**
+ * Accessibility Improvements
+ */
+.wp-block-aludra-carousel .slick-slide:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+.carousel-thumbnail:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+/**
+ * RTL Support
+ */
+.wp-block-aludra-carousel[dir="rtl"] .slick-prev {
+    right: 25px;
+    left: auto;
+}
+
+.wp-block-aludra-carousel[dir="rtl"] .slick-next {
+    left: 25px;
+    right: auto;
+}
+
+.carousel-with-thumbnails.carousel-thumbnails-left[dir="rtl"] {
+    flex-direction: row-reverse;
+}
+
+.carousel-with-thumbnails.carousel-thumbnails-right[dir="rtl"] {
+    flex-direction: row;
+}
