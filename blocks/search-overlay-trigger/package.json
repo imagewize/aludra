@@ -14,9 +14,15 @@
 		"start": "wp-scripts start"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^30.27.0"
+		"@wordpress/scripts": "^32.6.0"
 	},
 	"overrides": {
 		"webpack-dev-server": "^5.2.2"
+	},
+	"dependencies": {
+		"@wordpress/block-editor": "^15.23.0",
+		"@wordpress/blocks": "^15.23.0",
+		"@wordpress/components": "^36.1.0",
+		"@wordpress/i18n": "^6.23.0"
 	}
 }

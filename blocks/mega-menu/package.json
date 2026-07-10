@@ -15,10 +15,20 @@
 		"start": "wp-scripts start --experimental-modules"
 	},
 	"devDependencies": {
-		"@wordpress/icons": "^11.1.0",
-		"@wordpress/scripts": "^30.27.0"
+		"@wordpress/scripts": "^32.6.0"
 	},
 	"overrides": {
 		"webpack-dev-server": "^5.2.0"
+	},
+	"dependencies": {
+		"@wordpress/block-editor": "^15.23.0",
+		"@wordpress/blocks": "^15.23.0",
+		"@wordpress/components": "^36.1.0",
+		"@wordpress/core-data": "^7.50.0",
+		"@wordpress/data": "^10.50.0",
+		"@wordpress/element": "^8.2.0",
+		"@wordpress/i18n": "^6.23.0",
+		"@wordpress/icons": "^15.1.0",
+		"@wordpress/interactivity": "^6.50.0"
 	}
 }

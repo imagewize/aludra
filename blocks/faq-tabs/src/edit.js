@@ -10,11 +10,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {
-	useBlockProps,
-	InnerBlocks,
-	RichText,
-} from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
 
 import { useSelect, useDispatch } from '@wordpress/data';
 import { useState, useEffect } from '@wordpress/element';
@@ -33,47 +29,52 @@ import './editor.scss';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
+ * @param {Object}   root0               Block properties
+ * @param {string}   root0.clientId      Block client ID
+ * @param {Object}   root0.attributes    Block attributes
+ * @param {Function} root0.setAttributes Setter for block attributes
  * @return {Element} Element to render.
  */
-export default function Edit({ clientId, attributes, setAttributes }) {
-	const [activeTab, setActiveTab] = useState(0);
+export default function Edit( { clientId, attributes, setAttributes } ) {
+	const [ activeTab, setActiveTab ] = useState( 0 );
 	const { align } = attributes;
 
-	const blockProps = useBlockProps({
+	const blockProps = useBlockProps( {
 		className: 'faq-tabs-wrapper',
-	});
+	} );
 
-	const { updateBlockAttributes } = useDispatch('core/block-editor');
+	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
 
 	// Get inner blocks (FAQ tab answers)
 	const { innerBlocks } = useSelect(
-		(select) => {
-			const { getBlock } = select('core/block-editor');
-			const block = getBlock(clientId);
+		( select ) => {
+			const { getBlock } = select( 'core/block-editor' );
+			const block = getBlock( clientId );
 			return {
 				innerBlocks: block?.innerBlocks || [],
 			};
 		},
-		[clientId]
+		[ clientId ]
 	);
 
-	// Set default alignment on block insertion
-	useEffect(() => {
-		if (align === undefined) {
-			setAttributes({ align: 'wide' });
+	// Set default alignment on block insertion (mount only).
+	useEffect( () => {
+		if ( align === undefined ) {
+			setAttributes( { align: 'wide' } );
 		}
-	}, []);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [] );
 
 	// Adjust active tab if it's out of bounds
-	useEffect(() => {
-		if (activeTab >= innerBlocks.length && innerBlocks.length > 0) {
-			setActiveTab(innerBlocks.length - 1);
+	useEffect( () => {
+		if ( activeTab >= innerBlocks.length && innerBlocks.length > 0 ) {
+			setActiveTab( innerBlocks.length - 1 );
 		}
-	}, [innerBlocks.length, activeTab]);
+	}, [ innerBlocks.length, activeTab ] );
 
 	// Handle question text change
-	const handleQuestionChange = (newQuestion, blockId) => {
-		updateBlockAttributes(blockId, { question: newQuestion });
+	const handleQuestionChange = ( newQuestion, blockId ) => {
+		updateBlockAttributes( blockId, { question: newQuestion } );
 	};
 
 	const TEMPLATE = [
@@ -149,36 +150,60 @@ export default function Edit({ clientId, attributes, setAttributes }) {
 	];
 
 	return (
-		<div {...blockProps}>
+		<div { ...blockProps }>
 			<div className="wp-block-columns">
 				<div
 					className="wp-block-column faq-questions-column"
-					style={{ flexBasis: '40%' }}
+					style={ { flexBasis: '40%' } }
 				>
 					<div className="faq-vertical-tabs">
-						{innerBlocks.length === 0 && (
+						{ innerBlocks.length === 0 && (
 							<p className="faq-tabs-placeholder">
-								{__('Add FAQ Tab Answer blocks to get started', 'aludra')}
+								{ __(
+									'Add FAQ Tab Answer blocks to get started',
+									'aludra'
+								) }
 							</p>
-						)}
-						{innerBlocks.map((block, index) => (
+						) }
+						{ innerBlocks.map( ( block, index ) => (
 							<div
-								key={block.clientId}
-								className={`faq-tab-item ${activeTab === index ? 'active' : ''}`}
+								key={ block.clientId }
+								className={ `faq-tab-item ${
+									activeTab === index ? 'active' : ''
+								}` }
 							>
 								<RichText
 									tagName="div"
 									className="tab-question"
-									value={block.attributes.question || ''}
-									onChange={(newQuestion) => handleQuestionChange(newQuestion, block.clientId)}
-									placeholder={__('Enter question...', 'aludra')}
-									onClick={() => setActiveTab(index)}
-									allowedFormats={[]}
+									value={ block.attributes.question || '' }
+									onChange={ ( newQuestion ) =>
+										handleQuestionChange(
+											newQuestion,
+											block.clientId
+										)
+									}
+									placeholder={ __(
+										'Enter question…',
+										'aludra'
+									) }
+									onClick={ () => setActiveTab( index ) }
+									allowedFormats={ [] }
 								/>
 								<div
 									className="tab-arrow-circle"
-									onClick={() => setActiveTab(index)}
-									style={{ cursor: 'pointer' }}
+									role="button"
+									tabIndex={ 0 }
+									onClick={ () => setActiveTab( index ) }
+									onKeyDown={ ( event ) => {
+										if (
+											event.key === 'Enter' ||
+											event.key === ' '
+										) {
+											event.preventDefault();
+											setActiveTab( index );
+										}
+									} }
+									style={ { cursor: 'pointer' } }
 								>
 									<svg
 										width="16"
@@ -197,19 +222,21 @@ export default function Edit({ clientId, attributes, setAttributes }) {
 									</svg>
 								</div>
 							</div>
-						))}
+						) ) }
 					</div>
 				</div>
 
 				<div
 					className="wp-block-column faq-content-column"
-					style={{ flexBasis: '60%' }}
+					style={ { flexBasis: '60%' } }
 				>
 					<div className="faq-content-area">
 						<InnerBlocks
-							allowedBlocks={['aludra/faq-tab-answer']}
-							template={TEMPLATE}
-							renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
+							allowedBlocks={ [ 'aludra/faq-tab-answer' ] }
+							template={ TEMPLATE }
+							renderAppender={ () => (
+								<InnerBlocks.ButtonBlockAppender />
+							) }
 						/>
 					</div>
 				</div>

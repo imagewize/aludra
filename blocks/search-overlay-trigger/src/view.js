@@ -2,11 +2,11 @@
  * Search Overlay Trigger Block - Frontend Functionality
  * Creates and manages the full-screen search overlay
  */
-(function() {
+( function () {
 	'use strict';
 
 	// Only initialize once
-	if (document.getElementById('search-overlay')) {
+	if ( document.getElementById( 'search-overlay' ) ) {
 		return;
 	}
 
@@ -16,7 +16,7 @@
 	let closeButtonColor = '#000000';
 
 	// Create overlay structure dynamically
-	const overlay = document.createElement('div');
+	const overlay = document.createElement( 'div' );
 	overlay.id = 'search-overlay';
 	overlay.className = 'search-overlay';
 	overlay.style.display = 'none';
@@ -47,30 +47,35 @@
 	`;
 
 	// Append to body when DOM is ready
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', function() {
-			document.body.appendChild(overlay);
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', function () {
+			document.body.appendChild( overlay );
 			initializeOverlay();
-		});
+		} );
 	} else {
-		document.body.appendChild(overlay);
+		document.body.appendChild( overlay );
 		initializeOverlay();
 	}
 
 	function initializeOverlay() {
 		// Get references
-		const triggers = document.querySelectorAll('.search-overlay-trigger');
-		const closeBtn = overlay.querySelector('#search-overlay-close');
-		const backdrop = overlay.querySelector('.search-overlay-backdrop');
-		const searchField = overlay.querySelector('.search-field-overlay');
-		const searchFormWrapper = overlay.querySelector('.search-form-wrapper');
+		const triggers = document.querySelectorAll( '.search-overlay-trigger' );
+		const closeBtn = overlay.querySelector( '#search-overlay-close' );
+		const backdrop = overlay.querySelector( '.search-overlay-backdrop' );
+		const searchField = overlay.querySelector( '.search-field-overlay' );
+		const searchFormWrapper = overlay.querySelector(
+			'.search-form-wrapper'
+		);
 
 		// Read color settings from the first trigger and apply them
-		if (triggers.length > 0) {
-			const firstTrigger = triggers[0];
-			overlayBgColor = firstTrigger.dataset.overlayBgColor || 'rgba(255, 255, 255, 0.95)';
+		if ( triggers.length > 0 ) {
+			const firstTrigger = triggers[ 0 ];
+			overlayBgColor =
+				firstTrigger.dataset.overlayBgColor ||
+				'rgba(255, 255, 255, 0.95)';
 			borderColor = firstTrigger.dataset.borderColor || '#cccccc';
-			closeButtonColor = firstTrigger.dataset.closeButtonColor || '#000000';
+			closeButtonColor =
+				firstTrigger.dataset.closeButtonColor || '#000000';
 		}
 
 		// Apply colors to overlay elements
@@ -79,10 +84,11 @@
 		closeBtn.style.color = closeButtonColor;
 
 		// Open overlay
-		function openOverlay(e) {
+		function openOverlay( e ) {
 			// Update colors from the clicked trigger
 			const trigger = e.currentTarget;
-			const bgColor = trigger.dataset.overlayBgColor || 'rgba(255, 255, 255, 0.95)';
+			const bgColor =
+				trigger.dataset.overlayBgColor || 'rgba(255, 255, 255, 0.95)';
 			const border = trigger.dataset.borderColor || '#cccccc';
 			const closeBtnColor = trigger.dataset.closeButtonColor || '#000000';
 
@@ -91,48 +97,53 @@
 			closeBtn.style.color = closeBtnColor;
 
 			overlay.style.display = 'block';
-			// Force reflow for transition
-			overlay.offsetHeight;
-			overlay.classList.add('active');
-			document.body.classList.add('search-overlay-open');
+			// Force reflow for transition (reading layout triggers it).
+			overlay.getBoundingClientRect();
+			overlay.classList.add( 'active' );
+			document.body.classList.add( 'search-overlay-open' );
 
 			// Focus search field after animation
-			setTimeout(() => {
+			setTimeout( () => {
 				searchField.focus();
-			}, 100);
+			}, 100 );
 		}
 
 		// Close overlay
 		function closeOverlay() {
-			overlay.classList.remove('active');
-			document.body.classList.remove('search-overlay-open');
+			overlay.classList.remove( 'active' );
+			document.body.classList.remove( 'search-overlay-open' );
 
 			// Hide after transition
-			setTimeout(() => {
+			setTimeout( () => {
 				overlay.style.display = 'none';
 				searchField.value = '';
-			}, 300);
+			}, 300 );
 		}
 
 		// Event listeners for all triggers
-		triggers.forEach(function(trigger) {
-			trigger.addEventListener('click', openOverlay);
+		triggers.forEach( function ( trigger ) {
+			trigger.addEventListener( 'click', openOverlay );
 			trigger.style.cursor = 'pointer';
-		});
+		} );
 
-		closeBtn.addEventListener('click', closeOverlay);
-		backdrop.addEventListener('click', closeOverlay);
+		closeBtn.addEventListener( 'click', closeOverlay );
+		backdrop.addEventListener( 'click', closeOverlay );
 
 		// Close on Escape key
-		document.addEventListener('keydown', (e) => {
-			if (e.key === 'Escape' && overlay.classList.contains('active')) {
+		document.addEventListener( 'keydown', ( e ) => {
+			if (
+				e.key === 'Escape' &&
+				overlay.classList.contains( 'active' )
+			) {
 				closeOverlay();
 			}
-		});
+		} );
 
 		// Prevent clicks inside overlay content from closing
-		overlay.querySelector('.search-overlay-form').addEventListener('click', (e) => {
-			e.stopPropagation();
-		});
+		overlay
+			.querySelector( '.search-overlay-form' )
+			.addEventListener( 'click', ( e ) => {
+				e.stopPropagation();
+			} );
 	}
-})();
+} )();
