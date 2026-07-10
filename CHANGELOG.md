@@ -7,8 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Planned (2.8.0)
-- Import native React blocks from the Nynaeve theme into this shared library (e.g. feature-cards, pricing-tiers, testimonial-grid, cta-columns, icon-grid, trust-bar, feature-list-grid, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
+### Planned
+- Continue importing native React blocks from the Nynaeve theme (e.g. pricing-tiers, testimonial-grid, cta-columns, feature-list-grid, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
+
+## [2.8.0] - 2026-07-10
+
+### Added
+- Three Tier-A blocks ported from the Nynaeve theme, re-namespaced `imagewize/*` → `aludra/*` and generalised for theme neutrality (theme colour presets referenced with fallbacks so any theme renders correctly):
+  - **Feature Cards** (`aludra/feature-cards`) — responsive grid of feature highlight cards with icons, hover effects, and a section header
+  - **Icon Grid** (`aludra/icon-grid`) — auto-fit grid of icon + text items with an eyebrow, title, and lead
+  - **Trust Bar** (`aludra/trust-bar`) — inline bar of trust-signal items (icon + text) that wraps on mobile
+- `aludra/icon` block binding source — resolves bundled SVG icons from `assets/icons/` at render time, so no absolute URLs are stored in content and icons survive site moves. Reusable by all current and future icon-based blocks.
+- Bundled SVG icon set under `assets/icons/`, exposed to the block editor via `window.aludraIcons`.
+- The three new blocks are registered in the `aludra_enabled` defaults and the Settings → Aludra admin page.
+
+### Changed
+- Upgraded `@wordpress/scripts` to `^32.6.0` across all blocks (ESLint 8 → 9 flat config, updated build tooling).
+- Adopted the canonical block setup used by the current `@wordpress/create-block` scaffold: each block now declares the `@wordpress/*` packages it imports as dependencies (still externalised at build, so no bundle bloat), which is how ESLint resolves those imports without custom configuration.
+
+### Fixed
+- Resolved all lint violations surfaced by the ESLint 9 toolchain across existing blocks — duplicate imports, unused variables, shadowed variables, JSDoc parameter types, a forced-reflow expression, mega-menu interactivity global usage, and an editor accessibility fix in FAQ Tabs.
+
+### Notes
+- Continues the Tier-A import outlined in `docs/PLAN-OF-ACTION.md`; further Tier-A/B blocks will follow in later releases.
 
 ## [2.7.2] - 2026-07-10
 

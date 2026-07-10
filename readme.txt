@@ -4,15 +4,15 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.7.2
+Stable tag: 2.8.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Custom Gutenberg blocks for the Aludra WordPress theme including Mega Menu, Carousel, and Slide blocks.
+A theme-neutral shared library of custom Gutenberg blocks for the Imagewize block themes (Nynaeve, Elayne, Aviendha) — and any other WordPress theme.
 
 == Description ==
 
-Aludra is a companion plugin for the Aludra WordPress theme that provides three powerful custom Gutenberg blocks to enhance your website:
+Aludra is a theme-neutral shared block library for the Imagewize block themes (Nynaeve, Elayne, and the Aviendha e-commerce theme). The blocks work with any WordPress theme — FSE, block, or classic — and are individually enable/disable-able under Settings → Aludra. It provides the following custom Gutenberg blocks:
 
 = Blocks Included =
 
@@ -37,9 +37,39 @@ Aludra is a companion plugin for the Aludra WordPress theme that provides three 
 * Can only exist inside Carousel parent (enforced via parent constraint)
 * Flexible content options - images, text, buttons, or any WordPress blocks
 
+**FAQ Tabs Block**
+* Interactive FAQ section with vertical tab navigation and dynamic content display
+* Inline-editable questions via RichText, responsive mobile accordion layout
+* Parent of the FAQ Tab Answer block
+
+**FAQ Tab Answer Block**
+* Individual answer child block for FAQ Tabs, with InnerBlocks for rich content
+* Editable question (tab label) and answer title
+* Only valid inside the FAQ Tabs block
+
+**Search Overlay Trigger Block**
+* Search icon that opens a full-screen search overlay with smooth animations
+* Customizable overlay, search-bar, and close-button colors
+* Auto-focus, body scroll lock, and multiple close methods (X, backdrop, Escape)
+
+**Feature Cards Block**
+* Responsive grid of feature highlight cards with SVG icons and a section header
+* Icons resolved via the reusable aludra/icon binding
+* Theme color presets with fallbacks, so it renders correctly on any theme
+
+**Icon Grid Block**
+* Auto-fit grid of icon + text items with an eyebrow, title, and lead
+* Icons resolved via the aludra/icon binding
+* Theme color presets with fallbacks
+
+**Trust Bar Block**
+* Inline bar of trust-signal items (icon + text) that wraps on mobile
+* Icons resolved via the aludra/icon binding
+* Theme color presets with fallbacks
+
 = Key Features =
 
-* **Seamless Integration** - Designed specifically for the Aludra theme
+* **Theme Neutral** - Works with any WordPress theme; uses theme color presets with fallbacks
 * **Performance Optimized** - Conditional asset loading (Slick Carousel only loads when needed)
 * **WordPress Interactivity API** - Modern reactive frontend for mega menu
 * **Parent-Child Relationships** - Carousel → Slide hierarchy enforced for better UX
@@ -59,7 +89,7 @@ Aludra is a companion plugin for the Aludra WordPress theme that provides three 
 
 * WordPress 6.9 or higher
 * PHP 7.4 or higher
-* Aludra theme (recommended for best integration)
+* Works with any WordPress theme (FSE, block, or classic)
 
 = Block Structure =
 
@@ -85,7 +115,7 @@ Each block follows standard WordPress block structure:
 
 = Does this plugin work with any theme? =
 
-While the plugin can technically work with any theme, it is designed and optimized for use with the Aludra WordPress theme for best integration and styling.
+Yes. Aludra is a theme-neutral block library and works with any WordPress theme — FSE, block, or classic. It is used across the Imagewize block themes (Nynaeve, Elayne, Aviendha), and blocks reference theme color presets with fallbacks so they render correctly everywhere.
 
 = How do I build the blocks from source? =
 
@@ -124,6 +154,16 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.8.0 =
+* Added: Feature Cards, Icon Grid, and Trust Bar blocks ported from the Nynaeve theme and generalised for theme neutrality (theme color presets with fallbacks)
+* Added: aludra/icon block binding that resolves bundled SVG icons at render time, so no absolute URLs are stored in content — reusable across all icon-based blocks
+* Added: Bundled SVG icon set under assets/icons, and registration of the new blocks in the Settings → Aludra admin page
+* Changed: Upgraded @wordpress/scripts to 32.6.0 across all blocks and adopted the canonical setup of declaring imported @wordpress/* packages as dependencies
+* Fixed: Resolved lint violations surfaced by the ESLint 9 toolchain (accessibility, JSDoc parameter types, shadowed variables, duplicate imports, and more)
+
+= 2.7.2 =
+* Changed: Renamed the plugin from Elayne Blocks to Aludra — a theme-neutral shared block library for the Imagewize block themes. Block namespace elayne-blocks/* changed to aludra/*; text domain, constants, PHP namespace, and language files updated to match
 
 = 2.7.1 =
 * Fixed: Block validation errors in all 5 carousel patterns — carousel div classes and data attributes now match the save function output exactly
