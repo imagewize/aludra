@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "aludra/faq-tabs",
+	"version": "1.0.0",
+	"title": "FAQ Tabs",
+	"category": "widgets",
+	"icon": "list-view",
+	"description": "Interactive FAQ tabs with vertical navigation and dynamic content display.",
+	"keywords": ["faq", "tabs", "accordion", "questions", "interactive"],
+	"textdomain": "aludra",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": ["wide", "full"],
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"blockGap": true
+		},
+		"color": {
+			"background": true,
+			"text": true,
+			"link": true
+		}
+	},
+	"example": {
+		"attributes": {}
+	}
+}
