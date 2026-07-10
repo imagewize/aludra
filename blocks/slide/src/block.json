@@ -1,0 +1,26 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "aludra/slide",
+    "version": "1.0.0",
+    "title": "Slide",
+    "parent": [
+        "aludra/carousel"
+    ],
+    "category": "design",
+    "icon": "media",
+    "description": "A single slide container that can hold any content within the carousel.",
+    "supports": {
+        "html": false
+    },
+    "textdomain": "aludra",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css",
+    "attributes": {
+        "slideId": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}
