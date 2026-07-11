@@ -1,0 +1,22 @@
+/**
+ * Editor-only styles for aludra/feature-cards.
+ *
+ * The `style` stylesheet already loads in the editor, but the block editor adds
+ * default block spacing to inner blocks. Re-assert the grid on the group element
+ * and neutralise the editor's margin so the cards preview matches the frontend.
+ */
+.wp-block-aludra-feature-cards {
+	.feature-cards__grid.wp-block-group {
+		display: grid !important;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 20px;
+
+		@media (max-width: 640px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.feature-cards__grid.wp-block-group > * {
+		margin-block-start: 0 !important;
+	}
+}

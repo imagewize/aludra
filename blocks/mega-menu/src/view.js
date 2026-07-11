@@ -4,7 +4,12 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/interactivity-api/
  */
-import { store, getContext, getElement, withScope } from '@wordpress/interactivity';
+import {
+	store,
+	getContext,
+	getElement,
+	withScope,
+} from '@wordpress/interactivity';
 
 const { state, actions } = store( 'aludra/mega-menu', {
 	state: {
@@ -62,10 +67,18 @@ const { state, actions } = store( 'aludra/mega-menu', {
 				if ( layoutMode === 'overlay' ) {
 					const { firstFocusable, lastFocusable } = context;
 
-					if ( event.shiftKey && document.activeElement === firstFocusable ) {
+					if (
+						event.shiftKey &&
+						// eslint-disable-next-line @wordpress/no-global-active-element
+						document.activeElement === firstFocusable
+					) {
 						event.preventDefault();
 						lastFocusable?.focus();
-					} else if ( ! event.shiftKey && document.activeElement === lastFocusable ) {
+					} else if (
+						! event.shiftKey &&
+						// eslint-disable-next-line @wordpress/no-global-active-element
+						document.activeElement === lastFocusable
+					) {
 						event.preventDefault();
 						firstFocusable?.focus();
 					}
@@ -82,12 +95,12 @@ const { state, actions } = store( 'aludra/mega-menu', {
 
 		handleOutsideClick( event ) {
 			const context = getContext();
-			const { ref } = getElement();
 
 			if ( ! context.isOpen ) {
 				return;
 			}
 
+			const { ref } = getElement();
 			const isClickInside = ref.contains( event.target );
 			if ( ! isClickInside ) {
 				actions.closeMenu();
@@ -124,7 +137,10 @@ const { state, actions } = store( 'aludra/mega-menu', {
 
 			// Apply animation speed CSS variable
 			if ( context.animationSpeed ) {
-				ref.style.setProperty( '--mm-animation-speed', `${ context.animationSpeed }ms` );
+				ref.style.setProperty(
+					'--mm-animation-speed',
+					`${ context.animationSpeed }ms`
+				);
 			}
 
 			// Set focus trap
@@ -153,31 +169,39 @@ const { state, actions } = store( 'aludra/mega-menu', {
 		},
 
 		setFocusTrap() {
-			const context = getContext();
 			const { ref } = getElement();
-			const panel = ref.querySelector( '.wp-block-aludra-mega-menu__panel' );
+			const panel = ref.querySelector(
+				'.wp-block-aludra-mega-menu__panel'
+			);
 
 			if ( ! panel ) {
 				return;
 			}
 
+			const context = getContext();
 			const focusableElements = panel.querySelectorAll(
 				'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
 			);
 
 			context.firstFocusable = focusableElements[ 0 ];
-			context.lastFocusable = focusableElements[ focusableElements.length - 1 ];
+			context.lastFocusable =
+				focusableElements[ focusableElements.length - 1 ];
 
 			// Focus first element after a short delay
-			setTimeout( withScope( () => {
-				const ctx = getContext();
-				ctx.firstFocusable?.focus();
-			} ), 100 );
+			setTimeout(
+				withScope( () => {
+					const ctx = getContext();
+					ctx.firstFocusable?.focus();
+				} ),
+				100
+			);
 		},
 
 		returnFocus() {
 			const { ref } = getElement();
-			const trigger = ref.querySelector( '.wp-block-aludra-mega-menu__trigger' );
+			const trigger = ref.querySelector(
+				'.wp-block-aludra-mega-menu__trigger'
+			);
 			trigger?.focus();
 		},
 
@@ -189,7 +213,9 @@ const { state, actions } = store( 'aludra/mega-menu', {
 
 		positionFullWidthPanel() {
 			const { ref } = getElement();
-			const panel = ref.querySelector( '.wp-block-aludra-mega-menu__panel.mm-full-width' );
+			const panel = ref.querySelector(
+				'.wp-block-aludra-mega-menu__panel.mm-full-width'
+			);
 
 			if ( ! panel ) {
 				return;
@@ -204,8 +230,11 @@ const { state, actions } = store( 'aludra/mega-menu', {
 			const navRect = nav.getBoundingClientRect();
 
 			// Get dropdown spacing from CSS variable
-			const computedStyle = getComputedStyle( ref );
-			const dropdownSpacing = parseInt( computedStyle.getPropertyValue( '--mm-dropdown-spacing' ) ) || 16;
+			const computedStyle = window.getComputedStyle( ref );
+			const dropdownSpacing =
+				parseInt(
+					computedStyle.getPropertyValue( '--mm-dropdown-spacing' )
+				) || 16;
 
 			// Calculate position to align panel with navigation container
 			const topPosition = navRect.bottom + dropdownSpacing; // Position below nav with spacing
@@ -237,10 +266,13 @@ const { state, actions } = store( 'aludra/mega-menu', {
 
 			// Add resize listener for mobile detection and full-width positioning
 			if ( ! context.resizeListenerAdded ) {
-				window.addEventListener( 'resize', withScope( () => {
-					actions.updateMobileState();
-					actions.positionFullWidthPanel();
-				} ) );
+				window.addEventListener(
+					'resize',
+					withScope( () => {
+						actions.updateMobileState();
+						actions.positionFullWidthPanel();
+					} )
+				);
 				context.resizeListenerAdded = true;
 			}
 		},

@@ -1,0 +1,135 @@
+/**
+ * Frontend + editor styles for aludra/feature-cards.
+ *
+ * Theme colour presets are referenced with fallbacks — themes that define these
+ * preset slugs (Nynaeve, Elayne, Aviendha) keep their palette; any other theme
+ * gets sensible neutral defaults so the block never renders unstyled.
+ */
+.wp-block-aludra-feature-cards {
+	background: var(--wp--preset--color--tertiary, #f7f8f9);
+	padding: 88px 0;
+
+	.feature-cards__inner {
+		max-width: 1080px;
+		margin: 0 auto;
+		padding: 0 1.25rem;
+	}
+
+	/* Section header */
+	.feature-cards__header {
+		text-align: center;
+		margin-bottom: 56px !important;
+	}
+
+	.feature-cards__eyebrow {
+		display: block;
+		font-size: 10px;
+		font-weight: 800;
+		letter-spacing: 3px;
+		text-transform: uppercase;
+		color: var(--wp--preset--color--primary, #2563eb) !important;
+		margin-bottom: 12px !important;
+	}
+
+	.feature-cards__header h2 {
+		font-size: clamp(1.75rem, 3vw, 2.25rem);
+		font-weight: 800;
+		color: var(--wp--preset--color--main, #1a1a1a) !important;
+		line-height: 1.2;
+		margin-bottom: 14px !important;
+	}
+
+	.feature-cards__lead {
+		font-size: 1.05rem;
+		color: var(--wp--preset--color--main-accent, #555) !important;
+		line-height: 1.8;
+		max-width: 520px;
+		margin: 0 auto !important;
+	}
+
+	/* Cards grid */
+	.feature-cards__grid {
+		display: grid !important;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 20px;
+	}
+
+	/* Suppress is-layout-flow margin on grid children */
+	.feature-cards__grid > .wp-block-group {
+		margin-top: 0 !important;
+	}
+
+	/* Individual card */
+	.feature-card {
+		background: var(--wp--preset--color--base, #fff);
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		border-radius: 10px;
+		padding: 32px 28px !important;
+		transition: transform 0.2s, box-shadow 0.2s;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.feature-card::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 3px;
+		background: var(--wp--preset--color--primary, #2563eb);
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.25s;
+	}
+
+	.feature-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 16px 32px rgba(0, 0, 0, 0.07);
+	}
+
+	.feature-card:hover::after {
+		transform: scaleX(1);
+	}
+
+	/* Icon wrapper */
+	.feature-card__icon-wrap {
+		width: 52px;
+		height: 52px;
+		background: var(--wp--preset--color--primary-accent, #eef2ff);
+		border-radius: 12px;
+		margin-bottom: 18px !important;
+		flex-shrink: 0;
+	}
+
+	.feature-card__icon-wrap img {
+		width: 28px;
+		height: 28px;
+		display: block;
+	}
+
+	/* Card heading */
+	.feature-card h4 {
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: var(--wp--preset--color--main, #1a1a1a) !important;
+		margin-bottom: 10px !important;
+		line-height: 1.3;
+	}
+
+	/* Card paragraph */
+	.feature-card p {
+		font-size: 0.875rem;
+		color: var(--wp--preset--color--main-accent, #555) !important;
+		line-height: 1.7;
+		margin: 0 !important;
+	}
+
+	@media (max-width: 640px) {
+		padding: 64px 0;
+
+		.feature-cards__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+}

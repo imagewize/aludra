@@ -81,6 +81,9 @@ function aludra_get_default_settings() {
 		'faq-tabs'               => true,
 		'faq-tab-answer'         => true,
 		'search-overlay-trigger' => true,
+		'feature-cards'          => true,
+		'icon-grid'              => true,
+		'trust-bar'              => true,
 	);
 }
 
@@ -116,6 +119,18 @@ function aludra_get_available_blocks() {
 		'search-overlay-trigger' => array(
 			'label'       => __( 'Search Overlay Trigger Block', 'aludra' ),
 			'description' => __( 'Full-screen search overlay with custom styling', 'aludra' ),
+		),
+		'feature-cards'          => array(
+			'label'       => __( 'Feature Cards Block', 'aludra' ),
+			'description' => __( 'Responsive grid of feature highlight cards with icons', 'aludra' ),
+		),
+		'icon-grid'              => array(
+			'label'       => __( 'Icon Grid Block', 'aludra' ),
+			'description' => __( 'Auto-fit grid of icon + text items with section header', 'aludra' ),
+		),
+		'trust-bar'              => array(
+			'label'       => __( 'Trust Bar Block', 'aludra' ),
+			'description' => __( 'Inline bar of trust-signal items with icons', 'aludra' ),
 		),
 	);
 }

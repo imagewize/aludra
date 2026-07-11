@@ -15,8 +15,8 @@ import './style.scss';
 /**
  * Register the block
  */
-registerBlockType(metadata.name, {
-  ...metadata,
-  edit: Edit,
-  save: Save,
-});
+registerBlockType( metadata.name, {
+	...metadata,
+	edit: Edit,
+	save: Save,
+} );

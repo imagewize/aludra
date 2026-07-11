@@ -1,0 +1,1 @@
+.wp-block-aludra-feature-cards .feature-cards__grid.wp-block-group{display:grid!important;gap:20px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}@media(max-width:640px){.wp-block-aludra-feature-cards .feature-cards__grid.wp-block-group{grid-template-columns:1fr}}.wp-block-aludra-feature-cards .feature-cards__grid.wp-block-group>*{margin-block-start:0!important}

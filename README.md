@@ -21,12 +21,16 @@ This plugin was created to align with WordPress.org Theme Review requirements, w
 - **Carousel Block** (`aludra/carousel`) - Responsive image/content carousel with Slick Carousel integration, thumbnails, and arrow customization
 - **Slide Block** (`aludra/slide`) - Individual carousel slides with InnerBlocks support
 - **FAQ Tabs Block** (`aludra/faq-tabs`) - Interactive FAQ with vertical tab navigation and dynamic content display
+- **FAQ Tab Answer Block** (`aludra/faq-tab-answer`) - Individual answer child block for FAQ Tabs
 - **Search Overlay Trigger Block** (`aludra/search-overlay-trigger`) - Search icon that opens a full-screen search overlay
+- **Feature Cards Block** (`aludra/feature-cards`) - Responsive grid of feature highlight cards with icons
+- **Icon Grid Block** (`aludra/icon-grid`) - Auto-fit grid of icon + text items with a section header
+- **Trust Bar Block** (`aludra/trust-bar`) - Inline bar of trust-signal items that wraps on mobile
 
 ## Requirements
 
-- WordPress 6.7 or higher
-- PHP 7.3 or higher
+- WordPress 6.9 or higher
+- PHP 7.4 or higher
 - Works with any WordPress theme (FSE, block, or classic)
 
 ## Installation
@@ -101,13 +105,50 @@ A clickable search icon that opens a full-screen search overlay with smooth anim
 - Vanilla JavaScript (no dependencies)
 - ARIA labels and keyboard accessibility
 
+### FAQ Tab Answer Block
+
+Child block for individual FAQ answers, used inside the FAQ Tabs block.
+
+**Features:**
+- InnerBlocks support for rich answer content
+- Editable question (tab label) and answer title
+- Parent constraint (only valid inside the FAQ Tabs block)
+
+### Feature Cards Block
+
+Responsive grid of feature highlight cards with SVG icons and a section header.
+
+**Features:**
+- Auto-fit card grid with hover effects
+- Icons resolved via the reusable `aludra/icon` binding
+- Theme colour presets with sensible fallbacks (renders correctly on any theme)
+
+### Icon Grid Block
+
+Auto-fit grid of icon + text items with an eyebrow, title, and lead.
+
+**Features:**
+- Responsive auto-fit grid layout
+- Icons resolved via the `aludra/icon` binding
+- Theme colour presets with fallbacks
+
+### Trust Bar Block
+
+Inline bar of trust-signal items (icon + text) that wraps on mobile.
+
+**Features:**
+- Flex row of icon + label items
+- Icons resolved via the `aludra/icon` binding
+- Theme colour presets with fallbacks
+
 ## License
 
 GPL v3 or later - https://www.gnu.org/licenses/gpl-3.0.html
 
 ## Credits
 
-- Based on blocks originally developed for the Aludra theme
+- Based on blocks originally developed for the Imagewize block themes
+- Feature Cards, Icon Grid, and Trust Bar blocks ported from the **Nynaeve** theme and generalised for theme neutrality
 - Icon: [IconPark Block One](https://blade-ui-kit.com/blade-icons/iconpark-blockone-o) from [Blade UI Kit](https://blade-ui-kit.com/blade-icons)
 - Mega Menu block originally inspired by [Human Made's HM Mega Menu Block](https://github.com/humanmade/hm-mega-menu-block) and substantially enhanced with multiple layout modes, advanced positioning, focus management, and accessibility features
 - Carousel block originally inspired by the [Carousel Block Plugin](https://wordpress.org/plugins/carousel-block/) by Virgiliu Diaconu, but completely reimplemented using Slick Carousel with a different feature set, extensive customization options, and distinct functionality

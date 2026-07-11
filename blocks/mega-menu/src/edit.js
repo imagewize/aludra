@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __, sprintf } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 import {
 	BlockControls,
 	InspectorControls,
@@ -47,6 +47,9 @@ import './editor.scss';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
+ * @param {Object}   root0               Block properties
+ * @param {Object}   root0.attributes    Block attributes
+ * @param {Function} root0.setAttributes Setter for block attributes
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
@@ -90,7 +93,10 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	if ( hasResolved ) {
 		menuOptions = records
-			.filter( ( item ) => item.area === 'menu' || item.area === 'aludra-mega-menu' )
+			.filter(
+				( item ) =>
+					item.area === 'menu' || item.area === 'aludra-mega-menu'
+			)
 			.map( ( item ) => ( {
 				label: item.title.rendered,
 				value: item.slug,
@@ -100,12 +106,11 @@ export default function Edit( { attributes, setAttributes } ) {
 	const hasMenus = menuOptions.length > 0;
 
 	const blockProps = useBlockProps( {
-		className:
-			'wp-block-navigation-item wp-block-aludra-mega-menu__toggle',
+		className: 'wp-block-navigation-item wp-block-aludra-mega-menu__toggle',
 		style: {
 			color: labelColor || 'inherit',
-			'--mm-dropdown-spacing': `${dropdownSpacing || 16}px`,
-			'--mm-dropdown-max-width': `${dropdownMaxWidth || 600}px`,
+			'--mm-dropdown-spacing': `${ dropdownSpacing || 16 }px`,
+			'--mm-dropdown-max-width': `${ dropdownMaxWidth || 600 }px`,
 		},
 	} );
 
@@ -226,14 +231,28 @@ export default function Edit( { attributes, setAttributes } ) {
 								label={ __( 'Dropdown Alignment', 'aludra' ) }
 								value={ dropdownAlignment }
 								options={ [
-									{ label: __( 'Left', 'aludra' ), value: 'left' },
-									{ label: __( 'Right', 'aludra' ), value: 'right' },
-									{ label: __( 'Center', 'aludra' ), value: 'center' },
+									{
+										label: __( 'Left', 'aludra' ),
+										value: 'left',
+									},
+									{
+										label: __( 'Right', 'aludra' ),
+										value: 'right',
+									},
+									{
+										label: __( 'Center', 'aludra' ),
+										value: 'center',
+									},
 								] }
 								onChange={ ( value ) =>
-									setAttributes( { dropdownAlignment: value } )
+									setAttributes( {
+										dropdownAlignment: value,
+									} )
 								}
-								help={ __( 'Choose how the dropdown panel aligns relative to the menu toggle button.', 'aludra' ) }
+								help={ __(
+									'Choose how the dropdown panel aligns relative to the menu toggle button.',
+									'aludra'
+								) }
 							/>
 							<RangeControl
 								label={ __( 'Dropdown Spacing', 'aludra' ) }
@@ -244,10 +263,16 @@ export default function Edit( { attributes, setAttributes } ) {
 								min={ 0 }
 								max={ 48 }
 								step={ 2 }
-								help={ __( 'Vertical space between menu item and dropdown (in pixels)', 'aludra' ) }
+								help={ __(
+									'Vertical space between menu item and dropdown (in pixels)',
+									'aludra'
+								) }
 							/>
 							<RangeControl
-								label={ __( 'Maximum Dropdown Width', 'aludra' ) }
+								label={ __(
+									'Maximum Dropdown Width',
+									'aludra'
+								) }
 								value={ dropdownMaxWidth }
 								onChange={ ( value ) =>
 									setAttributes( { dropdownMaxWidth: value } )
@@ -255,12 +280,18 @@ export default function Edit( { attributes, setAttributes } ) {
 								min={ 300 }
 								max={ 1600 }
 								step={ 50 }
-								help={ __( 'Maximum width of the dropdown on desktop (in pixels). Mobile always uses full width.', 'aludra' ) }
+								help={ __(
+									'Maximum width of the dropdown on desktop (in pixels). Mobile always uses full width.',
+									'aludra'
+								) }
 								disabled={ useFullWidth }
 							/>
 							<ToggleControl
 								label={ __( 'Use Full Width', 'aludra' ) }
-								help={ __( 'Align dropdown with theme\'s wide content width. Enable this and adjust the offset below to match your header layout.', 'aludra' ) }
+								help={ __(
+									"Align dropdown with theme's wide content width. Enable this and adjust the offset below to match your header layout.",
+									'aludra'
+								) }
 								checked={ useFullWidth }
 								onChange={ ( value ) =>
 									setAttributes( { useFullWidth: value } )
@@ -283,10 +314,15 @@ export default function Edit( { attributes, setAttributes } ) {
 					{ layoutMode === 'dropdown' && (
 						<ToggleControl
 							label={ __( 'Activate on Hover', 'aludra' ) }
-							help={ __( 'Open menu on hover instead of click', 'aludra' ) }
+							help={ __(
+								'Open menu on hover instead of click',
+								'aludra'
+							) }
 							checked={ enableHoverActivation }
 							onChange={ ( value ) =>
-								setAttributes( { enableHoverActivation: value } )
+								setAttributes( {
+									enableHoverActivation: value,
+								} )
 							}
 						/>
 					) }
@@ -312,9 +348,18 @@ export default function Edit( { attributes, setAttributes } ) {
 							label={ __( 'Icon Position', 'aludra' ) }
 							value={ iconPosition }
 							options={ [
-								{ label: __( 'Left of Label', 'aludra' ), value: 'left' },
-								{ label: __( 'Right of Label', 'aludra' ), value: 'right' },
-								{ label: __( 'Above Label', 'aludra' ), value: 'top' },
+								{
+									label: __( 'Left of Label', 'aludra' ),
+									value: 'left',
+								},
+								{
+									label: __( 'Right of Label', 'aludra' ),
+									value: 'right',
+								},
+								{
+									label: __( 'Above Label', 'aludra' ),
+									value: 'top',
+								},
 							] }
 							onChange={ ( value ) =>
 								setAttributes( { iconPosition: value } )
@@ -393,7 +438,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								label: labelValue,
 							} );
 						} }
-						placeholder={ __( 'Add label...', 'aludra' ) }
+						placeholder={ __( 'Add label…', 'aludra' ) }
 						allowedFormats={ [
 							'core/bold',
 							'core/italic',

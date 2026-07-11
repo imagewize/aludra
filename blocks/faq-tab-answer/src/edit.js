@@ -31,43 +31,51 @@ import './editor.scss';
  * editor.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @param {Object} props Block properties
+ * @param {Object}   props               Block properties
+ * @param {Object}   props.attributes    Block attributes
+ * @param {Function} props.setAttributes Setter for block attributes
  * @return {Element} Element to render.
  */
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit( { attributes, setAttributes } ) {
 	const { question, title } = attributes;
 
-	const blockProps = useBlockProps({
+	const blockProps = useBlockProps( {
 		className: 'faq-tab-answer-editor',
-	});
+	} );
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__('Tab Settings', 'aludra')}>
+				<PanelBody title={ __( 'Tab Settings', 'aludra' ) }>
 					<TextControl
-						label={__('Question Text', 'aludra')}
-						value={question}
-						onChange={(value) => setAttributes({ question: value })}
-						help={__('The question shown in the tab navigation', 'aludra')}
+						label={ __( 'Question Text', 'aludra' ) }
+						value={ question }
+						onChange={ ( value ) =>
+							setAttributes( { question: value } )
+						}
+						help={ __(
+							'The question shown in the tab navigation',
+							'aludra'
+						) }
 					/>
 				</PanelBody>
 			</InspectorControls>
 
-			<div {...blockProps}>
+			<div { ...blockProps }>
 				<div className="faq-answer-header">
 					<RichText
 						tagName="h3"
 						className="faq-answer-title"
-						value={title}
-						onChange={(value) => setAttributes({ title: value })}
-						placeholder={__('Enter answer title...', 'aludra')}
+						value={ title }
+						onChange={ ( value ) =>
+							setAttributes( { title: value } )
+						}
+						placeholder={ __( 'Enter answer title…', 'aludra' ) }
 					/>
 				</div>
 				<div className="faq-answer-content">
 					<InnerBlocks
-						template={[
+						template={ [
 							[
 								'core/paragraph',
 								{
@@ -81,12 +89,12 @@ export default function Edit({ attributes, setAttributes }) {
 								'core/paragraph',
 								{
 									content: __(
-										'Whether you\'re looking for strategic consulting, creative design, technical development, or ongoing support, we have the expertise and resources to help you succeed.',
+										"Whether you're looking for strategic consulting, creative design, technical development, or ongoing support, we have the expertise and resources to help you succeed.",
 										'aludra'
 									),
 								},
 							],
-						]}
+						] }
 					/>
 				</div>
 			</div>
