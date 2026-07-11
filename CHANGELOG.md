@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned
 - Continue importing native React blocks from the Nynaeve theme (e.g. contact-section, two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 
+## [2.9.1] - 2026-07-11
+
+### Fixed
+- Composer package description incorrectly read "Custom WordPress blocks for the Aludra theme"; Aludra is a theme-neutral shared block library used across Nynaeve, Elayne, and Aviendha (and any other WordPress theme), not tied to a single "Aludra theme". Description updated to match `aludra.php` and `readme.txt`.
+
 ## [2.9.0] - 2026-07-11
 
 ### Added

@@ -1,7 +1,7 @@
 {
     "name": "imagewize/aludra",
     "type": "wordpress-plugin",
-    "description": "Custom WordPress blocks for the Aludra theme including Mega Menu, Carousel, and Slide blocks",
+    "description": "Theme-neutral shared library of custom Gutenberg blocks for Imagewize block themes (Nynaeve, Elayne, Aviendha) and any WordPress theme, including Mega Menu, Carousel, and Slide blocks",
     "keywords": [
         "wordpress",
         "plugin",

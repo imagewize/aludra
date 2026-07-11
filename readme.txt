@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.9.0
+Stable tag: 2.9.1
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -170,6 +170,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.9.1 =
+* Fixed: Composer package description incorrectly described Aludra as blocks "for the Aludra theme" — corrected to reflect that Aludra is a theme-neutral block library usable with any WordPress theme
 
 = 2.9.0 =
 * Added: Pricing Tiers, Testimonial Grid, CTA Columns, and Feature List Grid blocks ported from the Nynaeve theme
