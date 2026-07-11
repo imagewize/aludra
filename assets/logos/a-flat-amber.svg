@@ -1,0 +1,11 @@
+<svg class="w-64 h-64" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#D97706">
+    <path d="M24 24C20 20 20 8 24 4C28 8 28 20 24 24Z" transform="rotate(0 24 24)"/>
+    <path d="M24 24C20 20 20 8 24 4C28 8 28 20 24 24Z" transform="rotate(60 24 24)"/>
+    <path d="M24 24C20 20 20 8 24 4C28 8 28 20 24 24Z" transform="rotate(120 24 24)"/>
+    <path d="M24 24C20 20 20 8 24 4C28 8 28 20 24 24Z" transform="rotate(180 24 24)"/>
+    <path d="M24 24C20 20 20 8 24 4C28 8 28 20 24 24Z" transform="rotate(240 24 24)"/>
+    <path d="M24 24C20 20 20 8 24 4C28 8 28 20 24 24Z" transform="rotate(300 24 24)"/>
+  </g>
+  <circle cx="24" cy="24" r="3" fill="#D97706"/>
+</svg>
