@@ -8,7 +8,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- Continue importing native React blocks from the Nynaeve theme (e.g. pricing-tiers, testimonial-grid, cta-columns, feature-list-grid, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
+- Continue importing native React blocks from the Nynaeve theme (e.g. contact-section, two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
+
+## [2.9.0] - 2026-07-11
+
+### Added
+- Four more Tier-A blocks ported from the Nynaeve theme, re-namespaced `imagewize/*` → `aludra/*`:
+  - **Pricing Tiers** (`aludra/pricing-tiers`) — three-column pricing comparison table with featured tier highlighting, built entirely from InnerBlocks and editable core blocks
+  - **Testimonial Grid** (`aludra/testimonial-grid`) — grid of customer testimonials with metrics; automatically becomes a Slick Carousel on larger sets (4+ cards on desktop, 2+ on mobile), otherwise renders as a static grid
+  - **CTA Columns** (`aludra/cta-columns`) — dual call-to-action cards with headings, descriptions, buttons, and a color-variant inspector control
+  - **Feature List Grid** (`aludra/feature-list-grid`) — two-column grid of features with checkmarks and hover effects
+- The four new blocks are registered in the `aludra_enabled` defaults and the Settings → Aludra admin page.
+
+### Changed
+- The conditional Slick Carousel asset loader (`wp_enqueue_scripts`) now fires for either `aludra/carousel` or `aludra/testimonial-grid`, so both blocks share the same vendored Slick library instead of loading it twice.
+- Replaced the README logo with an original "nightflower" mark (a six-petal bloom in an ember-orange gradient) — a nod to the fireworks ("Nightflowers") made by the Guild of Illuminators in *The Wheel of Time*, Aludra's namesake. Five colourway variants are kept in `assets/logos/` for future swaps.
+
+### Notes
+- Continues the Tier-A import outlined in `docs/PLAN-OF-ACTION.md`; remaining Tier-A/B blocks will follow in later releases.
 
 ## [2.8.0] - 2026-07-10
 

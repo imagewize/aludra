@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.8.0
+Stable tag: 2.9.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -66,6 +66,22 @@ Aludra is a theme-neutral shared block library for the Imagewize block themes (N
 * Inline bar of trust-signal items (icon + text) that wraps on mobile
 * Icons resolved via the aludra/icon binding
 * Theme color presets with fallbacks
+
+**Pricing Tiers Block**
+* Three-column pricing comparison table with featured tier highlighting
+* Built from InnerBlocks so every price, feature, and button is fully editable
+
+**Testimonial Grid Block**
+* Grid of customer testimonials with metrics
+* Automatically becomes a Slick Carousel on larger sets (4+ cards on desktop, 2+ on mobile), otherwise renders as a static grid
+* Shares the same Slick Carousel assets as the Carousel block — no duplicate library loaded
+
+**CTA Columns Block**
+* Dual call-to-action cards with headings, descriptions, and buttons
+* Color variant control via the block inspector
+
+**Feature List Grid Block**
+* Two-column grid of features with checkmarks and hover effects
 
 = Key Features =
 
@@ -154,6 +170,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.9.0 =
+* Added: Pricing Tiers, Testimonial Grid, CTA Columns, and Feature List Grid blocks ported from the Nynaeve theme
+* Added: Testimonial Grid shares the Carousel block's vendored Slick Carousel assets — the plugin now loads Slick whenever either block is present on the page
+* Added: The four new blocks are registered in the aludra_enabled defaults and the Settings → Aludra admin page
 
 = 2.8.0 =
 * Added: Feature Cards, Icon Grid, and Trust Bar blocks ported from the Nynaeve theme and generalised for theme neutrality (theme color presets with fallbacks)
