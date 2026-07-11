@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aludra/feature-list-grid",
+  "version": "1.0.0",
+  "title": "Feature List Grid",
+  "category": "design",
+  "icon": "grid-view",
+  "description": "Display features in a 2-column grid with checkmarks and hover effects.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "anchor": true,
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "blockGap": true
+    },
+    "color": {
+      "background": true,
+      "text": true
+    }
+  },
+  "textdomain": "aludra",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "className": {
+      "type": "string",
+      "default": "wp-block-aludra-feature-list-grid"
+    },
+    "align": {
+      "type": "string",
+      "default": "wide"
+    }
+  }
+}
