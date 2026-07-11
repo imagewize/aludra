@@ -1,0 +1,31 @@
+{
+	"name": "testimonial-grid",
+	"version": "1.0.0",
+	"description": "Display customer testimonials in a 3-column grid with metrics, with an optional Slick carousel on larger sets.",
+	"author": "Imagewize",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"start": "wp-scripts start"
+	},
+	"dependencies": {
+		"@wordpress/block-editor": "^15.23.0",
+		"@wordpress/blocks": "^15.23.0",
+		"@wordpress/components": "^36.1.0",
+		"@wordpress/compose": "^8.3.0",
+		"@wordpress/data": "^10.50.0",
+		"@wordpress/element": "^8.2.0",
+		"@wordpress/i18n": "^6.23.0"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^32.6.0"
+	},
+	"overrides": {
+		"webpack-dev-server": "^5.2.2"
+	}
+}

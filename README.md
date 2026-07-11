@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/icon.svg" alt="Aludra Logo" width="128" height="128">
+  <img src="assets/logos/e-ember-gradient.svg" alt="Aludra Logo" width="128" height="128">
 </p>
 <div align="center">
 <h1>Aludra</h1>
@@ -26,6 +26,10 @@ This plugin was created to align with WordPress.org Theme Review requirements, w
 - **Feature Cards Block** (`aludra/feature-cards`) - Responsive grid of feature highlight cards with icons
 - **Icon Grid Block** (`aludra/icon-grid`) - Auto-fit grid of icon + text items with a section header
 - **Trust Bar Block** (`aludra/trust-bar`) - Inline bar of trust-signal items that wraps on mobile
+- **Pricing Tiers Block** (`aludra/pricing-tiers`) - Three-column pricing comparison table with featured tier highlighting
+- **Testimonial Grid Block** (`aludra/testimonial-grid`) - Customer testimonial grid with metrics, using Slick Carousel on larger sets
+- **CTA Columns Block** (`aludra/cta-columns`) - Dual call-to-action cards with headings, descriptions, and buttons
+- **Feature List Grid Block** (`aludra/feature-list-grid`) - Two-column grid of features with checkmarks and hover effects
 
 ## Requirements
 
@@ -141,6 +145,40 @@ Inline bar of trust-signal items (icon + text) that wraps on mobile.
 - Icons resolved via the `aludra/icon` binding
 - Theme colour presets with fallbacks
 
+### Pricing Tiers Block
+
+Three-column pricing comparison table with featured tier highlighting.
+
+**Features:**
+- Built entirely from InnerBlocks — every price, feature line, and button is directly editable
+- Featured (middle) tier visually raised with its own accent border
+- Responsive: columns stack on mobile
+
+### Testimonial Grid Block
+
+Grid of customer testimonials with metrics.
+
+**Features:**
+- Automatically becomes a Slick Carousel on larger sets (4+ cards on desktop, 2+ on mobile); renders as a static grid otherwise
+- Shares the Carousel block's vendored Slick Carousel assets — no duplicate library loaded when both blocks are used
+- Arrow and dot styling configurable via the block inspector (colour, hover states, spacing)
+
+### CTA Columns Block
+
+Dual call-to-action cards with headings, descriptions, and buttons.
+
+**Features:**
+- Color variant control via the block inspector
+- Built from InnerBlocks for full content flexibility
+
+### Feature List Grid Block
+
+Two-column grid of features with checkmarks and hover effects.
+
+**Features:**
+- Responsive two-column layout that stacks on mobile
+- Hover effects on each feature item
+
 ## License
 
 GPL v3 or later - https://www.gnu.org/licenses/gpl-3.0.html
@@ -148,8 +186,8 @@ GPL v3 or later - https://www.gnu.org/licenses/gpl-3.0.html
 ## Credits
 
 - Based on blocks originally developed for the Imagewize block themes
-- Feature Cards, Icon Grid, and Trust Bar blocks ported from the **Nynaeve** theme and generalised for theme neutrality
-- Icon: [IconPark Block One](https://blade-ui-kit.com/blade-icons/iconpark-blockone-o) from [Blade UI Kit](https://blade-ui-kit.com/blade-icons)
+- Feature Cards, Icon Grid, Trust Bar, Pricing Tiers, Testimonial Grid, CTA Columns, and Feature List Grid blocks ported from the **Nynaeve** theme and generalised for theme neutrality
+- Logo: original "nightflower" mark — a nod to the fireworks ("Nightflowers") made by the Guild of Illuminators in *The Wheel of Time*, Aludra's namesake. Alternate colourways live in `assets/logos/`.
 - Mega Menu block originally inspired by [Human Made's HM Mega Menu Block](https://github.com/humanmade/hm-mega-menu-block) and substantially enhanced with multiple layout modes, advanced positioning, focus management, and accessibility features
 - Carousel block originally inspired by the [Carousel Block Plugin](https://wordpress.org/plugins/carousel-block/) by Virgiliu Diaconu, but completely reimplemented using Slick Carousel with a different feature set, extensive customization options, and distinct functionality
 - Built with `@wordpress/scripts`
