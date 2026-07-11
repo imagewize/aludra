@@ -84,6 +84,10 @@ function aludra_get_default_settings() {
 		'feature-cards'          => true,
 		'icon-grid'              => true,
 		'trust-bar'              => true,
+		'pricing-tiers'          => true,
+		'testimonial-grid'       => true,
+		'cta-columns'            => true,
+		'feature-list-grid'      => true,
 	);
 }
 
@@ -131,6 +135,22 @@ function aludra_get_available_blocks() {
 		'trust-bar'              => array(
 			'label'       => __( 'Trust Bar Block', 'aludra' ),
 			'description' => __( 'Inline bar of trust-signal items with icons', 'aludra' ),
+		),
+		'pricing-tiers'          => array(
+			'label'       => __( 'Pricing Tiers Block', 'aludra' ),
+			'description' => __( 'Three-column pricing comparison table with featured tier highlighting', 'aludra' ),
+		),
+		'testimonial-grid'       => array(
+			'label'       => __( 'Testimonial Grid Block', 'aludra' ),
+			'description' => __( 'Customer testimonial grid with metrics, using Slick Carousel on larger sets', 'aludra' ),
+		),
+		'cta-columns'            => array(
+			'label'       => __( 'CTA Columns Block', 'aludra' ),
+			'description' => __( 'Dual call-to-action cards with headings, descriptions, and buttons', 'aludra' ),
+		),
+		'feature-list-grid'      => array(
+			'label'       => __( 'Feature List Grid Block', 'aludra' ),
+			'description' => __( 'Two-column grid of features with checkmarks and hover effects', 'aludra' ),
 		),
 	);
 }

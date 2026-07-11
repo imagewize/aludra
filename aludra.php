@@ -126,6 +126,10 @@ add_action(
 				'feature-cards'          => true,
 				'icon-grid'              => true,
 				'trust-bar'              => true,
+				'pricing-tiers'          => true,
+				'testimonial-grid'       => true,
+				'cta-columns'            => true,
+				'feature-list-grid'      => true,
 			)
 		);
 
@@ -152,7 +156,10 @@ add_action(
 );
 
 /**
- * Enqueue carousel assets conditionally
+ * Enqueue Slick Carousel assets conditionally.
+ *
+ * Shared between the carousel and testimonial-grid blocks, both of which use
+ * Slick for their frontend slider behaviour.
  */
 add_action(
 	'wp_enqueue_scripts',
@@ -160,13 +167,11 @@ add_action(
 		// Get enabled blocks from settings.
 		$enabled_blocks = get_option( 'aludra_enabled', array( 'carousel' => true ) );
 
-		// Don't load carousel assets if carousel is disabled in settings.
-		if ( empty( $enabled_blocks['carousel'] ) ) {
-			return;
-		}
+		$carousel_active         = ! empty( $enabled_blocks['carousel'] ) && has_block( 'aludra/carousel' );
+		$testimonial_grid_active = ! empty( $enabled_blocks['testimonial-grid'] ) && has_block( 'aludra/testimonial-grid' );
 
-		// Only load carousel assets if carousel block is being used.
-		if ( has_block( 'aludra/carousel' ) ) {
+		// Only load Slick assets if a block that needs them is being used.
+		if ( $carousel_active || $testimonial_grid_active ) {
 			// Enqueue Slick Carousel CSS.
 			wp_enqueue_style(
 				'slick-carousel',
