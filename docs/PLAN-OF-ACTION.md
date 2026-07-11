@@ -1,6 +1,6 @@
 # Aludra — Plan of Action
 
-_Last updated: 2026-07-10_
+_Last updated: 2026-07-11_
 
 ## 1. What Aludra is
 
@@ -24,7 +24,7 @@ architecture is **two GPL products**:
 | Repo | Role | Distribution |
 |------|------|--------------|
 | **aludra** (this repo) | React/JSON custom blocks (`@wordpress/scripts`, `block.json`) | wp.org **plugin** directory |
-| **aviendha** (theme, to be scaffolded) | `theme.json` design system, WooCommerce templates, style variations, thin patterns | wp.org **theme** directory |
+| **aviendha** (theme, to be scaffolded) | `theme.json` design system, WooCommerce templates, style variations | wp.org **theme** directory |
 
 This mirrors every mature ecosystem (Astra + Spectra, Kadence + Kadence Blocks,
 Neve + Otter). It also gives us the DX we actually want: **heavy logic lives in maintainable
@@ -149,10 +149,14 @@ using Elayne Blocks (blocks render as "unrecognized"). Options, to decide before
 
 ## 10. Companion theme: Aviendha (next repo)
 
-Separate from this plan, `~/code/aviendha` (block/FSE theme) will be scaffolded from the Elayne
-theme pattern: `theme.json`, `templates/`, `parts/`, `patterns/` (thin, over `aludra/*` blocks),
-`styles/` variations, `woocommerce/`, `languages/` (de/nl/en/fr), `readme.txt`. It will
-**recommend** (not hard-require) Aludra, and require WooCommerce for the store templates.
+Separate from this plan, `~/code/aviendha` will be scaffolded as a **solid FSE theme, no
+`patterns/`**: `theme.json`, `templates/`, `parts/`, `styles/` variations, `woocommerce/`
+templates, `languages/` (de/nl/en/fr), `readme.txt`. WooCommerce template files are structural
+FSE templates, not optional, so they're in from the start rather than deferred.
+
+Unlike Elayne, Aviendha ships **no theme-level patterns** — composition happens directly with
+`aludra/*` blocks (block-first, not pattern-first). It will **recommend** (not hard-require)
+Aludra, and require WooCommerce for the store templates.
 
 ## 11. Open decisions
 
