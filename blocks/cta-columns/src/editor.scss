@@ -1,0 +1,14 @@
+/**
+ * CTA Columns Block - Editor Styles
+ *
+ * The frontend relies on WordPress's alignfull/alignwide handling for
+ * horizontal spacing, which isn't present in the same way inside the
+ * editor canvas, so the container needs explicit horizontal padding here.
+ */
+.wp-block-aludra-cta-columns {
+	padding: 5rem 1.25rem;
+}
+
+.editor-styles-wrapper .wp-block-aludra-cta-columns {
+	margin-bottom: 1.5rem;
+}
