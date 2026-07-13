@@ -1,68 +1,372 @@
 /**
  * Admin Settings Page Styles
  *
+ * Categorized block-card grid for Settings → Aludra.
+ *
  * @package Aludra
  */
 
-.aludra-bulk-actions {
-	margin: 20px 0;
-	padding: 15px;
-	background: #f9f9f9;
-	border: 1px solid #ddd;
-	border-radius: 4px;
+.aludra-settings {
+	--al-card: #ffffff;
+	--al-border: #e4e6ee;
+	--al-border-strong: #d3d6e0;
+	--al-ink: #16182b;
+	--al-muted: #6b6f7d;
+	--al-faint: #9498a6;
+	--al-brand: #4f46e5;
+	--al-brand-soft: #eef0fe;
+	--al-brand-line: #c9ccf7;
+	--al-spark: #e0912e;
+	--al-ok: #16a34a;
+	--al-radius: 12px;
+	--al-shadow: 0 1px 2px rgba(22, 24, 43, .05), 0 1px 3px rgba(22, 24, 43, .04);
+	--al-shadow-hover: 0 4px 14px rgba(22, 24, 43, .09);
+
+	max-width: 1120px;
+	color: var(--al-ink);
 }
 
-.aludra-bulk-actions .button {
-	margin-right: 10px;
+/* ---- Header ---- */
+.aludra-settings .aludra-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 24px;
+	justify-content: space-between;
+	padding-bottom: 22px;
+	margin: 10px 0 26px;
+	border-bottom: 1px solid var(--al-border);
 }
 
-/* Settings field styling */
-#aludra_main_section .form-table th {
-	width: 250px;
-	vertical-align: top;
-	padding-top: 15px;
-}
-
-#aludra_main_section .form-table td {
-	padding-top: 10px;
-}
-
-#aludra_main_section .form-table td label {
-	display: inline-flex;
+.aludra-settings .aludra-wordmark {
+	display: flex;
 	align-items: center;
+	gap: 11px;
+}
+
+.aludra-settings .aludra-star {
+	width: 26px;
+	height: 26px;
+	flex: none;
+	color: var(--al-spark);
+}
+
+.aludra-settings .aludra-wordmark h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 26px;
+	font-weight: 700;
+	letter-spacing: -.02em;
+	line-height: 1;
+	color: var(--al-ink);
+}
+
+.aludra-settings .aludra-wordmark .sub {
+	display: block;
+	margin-top: 5px;
+	font-size: 12.5px;
+	font-weight: 500;
+	color: var(--al-muted);
+}
+
+.aludra-settings .aludra-summary {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+}
+
+.aludra-settings .aludra-count {
+	display: flex;
+	align-items: baseline;
+	gap: 7px;
+	padding: 9px 15px;
+	background: var(--al-card);
+	border: 1px solid var(--al-border);
+	border-radius: 999px;
+	box-shadow: var(--al-shadow);
+}
+
+.aludra-settings .aludra-count b {
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing: -.01em;
+}
+
+.aludra-settings .aludra-count .of {
+	color: var(--al-faint);
+	font-weight: 600;
+}
+
+.aludra-settings .aludra-count .lbl {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: .08em;
+	color: var(--al-muted);
+	font-weight: 600;
+}
+
+.aludra-settings .aludra-count .dot {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--al-ok);
+	align-self: center;
+}
+
+.aludra-settings .aludra-bulk {
+	display: flex;
 	gap: 8px;
 }
 
-#aludra_main_section .form-table td input[type="checkbox"] {
-	margin: 0;
+/* ---- Category section ---- */
+.aludra-settings .aludra-cat {
+	margin-top: 34px;
 }
 
-/* Description text styling */
-#aludra_main_section .description {
-	margin-top: 8px;
-	margin-bottom: 0;
-	color: #666;
-	font-size: 13px;
+.aludra-settings .aludra-cat:first-of-type {
+	margin-top: 4px;
+}
+
+.aludra-settings .aludra-cat-head {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 14px;
+}
+
+.aludra-settings .aludra-cat-eyebrow {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 11.5px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: .12em;
+	color: var(--al-ink);
+}
+
+.aludra-settings .aludra-cat-eyebrow .tick {
+	width: 13px;
+	height: 13px;
+	color: var(--al-spark);
+}
+
+.aludra-settings .aludra-cat-rule {
+	flex: 1;
+	height: 1px;
+	background: var(--al-border);
+}
+
+.aludra-settings .aludra-cat-count {
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: .04em;
+	color: var(--al-muted);
+	padding: 3px 9px;
+	background: var(--al-card);
+	border: 1px solid var(--al-border);
+	border-radius: 999px;
+}
+
+/* ---- Card grid ---- */
+.aludra-settings .aludra-grid {
+	display: grid;
+	gap: 14px;
+	grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+}
+
+.aludra-settings .aludra-card {
+	position: relative;
+	background: var(--al-card);
+	border: 1px solid var(--al-border);
+	border-radius: var(--al-radius);
+	padding: 16px 16px 15px;
+	box-shadow: var(--al-shadow);
+	transition: border-color .15s, box-shadow .15s, transform .15s;
+	display: flex;
+	flex-direction: column;
+}
+
+.aludra-settings .aludra-card:hover {
+	box-shadow: var(--al-shadow-hover);
+	transform: translateY(-1px);
+}
+
+.aludra-settings .aludra-card.is-on {
+	border-color: var(--al-brand-line);
+}
+
+.aludra-settings .aludra-card.is-off {
+	background: #fbfbfc;
+}
+
+.aludra-settings .aludra-card.is-off .aludra-card-title,
+.aludra-settings .aludra-card.is-off .aludra-card-desc {
+	opacity: .6;
+}
+
+.aludra-settings .aludra-card.is-off .aludra-glyph {
+	opacity: .4;
+}
+
+.aludra-settings .aludra-card-top {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.aludra-settings .aludra-glyph {
+	width: 38px;
+	height: 38px;
+	flex: none;
+	border-radius: 9px;
+	display: grid;
+	place-items: center;
+	background: var(--al-brand-soft);
+	color: var(--al-brand);
+}
+
+.aludra-settings .aludra-glyph svg {
+	width: 20px;
+	height: 20px;
+}
+
+.aludra-settings .aludra-card-heading {
+	flex: 1;
+	min-width: 0;
+	padding-top: 1px;
+}
+
+.aludra-settings .aludra-card-title {
+	margin: 0;
+	padding: 0;
+	font-size: 14.5px;
+	font-weight: 600;
+	letter-spacing: -.01em;
+}
+
+.aludra-settings .aludra-card-slug {
+	display: block;
+	margin-top: 2px;
+	font-size: 11px;
+	color: var(--al-faint);
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.aludra-settings .aludra-card-desc {
+	margin: 12px 0 0;
+	font-size: 12.8px;
+	color: var(--al-muted);
 	line-height: 1.5;
 }
 
-#aludra_main_section .description strong {
-	color: #d63638;
+.aludra-settings .aludra-dep {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	margin-top: 11px;
+	padding: 3px 9px 3px 7px;
+	font-size: 11px;
+	font-weight: 600;
+	color: #7a5c14;
+	background: #fdf5e7;
+	border: 1px solid #f3e2bf;
+	border-radius: 999px;
+	align-self: flex-start;
 }
 
-/* Child block indentation */
-#aludra_main_section tr.aludra-child-row th,
-#aludra_main_section tr.aludra-child-row td {
-	padding-left: 30px;
+.aludra-settings .aludra-dep svg {
+	width: 12px;
+	height: 12px;
 }
 
-/* Disabled state for child blocks */
-#aludra_main_section input[type="checkbox"]:disabled {
-	opacity: 0.5;
+/* ---- Toggle switch ---- */
+.aludra-settings .aludra-toggle {
+	position: relative;
+	flex: none;
+	width: 40px;
+	height: 23px;
+}
+
+.aludra-settings .aludra-toggle input {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.aludra-settings .aludra-track {
+	position: absolute;
+	inset: 0;
+	border-radius: 999px;
+	background: #cbcfda;
+	transition: background .18s;
+}
+
+.aludra-settings .aludra-track::after {
+	content: "";
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+	transition: transform .18s;
+}
+
+.aludra-settings .aludra-toggle input:checked + .aludra-track {
+	background: var(--al-brand);
+}
+
+.aludra-settings .aludra-toggle input:checked + .aludra-track::after {
+	transform: translateX(17px);
+}
+
+.aludra-settings .aludra-toggle input:focus-visible + .aludra-track {
+	outline: 2px solid var(--al-brand);
+	outline-offset: 2px;
+}
+
+.aludra-settings .aludra-toggle input:disabled {
 	cursor: not-allowed;
 }
 
-/* Success message styling */
+.aludra-settings .aludra-toggle input:disabled + .aludra-track {
+	opacity: .45;
+}
+
+/* ---- Save bar ---- */
+.aludra-settings .aludra-save {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-top: 40px;
+	padding-top: 22px;
+	border-top: 1px solid var(--al-border);
+}
+
+.aludra-settings .aludra-save .hint {
+	font-size: 12.5px;
+	color: var(--al-muted);
+}
+
+/* Success message spacing */
 .notice.settings-error {
 	margin-top: 15px;
+}
+
+@media screen and (max-width: 782px) {
+	.aludra-settings .aludra-head {
+		align-items: flex-start;
+	}
+
+	.aludra-settings .aludra-summary {
+		flex-wrap: wrap;
+	}
 }

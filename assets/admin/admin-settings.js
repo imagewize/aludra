@@ -1,7 +1,8 @@
 /**
  * Admin Settings Page JavaScript
  *
- * Handles bulk actions and parent-child block dependencies.
+ * Handles bulk actions, the live enabled counter, card state, and
+ * parent-child block dependencies.
  *
  * @package Aludra
  */
@@ -10,59 +11,77 @@
 	'use strict';
 
 	$(document).ready(function () {
-		// Tag child-block rows so CSS can indent them; the Settings API
-		// renders data-parent on the <input>, not the <tr>.
-		$('.aludra-block-checkbox[data-parent]').each(function () {
-			$(this).closest('tr').addClass('aludra-child-row');
-		});
+		const $checkboxes = $('.aludra-block-checkbox');
 
-		// Handle Enable All button.
-		$('#aludra-enable-all').on('click', function (e) {
-			e.preventDefault();
-			$('.aludra-block-checkbox').prop('checked', true);
-			handleDependencies();
-		});
+		// Sync a card's on/off styling to its checkbox.
+		function syncCard($checkbox) {
+			const $card = $checkbox.closest('.aludra-card');
+			const on = $checkbox.prop('checked');
+			$card.toggleClass('is-on', on).toggleClass('is-off', !on);
+		}
 
-		// Handle Disable All button.
-		$('#aludra-disable-all').on('click', function (e) {
-			e.preventDefault();
-			$('.aludra-block-checkbox').prop('checked', false);
-			handleDependencies();
-		});
+		// Update the "N / total enabled" counter in the header.
+		function updateCount() {
+			const enabled = $checkboxes.filter(':checked').length;
+			$('.aludra-count-num').text(enabled);
+		}
 
 		// Handle parent-child dependencies.
 		function handleDependencies() {
 			// Carousel -> Slide dependency.
-			const carouselCheckbox = $('#aludra_carousel');
-			const slideCheckbox = $('#aludra_slide');
+			const carousel = $('#aludra_carousel');
+			const slide = $('#aludra_slide');
 
-			if (carouselCheckbox.length && slideCheckbox.length) {
-				if (!carouselCheckbox.prop('checked')) {
-					slideCheckbox.prop('checked', false).prop('disabled', true);
+			if (carousel.length && slide.length) {
+				if (!carousel.prop('checked')) {
+					slide.prop('checked', false).prop('disabled', true);
 				} else {
-					slideCheckbox.prop('disabled', false);
+					slide.prop('disabled', false);
 				}
+				syncCard(slide);
 			}
 
 			// FAQ Tabs -> FAQ Tab Answer dependency.
-			const faqTabsCheckbox = $('#aludra_faq-tabs');
-			const faqTabAnswerCheckbox = $('#aludra_faq-tab-answer');
+			const faqTabs = $('#aludra_faq-tabs');
+			const faqAnswer = $('#aludra_faq-tab-answer');
 
-			if (faqTabsCheckbox.length && faqTabAnswerCheckbox.length) {
-				if (!faqTabsCheckbox.prop('checked')) {
-					faqTabAnswerCheckbox.prop('checked', false).prop('disabled', true);
+			if (faqTabs.length && faqAnswer.length) {
+				if (!faqTabs.prop('checked')) {
+					faqAnswer.prop('checked', false).prop('disabled', true);
 				} else {
-					faqTabAnswerCheckbox.prop('disabled', false);
+					faqAnswer.prop('disabled', false);
 				}
+				syncCard(faqAnswer);
 			}
 		}
 
-		// Run on page load.
-		handleDependencies();
-
-		// Run when checkboxes change.
-		$('.aludra-block-checkbox').on('change', function () {
+		// Refresh everything derived from checkbox state.
+		function refresh() {
 			handleDependencies();
+			$checkboxes.each(function () {
+				syncCard($(this));
+			});
+			updateCount();
+		}
+
+		// Bulk: Enable all.
+		$('#aludra-enable-all').on('click', function (e) {
+			e.preventDefault();
+			$checkboxes.prop('checked', true);
+			refresh();
+		});
+
+		// Bulk: Disable all.
+		$('#aludra-disable-all').on('click', function (e) {
+			e.preventDefault();
+			$checkboxes.prop('checked', false);
+			refresh();
+		});
+
+		// React to individual toggles.
+		$checkboxes.on('change', function () {
+			syncCard($(this));
+			refresh();
 		});
 
 		// Warn before disabling parent blocks with dependent children.
@@ -85,9 +104,12 @@
 
 				if (!confirm(message)) {
 					$(this).prop('checked', true);
-					handleDependencies();
 				}
+				refresh();
 			}
 		});
+
+		// Initial sync on page load.
+		refresh();
 	});
 })(jQuery);
