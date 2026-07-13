@@ -1,6 +1,6 @@
 # Aludra — Plan of Action
 
-_Last updated: 2026-07-13_
+_Last updated: 2026-07-13 (updated pricing/pricing-tiers decision note)_
 
 ## 1. What Aludra is
 
@@ -83,7 +83,7 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
 ### Tier A — generic, high reuse → import & generalise first
 - [x] `feature-cards` (v2.8.0)
 - [x] `pricing-tiers` (v2.9.0)
-- [ ] `pricing`
+- [ ] `pricing` — **NOTE:** Nynaeve `pricing` is a 2-column pricing table; `pricing-tiers` (already imported) is 3-column. Decide: import both as separate blocks, or skip `pricing` since `pricing-tiers` covers most use cases?
 - [x] `testimonial-grid` (v2.9.0)
 - [x] `cta-columns` (v2.9.0)
 - [x] `icon-grid` (v2.8.0)
@@ -197,6 +197,7 @@ Aludra, and require WooCommerce for the store templates.
 3. **Faq convergence** — keep both Nynaeve `faq` and Elayne `faq-tabs`, or merge?
 4. **Slick carousel** — keep (verify GPL-compat) or replace with a dependency-free carousel?
 5. **Cycling sub-focus** — road / gravel / e-bike / MTB, or broad "cycling & outdoor"? Affects demo content and the specialised blocks.
+6. **Pricing vs Pricing Tiers** — Nynaeve has both `pricing` (2-column) and `pricing-tiers` was already imported as 3-column. Import both, or skip `pricing` since `pricing-tiers` covers most use cases?
 
 ## 12. Immediate next steps
 
@@ -205,7 +206,7 @@ Aludra, and require WooCommerce for the store templates.
 - [x] Port 3–4 Tier-A blocks end-to-end to establish the pattern → tagged **2.8.0**.
 - [x] Port second batch of Tier-A blocks → tagged **2.9.0**.
 - [x] Settings page redesign and bug fixes → **2.9.3-2.9.4**.
-- [ ] Port remaining Tier-A blocks: `contact-section`, `two-column-card`, `content-image-text-card`, `multi-column-content`, `related-articles`, `related-links`, `expect-list`, `about`, `case-studies`.
+- [ ] Port remaining Tier-A blocks: `contact-section`, `two-column-card`, `content-image-text-card`, `multi-column-content`, `related-articles`, `related-links`, `expect-list`, `about`, `case-studies`. (Decide on `pricing` and `faq` per §11.6 and §11.3)
 - [ ] Generalise and import Tier B blocks: `elayne-hero`, `page-heading-blue`, `cta-block-blue`, `service-hero`, `service-intro`, `service-blocks`, `review-profiles`.
 - [ ] Add de_DE and fr_FR translations.
 - [ ] Decide on back-compat approach for elayne-blocks sites (A, B, or C).
