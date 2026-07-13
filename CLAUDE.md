@@ -4,14 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Aludra is a shared custom block library for Imagewize block themes (Nynaeve, Elayne, Aviendha). The plugin ships six blocks under the `aludra/` namespace:
+Aludra is a shared custom block library for Imagewize block themes (Nynaeve, Elayne, Aviendha). The plugin ships blocks under the `aludra/` namespace:
 
 - **carousel** / **slide** — Slick-based carousel with slide children
 - **mega-menu** — Interactivity API mega menu backed by template parts
 - **faq-tabs** / **faq-tab-answer** — tabbed FAQ with answer children
 - **search-overlay-trigger** — search icon that opens a full-screen search overlay
+- **feature-cards**, **icon-grid**, **trust-bar**, **pricing-tiers**, **testimonial-grid**, **cta-columns**, **feature-list-grid** — static content/marketing blocks
 
-Blocks can be individually enabled/disabled via an admin settings page (Settings → Aludra), stored in the `aludra_enabled` option.
+Blocks can be individually enabled/disabled via an admin settings page (Settings → Aludra), stored in the `aludra_enabled` option. See `blocks/` for the current, authoritative list.
 
 **Requirements:**
 - WordPress 6.9+
@@ -108,7 +109,7 @@ blocks/[block-name]/
 - Configurable icon size and overlay/search-bar/close-button colors; frontend behavior via `view.js`
 
 **Mega Menu:**
-- Can only be placed inside `core/navigation` or `aludra/nav-builder` blocks
+- Can only be placed inside a `core/navigation` block
 - **Template Part-Based Content System:**
   - Uses WordPress Template Parts for mega menu content (no InnerBlocks)
   - Template parts stored in `/parts` directory and registered via `get_block_templates` filter

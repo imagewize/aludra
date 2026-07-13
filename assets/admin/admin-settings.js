@@ -10,16 +10,24 @@
 	'use strict';
 
 	$(document).ready(function () {
+		// Tag child-block rows so CSS can indent them; the Settings API
+		// renders data-parent on the <input>, not the <tr>.
+		$('.aludra-block-checkbox[data-parent]').each(function () {
+			$(this).closest('tr').addClass('aludra-child-row');
+		});
+
 		// Handle Enable All button.
 		$('#aludra-enable-all').on('click', function (e) {
 			e.preventDefault();
 			$('.aludra-block-checkbox').prop('checked', true);
+			handleDependencies();
 		});
 
 		// Handle Disable All button.
 		$('#aludra-disable-all').on('click', function (e) {
 			e.preventDefault();
 			$('.aludra-block-checkbox').prop('checked', false);
+			handleDependencies();
 		});
 
 		// Handle parent-child dependencies.

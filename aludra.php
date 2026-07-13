@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
- * Description: Shared custom block library for Imagewize block themes (Nynaeve, Elayne, Aviendha) — Mega Menu, Carousel, Slide, FAQ Tabs, and more. Built with React, block.json, and @wordpress/scripts.
- * Version: 2.9.1
+ * Description: Shared custom block library for Imagewize block themes (Nynaeve, Elayne, Aviendha) — Mega Menu, Carousel, FAQ Tabs, and content blocks (Feature Cards, Pricing Tiers, Testimonial Grid, and more). Built with React, block.json, and @wordpress/scripts.
+ * Version: 2.9.2
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.9.1' );
+define( 'ALUDRA_VERSION', '2.9.2' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -165,7 +165,24 @@ add_action(
 	'wp_enqueue_scripts',
 	function () {
 		// Get enabled blocks from settings.
-		$enabled_blocks = get_option( 'aludra_enabled', array( 'carousel' => true ) );
+		$enabled_blocks = get_option(
+			'aludra_enabled',
+			array(
+				'carousel'               => true,
+				'slide'                  => true,
+				'mega-menu'              => true,
+				'faq-tabs'               => true,
+				'faq-tab-answer'         => true,
+				'search-overlay-trigger' => true,
+				'feature-cards'          => true,
+				'icon-grid'              => true,
+				'trust-bar'              => true,
+				'pricing-tiers'          => true,
+				'testimonial-grid'       => true,
+				'cta-columns'            => true,
+				'feature-list-grid'      => true,
+			)
+		);
 
 		$carousel_active         = ! empty( $enabled_blocks['carousel'] ) && has_block( 'aludra/carousel' );
 		$testimonial_grid_active = ! empty( $enabled_blocks['testimonial-grid'] ) && has_block( 'aludra/testimonial-grid' );
