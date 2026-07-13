@@ -7,6 +7,10 @@
  * Description: Sophisticated three-column services showcase with nested cards
  * Inserter: true
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 ?>
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|medium","bottom":"var:preset|spacing|medium","left":"0","right":"0"},"blockGap":"var:preset|spacing|medium"}},"layout":{"type":"grid","columnCount":null,"minimumColumnWidth":"19rem"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--medium);padding-right:0;padding-bottom:var(--wp--preset--spacing--medium);padding-left:0"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|small"}},"layout":{"type":"constrained"}} -->

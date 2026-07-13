@@ -173,6 +173,7 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 
 = 2.9.4 =
 * Fixed: Settings → Aludra showed the "Settings saved." notice twice after saving; removed the redundant manual notice on top of the one the Settings API already queues
+* Security: Added a direct-file-access guard to all eight mega-menu pattern files, resolving the `missing_direct_file_access_protection` errors from Plugin Check while keeping the patterns in the distributed plugin
 
 = 2.9.3 =
 * Changed: Redesigned the Settings → Aludra page as a categorized grid of block cards (Carousel, Interactive, Marketing & Content) with toggle switches, replacing the single-column checkbox list
