@@ -15,8 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Settings → Aludra admin CSS/JS failed to enqueue because `plugins_url()` was called with a directory path instead of a file path, so the settings page rendered as an unstyled checkbox list.
 - Child-block row indentation (Slide, FAQ Tab Answer) never applied because the CSS targeted `data-parent` on the table row instead of the checkbox.
-- "Disable All" skipped dependency/disabled-state styling for child block checkboxes.
-- Carousel/Testimonial Grid asset loading used an incomplete settings default, which could skip loading Slick Carousel assets in an edge case where the option was set without a `carousel` key.
+- "Enable All" / "Disable All" skipped dependency/disabled-state styling for child block checkboxes.
+- The frontend asset enqueue used an incomplete `aludra_enabled` default (only `carousel`), out of sync with the block-discovery default, so on a fresh install Testimonial Grid assets could fail to load before the option was saved.
 
 ### Changed
 - Removed stale references to the unimplemented `aludra/nav-builder` block; Mega Menu can only be placed inside `core/navigation`.
