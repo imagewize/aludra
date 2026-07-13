@@ -301,14 +301,14 @@ function aludra_enqueue_admin_assets( $hook ) {
 
 	wp_enqueue_style(
 		'aludra-admin',
-		plugins_url( 'assets/admin/admin-settings.css', __DIR__ . '/../..' ),
+		ALUDRA_PLUGIN_URL . 'assets/admin/admin-settings.css',
 		array(),
 		ALUDRA_VERSION
 	);
 
 	wp_enqueue_script(
 		'aludra-admin',
-		plugins_url( 'assets/admin/admin-settings.js', __DIR__ . '/../..' ),
+		ALUDRA_PLUGIN_URL . 'assets/admin/admin-settings.js',
 		array( 'jquery' ),
 		ALUDRA_VERSION,
 		true

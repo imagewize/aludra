@@ -10,6 +10,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned
 - Continue importing native React blocks from the Nynaeve theme (e.g. contact-section, two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 
+## [2.9.2] - 2026-07-13
+
+### Fixed
+- Settings → Aludra admin CSS/JS failed to enqueue because `plugins_url()` was called with a directory path instead of a file path, so the settings page rendered as an unstyled checkbox list.
+- Child-block row indentation (Slide, FAQ Tab Answer) never applied because the CSS targeted `data-parent` on the table row instead of the checkbox.
+- "Enable All" / "Disable All" skipped dependency/disabled-state styling for child block checkboxes.
+- The frontend asset enqueue used an incomplete `aludra_enabled` default (only `carousel`), out of sync with the block-discovery default, so on a fresh install Testimonial Grid assets could fail to load before the option was saved.
+
+### Changed
+- Removed stale references to the unimplemented `aludra/nav-builder` block; Mega Menu can only be placed inside `core/navigation`.
+- Updated `CLAUDE.md` and the plugin description header to reflect the full current block list (13 blocks, not 6).
+
 ## [2.9.1] - 2026-07-11
 
 ### Fixed

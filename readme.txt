@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.9.1
+Stable tag: 2.9.2
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -18,7 +18,7 @@ Aludra is a theme-neutral shared block library for the Imagewize block themes (N
 
 **Mega Menu Block**
 * Create dropdown mega menus with rich content
-* Can only be placed inside core/navigation or aludra/nav-builder blocks
+* Can only be placed inside a core/navigation block
 * Uses WordPress Interactivity API for frontend state management
 * Features click/keyboard navigation, outside-click dismissal, and focus management
 * Supports template part integration for complex menu layouts
@@ -170,6 +170,13 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.9.2 =
+* Fixed: Settings → Aludra admin CSS/JS failed to enqueue because `plugins_url()` was called with a directory path instead of a file path, so the settings page rendered as an unstyled checkbox list
+* Fixed: Child-block row indentation (Slide, FAQ Tab Answer) never applied because the CSS targeted `data-parent` on the table row instead of the checkbox
+* Fixed: "Enable All" / "Disable All" skipped dependency/disabled-state styling for child block checkboxes
+* Fixed: The frontend asset enqueue used an incomplete `aludra_enabled` default (only `carousel`), out of sync with the block-discovery default, so on a fresh install Testimonial Grid assets could fail to load before the option was saved
+* Changed: Removed stale references to the unimplemented `aludra/nav-builder` block; Mega Menu can only be placed inside `core/navigation`
 
 = 2.9.1 =
 * Fixed: Composer package description incorrectly described Aludra as blocks "for the Aludra theme" — corrected to reflect that Aludra is a theme-neutral block library usable with any WordPress theme
