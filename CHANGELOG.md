@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned
 - Continue importing native React blocks from the Nynaeve theme (e.g. contact-section, two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 
+## [2.9.4] - 2026-07-13
+
+### Fixed
+- The Settings → Aludra page showed the "Settings saved." notice twice after saving. The page manually added its own notice on top of the one the Settings API already queues via `options.php`; the redundant manual notice has been removed.
+
 ## [2.9.3] - 2026-07-13
 
 ### Changed
