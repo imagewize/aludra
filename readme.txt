@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.9.2
+Stable tag: 2.9.3
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -170,6 +170,10 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.9.3 =
+* Changed: Redesigned the Settings → Aludra page as a categorized grid of block cards (Carousel, Interactive, Marketing & Content) with toggle switches, replacing the single-column checkbox list
+* Added: Live "enabled / total" counter in the settings header, plus per-card dependency chips ("Requires Carousel", "Requires FAQ Tabs")
 
 = 2.9.2 =
 * Fixed: Settings → Aludra admin CSS/JS failed to enqueue because `plugins_url()` was called with a directory path instead of a file path, so the settings page rendered as an unstyled checkbox list

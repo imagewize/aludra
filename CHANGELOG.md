@@ -10,6 +10,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned
 - Continue importing native React blocks from the Nynaeve theme (e.g. contact-section, two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 
+## [2.9.3] - 2026-07-13
+
+### Changed
+- Redesigned the Settings → Aludra page as a categorized, multi-column grid of block cards instead of a single-column checkbox list. Blocks are grouped into **Carousel**, **Interactive**, and **Marketing & Content** sections, each rendered in a responsive card grid with toggle switches, a function glyph, and the block's namespace.
+- The page now renders its own markup rather than the Settings API `do_settings_sections()` form-table, while keeping the same `aludra_enabled[...]` field names so the save/sanitize path is unchanged.
+
+### Added
+- Live "enabled / total" counter in the settings header that updates as toggles change.
+- Per-card dependency chips surfacing parent-child rules ("Requires Carousel" on Slide, "Requires FAQ Tabs" on FAQ Tab Answer); dependent toggles are disabled when their parent is off.
+- `category` metadata on each block in `aludra_get_available_blocks()` and a new `aludra_get_block_categories()` helper defining category order and labels.
+
 ## [2.9.2] - 2026-07-13
 
 ### Fixed
