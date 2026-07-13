@@ -22,14 +22,13 @@ pnpm-lock.yaml
 
 # Documentation and scripts
 docs/*
+designs/*
 CLAUDE.md
 AGENTS.md
+CONTRIBUTING.md
 README.md
 *.sh
 create-pr.sh
-
-# Patterns (excluded from plugin check)
-patterns/*
 
 # Source files (keep only build/)
 blocks/*/src/*
@@ -38,6 +37,7 @@ blocks/*/package.json
 blocks/*/package-lock.json
 blocks/*/.gitignore
 blocks/*/.npmrc
+blocks/*/eslint.config.js
 blocks/*/.editorconfig
 
 # Temporary files
