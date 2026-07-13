@@ -10,7 +10,8 @@ Aludra is a shared custom block library for Imagewize block themes (Nynaeve, Ela
 - **mega-menu** — Interactivity API mega menu backed by template parts
 - **faq-tabs** / **faq-tab-answer** — tabbed FAQ with answer children
 - **search-overlay-trigger** — search icon that opens a full-screen search overlay
-- **feature-cards**, **icon-grid**, **trust-bar**, **pricing-tiers**, **testimonial-grid**, **cta-columns**, **feature-list-grid** — static content/marketing blocks
+- **testimonial-grid** — testimonial cards that conditionally initialize a Slick carousel based on card count (view.js)
+- **feature-cards**, **icon-grid**, **trust-bar**, **pricing-tiers**, **cta-columns**, **feature-list-grid** — static content/marketing blocks
 
 Blocks can be individually enabled/disabled via an admin settings page (Settings → Aludra), stored in the `aludra_enabled` option. See `blocks/` for the current, authoritative list.
 
@@ -255,6 +256,26 @@ add_filter( 'default_wp_template_part_areas', function( $areas ) {
 - `docs/` - Planning and investigation notes (admin panel, mega-menu positioning, translations)
 
 ## Pattern Development Guidelines
+
+### Direct-File-Access Guard
+
+**Required:** Every pattern PHP file in `patterns/` must start with a direct-access guard, immediately after the header doc-block and before the closing `?>`:
+
+```php
+<?php
+/**
+ * Title: ...
+ * Slug: ...
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+?>
+<!-- wp:... pattern markup ... -->
+```
+
+Pattern files ship in the distribution (they are `include`d at runtime to capture their markup — see `aludra.php`), so Plugin Check scans them and flags any without this guard (`missing_direct_file_access_protection`). They cannot be excluded via `.distignore` because the plugin needs them at runtime. The guard is a no-op on the normal `include` path (ABSPATH is always defined) and does not affect `get_file_data()` header parsing. Apply this to page patterns too, not just mega-menu patterns.
 
 ### Separator Blocks in Patterns
 

@@ -306,18 +306,10 @@ function aludra_settings_page_html() {
 		return;
 	}
 
-	// Add error/success messages.
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- WordPress Settings API handles nonce verification.
-	if ( isset( $_GET['settings-updated'] ) ) {
-		add_settings_error(
-			'aludra_messages',
-			'aludra_message',
-			__( 'Settings saved.', 'aludra' ),
-			'success'
-		);
-	}
-
-	settings_errors( 'aludra_messages' );
+	// Render the "Settings saved." notice queued by the Settings API on save.
+	// We deliberately do not add our own message here — options.php already
+	// queues one, and adding a second causes a duplicate notice.
+	settings_errors();
 
 	$blocks         = aludra_get_available_blocks();
 	$categories     = aludra_get_block_categories();
