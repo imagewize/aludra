@@ -10,7 +10,8 @@ Aludra is a shared custom block library for Imagewize block themes (Nynaeve, Ela
 - **mega-menu** — Interactivity API mega menu backed by template parts
 - **faq-tabs** / **faq-tab-answer** — tabbed FAQ with answer children
 - **search-overlay-trigger** — search icon that opens a full-screen search overlay
-- **feature-cards**, **icon-grid**, **trust-bar**, **pricing-tiers**, **testimonial-grid**, **cta-columns**, **feature-list-grid** — static content/marketing blocks
+- **testimonial-grid** — testimonial cards that conditionally initialize a Slick carousel based on card count (view.js)
+- **feature-cards**, **icon-grid**, **trust-bar**, **pricing-tiers**, **cta-columns**, **feature-list-grid** — static content/marketing blocks
 
 Blocks can be individually enabled/disabled via an admin settings page (Settings → Aludra), stored in the `aludra_enabled` option. See `blocks/` for the current, authoritative list.
 
