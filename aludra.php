@@ -132,6 +132,7 @@ add_action(
 				'feature-list-grid'      => true,
 				'contact-section'        => true,
 				'hero-banner'            => true,
+				'cta-banner'             => true,
 			)
 		);
 
@@ -185,6 +186,7 @@ add_action(
 				'feature-list-grid'      => true,
 				'contact-section'        => true,
 				'hero-banner'            => true,
+				'cta-banner'             => true,
 			)
 		);
 
