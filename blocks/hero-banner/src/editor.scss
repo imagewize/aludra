@@ -1,0 +1,28 @@
+/**
+ * Editor-only styles for aludra/hero-banner.
+ *
+ * The `style` stylesheet already loads in the editor; these overrides keep the
+ * eyebrow pill and buttons editable (RichText/contenteditable) since the
+ * frontend rules use display/pseudo-element tricks that break editing.
+ */
+.wp-block-aludra-hero-banner {
+	background: var(--wp--preset--color--main, #1a1a1a);
+	padding: 60px 24px;
+
+	.wp-block-heading,
+	.wp-block-paragraph {
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	&::before {
+		display: none;
+	}
+
+	.hero-banner__ctas .wp-block-button__link {
+		display: block !important;
+	}
+
+	.hero-banner__ctas .wp-block-button__link::after {
+		display: none !important;
+	}
+}

@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.9.4
+Stable tag: 2.10.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -82,6 +82,15 @@ Aludra is a theme-neutral shared block library for the Imagewize block themes (N
 
 **Feature List Grid Block**
 * Two-column grid of features with checkmarks and hover effects
+
+**Contact Section Block**
+* Dark contact section with an intro, a two-column info/details grid, and a Contact Form 7 form card
+* Contact details (email, response time, location) rendered via the aludra/icon binding
+* Theme color presets with fallbacks, so it renders correctly on any theme
+
+**Hero Banner Block**
+* Dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons
+* Theme color presets with fallbacks, so it renders correctly on any theme
 
 = Key Features =
 
@@ -170,6 +179,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.10.0 =
+* Added: Contact Section block (aludra/contact-section) — dark contact section with an intro, a two-column info/details grid, an "available for new projects" badge, and a Contact Form 7 form card, ported from the Nynaeve theme
+* Added: Hero Banner block (aludra/hero-banner) — dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons, ported and generalised from Nynaeve's service-hero block
+* Added: Both new blocks registered in the aludra_enabled defaults and the Settings → Aludra admin page
 
 = 2.9.4 =
 * Fixed: Settings → Aludra showed the "Settings saved." notice twice after saving; removed the redundant manual notice on top of the one the Settings API already queues

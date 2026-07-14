@@ -30,6 +30,8 @@ Note: `blocks/mega-menu` uses `--experimental-modules` in its build/start script
 - Run linting commands before opening a PR.
 
 ## Commit & Pull Request Guidelines
+- **Atomic commits:** Commit per file or per logical file group. Do not bundle unrelated changes.
+- **No AI attribution:** Commit messages must NOT mention Mistral Vibe, AI, or any co-authorship.
 - Commits are short, descriptive summaries (e.g., "FAQ Tabbed Questions").
 - PRs should include:
   - A clear description of the block change and motivation.

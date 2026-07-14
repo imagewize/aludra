@@ -8,7 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- Continue importing native React blocks from the Nynaeve theme (e.g. contact-section, two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
+- Continue importing native React blocks from the Nynaeve theme (e.g. two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
+
+## [2.10.0] - 2026-07-14
+
+### Added
+- **Contact Section** (`aludra/contact-section`) — dark contact section ported from the Nynaeve theme (`imagewize/contact-section`), with an intro, a two-column info/details grid (email, response time, location via the `aludra/icon` binding), an "available for new projects" badge, and a Contact Form 7 shortcode card. Generalised to theme colour presets with fallbacks.
+- **Hero Banner** (`aludra/hero-banner`) — dark full-width hero ported and generalised from Nynaeve's `imagewize/service-hero`, with an eyebrow badge, heading, lead text, and dual CTA buttons. Nynaeve's four hardcoded colour-scheme block styles (midnight/forest/violet/slate) were dropped in favour of theme colour presets with fallbacks, matching the rest of Aludra's ported blocks.
+- New `icon-mail.svg` and `icon-search.svg` assets in `assets/icons/`, resolved via the existing `aludra/icon` binding.
+- Both blocks registered in the `aludra_enabled` defaults and the Settings → Aludra admin page.
 
 ## [2.9.4] - 2026-07-13
 

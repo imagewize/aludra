@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "aludra/contact-section",
+	"version": "1.0.0",
+	"title": "Contact Section",
+	"category": "design",
+	"icon": "email",
+	"description": "Dark contact section with info column and Contact Form 7 form card.",
+	"keywords": ["contact", "form", "cf7", "section"],
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"],
+		"anchor": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"textdomain": "aludra",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"margin": { "top": "0", "bottom": "0" }
+				}
+			}
+		}
+	}
+}

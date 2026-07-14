@@ -1,6 +1,6 @@
 # Aludra — Plan of Action
 
-_Last updated: 2026-07-11_
+_Last updated: 2026-07-14 (contact-section and hero-banner ported, v2.10.0)_
 
 ## 1. What Aludra is
 
@@ -36,25 +36,44 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 > baseline templates use core blocks. WooCommerce is the one accepted "required plugin"
 > exception.
 
-## 2. Current state (post-rename, v2.7.2)
+## 2. Current state (v2.10.0)
 
 - Forked from `elayne-blocks` (files only, no git history), fresh `git init`.
 - Full identifier rename: `elayne-blocks/*` → `aludra/*`, text domain `aludra`, constants
   `ALUDRA_*`, PHP namespace `Aludra`, files `aludra.php` / `languages/aludra.pot` /
   `languages/aludra-nl_NL.po`. Zero `elayne` references remain.
-- Version bumped **2.7.1 → 2.7.2** (rename only, no functional change).
-- GitHub target: **`imagewize/aludra`**.
+- Version: **2.10.0** (current stable).
+- GitHub target: **`imagewize/aludra`** (published and active).
 
-### Blocks shipped today (6)
+### Blocks shipped today (15)
 
-| Block | Namespace | Origin |
-|-------|-----------|--------|
-| Carousel | `aludra/carousel` | shared |
-| Slide | `aludra/slide` | shared |
-| FAQ Tabs | `aludra/faq-tabs` | Elayne |
-| FAQ Tab Answer | `aludra/faq-tab-answer` | Elayne |
-| Mega Menu | `aludra/mega-menu` | Elayne |
-| Search Overlay Trigger | `aludra/search-overlay-trigger` | Elayne |
+| Block | Namespace | Origin | Version Added |
+|-------|-----------|--------|---------------|
+| Carousel | `aludra/carousel` | shared | 2.7.2 |
+| Slide | `aludra/slide` | shared | 2.7.2 |
+| FAQ Tabs | `aludra/faq-tabs` | Elayne | 2.7.2 |
+| FAQ Tab Answer | `aludra/faq-tab-answer` | Elayne | 2.7.2 |
+| Mega Menu | `aludra/mega-menu` | Elayne | 2.7.2 |
+| Search Overlay Trigger | `aludra/search-overlay-trigger` | Elayne | 2.7.2 |
+| Feature Cards | `aludra/feature-cards` | Nynaeve | 2.8.0 |
+| Icon Grid | `aludra/icon-grid` | Nynaeve | 2.8.0 |
+| Trust Bar | `aludra/trust-bar` | Nynaeve | 2.8.0 |
+| Pricing Tiers | `aludra/pricing-tiers` | Nynaeve | 2.9.0 |
+| Testimonial Grid | `aludra/testimonial-grid` | Nynaeve | 2.9.0 |
+| CTA Columns | `aludra/cta-columns` | Nynaeve | 2.9.0 |
+| Feature List Grid | `aludra/feature-list-grid` | Nynaeve | 2.9.0 |
+| Contact Section | `aludra/contact-section` | Nynaeve | 2.10.0 |
+| Hero Banner | `aludra/hero-banner` | Nynaeve (`service-hero`, Tier B generalised) | 2.10.0 |
+
+### Recent milestones
+- **2.7.2** (2026-07-10): Rename from Elayne Blocks → Aludra
+- **2.8.0** (2026-07-10): First Tier-A import batch (Feature Cards, Icon Grid, Trust Bar)
+- **2.9.0** (2026-07-11): Second Tier-A import batch (Pricing Tiers, Testimonial Grid, CTA Columns, Feature List Grid)
+- **2.9.1** (2026-07-11): Fixed composer description
+- **2.9.2** (2026-07-13): Fixed settings page assets and styling
+- **2.9.3** (2026-07-13): Redesigned Settings → Aludra page as categorized block-card grid
+- **2.9.4** (2026-07-13): Added ABSPATH guards to mega-menu pattern files, fixed duplicate settings notice
+- **2.10.0** (2026-07-14): Ported Contact Section (Tier A) and Hero Banner (Tier B `service-hero`, generalised — first Tier B block ported; hardcoded colour-scheme block styles dropped in favour of theme color presets with fallbacks)
 
 ## 3. Block gap analysis — what to import
 
@@ -65,23 +84,41 @@ already exist in Aludra. The rest are import candidates, re-namespaced `imagewiz
 Triage (do **not** import all 27 blindly — some are hardcoded to a theme's look):
 
 ### Tier A — generic, high reuse → import & generalise first
-`feature-cards`, `pricing-tiers`, `pricing`, `testimonial-grid`, `cta-columns`,
-`icon-grid`, `trust-bar`, `feature-list-grid`, `faq`, `related-articles`, `related-links`,
-`contact-section`, `two-column-card`, `content-image-text-card`, `multi-column-content`,
-`expect-list`, `about`, `case-studies`.
+- [x] `feature-cards` (v2.8.0)
+- [x] `pricing-tiers` (v2.9.0)
+- [ ] `pricing` — **NOTE:** Nynaeve `pricing` is a 2-column pricing table; `pricing-tiers` (already imported) is 3-column. Decide: import both as separate blocks, or skip `pricing` since `pricing-tiers` covers most use cases?
+- [x] `testimonial-grid` (v2.9.0)
+- [x] `cta-columns` (v2.9.0)
+- [x] `icon-grid` (v2.8.0)
+- [x] `trust-bar` (v2.8.0)
+- [x] `feature-list-grid` (v2.9.0)
+- [ ] `faq`
+- [ ] `related-articles`
+- [ ] `related-links`
+- [x] `contact-section` (v2.10.0)
+- [ ] `two-column-card`
+- [ ] `content-image-text-card`
+- [ ] `multi-column-content`
+- [ ] `expect-list`
+- [ ] `about`
+- [ ] `case-studies`
 
 ### Tier B — theme/colour-specific → generalise before importing
 `elayne-hero`, `page-heading-blue`, `cta-block-blue` (hardcoded "blue"),
-`service-hero`, `service-intro`, `service-blocks`, `review-profiles`.
+`service-intro`, `service-blocks`, `review-profiles`.
 → Replace hardcoded colours with `theme.json` preset references so they work across themes.
+
+- [x] `service-hero` → ported as `aludra/hero-banner` (v2.10.0). Dropped the four hardcoded
+  colour-scheme block styles (midnight/forest/violet/slate); uses theme color presets with
+  fallbacks instead, matching the rest of Aludra's generalised blocks.
 
 ### Tier C — already present / superseded
 `carousel`, `slide` (present); Nynaeve `faq` vs Aludra `faq-tabs` — decide whether to keep
 both or converge on one.
 
-**Import lands as v2.8.0** (minor bump — new features). Suggested order: do 3–4 Tier-A blocks
+**Import lands as v2.8.0+** (minor bump — new features). Suggested order: do 3–4 Tier-A blocks
 end-to-end (block.json → edit.js → save/render → four-pass) to establish the porting pattern,
-then batch the rest.
+then batch the rest. **v2.8.0 and v2.9.0 completed this pattern establishment.**
 
 ## 4. New blocks for the Aviendha e-commerce / cycling vertical
 
@@ -102,7 +139,7 @@ WooCommerce-specific templates (archive, single product, cart/checkout blocks) l
 - **License:** GPL v3 (already in `LICENSE.md`) — clean for both repos.
 - **Build:** ship compiled `blocks/*/build/` assets; `src/` + build config included so reviewers
   can rebuild. Build tools are fine; no runtime framework (this is why we avoided Sage/Acorn).
-- **Plugin readme:** `readme.txt` already wp.org-formatted (Stable tag 2.7.2).
+- **Plugin readme:** `readme.txt` already wp.org-formatted (Stable tag 2.9.4).
 - **No "phone home", no bundled premium libs** beyond GPL-compatible ones (Slick carousel — verify license, consider replacing with a dependency-free carousel long-term).
 
 ## 6. Four-pass pattern validation (carry over from Elayne)
@@ -130,9 +167,11 @@ Target locales: **de_DE, nl_NL, en_US, fr_FR**. Today `languages/` has `aludra.p
 | Version | Scope |
 |---------|-------|
 | **2.7.2** | Rename `elayne-blocks` → `aludra` (done) |
-| **2.8.0** | Import batch of native blocks from Nynaeve (Tier A) |
-| **2.9.0** | Tier B generalised blocks + de/fr translations |
-| **3.0.0** | Aviendha cycling/e-commerce blocks; possible namespace/back-compat cleanup |
+| **2.8.0** | Import first Tier-A batch from Nynaeve (Feature Cards, Icon Grid, Trust Bar) — done |
+| **2.9.0** | Import second Tier-A batch (Pricing Tiers, Testimonial Grid, CTA Columns, Feature List Grid) — done |
+| **2.9.x** | Settings page redesign, bug fixes — done |
+| **3.0.0** | Remaining Tier-A blocks + Tier B generalised blocks + de/fr translations |
+| **3.1.0** | Aviendha cycling/e-commerce blocks; possible namespace/back-compat cleanup |
 
 ## 9. Back-compat / migration for existing elayne-blocks sites
 
@@ -165,10 +204,19 @@ Aludra, and require WooCommerce for the store templates.
 3. **Faq convergence** — keep both Nynaeve `faq` and Elayne `faq-tabs`, or merge?
 4. **Slick carousel** — keep (verify GPL-compat) or replace with a dependency-free carousel?
 5. **Cycling sub-focus** — road / gravel / e-bike / MTB, or broad "cycling & outdoor"? Affects demo content and the specialised blocks.
+6. **Pricing vs Pricing Tiers** — Nynaeve has both `pricing` (2-column) and `pricing-tiers` was already imported as 3-column. Import both, or skip `pricing` since `pricing-tiers` covers most use cases?
 
 ## 12. Immediate next steps
 
-- [ ] First commit of the renamed plugin (`imagewize/aludra`).
+- [x] First commit of the renamed plugin (`imagewize/aludra`).
 - [ ] Decide §11.1 (back-compat) and §11.2 (display name).
-- [ ] Port 3–4 Tier-A blocks end-to-end to establish the pattern → tag **2.8.0**.
+- [x] Port 3–4 Tier-A blocks end-to-end to establish the pattern → tagged **2.8.0**.
+- [x] Port second batch of Tier-A blocks → tagged **2.9.0**.
+- [x] Settings page redesign and bug fixes → **2.9.3-2.9.4**.
+- [x] Port Contact Section (Tier A) and Hero Banner (Tier B `service-hero`, generalised) → **2.10.0**.
+- [ ] Port remaining Tier-A blocks: `two-column-card`, `content-image-text-card`, `multi-column-content`, `related-articles`, `related-links`, `expect-list`, `about`, `case-studies`. (Decide on `pricing` and `faq` per §11.6 and §11.3)
+- [ ] Generalise and import remaining Tier B blocks: `elayne-hero`, `page-heading-blue`, `cta-block-blue`, `service-intro`, `service-blocks`, `review-profiles`.
+- [ ] Add de_DE and fr_FR translations.
+- [ ] Decide on back-compat approach for elayne-blocks sites (A, B, or C).
 - [ ] Scaffold `~/code/aviendha` theme with its own plan.
+- [ ] Design and implement Aviendha-specific blocks: `product-hero`, `spec-table`, `geometry-table`, `size-finder`, `comparison`.
