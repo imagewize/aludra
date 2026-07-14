@@ -1,6 +1,6 @@
 # Aludra — Plan of Action
 
-_Last updated: 2026-07-13 (updated pricing/pricing-tiers decision note)_
+_Last updated: 2026-07-14 (contact-section and hero-banner ported, v2.10.0)_
 
 ## 1. What Aludra is
 
@@ -36,16 +36,16 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 > baseline templates use core blocks. WooCommerce is the one accepted "required plugin"
 > exception.
 
-## 2. Current state (v2.9.4)
+## 2. Current state (v2.10.0)
 
 - Forked from `elayne-blocks` (files only, no git history), fresh `git init`.
 - Full identifier rename: `elayne-blocks/*` → `aludra/*`, text domain `aludra`, constants
   `ALUDRA_*`, PHP namespace `Aludra`, files `aludra.php` / `languages/aludra.pot` /
   `languages/aludra-nl_NL.po`. Zero `elayne` references remain.
-- Version: **2.9.4** (current stable).
+- Version: **2.10.0** (current stable).
 - GitHub target: **`imagewize/aludra`** (published and active).
 
-### Blocks shipped today (13)
+### Blocks shipped today (15)
 
 | Block | Namespace | Origin | Version Added |
 |-------|-----------|--------|---------------|
@@ -62,6 +62,8 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 | Testimonial Grid | `aludra/testimonial-grid` | Nynaeve | 2.9.0 |
 | CTA Columns | `aludra/cta-columns` | Nynaeve | 2.9.0 |
 | Feature List Grid | `aludra/feature-list-grid` | Nynaeve | 2.9.0 |
+| Contact Section | `aludra/contact-section` | Nynaeve | 2.10.0 |
+| Hero Banner | `aludra/hero-banner` | Nynaeve (`service-hero`, Tier B generalised) | 2.10.0 |
 
 ### Recent milestones
 - **2.7.2** (2026-07-10): Rename from Elayne Blocks → Aludra
@@ -71,6 +73,7 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 - **2.9.2** (2026-07-13): Fixed settings page assets and styling
 - **2.9.3** (2026-07-13): Redesigned Settings → Aludra page as categorized block-card grid
 - **2.9.4** (2026-07-13): Added ABSPATH guards to mega-menu pattern files, fixed duplicate settings notice
+- **2.10.0** (2026-07-14): Ported Contact Section (Tier A) and Hero Banner (Tier B `service-hero`, generalised — first Tier B block ported; hardcoded colour-scheme block styles dropped in favour of theme color presets with fallbacks)
 
 ## 3. Block gap analysis — what to import
 
@@ -92,7 +95,7 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
 - [ ] `faq`
 - [ ] `related-articles`
 - [ ] `related-links`
-- [ ] `contact-section`
+- [x] `contact-section` (v2.10.0)
 - [ ] `two-column-card`
 - [ ] `content-image-text-card`
 - [ ] `multi-column-content`
@@ -102,8 +105,12 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
 
 ### Tier B — theme/colour-specific → generalise before importing
 `elayne-hero`, `page-heading-blue`, `cta-block-blue` (hardcoded "blue"),
-`service-hero`, `service-intro`, `service-blocks`, `review-profiles`.
+`service-intro`, `service-blocks`, `review-profiles`.
 → Replace hardcoded colours with `theme.json` preset references so they work across themes.
+
+- [x] `service-hero` → ported as `aludra/hero-banner` (v2.10.0). Dropped the four hardcoded
+  colour-scheme block styles (midnight/forest/violet/slate); uses theme color presets with
+  fallbacks instead, matching the rest of Aludra's generalised blocks.
 
 ### Tier C — already present / superseded
 `carousel`, `slide` (present); Nynaeve `faq` vs Aludra `faq-tabs` — decide whether to keep
@@ -206,8 +213,9 @@ Aludra, and require WooCommerce for the store templates.
 - [x] Port 3–4 Tier-A blocks end-to-end to establish the pattern → tagged **2.8.0**.
 - [x] Port second batch of Tier-A blocks → tagged **2.9.0**.
 - [x] Settings page redesign and bug fixes → **2.9.3-2.9.4**.
-- [ ] Port remaining Tier-A blocks: `contact-section`, `two-column-card`, `content-image-text-card`, `multi-column-content`, `related-articles`, `related-links`, `expect-list`, `about`, `case-studies`. (Decide on `pricing` and `faq` per §11.6 and §11.3)
-- [ ] Generalise and import Tier B blocks: `elayne-hero`, `page-heading-blue`, `cta-block-blue`, `service-hero`, `service-intro`, `service-blocks`, `review-profiles`.
+- [x] Port Contact Section (Tier A) and Hero Banner (Tier B `service-hero`, generalised) → **2.10.0**.
+- [ ] Port remaining Tier-A blocks: `two-column-card`, `content-image-text-card`, `multi-column-content`, `related-articles`, `related-links`, `expect-list`, `about`, `case-studies`. (Decide on `pricing` and `faq` per §11.6 and §11.3)
+- [ ] Generalise and import remaining Tier B blocks: `elayne-hero`, `page-heading-blue`, `cta-block-blue`, `service-intro`, `service-blocks`, `review-profiles`.
 - [ ] Add de_DE and fr_FR translations.
 - [ ] Decide on back-compat approach for elayne-blocks sites (A, B, or C).
 - [ ] Scaffold `~/code/aviendha` theme with its own plan.
