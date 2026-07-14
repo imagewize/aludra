@@ -1,0 +1,79 @@
+/**
+ * Editor-only styles for aludra/contact-section.
+ *
+ * The `style` stylesheet already loads in the editor, but the block editor adds
+ * default block spacing to inner blocks. Re-assert the grid on the group element
+ * and neutralise the editor's margin so the preview matches the frontend.
+ */
+.wp-block-aludra-contact-section {
+	/* Show dark section background in the block editor */
+	background: var(--wp--preset--color--main, #1a1a1a);
+	padding: 60px 24px;
+
+	/* Force two-column layout visible in editor */
+	.contact-section__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 48px;
+		align-items: start;
+	}
+
+	/* Make text readable on dark background in editor */
+	.wp-block-heading,
+	.wp-block-paragraph {
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	/* Keep intro centered */
+	.contact-section__intro {
+		text-align: center;
+	}
+
+	/* Keep the form card visible in editor */
+	.contact-section__card {
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.10);
+		border-radius: 12px;
+		padding: 32px 28px;
+	}
+
+	/* Suppress glow pseudo-elements in editor (they don't display anyway) */
+	&::before,
+	&::after {
+		display: none;
+	}
+
+	/* Ensure two-column layout in editor */
+	.contact-section__grid.wp-block-group {
+		display: grid !important;
+		grid-template-columns: 1fr 1fr;
+		gap: 48px;
+		align-items: start;
+		flex-wrap: unset;
+		justify-content: unset;
+	}
+
+	.contact-section__grid.wp-block-group > * {
+		flex: unset;
+		margin-top: 0;
+		min-width: 0;
+	}
+
+	/* Suppress editor spacing on detail items */
+	.cs-detail.wp-block-group,
+	.contact-section__details.wp-block-group {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	/* Suppress editor spacing on badge */
+	.cs-badge.wp-block-group {
+		margin-top: 36px;
+		margin-bottom: 0;
+	}
+
+	/* Ensure form card has proper spacing */
+	.contact-section__card.wp-block-group {
+		margin-top: 0;
+	}
+}

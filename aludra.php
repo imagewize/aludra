@@ -130,6 +130,7 @@ add_action(
 				'testimonial-grid'       => true,
 				'cta-columns'            => true,
 				'feature-list-grid'      => true,
+				'contact-section'        => true,
 			)
 		);
 
@@ -181,6 +182,7 @@ add_action(
 				'testimonial-grid'       => true,
 				'cta-columns'            => true,
 				'feature-list-grid'      => true,
+				'contact-section'        => true,
 			)
 		);
 
