@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aludra/hero-banner",
+  "version": "1.0.0",
+  "title": "Hero Banner",
+  "category": "design",
+  "icon": "cover-image",
+  "description": "Dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons.",
+  "keywords": [
+    "hero",
+    "banner",
+    "cta",
+    "eyebrow"
+  ],
+  "example": {},
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "anchor": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "textdomain": "aludra",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "spacing": {
+          "margin": {
+            "top": "0",
+            "bottom": "0"
+          }
+        }
+      }
+    }
+  }
+}
