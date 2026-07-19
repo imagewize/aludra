@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <!-- wp:aludra/hero-split -->
-<div class="wp-block-aludra-hero-split alignfull">
+<div class="wp-block-aludra-hero-split alignfull" style="margin-top:0;margin-bottom:0">
 <div class="hero-split__inner">
 <!-- wp:group {"className":"hero-split__content","layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group hero-split__content"><!-- wp:heading {"level":1,"className":"hero-split__title","style":{"typography":{"lineHeight":"1.15"}}} -->
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:aludra/hero-split -->
 
 <!-- wp:aludra/about -->
-<div class="wp-block-aludra-about alignfull">
+<div class="wp-block-aludra-about alignfull" style="margin-top:0;margin-bottom:0">
 <div class="about-section__content"><!-- wp:heading {"level":2,"className":"about-section__title","style":{"typography":{"lineHeight":"1.3"}}} -->
 <h2 class="wp-block-heading about-section__title" style="line-height:1.3">What We Do<br/>And Why It Matters.</h2>
 <!-- /wp:heading -->
@@ -117,7 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:aludra/carousel -->
 
 <!-- wp:aludra/cta-banner -->
-<div class="wp-block-aludra-cta-banner alignfull">
+<div class="wp-block-aludra-cta-banner alignfull" style="margin-top:0;margin-bottom:0">
 <div class="cta-banner__content"><!-- wp:heading {"level":2,"className":"cta-banner__title","style":{"typography":{"lineHeight":"1.2"}}} -->
 <h2 class="wp-block-heading cta-banner__title" style="line-height:1.2">Ready to get started?</h2>
 <!-- /wp:heading -->
@@ -295,7 +295,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:aludra/pricing-tiers -->
 
 <!-- wp:aludra/services-block -->
-<div class="wp-block-aludra-services-block alignfull">
+<div class="wp-block-aludra-services-block alignfull" style="margin-top:0;margin-bottom:0">
 <div class="services-block__inner"><!-- wp:group {"className":"services-block__header","layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 <div class="wp-block-group services-block__header"><!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"fontWeight":"700"}}} -->
 <h2 class="wp-block-heading has-text-align-center" style="font-weight:700">Our Services</h2>
@@ -383,7 +383,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:aludra/services-block -->
 
 <!-- wp:aludra/review-profiles -->
-<div class="wp-block-aludra-review-profiles alignfull">
+<div class="wp-block-aludra-review-profiles alignfull" style="margin-top:0;margin-bottom:0">
 <div class="review-profiles__content"><!-- wp:heading {"level":2,"textAlign":"center","className":"review-profiles__title","style":{"typography":{"fontWeight":"600"}}} -->
 <h2 class="wp-block-heading has-text-align-center review-profiles__title" style="font-weight:600">Client Reviews</h2>
 <!-- /wp:heading -->
