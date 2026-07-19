@@ -1,0 +1,10 @@
+/**
+ * Editor-only styles for aludra/cta-banner.
+ *
+ * The `style` stylesheet already loads in the editor; this just keeps the
+ * heading/paragraph/button RichText fields comfortably editable at the same
+ * default padding used on the frontend.
+ */
+.wp-block-aludra-cta-banner {
+	padding: 64px 24px;
+}

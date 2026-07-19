@@ -1,0 +1,74 @@
+/**
+ * Frontend + editor styles for aludra/cta-banner.
+ *
+ * `supports.color.background`/`text` (block.json) expose the block's colours to
+ * the editor's native colour picker, so authors can pick any colour from the
+ * *active* theme's theme.json palette. These rules only supply the default
+ * look when no colour has been chosen — theme colour presets are referenced
+ * with fallbacks so themes that define these slugs (Nynaeve, Elayne, Aviendha)
+ * keep their palette, and any other theme still gets a sensible default.
+ */
+.wp-block-aludra-cta-banner {
+	background: var(--wp--preset--color--primary, #017cb6);
+	color: var(--wp--preset--color--white, #ffffff);
+	padding: 96px 0;
+	text-align: center;
+
+	.cta-banner__content {
+		max-width: var(--wp--style--global--wide-size, 64rem);
+		margin: 0 auto;
+		padding-left: var(--wp--preset--spacing--50, 24px);
+		padding-right: var(--wp--preset--spacing--50, 24px);
+	}
+
+	.cta-banner__content > * {
+		margin-top: 0 !important;
+	}
+
+	/* ─── TITLE ─── */
+	.cta-banner__title {
+		color: inherit;
+		font-size: clamp(1.75rem, 4vw, 2.5rem);
+		font-weight: 700;
+		line-height: 1.2;
+		margin-bottom: 20px !important;
+	}
+
+	/* ─── LEAD ─── */
+	.cta-banner__lead {
+		color: inherit;
+		opacity: 0.9;
+		font-size: 1.1rem;
+		max-width: 640px;
+		margin: 0 auto 32px !important;
+		line-height: 1.6;
+	}
+
+	/* ─── CTA BUTTON ─── */
+	.cta-banner__ctas.wp-block-buttons {
+		justify-content: center;
+	}
+
+	.cta-banner__ctas .wp-block-button__link {
+		background: var(--wp--preset--color--primary-dark, #015a80);
+		color: #ffffff;
+		border: none;
+		font-weight: 600;
+		font-size: 15px;
+		padding: 13px 30px;
+		border-radius: 10px;
+		transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.cta-banner__ctas .wp-block-button__link:hover {
+		background: var(--wp--preset--color--main, #013f5c);
+		transform: translateY(-1px);
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+		color: #ffffff;
+	}
+
+	/* ─── RESPONSIVE ─── */
+	@media (max-width: 768px) {
+		padding: 64px 0;
+	}
+}

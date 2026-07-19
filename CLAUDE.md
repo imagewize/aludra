@@ -52,6 +52,16 @@ composer run test       # PHPUnit
 
 `tests/*.js` are Playwright scripts (root `package.json` provides `@playwright/test`), used mostly for mega-menu positioning/visual diagnostics against a running site. There is no unified `npm test` at the root — run individual scripts with `node` / Playwright as needed.
 
+### Local WordPress environment
+
+Manual/visual testing happens against a local **Trellis** (Roots) VM running **Bedrock** sites, checked out as a sibling repo at `~/code/imagewize.com`. This is the Imagewize maintainer's own setup — other contributors test against whatever local WordPress/Bedrock install they have Aludra installed on; adjust paths and site names accordingly.
+
+- Trellis root: `~/code/imagewize.com/trellis`. The VM is **Lima-based** (not Vagrant) — use `trellis vm shell`, which shells out to `limactl`.
+- **`demo.imagewize.com`** (host `demo.imagewize.test`, Bedrock root `~/code/imagewize.com/demo`) is where **Aludra is installed and tested** — a multisite with subsites at `/`, `/spa/`, `/legal/`, `/kafe/`, `/plumbing/`, `/nail-salon/`, `/store/` (all on the **Elayne** theme), plus **`/aviendha/`**, running Aludra's primary target theme **[Aviendha](https://github.com/imagewize/aviendha)** (`imagewize/aviendha` on Packagist; local checkout `~/code/aviendha`). Both Aludra and Aviendha are regular pinned Composer dependencies there (`imagewize/aludra`, `imagewize/aviendha`) installed from Packagist, not symlinked to these working copies — testing unreleased local changes needs a new tagged release (or manual `blocks/*/build/` / theme-file syncing).
+- **`imagewize.com`** (host `imagewize.test`, Bedrock root `~/code/imagewize.com/site`) is the **production content clone** running the Nynaeve theme's blocks (`imagewize/*`/`nynaeve/*`) — Aludra's blocks (and the homepage page pattern) are ported/cloned from this site's Nynaeve-based content. Use it as the layout/content reference when porting real imagewize.com sections into Aludra, not for plugin testing.
+- Run one-off commands non-interactively: `trellis vm shell --workdir /srv/www/<site-key>/current -- <command>` (site key from `wordpress_sites.yml`, e.g. `demo.imagewize.com` or `imagewize.com`; VM path is always `/srv/www/<site-key>/current`). Put multiple commands in one quoted string joined with `&&`/`;` — separate `--` args are not shell-parsed together. Example: `wp post get 6765 --field=post_content`.
+- The `wp-2fa` plugin guards wp-admin on these sites and can lock out local logins (stale TOTP secret, clock skew). Safe to `wp plugin deactivate wp-2fa` via the VM shell for local dev; keep it active on staging/production.
+
 ## Architecture
 
 ### Block Discovery & Registration

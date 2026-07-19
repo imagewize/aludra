@@ -23,6 +23,14 @@
     "align": {
       "type": "string",
       "default": "wide"
+    },
+    "displayMode": {
+      "type": "string",
+      "enum": [
+        "tabs",
+        "accordion"
+      ],
+      "default": "tabs"
     }
   },
   "supports": {

@@ -69,6 +69,11 @@ function aludra_get_default_settings() {
 		'feature-list-grid'      => true,
 		'contact-section'        => true,
 		'hero-banner'            => true,
+		'cta-banner'             => true,
+		'about'                  => true,
+		'services-block'         => true,
+		'review-profiles'        => true,
+		'hero-split'             => true,
 	);
 }
 
@@ -169,6 +174,31 @@ function aludra_get_available_blocks() {
 			'description' => __( 'Dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons.', 'aludra' ),
 			'category'    => 'marketing',
 		),
+		'cta-banner'             => array(
+			'label'       => __( 'CTA Banner', 'aludra' ),
+			'description' => __( 'Full-width call-to-action band with heading, lead text, and button; colours adapt to the active theme.', 'aludra' ),
+			'category'    => 'marketing',
+		),
+		'about'                  => array(
+			'label'       => __( 'About Section', 'aludra' ),
+			'description' => __( 'Full-width about/value-proposition section with heading, lead text, an offer list, and closing copy.', 'aludra' ),
+			'category'    => 'marketing',
+		),
+		'services-block'         => array(
+			'label'       => __( 'Services Block', 'aludra' ),
+			'description' => __( 'Section header with a two-per-row grid of icon, heading, and text service cards.', 'aludra' ),
+			'category'    => 'marketing',
+		),
+		'review-profiles'        => array(
+			'label'       => __( 'Review Profiles', 'aludra' ),
+			'description' => __( 'Full-width client review section with a heading and a row of round avatar photos with quotes.', 'aludra' ),
+			'category'    => 'marketing',
+		),
+		'hero-split'             => array(
+			'label'       => __( 'Hero Split', 'aludra' ),
+			'description' => __( 'Split-pane hero with heading, lead text, and a button on one side, and a desktop/mobile image pair on the other.', 'aludra' ),
+			'category'    => 'marketing',
+		),
 	);
 }
 
@@ -238,6 +268,11 @@ function aludra_get_block_glyph( $slug ) {
 		'feature-list-grid'      => '<path d="M5 7l1.5 1.5L9 6M5 13l1.5 1.5L9 12M5 19l1.5 1.5L9 18" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7h8M12 13h8M12 19h6" stroke-linecap="round"/>',
 		'contact-section'        => '<rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 8l9 6 9-6" stroke-linecap="round" stroke-linejoin="round"/>',
 		'hero-banner'            => '<rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M7 9h6M7 12.5h10M7 16h4" stroke-linecap="round"/>',
+		'cta-banner'             => '<rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M8 12h5" stroke-linecap="round"/><rect x="15" y="10.5" width="3" height="3" rx="0.5"/>',
+		'about'                  => '<rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M7 8h10M7 11h10" stroke-linecap="round"/><circle cx="8.5" cy="15" r="0.9"/><circle cx="8.5" cy="18" r="0.9"/><path d="M11 15h6M11 18h6" stroke-linecap="round"/>',
+		'services-block'         => '<rect x="3" y="4" width="8" height="7" rx="1.5"/><rect x="13" y="4" width="8" height="7" rx="1.5"/><rect x="3" y="13" width="8" height="7" rx="1.5"/><rect x="13" y="13" width="8" height="7" rx="1.5"/>',
+		'review-profiles'        => '<circle cx="6" cy="8" r="2.5"/><circle cx="12" cy="8" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M3 18c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5M9 18c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5M15 18c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5" stroke-linecap="round"/>',
+		'hero-split'             => '<rect x="3" y="4" width="8" height="16" rx="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5"/><path d="M6 9h2M6 12h3" stroke-linecap="round"/>',
 	);
 
 	$path = isset( $glyphs[ $slug ] ) ? $glyphs[ $slug ] : '<rect x="5" y="5" width="14" height="14" rx="2"/>';

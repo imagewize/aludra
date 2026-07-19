@@ -5,6 +5,7 @@
  */
 
 .faq-tabs-wrapper {
+
 	/* Columns layout with proper gap */
 	.wp-block-columns {
 		gap: var(--wp--preset--spacing--medium, 2rem);
@@ -21,6 +22,23 @@
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
+	}
+
+	.tab-arrow-circle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.1);
+		transition: all 0.3s ease;
+		flex-shrink: 0;
+
+		svg {
+			width: 16px;
+			height: 16px;
+		}
 	}
 
 	.faq-tab-item {
@@ -57,23 +75,6 @@
 		font-weight: 600;
 		line-height: 1.4;
 		flex: 1;
-	}
-
-	.tab-arrow-circle {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 32px;
-		height: 32px;
-		border-radius: 50%;
-		background: rgba(255, 255, 255, 0.1);
-		transition: all 0.3s ease;
-		flex-shrink: 0;
-
-		svg {
-			width: 16px;
-			height: 16px;
-		}
 	}
 
 	/* Content Box Styling */
@@ -178,10 +179,12 @@
 	}
 
 	@keyframes slideDown {
+
 		from {
 			opacity: 0;
 			transform: translateY(-10px);
 		}
+
 		to {
 			opacity: 1;
 			transform: translateY(0);
@@ -190,6 +193,7 @@
 
 	/* Responsive Design */
 	@media (max-width: 781px) {
+
 		.wp-block-columns {
 			flex-direction: column;
 		}
@@ -213,6 +217,7 @@
 
 		/* Desktop tab items hidden on mobile (replaced by accordion) */
 		.faq-tab-item:not(.faq-accordion-button) {
+
 			&:hover,
 			&.active {
 				transform: translateX(0); /* No transform on mobile to prevent overflow */
@@ -222,9 +227,42 @@
 
 	/* Desktop-specific styles */
 	@media (min-width: 782px) {
+
 		/* Hide accordion elements on desktop */
 		.faq-accordion-item {
 			display: none;
+		}
+	}
+
+	/* Accordion display mode: single-column accordion at every breakpoint */
+	&.is-display-mode-accordion {
+
+		.wp-block-columns {
+			flex-direction: column;
+		}
+
+		.faq-questions-column {
+			flex-basis: 100% !important;
+			width: 100%;
+			padding-right: 0;
+		}
+
+		.faq-content-column {
+			flex-basis: 100% !important;
+			width: 100%;
+			display: none;
+		}
+
+		.faq-accordion-item {
+			display: block;
+		}
+
+		.faq-tab-item:not(.faq-accordion-button) {
+
+			&:hover,
+			&.active {
+				transform: translateX(0);
+			}
 		}
 	}
 }

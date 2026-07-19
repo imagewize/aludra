@@ -1,6 +1,7 @@
 # Aludra — Plan of Action
 
-_Last updated: 2026-07-14 (contact-section and hero-banner ported, v2.10.0)_
+_Last updated: 2026-07-19 (hero-split, about, services-block, review-profiles, cta-banner ported,
+faq-tabs accordion displayMode, homepage page pattern; v2.11.0)_
 
 ## 1. What Aludra is
 
@@ -36,16 +37,16 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 > baseline templates use core blocks. WooCommerce is the one accepted "required plugin"
 > exception.
 
-## 2. Current state (v2.10.0)
+## 2. Current state (v2.11.0)
 
 - Forked from `elayne-blocks` (files only, no git history), fresh `git init`.
 - Full identifier rename: `elayne-blocks/*` → `aludra/*`, text domain `aludra`, constants
   `ALUDRA_*`, PHP namespace `Aludra`, files `aludra.php` / `languages/aludra.pot` /
   `languages/aludra-nl_NL.po`. Zero `elayne` references remain.
-- Version: **2.10.0** (current stable).
+- Version: **2.11.0** (current stable).
 - GitHub target: **`imagewize/aludra`** (published and active).
 
-### Blocks shipped today (15)
+### Blocks shipped today (20)
 
 | Block | Namespace | Origin | Version Added |
 |-------|-----------|--------|---------------|
@@ -64,6 +65,11 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 | Feature List Grid | `aludra/feature-list-grid` | Nynaeve | 2.9.0 |
 | Contact Section | `aludra/contact-section` | Nynaeve | 2.10.0 |
 | Hero Banner | `aludra/hero-banner` | Nynaeve (`service-hero`, Tier B generalised) | 2.10.0 |
+| Hero Split | `aludra/hero-split` | imagewize.com (`acf/hero`, Tier B generalised) | 2.11.0 |
+| About Section | `aludra/about` | Nynaeve (`nynaeve/about`) | 2.11.0 |
+| Services Block | `aludra/services-block` | Nynaeve (`imagewize/services-block`) | 2.11.0 |
+| Review Profiles | `aludra/review-profiles` | Nynaeve (`imagewize/review-profiles`, Tier B generalised) | 2.11.0 |
+| CTA Banner | `aludra/cta-banner` | Nynaeve (`nynaeve/cta-block-blue`, Tier B generalised) | 2.11.0 |
 
 ### Recent milestones
 - **2.7.2** (2026-07-10): Rename from Elayne Blocks → Aludra
@@ -74,6 +80,7 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 - **2.9.3** (2026-07-13): Redesigned Settings → Aludra page as categorized block-card grid
 - **2.9.4** (2026-07-13): Added ABSPATH guards to mega-menu pattern files, fixed duplicate settings notice
 - **2.10.0** (2026-07-14): Ported Contact Section (Tier A) and Hero Banner (Tier B `service-hero`, generalised — first Tier B block ported; hardcoded colour-scheme block styles dropped in favour of theme color presets with fallbacks)
+- **2.11.0** (2026-07-19): Ported Hero Split, About, Services Block, Review Profiles, and CTA Banner (completing the imagewize.com homepage gap analysis from §13); added `displayMode: 'tabs' | 'accordion'` to FAQ Tabs; shipped the homepage as an Aludra page pattern (`patterns/page-homepage.php`), assembled end-to-end and validated with `wp pattern validate` (structural) and `wp-pattern-sentinel` (browser-based, real Gutenberg round-trip)
 
 ## 3. Block gap analysis — what to import
 
@@ -92,7 +99,8 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
 - [x] `icon-grid` (v2.8.0)
 - [x] `trust-bar` (v2.8.0)
 - [x] `feature-list-grid` (v2.9.0)
-- [ ] `faq`
+- [x] `faq` — **resolved, not a separate block** (§11.3): added `displayMode` accordion toggle to
+  `aludra/faq-tabs` instead (2026-07-19, v2.11.0).
 - [ ] `related-articles`
 - [ ] `related-links`
 - [x] `contact-section` (v2.10.0)
@@ -100,8 +108,11 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
 - [ ] `content-image-text-card`
 - [ ] `multi-column-content`
 - [ ] `expect-list`
-- [ ] `about`
+- [x] `about` → ported as `aludra/about` (2026-07-19, v2.11.0)
 - [ ] `case-studies`
+- [x] `services-block` → ported as `aludra/services-block` (2026-07-19, v2.11.0). Icons use
+  Aludra's existing `aludra/icon` block-binding + bundled `assets/icons/*.svg` (same mechanism
+  as `feature-cards`/`icon-grid`), not a dedicated svg block — see §13's `svg-block` note.
 
 ### Tier B — theme/colour-specific → generalise before importing
 `elayne-hero`, `page-heading-blue`, `cta-block-blue` (hardcoded "blue"),
@@ -111,10 +122,21 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
 - [x] `service-hero` → ported as `aludra/hero-banner` (v2.10.0). Dropped the four hardcoded
   colour-scheme block styles (midnight/forest/violet/slate); uses theme color presets with
   fallbacks instead, matching the rest of Aludra's generalised blocks.
+- [x] `cta-block-blue` → ported as `aludra/cta-banner`. Uses `supports.color.background`/`text`
+  (native theme.json palette picker) plus a `var(--wp--preset--color--primary, #017cb6)`-style
+  fallback chain in the stylesheet, same convention as `hero-banner`.
+- [x] `review-profiles` → ported as `aludra/review-profiles` (2026-07-19, v2.11.0). Hardcoded
+  `#f97316` background replaced with `supports.color.background`/`text` + a
+  `var(--wp--preset--color--primary, #f97316)`-style fallback chain.
+- [x] `elayne-hero` / split-pane hero (imagewize.com's `acf/hero`) → ported as `aludra/hero-split`
+  (2026-07-19, v2.11.0). Structurally different from `hero-banner` (dark full-width CTA
+  hero, no image pane) so it's its own block, not a variant. The desktop/mobile image swap is
+  a pure CSS media-query toggle between two seeded `core/image` blocks — no JS, both images
+  stay editable in the editor via an `editor.scss` override.
 
 ### Tier C — already present / superseded
-`carousel`, `slide` (present); Nynaeve `faq` vs Aludra `faq-tabs` — decide whether to keep
-both or converge on one.
+`carousel`, `slide` (present); Nynaeve `faq` vs Aludra `faq-tabs` — **resolved (§11.3):**
+converge on `faq-tabs` with an accordion `displayMode`.
 
 **Import lands as v2.8.0+** (minor bump — new features). Suggested order: do 3–4 Tier-A blocks
 end-to-end (block.json → edit.js → save/render → four-pass) to establish the porting pattern,
@@ -201,10 +223,25 @@ Aludra, and require WooCommerce for the store templates.
 
 1. **Back-compat** for elayne-blocks sites — A, B, or C above?
 2. **Plugin display name** — "Aludra" alone, or "Aludra Blocks" for wp.org discoverability?
-3. **Faq convergence** — keep both Nynaeve `faq` and Elayne `faq-tabs`, or merge?
+3. ~~**Faq convergence** — keep both Nynaeve `faq` and Elayne `faq-tabs`, or merge?~~ **Resolved
+   (2026-07-14, implemented 2026-07-19):** converge on `aludra/faq-tabs`. Its `view.js` already
+   implemented a full accordion (used previously only as the mobile fallback for the desktop tab
+   layout via `initMobileAccordion()`). Added a `displayMode: 'tabs' | 'accordion'` attribute +
+   `BlockControls` toolbar toggle + `InspectorControls` panel so accordion mode can run at all
+   breakpoints in a single-column layout (`.is-display-mode-accordion` on the frontend and in the
+   editor), instead of porting Nynaeve's `faq` as a separate block. No new block needed.
 4. **Slick carousel** — keep (verify GPL-compat) or replace with a dependency-free carousel?
 5. **Cycling sub-focus** — road / gravel / e-bike / MTB, or broad "cycling & outdoor"? Affects demo content and the specialised blocks.
-6. **Pricing vs Pricing Tiers** — Nynaeve has both `pricing` (2-column) and `pricing-tiers` was already imported as 3-column. Import both, or skip `pricing` since `pricing-tiers` covers most use cases?
+6. ~~**Pricing vs Pricing Tiers** — Nynaeve has both `pricing` (2-column) and `pricing-tiers` was
+   already imported as 3-column. Import both, or skip `pricing`?~~ **Resolved (2026-07-14):**
+   skip `pricing`. `aludra/pricing-tiers` is a thin wrapper that seeds an `InnerBlocks` template
+   of pure core blocks (`core/columns` → `core/column` → `core/heading`/`paragraph`/`buttons`),
+   fully editable per tier — functionally equivalent to what imagewize.com's `imagewize/pricing`
+   does. No new block needed.
+7. **SVG icon block** — resolved, no block needed. Aludra already whitelists SVG/WebP uploads
+   plugin-wide (`aludra_allow_additional_mime_types()` in `aludra.php`, theme-agnostic), so
+   icons are real `core/image` uploads; the coloured/rounded icon-badge container is native
+   `core/group` supports (background, border-radius, padding). See §13.
 
 ## 12. Immediate next steps
 
@@ -214,9 +251,131 @@ Aludra, and require WooCommerce for the store templates.
 - [x] Port second batch of Tier-A blocks → tagged **2.9.0**.
 - [x] Settings page redesign and bug fixes → **2.9.3-2.9.4**.
 - [x] Port Contact Section (Tier A) and Hero Banner (Tier B `service-hero`, generalised) → **2.10.0**.
-- [ ] Port remaining Tier-A blocks: `two-column-card`, `content-image-text-card`, `multi-column-content`, `related-articles`, `related-links`, `expect-list`, `about`, `case-studies`. (Decide on `pricing` and `faq` per §11.6 and §11.3)
+- [ ] Port remaining Tier-A blocks: `two-column-card`, `content-image-text-card`, `multi-column-content`, `related-articles`, `related-links`, `expect-list`, `case-studies`. (`pricing`, `faq`, and `about` resolved per §11.6, §11.3, and the Tier A table above)
 - [ ] Generalise and import remaining Tier B blocks: `elayne-hero`, `page-heading-blue`, `cta-block-blue`, `service-intro`, `service-blocks`, `review-profiles`.
 - [ ] Add de_DE and fr_FR translations.
 - [ ] Decide on back-compat approach for elayne-blocks sites (A, B, or C).
 - [ ] Scaffold `~/code/aviendha` theme with its own plan.
 - [ ] Design and implement Aviendha-specific blocks: `product-hero`, `spec-table`, `geometry-table`, `size-finder`, `comparison`.
+
+## 13. Case study: porting the imagewize.com homepage
+
+The imagewize.com homepage is a useful concrete test of "can Aludra build a real marketing
+site yet?" — it mixes ACF blocks, old `imagewize/*` custom blocks, and `nynaeve/*` blocks.
+Auditing it against the current Aludra block set (v2.10.0) surfaced gaps and two scope
+corrections worth recording.
+
+### Gap analysis (against Aludra v2.10.0)
+
+| Section on imagewize.com | Source block | Aludra status |
+|---|---|---|
+| Client-logo carousel | `imagewize/carousel` + `imagewize/slide` | ✅ covered by `aludra/carousel` + `aludra/slide` |
+| Pricing grid (3 cards) | `imagewize/pricing` | ✅ covered by `aludra/pricing-tiers` — no separate block needed (§11.6, resolved) |
+| Split-pane hero (heading/sub-heading + desktop/mobile image) | `acf/hero` | ✅ ported as `aludra/hero-split` (CSS-only desktop/mobile image toggle) |
+| About section | `nynaeve/about` | ✅ ported as `aludra/about` (theme-adaptive) |
+| "We are here to help" CTA band | `nynaeve/cta-block-blue` | ✅ ported as `aludra/cta-banner` (theme-adaptive) |
+| Services list (icon + heading + text, 2-per-row) | `imagewize/services-block` | ✅ ported as `aludra/services-block` |
+| Service icons | `imagewize/svg-block` | ✅ resolved as **not needed** — see below |
+| Client review cards | `imagewize/review-profiles` | ✅ ported as `aludra/review-profiles` (theme-adaptive) |
+| FAQ accordion | `imagewize/faq` | ✅ resolved as a `displayMode` addition to `aludra/faq-tabs` (§11.3), implemented 2026-07-19 |
+
+### Two scope corrections from this audit
+
+1. **No `svg-block` needed.** Nynaeve's `svg-block` exists only because raw SVG uploads and
+   background-badge styling weren't otherwise available. Aludra already solves both natively:
+   `aludra_allow_additional_mime_types()` in `aludra.php` whitelists SVG/WebP uploads
+   plugin-wide (theme-agnostic — works regardless of active theme), so icons are real
+   `core/image` media-library uploads; the coloured/rounded badge behind them is just
+   `core/group` block supports (background color, border-radius, padding — no custom code).
+   Removed from the port list entirely. A reusable "icon badge" **pattern** (Group + Image) can
+   ship instead of a block, if consistency across authors is wanted.
+2. **CTA block must be theme-adaptive, not "-blue".** Per §1, Aludra is meant to be
+   theme-neutral (Elayne/Nynaeve/Aviendha primarily, but degrade gracefully on other FSE
+   themes). `cta-block-blue`'s hardcoded colour doesn't fit that. Target block:
+   `aludra/cta-banner`, using `supports.color.background`/`text` so it natively reads the
+   *active* theme's `theme.json` palette in the editor, plus a
+   `var(--wp--preset--color--primary, #017cb6)`-style fallback chain in `style.scss` — the same
+   convention `hero-banner` already validated in v2.10.0.
+
+### Suggested port order
+
+1. ~~Resolve open decisions §11.3 (FAQ) and §11.6 (Pricing)~~ **Done (2026-07-14, FAQ implemented
+   2026-07-19):** `pricing-tiers` covers the pricing grid as-is, no new block; FAQ converges on
+   `faq-tabs` with a `displayMode: 'tabs' | 'accordion'` attribute — implemented across
+   `block.json`/`edit.js`/`save.jsx`/`view.js`/`style.scss` in `blocks/faq-tabs/`.
+2. ~~**`aludra/cta-banner`** (generalised `cta-block-blue`)~~ **Done (2026-07-14, v2.11.0):**
+   establishes the theme.json-adaptive colour convention (`supports.color` + preset fallback)
+   the remaining blocks reuse.
+3. ~~**`aludra/about`** (Tier A, already tracked)~~ **Done (2026-07-19, v2.11.0):** plain
+   content block (heading, lead, offer list, closing paragraph), high reuse for about/services
+   pages too.
+4. ~~**`aludra/services-block`** (new Tier A item)~~ **Done (2026-07-19, v2.11.0):**
+   icon+heading+text card grid, 2-per-row; icons via the existing `aludra/icon` binding
+   (same mechanism as `feature-cards`/`icon-grid`), no new icon block needed.
+5. ~~**`aludra/review-profiles`** (Tier B)~~ **Done (2026-07-19, v2.11.0):** heading + 3-up
+   grid of round avatar + quote, generalised colours (avatars ship with an empty `core/image`
+   placeholder — no theme-specific photo paths baked in).
+6. ~~**`aludra/hero-split`** (new block, not a `hero-banner` variant)~~ **Done (2026-07-19,
+   v2.11.0):** split-pane hero with desktop/mobile image swap via CSS media query, no JS.
+7. ~~Once the above exist, assemble the imagewize.com homepage as an Aludra **page pattern**~~
+   **Done (2026-07-19, v2.11.0):** `patterns/page-homepage.php` (slug `aludra/page-homepage`),
+   assembled from all of the above blocks with generic placeholder copy (not imagewize.com's real
+   business content — see §14). Validated structurally with `wp pattern validate` and, once the
+   ABSPATH-guard extraction bug in `wp-pattern-sentinel` was patched (v1.0.3), with a full
+   browser-based Pass 3 sentinel run against a real Aviendha-themed subsite — proving the "block
+   library + patterns" model end-to-end.
+8. Extend the same pattern-building work to services/about/contact page patterns for Aviendha,
+   per the plugin's broader pattern-library goal.
+
+## 14. Homepage page pattern: authoring, content, and validation notes (2026-07-19)
+
+Recorded while shipping `patterns/page-homepage.php` (v2.11.0), for the next page pattern:
+
+- **Generic placeholder content, not imagewize.com's real copy.** The pattern mirrors
+  imagewize.com's homepage *section layout* (hero → about → client logos → CTA band → pricing →
+  services → reviews → FAQ) but uses placeholder pricing, generic testimonials, and stock-style
+  client logos rather than real prices, real client quotes, or real client links — consistent with
+  how `review-profiles` and the other ported blocks already ship generic defaults. A shared GPL
+  plugin shouldn't bake in one business's live pricing/testimonials.
+- **Placeholder art is bundled, not hotlinked.** `assets/placeholders/photo.svg` (hero images) and
+  `assets/placeholders/avatar.svg` (review avatars) ship as base64 data-URIs directly in the
+  pattern markup — no `placehold.co` or other third-party image-service dependency. The carousel's
+  five client-logo slides reuse the pre-existing (previously unused) `assets/logos/*.svg` abstract
+  marks, also inlined as data URIs.
+- **`patterns/page-*.php` auto-discovery** was added to `aludra.php` (mirrors the existing
+  `mega-menu-*.php` loader) registering with `blockTypes: ['core/post-content']`, so page patterns
+  show up in the Site Editor's "choose a pattern" picker when creating a new page.
+- **Hand-authoring block markup is error-prone even when structurally valid.** `wp pattern validate`
+  (PHP `parse_blocks()`/`serialize_blocks()` round-trip) passed cleanly on the first attempt, but
+  that only proves the comment delimiters and JSON parse correctly — it does **not** catch missing
+  default block classes. The real Gutenberg editor's `save()` — checked via `wp-pattern-sentinel`
+  (Pass 3, browser-based) — caught 9 genuine mismatches `wp pattern validate` missed: the top-level
+  wrapper of every custom Aludra block must carry **both** its default `wp-block-aludra-{name}`
+  class **and** any classes implied by attribute *defaults* declared in `block.json` (not just
+  attributes explicitly set in the pattern's comment JSON) — e.g. `aludra/faq-tabs` defaults
+  `align` to `"wide"`, so its wrapper needs `alignwide` even though the pattern's `<!-- wp:aludra/faq-tabs -->`
+  comment never mentions `align`; `aludra/pricing-tiers` similarly defaults `backgroundColor` to
+  `"base"` and a `style.spacing.margin` of `0`, both of which must appear in the static markup.
+  **Lesson: when hand-authoring pattern markup for a block, always check every attribute default in
+  that block's `block.json`, not just the attributes named in the pattern comment — omitted
+  defaults still apply and still affect the serialized class/style output.**
+- **`wp-pattern-sentinel` required a fix for Aludra's pattern shape.** Its `extractBlockContent()`
+  assumed a pattern header is `<?php` + docblock + `?>` and stripped those in three separate
+  anchored regex passes; Aludra's patterns insert a mandatory ABSPATH guard between the docblock
+  and `?>` (see the "Pattern Development Guidelines" section above), which the old three-pass strip
+  didn't handle, producing a false `extraction_error`. Fixed upstream in `wp-pattern-sentinel`
+  v1.0.3 (single-pass strip of everything up to the first `?>`, handling both shapes identically).
+  `~/code/wp-pattern-sentinel` is a sibling checkout to `~/code/aludra`; the fix needs releasing
+  there before other Aludra patterns can run Pass 3 against a published version.
+- **One real Pass 3 diff was a test-environment version-skew artifact, not a pattern bug:** the
+  `demo.imagewize.com` / Aviendha subsite runs the last *released* `aludra/faq-tabs` (pre-`displayMode`,
+  confirmed by grepping its deployed `build/index.js` for `is-display-mode` — absent), so it can't
+  fully validate the `data-display-mode` attribute this same v2.11.0 release adds. Resolves itself
+  once this version is tagged, released, and the demo site's Composer dependency is updated.
+- **Local test setup, added this session:** a new `/aviendha` subsite on `demo.imagewize.com`
+  running the Aviendha theme (previously only Elayne-themed subsites existed there — Aludra's
+  primary target theme had no test site). `imagewize/aviendha` added to that Bedrock site's
+  `composer.json` as a regular Packagist dependency (not a path repo — deliberately, so the test
+  environment always reflects released versions, same as a real user's install). Root `package.json`
+  gained `@imwz/wp-pattern-sentinel` as a dev dependency with `validate`/`validate:new`/
+  `validate:file`/`validate:clear-cache` npm scripts targeting that subsite via `--trellis`.

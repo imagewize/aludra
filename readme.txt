@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.10.0
+Stable tag: 2.11.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -179,6 +179,16 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.11.0 =
+* Added: Hero Split block (aludra/hero-split) — split-pane hero with heading, lead text, CTA button, and a CSS-only desktop/mobile image toggle, ported and generalised from imagewize.com's acf/hero
+* Added: About Section block (aludra/about) — heading, lead paragraph, offer list, and closing paragraph, ported from Nynaeve's nynaeve/about
+* Added: Services Block (aludra/services-block) — icon + heading + text card grid, two-per-row, ported from Nynaeve's imagewize/services-block, using the existing aludra/icon binding for icons
+* Added: Review Profiles block (aludra/review-profiles) — heading plus a three-up grid of round avatar and quote, ported and generalised from Nynaeve's imagewize/review-profiles
+* Added: CTA Banner block (aludra/cta-banner) — full-width call-to-action band, ported and generalised from Nynaeve's nynaeve/cta-block-blue, establishing the theme-adaptive colour convention
+* Added: FAQ Tabs displayMode attribute ('tabs' | 'accordion') with a toolbar toggle and inspector control, letting the accordion layout run at every breakpoint instead of only as the mobile fallback
+* Added: Homepage page pattern (patterns/page-homepage.php) assembling this release's blocks into a full agency/service-business homepage, modelled on imagewize.com's layout with generic placeholder copy; new patterns/page-*.php auto-discovery registers these for the Site Editor's page-creation pattern picker
+* Added: assets/placeholders/ directory with bundled placeholder SVGs (no external image-service hotlinks) used by the homepage pattern
 
 = 2.10.0 =
 * Added: Contact Section block (aludra/contact-section) — dark contact section with an intro, a two-column info/details grid, an "available for new projects" badge, and a Contact Form 7 form card, ported from the Nynaeve theme
