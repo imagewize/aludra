@@ -100,7 +100,7 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
 - [ ] `content-image-text-card`
 - [ ] `multi-column-content`
 - [ ] `expect-list`
-- [ ] `about`
+- [x] `about` → ported as `aludra/about` (2026-07-19, unreleased)
 - [ ] `case-studies`
 - [ ] `services-block` (imagewize.com: icon-badge + heading + text row, 2-per-row) — **new
   addition**, not in original Nynaeve 27; surfaced by the imagewize.com homepage port (§13).
@@ -261,7 +261,7 @@ corrections worth recording.
 | Client-logo carousel | `imagewize/carousel` + `imagewize/slide` | ✅ covered by `aludra/carousel` + `aludra/slide` |
 | Pricing grid (3 cards) | `imagewize/pricing` | ✅ covered by `aludra/pricing-tiers` — no separate block needed (§11.6, resolved) |
 | Split-pane hero (heading/sub-heading + desktop/mobile image) | `acf/hero` | ❌ no equivalent — `aludra/hero-banner` is a different shape (dark full-width CTA hero, no image pane). Needs a new block. |
-| About section | `nynaeve/about` | ❌ not ported (Tier A `about`, unchecked) |
+| About section | `nynaeve/about` | ✅ ported as `aludra/about` (theme-adaptive) |
 | "We are here to help" CTA band | `nynaeve/cta-block-blue` | ✅ ported as `aludra/cta-banner` (theme-adaptive) |
 | Services list (icon + heading + text, 2-per-row) | `imagewize/services-block` | ❌ not tracked before this audit — added as new Tier A item |
 | Service icons | `imagewize/svg-block` | ✅ resolved as **not needed** — see below |
@@ -295,8 +295,9 @@ corrections worth recording.
 2. ~~**`aludra/cta-banner`** (generalised `cta-block-blue`)~~ **Done (2026-07-14, unreleased):**
    establishes the theme.json-adaptive colour convention (`supports.color` + preset fallback)
    the remaining blocks reuse.
-3. **`aludra/about`** (Tier A, already tracked) — plain content block, high reuse for
-   about/services pages too.
+3. ~~**`aludra/about`** (Tier A, already tracked)~~ **Done (2026-07-19, unreleased):** plain
+   content block (heading, lead, offer list, closing paragraph), high reuse for about/services
+   pages too.
 4. **`aludra/services-block`** (new Tier A item) — icon+text row layout; icons via `core/image`,
    no dependency on a new icon block.
 5. **`aludra/review-profiles`** (Tier B) — port + generalise colours.

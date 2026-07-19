@@ -1,0 +1,10 @@
+/**
+ * Editor-only styles for aludra/about.
+ *
+ * The `style` stylesheet already loads in the editor; this just keeps the
+ * heading/paragraph/list RichText fields comfortably editable at the same
+ * default padding used on the frontend.
+ */
+.wp-block-aludra-about {
+	padding: 40px 24px;
+}

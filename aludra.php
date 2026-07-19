@@ -133,6 +133,7 @@ add_action(
 				'contact-section'        => true,
 				'hero-banner'            => true,
 				'cta-banner'             => true,
+				'about'                  => true,
 			)
 		);
 
@@ -187,6 +188,7 @@ add_action(
 				'contact-section'        => true,
 				'hero-banner'            => true,
 				'cta-banner'             => true,
+				'about'                  => true,
 			)
 		);
 

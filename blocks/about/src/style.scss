@@ -1,0 +1,67 @@
+/**
+ * Frontend + editor styles for aludra/about.
+ *
+ * `supports.color.background`/`text` (block.json) expose the block's colours to
+ * the editor's native colour picker, so authors can pick any colour from the
+ * *active* theme's theme.json palette. These rules only supply the default
+ * look when no colour has been chosen — theme colour presets are referenced
+ * with fallbacks so themes that define these slugs (Nynaeve, Elayne, Aviendha)
+ * keep their palette, and any other theme still gets a sensible default.
+ */
+.wp-block-aludra-about {
+	background: var(--wp--preset--color--base, #ebeced);
+	color: var(--wp--preset--color--secondary, #98999a);
+	padding: 60px 0;
+
+	.about-section__content {
+		max-width: var(--wp--style--global--content-size, 40rem);
+		margin: 0 auto;
+		padding-left: var(--wp--preset--spacing--50, 24px);
+		padding-right: var(--wp--preset--spacing--50, 24px);
+	}
+
+	.about-section__content > * {
+		margin-top: 0 !important;
+	}
+
+	/* ─── TITLE ─── */
+	.about-section__title {
+		color: var(--wp--preset--color--contrast, #000000);
+		font-size: clamp(1.5rem, 3.5vw, 2rem);
+		font-weight: 400;
+		line-height: 1.3;
+		margin-bottom: 24px !important;
+	}
+
+	/* ─── LEAD / CLOSING ─── */
+	.about-section__lead,
+	.about-section__closing {
+		color: inherit;
+		font-size: 1.1rem;
+		line-height: 1.6;
+		margin-bottom: 24px !important;
+	}
+
+	.about-section__list-intro {
+		color: inherit;
+		font-size: 1.1rem;
+		margin-bottom: 8px !important;
+	}
+
+	/* ─── OFFER LIST ─── */
+	.about-section__list {
+		color: inherit;
+		font-size: 1.1rem;
+		margin-bottom: 24px !important;
+		padding-left: 1.2em;
+	}
+
+	.about-section__list li {
+		margin-bottom: 8px;
+	}
+
+	/* ─── RESPONSIVE ─── */
+	@media (max-width: 768px) {
+		padding: 40px 0;
+	}
+}
