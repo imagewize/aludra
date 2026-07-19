@@ -10,7 +10,23 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InnerBlocks,
+	RichText,
+	BlockControls,
+	InspectorControls,
+} from '@wordpress/block-editor';
+
+import {
+	PanelBody,
+	ToolbarGroup,
+	ToolbarButton,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
+	__experimentalToggleGroupControl as ToggleGroupControl,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
+	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
+} from '@wordpress/components';
 
 import { useSelect, useDispatch } from '@wordpress/data';
 import { useState, useEffect } from '@wordpress/element';
@@ -37,10 +53,10 @@ import './editor.scss';
  */
 export default function Edit( { clientId, attributes, setAttributes } ) {
 	const [ activeTab, setActiveTab ] = useState( 0 );
-	const { align } = attributes;
+	const { align, displayMode } = attributes;
 
 	const blockProps = useBlockProps( {
-		className: 'faq-tabs-wrapper',
+		className: `faq-tabs-wrapper is-display-mode-${ displayMode }`,
 	} );
 
 	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
@@ -150,97 +166,153 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 	];
 
 	return (
-		<div { ...blockProps }>
-			<div className="wp-block-columns">
-				<div
-					className="wp-block-column faq-questions-column"
-					style={ { flexBasis: '40%' } }
-				>
-					<div className="faq-vertical-tabs">
-						{ innerBlocks.length === 0 && (
-							<p className="faq-tabs-placeholder">
-								{ __(
-									'Add FAQ Tab Answer blocks to get started',
-									'aludra'
-								) }
-							</p>
-						) }
-						{ innerBlocks.map( ( block, index ) => (
-							<div
-								key={ block.clientId }
-								className={ `faq-tab-item ${
-									activeTab === index ? 'active' : ''
-								}` }
-							>
-								<RichText
-									tagName="div"
-									className="tab-question"
-									value={ block.attributes.question || '' }
-									onChange={ ( newQuestion ) =>
-										handleQuestionChange(
-											newQuestion,
-											block.clientId
-										)
-									}
-									placeholder={ __(
-										'Enter question…',
+		<>
+			<BlockControls>
+				<ToolbarGroup>
+					<ToolbarButton
+						icon="columns"
+						label={ __( 'Tabs', 'aludra' ) }
+						isPressed={ displayMode === 'tabs' }
+						onClick={ () =>
+							setAttributes( { displayMode: 'tabs' } )
+						}
+					/>
+					<ToolbarButton
+						icon="menu"
+						label={ __( 'Accordion', 'aludra' ) }
+						isPressed={ displayMode === 'accordion' }
+						onClick={ () =>
+							setAttributes( { displayMode: 'accordion' } )
+						}
+					/>
+				</ToolbarGroup>
+			</BlockControls>
+			<InspectorControls>
+				<PanelBody title={ __( 'Display', 'aludra' ) }>
+					<ToggleGroupControl
+						label={ __( 'Display Mode', 'aludra' ) }
+						value={ displayMode }
+						onChange={ ( value ) =>
+							setAttributes( { displayMode: value } )
+						}
+						isBlock
+						help={
+							displayMode === 'accordion'
+								? __(
+										'Single-column accordion at every breakpoint.',
+										'aludra'
+								  )
+								: __(
+										'Two-column tabs on desktop, accordion on mobile.',
+										'aludra'
+								  )
+						}
+					>
+						<ToggleGroupControlOption
+							value="tabs"
+							label={ __( 'Tabs', 'aludra' ) }
+						/>
+						<ToggleGroupControlOption
+							value="accordion"
+							label={ __( 'Accordion', 'aludra' ) }
+						/>
+					</ToggleGroupControl>
+				</PanelBody>
+			</InspectorControls>
+			<div { ...blockProps }>
+				<div className="wp-block-columns">
+					<div
+						className="wp-block-column faq-questions-column"
+						style={ { flexBasis: '40%' } }
+					>
+						<div className="faq-vertical-tabs">
+							{ innerBlocks.length === 0 && (
+								<p className="faq-tabs-placeholder">
+									{ __(
+										'Add FAQ Tab Answer blocks to get started',
 										'aludra'
 									) }
-									onClick={ () => setActiveTab( index ) }
-									allowedFormats={ [] }
-								/>
-								<div
-									className="tab-arrow-circle"
-									role="button"
-									tabIndex={ 0 }
-									onClick={ () => setActiveTab( index ) }
-									onKeyDown={ ( event ) => {
-										if (
-											event.key === 'Enter' ||
-											event.key === ' '
-										) {
-											event.preventDefault();
-											setActiveTab( index );
-										}
-									} }
-									style={ { cursor: 'pointer' } }
-								>
-									<svg
-										width="16"
-										height="16"
-										viewBox="0 0 16 16"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path
-											d="M6 4L10 8L6 12"
-											stroke="currentColor"
-											strokeWidth="2"
-											strokeLinecap="round"
-											strokeLinejoin="round"
-										/>
-									</svg>
-								</div>
-							</div>
-						) ) }
-					</div>
-				</div>
-
-				<div
-					className="wp-block-column faq-content-column"
-					style={ { flexBasis: '60%' } }
-				>
-					<div className="faq-content-area">
-						<InnerBlocks
-							allowedBlocks={ [ 'aludra/faq-tab-answer' ] }
-							template={ TEMPLATE }
-							renderAppender={ () => (
-								<InnerBlocks.ButtonBlockAppender />
+								</p>
 							) }
-						/>
+							{ innerBlocks.map( ( block, index ) => (
+								<div
+									key={ block.clientId }
+									className={ `faq-tab-item ${
+										activeTab === index ? 'active' : ''
+									}` }
+								>
+									<RichText
+										tagName="div"
+										className="tab-question"
+										value={
+											block.attributes.question || ''
+										}
+										onChange={ ( newQuestion ) =>
+											handleQuestionChange(
+												newQuestion,
+												block.clientId
+											)
+										}
+										placeholder={ __(
+											'Enter question…',
+											'aludra'
+										) }
+										onClick={ () => setActiveTab( index ) }
+										allowedFormats={ [] }
+									/>
+									<div
+										className="tab-arrow-circle"
+										role="button"
+										tabIndex={ 0 }
+										onClick={ () => setActiveTab( index ) }
+										onKeyDown={ ( event ) => {
+											if (
+												event.key === 'Enter' ||
+												event.key === ' '
+											) {
+												event.preventDefault();
+												setActiveTab( index );
+											}
+										} }
+										style={ { cursor: 'pointer' } }
+									>
+										<svg
+											width="16"
+											height="16"
+											viewBox="0 0 16 16"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M6 4L10 8L6 12"
+												stroke="currentColor"
+												strokeWidth="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+											/>
+										</svg>
+									</div>
+								</div>
+							) ) }
+						</div>
+					</div>
+
+					<div
+						className="wp-block-column faq-content-column"
+						style={ { flexBasis: '60%' } }
+					>
+						<div className="faq-content-area">
+							<InnerBlocks
+								allowedBlocks={ [ 'aludra/faq-tab-answer' ] }
+								template={ TEMPLATE }
+								renderAppender={ () => (
+									<InnerBlocks.ButtonBlockAppender />
+								) }
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }

@@ -92,7 +92,8 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
 - [x] `icon-grid` (v2.8.0)
 - [x] `trust-bar` (v2.8.0)
 - [x] `feature-list-grid` (v2.9.0)
-- [ ] `faq` — **resolved, not a separate block** (§11.3): add `displayMode` accordion toggle to `aludra/faq-tabs` instead.
+- [x] `faq` — **resolved, not a separate block** (§11.3): added `displayMode` accordion toggle to
+  `aludra/faq-tabs` instead (2026-07-19, unreleased).
 - [ ] `related-articles`
 - [ ] `related-links`
 - [x] `contact-section` (v2.10.0)
@@ -216,11 +217,12 @@ Aludra, and require WooCommerce for the store templates.
 1. **Back-compat** for elayne-blocks sites — A, B, or C above?
 2. **Plugin display name** — "Aludra" alone, or "Aludra Blocks" for wp.org discoverability?
 3. ~~**Faq convergence** — keep both Nynaeve `faq` and Elayne `faq-tabs`, or merge?~~ **Resolved
-   (2026-07-14):** converge on `aludra/faq-tabs`. Its `view.js` already implements a full
-   accordion (used today only as the mobile fallback for the desktop tab layout via
-   `initMobileAccordion()`). Add a `displayMode: 'tabs' | 'accordion'` attribute + toolbar
-   toggle so accordion mode can run at all breakpoints in a single-column layout, instead of
-   porting Nynaeve's `faq` as a separate block. No new block needed.
+   (2026-07-14, implemented 2026-07-19):** converge on `aludra/faq-tabs`. Its `view.js` already
+   implemented a full accordion (used previously only as the mobile fallback for the desktop tab
+   layout via `initMobileAccordion()`). Added a `displayMode: 'tabs' | 'accordion'` attribute +
+   `BlockControls` toolbar toggle + `InspectorControls` panel so accordion mode can run at all
+   breakpoints in a single-column layout (`.is-display-mode-accordion` on the frontend and in the
+   editor), instead of porting Nynaeve's `faq` as a separate block. No new block needed.
 4. **Slick carousel** — keep (verify GPL-compat) or replace with a dependency-free carousel?
 5. **Cycling sub-focus** — road / gravel / e-bike / MTB, or broad "cycling & outdoor"? Affects demo content and the specialised blocks.
 6. ~~**Pricing vs Pricing Tiers** — Nynaeve has both `pricing` (2-column) and `pricing-tiers` was
@@ -242,7 +244,7 @@ Aludra, and require WooCommerce for the store templates.
 - [x] Port second batch of Tier-A blocks → tagged **2.9.0**.
 - [x] Settings page redesign and bug fixes → **2.9.3-2.9.4**.
 - [x] Port Contact Section (Tier A) and Hero Banner (Tier B `service-hero`, generalised) → **2.10.0**.
-- [ ] Port remaining Tier-A blocks: `two-column-card`, `content-image-text-card`, `multi-column-content`, `related-articles`, `related-links`, `expect-list`, `about`, `case-studies`. (Decide on `pricing` and `faq` per §11.6 and §11.3)
+- [ ] Port remaining Tier-A blocks: `two-column-card`, `content-image-text-card`, `multi-column-content`, `related-articles`, `related-links`, `expect-list`, `case-studies`. (`pricing`, `faq`, and `about` resolved per §11.6, §11.3, and the Tier A table above)
 - [ ] Generalise and import remaining Tier B blocks: `elayne-hero`, `page-heading-blue`, `cta-block-blue`, `service-intro`, `service-blocks`, `review-profiles`.
 - [ ] Add de_DE and fr_FR translations.
 - [ ] Decide on back-compat approach for elayne-blocks sites (A, B, or C).
@@ -268,7 +270,7 @@ corrections worth recording.
 | Services list (icon + heading + text, 2-per-row) | `imagewize/services-block` | ✅ ported as `aludra/services-block` |
 | Service icons | `imagewize/svg-block` | ✅ resolved as **not needed** — see below |
 | Client review cards | `imagewize/review-profiles` | ✅ ported as `aludra/review-profiles` (theme-adaptive) |
-| FAQ accordion | `imagewize/faq` | ⏳ resolved as a `displayMode` addition to `aludra/faq-tabs` (§11.3), not yet implemented |
+| FAQ accordion | `imagewize/faq` | ✅ resolved as a `displayMode` addition to `aludra/faq-tabs` (§11.3), implemented 2026-07-19 |
 
 ### Two scope corrections from this audit
 
@@ -290,10 +292,10 @@ corrections worth recording.
 
 ### Suggested port order
 
-1. ~~Resolve open decisions §11.3 (FAQ) and §11.6 (Pricing)~~ **Done (2026-07-14):** `pricing-tiers`
-   covers the pricing grid as-is, no new block; FAQ converges on `faq-tabs` with a new
-   `displayMode: 'tabs' | 'accordion'` attribute (not yet implemented — small, contained change
-   to `block.json`/`edit.js`/`save.jsx`/`view.js`/`style.scss` in `blocks/faq-tabs/`).
+1. ~~Resolve open decisions §11.3 (FAQ) and §11.6 (Pricing)~~ **Done (2026-07-14, FAQ implemented
+   2026-07-19):** `pricing-tiers` covers the pricing grid as-is, no new block; FAQ converges on
+   `faq-tabs` with a `displayMode: 'tabs' | 'accordion'` attribute — implemented across
+   `block.json`/`edit.js`/`save.jsx`/`view.js`/`style.scss` in `blocks/faq-tabs/`.
 2. ~~**`aludra/cta-banner`** (generalised `cta-block-blue`)~~ **Done (2026-07-14, unreleased):**
    establishes the theme.json-adaptive colour convention (`supports.color` + preset fallback)
    the remaining blocks reuse.

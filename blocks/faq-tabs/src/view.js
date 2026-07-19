@@ -24,9 +24,16 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			return; // Exit if elements not found
 		}
 
+		// 'accordion' forces the stacked layout at every breakpoint;
+		// 'tabs' (default) keeps the desktop tabs / mobile accordion split.
+		const displayMode = block.getAttribute( 'data-display-mode' ) || 'tabs';
+
 		// Check if we're on mobile
 		function isMobile() {
-			return window.innerWidth <= MOBILE_BREAKPOINT;
+			return (
+				displayMode === 'accordion' ||
+				window.innerWidth <= MOBILE_BREAKPOINT
+			);
 		}
 
 		// Desktop tab functionality

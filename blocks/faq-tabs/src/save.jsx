@@ -15,20 +15,27 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save() {
+export default function save( { attributes } ) {
+	const { displayMode } = attributes;
+
 	return (
-		<div {...useBlockProps.save({ className: 'faq-tabs-wrapper' })}>
+		<div
+			{ ...useBlockProps.save( {
+				className: `faq-tabs-wrapper is-display-mode-${ displayMode }`,
+				'data-display-mode': displayMode,
+			} ) }
+		>
 			<div className="wp-block-columns">
 				<div
 					className="wp-block-column faq-questions-column"
-					style={{ flexBasis: '40%' }}
+					style={ { flexBasis: '40%' } }
 				>
 					<div className="faq-vertical-tabs"></div>
 				</div>
 
 				<div
 					className="wp-block-column faq-content-column"
-					style={{ flexBasis: '60%' }}
+					style={ { flexBasis: '60%' } }
 				>
 					<div className="faq-content-area">
 						<InnerBlocks.Content />
