@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.11.3
+Stable tag: 2.11.4
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -179,6 +179,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.11.4 =
+* Fixed: Homepage pattern "Our Clients" carousel (patterns/page-homepage.php) — the five client-mockup SVG images had hardcoded width/height HTML attributes but no CSS forcing them to fill their slide, so they rendered at a fixed 320px wide regardless of the carousel's computed slide width, leaving large empty gaps next to each mockup. Added an inline width:100%;height:auto style to each image so it scales to fill the slide while keeping its aspect ratio.
 
 = 2.11.3 =
 * Changed: Homepage pattern "Our Clients" carousel (patterns/page-homepage.php) — replaced the five carousel slides, which all reused the same 6-petal Aludra logo mark recolored, with five distinct mini browser-window mockups of fictional client sites (spa, ecommerce store, design agency, bike shop, restaurant), each with its own palette, layout, and fake domain in the mocked url bar. New source SVGs live in assets/clients/. The bike shop and restaurant cards use the Tabler bike and Maki restaurant-noodle icons via Blade UI Kit (Blade Icons, MIT License) — see Credits section.

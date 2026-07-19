@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned
 - Continue importing native React blocks from the Nynaeve theme (e.g. two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 
+## [2.11.4] - 2026-07-19
+
+### Fixed
+- **Homepage pattern "Our Clients" carousel** (`patterns/page-homepage.php`) — the five client-mockup SVG images had hardcoded `width`/`height` HTML attributes but no CSS forcing them to fill their slide, so they rendered at a fixed 320px wide regardless of the carousel's computed slide width, leaving large empty gaps next to each mockup. Added an inline `width:100%;height:auto` style to each image so it scales to fill the slide while keeping its aspect ratio.
+
 ## [2.11.3] - 2026-07-19
 
 ### Changed
