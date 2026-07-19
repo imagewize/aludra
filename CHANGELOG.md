@@ -10,6 +10,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned
 - Continue importing native React blocks from the Nynaeve theme (e.g. two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 
+## [2.11.0] - 2026-07-19
+
+### Added
+- **Hero Split** (`aludra/hero-split`) — split-pane hero ported and generalised from imagewize.com's `acf/hero`, with heading, lead text, CTA button, and a desktop/mobile image pair. The desktop/mobile image swap is a pure CSS media-query toggle between two seeded `core/image` blocks — no JS — and both stay independently editable in the editor.
+- **About Section** (`aludra/about`) — plain content block (heading, lead paragraph, offer list, closing paragraph) ported from Nynaeve's `nynaeve/about`, theme-adaptive.
+- **Services Block** (`aludra/services-block`) — icon + heading + text card grid, two-per-row, ported from Nynaeve's `imagewize/services-block`. Icons resolve via the existing `aludra/icon` block-binding and bundled `assets/icons/*.svg`, the same mechanism as `feature-cards`/`icon-grid` — no dedicated SVG block needed.
+- **Review Profiles** (`aludra/review-profiles`) — heading plus a three-up grid of round avatar photo and quote, ported and generalised from Nynaeve's `imagewize/review-profiles`. Hardcoded `#f97316` background replaced with `supports.color` and a preset-fallback chain; avatars ship as empty `core/image` placeholders with generic testimonial copy rather than real client photos/names.
+- **CTA Banner** (`aludra/cta-banner`) — full-width call-to-action band (heading, lead text, button) ported and generalised from Nynaeve's `nynaeve/cta-block-blue`. Uses `supports.color.background`/`text` (native theme.json palette) plus a `var(--wp--preset--color--primary, #017cb6)`-style fallback chain, establishing the theme-adaptive colour convention the rest of this release's blocks reuse.
+- **FAQ Tabs accordion mode** — `aludra/faq-tabs` gained a `displayMode: 'tabs' | 'accordion'` attribute with a `BlockControls` toolbar toggle and an `InspectorControls` panel. `'accordion'` runs the block's existing accordion layout (previously only the mobile fallback for the two-column tab layout) at every breakpoint instead of just below the mobile media-query threshold. Resolves the FAQ block-convergence decision from `docs/PLAN-OF-ACTION.md` §11.3 — no separate FAQ block needed.
+- **Homepage page pattern** (`patterns/page-homepage.php`, slug `aludra/page-homepage`) — a full agency/service-business homepage assembled from this release's blocks (hero-split, about, carousel, cta-banner, pricing-tiers, services-block, review-profiles, faq-tabs in accordion mode), modelled on imagewize.com's homepage layout with generic placeholder copy. New `patterns/page-*.php` auto-discovery in `aludra.php`, mirroring the existing `mega-menu-*.php` loader, registers these with `blockTypes: ['core/post-content']` so they appear in the Site Editor's "choose a pattern" picker when creating a new page, in addition to the inserter.
+- New `assets/placeholders/` directory (`photo.svg`, `avatar.svg`) — generic bundled placeholder art (no external image-service hotlinks) used by the homepage pattern's hero images and review avatars.
+- `@imwz/wp-pattern-sentinel` added as a root dev dependency, with `validate`/`validate:new`/`validate:file`/`validate:clear-cache` npm scripts, for browser-based pattern validation against a local Trellis/Bedrock test site.
+
 ## [2.10.0] - 2026-07-14
 
 ### Added

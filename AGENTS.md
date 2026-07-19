@@ -29,6 +29,37 @@ Note: `blocks/mega-menu` uses `--experimental-modules` in its build/start script
 - Validate changes manually in WordPress (editor and frontend).
 - Run linting commands before opening a PR.
 
+### Local WordPress environment (Trellis + Bedrock)
+Manual/visual testing of Aludra happens against a local **Trellis** (Roots) VM running **Bedrock**
+sites, in the sibling `~/code/imagewize.com` checkout. This is the Imagewize maintainer's own
+setup, not a project requirement — other contributors test against whatever local WordPress/Bedrock
+install they have Aludra installed on; adjust paths and site names accordingly.
+- Trellis root: `~/code/imagewize.com/trellis`. The VM is **Lima-based**, not Vagrant — commands
+  run via `trellis vm shell`, which shells out to `limactl`.
+- Site definitions: `~/code/imagewize.com/trellis/group_vars/development/wordpress_sites.yml`.
+- `demo.imagewize.com` (host `demo.imagewize.test`, Bedrock root `~/code/imagewize.com/demo`) is
+  the site **Aludra itself is installed and tested on** — a multisite with subsites at `/`,
+  `/spa/`, `/legal/`, `/kafe/`, `/plumbing/`, `/nail-salon/`, `/store/` (all on the **Elayne**
+  theme), plus **`/aviendha/`**, running Aludra's primary target theme
+  **[Aviendha](https://github.com/imagewize/aviendha)** (`imagewize/aviendha` on Packagist; local
+  checkout `~/code/aviendha`). Both plugin and theme are regular pinned Composer dependencies
+  (`imagewize/aludra`, `imagewize/aviendha`), installed from Packagist — **not** symlinked to these
+  working copies, so testing unreleased local changes needs a new tagged release or manual
+  `blocks/*/build/` / theme-file syncing.
+- `imagewize.com` (host `imagewize.test`, Bedrock root `~/code/imagewize.com/site`) is the
+  **production content clone** running the Nynaeve theme's blocks (`imagewize/*`/`nynaeve/*`) —
+  Aludra's blocks (and the homepage page pattern) are ported/cloned from this site's content. Used
+  as the layout/content reference when porting real imagewize.com sections into Aludra
+  blocks/patterns, not for plugin testing.
+- Run one-off commands non-interactively: `trellis vm shell --workdir /srv/www/<site-key>/current -- <command>`
+  (site key is the `wordpress_sites.yml` key, e.g. `demo.imagewize.com` or `imagewize.com`; the VM
+  path is always `/srv/www/<site-key>/current`). Chain multiple commands with `&&`/`;` inside a
+  single quoted string, not as separate `--` args — the shell parses them literally.
+  Example: `wp post get <ID> --field=post_content`.
+- 2FA (`wp-2fa` plugin) guards wp-admin on these sites. It can lock you out locally if the TOTP
+  code doesn't match (stale secret, clock skew) — safe to `wp plugin deactivate wp-2fa` via the
+  VM shell for local dev; leave it active on staging/production.
+
 ## Commit & Pull Request Guidelines
 - **Atomic commits:** Commit per file or per logical file group. Do not bundle unrelated changes.
 - **No AI attribution:** Commit messages must NOT mention Mistral Vibe, AI, or any co-authorship.

@@ -3,7 +3,7 @@
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
  * Description: Shared custom block library for Imagewize block themes (Nynaeve, Elayne, Aviendha) — Mega Menu, Carousel, FAQ Tabs, and content blocks (Feature Cards, Pricing Tiers, Testimonial Grid, Contact Section, Hero Banner, and more). Built with React, block.json, and @wordpress/scripts.
- * Version: 2.10.0
+ * Version: 2.11.0
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.10.0' );
+define( 'ALUDRA_VERSION', '2.11.0' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -298,6 +298,56 @@ add_action(
 							'content'     => $content,
 							'categories'  => array( 'menus' ),
 							'blockTypes'  => array( 'core/template-part/menu' ),
+						)
+					);
+				}
+			}
+		}
+	},
+	10
+);
+
+/**
+ * Register full-page patterns (patterns/page-*.php).
+ *
+ * These appear in the Site Editor's "choose a pattern" picker when creating a
+ * new page (blockTypes: core/post-content), in addition to the inserter.
+ */
+add_action(
+	'init',
+	function () {
+		if ( function_exists( 'register_block_pattern' ) ) {
+			$patterns_dir = ALUDRA_PLUGIN_DIR . 'patterns';
+
+			if ( is_dir( $patterns_dir ) ) {
+				$page_pattern_files = glob( $patterns_dir . '/page-*.php' );
+
+				foreach ( $page_pattern_files as $pattern_file ) {
+					$headers = get_file_data(
+						$pattern_file,
+						array(
+							'title'       => 'Title',
+							'slug'        => 'Slug',
+							'description' => 'Description',
+						)
+					);
+
+					ob_start();
+					include $pattern_file;
+					$content = ob_get_clean();
+
+					$slug = ! empty( $headers['slug'] )
+						? $headers['slug']
+						: 'aludra/' . basename( $pattern_file, '.php' );
+
+					register_block_pattern(
+						$slug,
+						array(
+							'title'       => ! empty( $headers['title'] ) ? $headers['title'] : basename( $pattern_file, '.php' ),
+							'description' => ! empty( $headers['description'] ) ? $headers['description'] : '',
+							'content'     => $content,
+							'categories'  => array( 'aludra' ),
+							'blockTypes'  => array( 'core/post-content' ),
 						)
 					);
 				}
