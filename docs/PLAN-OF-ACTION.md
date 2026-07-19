@@ -102,9 +102,9 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
 - [ ] `expect-list`
 - [x] `about` → ported as `aludra/about` (2026-07-19, unreleased)
 - [ ] `case-studies`
-- [ ] `services-block` (imagewize.com: icon-badge + heading + text row, 2-per-row) — **new
-  addition**, not in original Nynaeve 27; surfaced by the imagewize.com homepage port (§13).
-  Icon rendering needs no dedicated block — see §13's `svg-block` note.
+- [x] `services-block` → ported as `aludra/services-block` (2026-07-19, unreleased). Icons use
+  Aludra's existing `aludra/icon` block-binding + bundled `assets/icons/*.svg` (same mechanism
+  as `feature-cards`/`icon-grid`), not a dedicated svg block — see §13's `svg-block` note.
 
 ### Tier B — theme/colour-specific → generalise before importing
 `elayne-hero`, `page-heading-blue`, `cta-block-blue` (hardcoded "blue"),
@@ -263,7 +263,7 @@ corrections worth recording.
 | Split-pane hero (heading/sub-heading + desktop/mobile image) | `acf/hero` | ❌ no equivalent — `aludra/hero-banner` is a different shape (dark full-width CTA hero, no image pane). Needs a new block. |
 | About section | `nynaeve/about` | ✅ ported as `aludra/about` (theme-adaptive) |
 | "We are here to help" CTA band | `nynaeve/cta-block-blue` | ✅ ported as `aludra/cta-banner` (theme-adaptive) |
-| Services list (icon + heading + text, 2-per-row) | `imagewize/services-block` | ❌ not tracked before this audit — added as new Tier A item |
+| Services list (icon + heading + text, 2-per-row) | `imagewize/services-block` | ✅ ported as `aludra/services-block` |
 | Service icons | `imagewize/svg-block` | ✅ resolved as **not needed** — see below |
 | Client review cards | `imagewize/review-profiles` | ❌ not ported (Tier B, hardcoded `#f97316` background) |
 | FAQ accordion | `imagewize/faq` | ⏳ resolved as a `displayMode` addition to `aludra/faq-tabs` (§11.3), not yet implemented |
@@ -298,8 +298,9 @@ corrections worth recording.
 3. ~~**`aludra/about`** (Tier A, already tracked)~~ **Done (2026-07-19, unreleased):** plain
    content block (heading, lead, offer list, closing paragraph), high reuse for about/services
    pages too.
-4. **`aludra/services-block`** (new Tier A item) — icon+text row layout; icons via `core/image`,
-   no dependency on a new icon block.
+4. ~~**`aludra/services-block`** (new Tier A item)~~ **Done (2026-07-19, unreleased):**
+   icon+heading+text card grid, 2-per-row; icons via the existing `aludra/icon` binding
+   (same mechanism as `feature-cards`/`icon-grid`), no new icon block needed.
 5. **`aludra/review-profiles`** (Tier B) — port + generalise colours.
 6. **`aludra/hero-split`** (new block, not a `hero-banner` variant) — split-pane hero with
    desktop/mobile image swap.

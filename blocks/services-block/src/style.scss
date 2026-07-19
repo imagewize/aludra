@@ -1,0 +1,110 @@
+/**
+ * Frontend + editor styles for aludra/services-block.
+ *
+ * `supports.color.background`/`text` (block.json) expose the block's colours to
+ * the editor's native colour picker, so authors can pick any colour from the
+ * *active* theme's theme.json palette. These rules only supply the default
+ * look when no colour has been chosen — theme colour presets are referenced
+ * with fallbacks so themes that define these slugs (Nynaeve, Elayne, Aviendha)
+ * keep their palette, and any other theme still gets a sensible default.
+ */
+.wp-block-aludra-services-block {
+	background: var(--wp--preset--color--tertiary, #fafaf8);
+	padding: 80px 0;
+
+	.services-block__inner {
+		max-width: var(--wp--style--global--wide-size, 64rem);
+		margin: 0 auto;
+		padding-left: var(--wp--preset--spacing--50, 24px);
+		padding-right: var(--wp--preset--spacing--50, 24px);
+	}
+
+	.services-block__inner > * {
+		margin-top: 0 !important;
+	}
+
+	/* ─── HEADER ─── */
+	.services-block__header {
+		margin-bottom: 40px !important;
+	}
+
+	.services-block__header .wp-block-heading {
+		margin-bottom: 12px !important;
+	}
+
+	.services-block__lead {
+		color: var(--wp--preset--color--secondary, #6b7280);
+		font-size: 1.05rem;
+		max-width: 42rem;
+	}
+
+	/* ─── GRID ─── */
+	.services-block__grid {
+		display: grid !important;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+	}
+
+	.services-block__grid > .wp-block-group {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+	}
+
+	/* ─── CARD ─── */
+	.services-block__card {
+		background: var(--wp--preset--color--base, #ffffff);
+		border-radius: 12px;
+		padding: 24px;
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+		gap: 16px !important;
+	}
+
+	.services-block__card > * {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+	}
+
+	/* Icon badge */
+	.services-block__icon {
+		width: 52px;
+		height: 52px;
+		min-width: 52px;
+		background: var(--wp--preset--color--primary-accent, #eff6ff);
+		border-radius: 10px;
+		flex-shrink: 0;
+	}
+
+	.services-block__icon img {
+		width: 26px;
+		height: 26px;
+		display: block;
+	}
+
+	/* Content column */
+	.services-block__content {
+		gap: 8px !important;
+	}
+
+	.services-block__content .wp-block-heading {
+		font-size: 1.05rem;
+		color: var(--wp--preset--color--main, #1a1a1a) !important;
+	}
+
+	.services-block__content p {
+		color: var(--wp--preset--color--secondary, #6b7280);
+		line-height: 1.6;
+	}
+
+	/* ─── RESPONSIVE ─── */
+	@media (max-width: 640px) {
+		padding: 52px 0;
+
+		.services-block__grid {
+			grid-template-columns: 1fr;
+		}
+
+		.services-block__card {
+			flex-wrap: wrap !important;
+		}
+	}
+}

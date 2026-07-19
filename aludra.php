@@ -134,6 +134,7 @@ add_action(
 				'hero-banner'            => true,
 				'cta-banner'             => true,
 				'about'                  => true,
+				'services-block'         => true,
 			)
 		);
 
@@ -189,6 +190,7 @@ add_action(
 				'hero-banner'            => true,
 				'cta-banner'             => true,
 				'about'                  => true,
+				'services-block'         => true,
 			)
 		);
 

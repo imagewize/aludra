@@ -71,6 +71,7 @@ function aludra_get_default_settings() {
 		'hero-banner'            => true,
 		'cta-banner'             => true,
 		'about'                  => true,
+		'services-block'         => true,
 	);
 }
 
@@ -181,6 +182,11 @@ function aludra_get_available_blocks() {
 			'description' => __( 'Full-width about/value-proposition section with heading, lead text, an offer list, and closing copy.', 'aludra' ),
 			'category'    => 'marketing',
 		),
+		'services-block'         => array(
+			'label'       => __( 'Services Block', 'aludra' ),
+			'description' => __( 'Section header with a two-per-row grid of icon, heading, and text service cards.', 'aludra' ),
+			'category'    => 'marketing',
+		),
 	);
 }
 
@@ -252,6 +258,7 @@ function aludra_get_block_glyph( $slug ) {
 		'hero-banner'            => '<rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M7 9h6M7 12.5h10M7 16h4" stroke-linecap="round"/>',
 		'cta-banner'             => '<rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M8 12h5" stroke-linecap="round"/><rect x="15" y="10.5" width="3" height="3" rx="0.5"/>',
 		'about'                  => '<rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M7 8h10M7 11h10" stroke-linecap="round"/><circle cx="8.5" cy="15" r="0.9"/><circle cx="8.5" cy="18" r="0.9"/><path d="M11 15h6M11 18h6" stroke-linecap="round"/>',
+		'services-block'         => '<rect x="3" y="4" width="8" height="7" rx="1.5"/><rect x="13" y="4" width="8" height="7" rx="1.5"/><rect x="3" y="13" width="8" height="7" rx="1.5"/><rect x="13" y="13" width="8" height="7" rx="1.5"/>',
 	);
 
 	$path = isset( $glyphs[ $slug ] ) ? $glyphs[ $slug ] : '<rect x="5" y="5" width="14" height="14" rx="2"/>';
