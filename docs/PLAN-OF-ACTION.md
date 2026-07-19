@@ -120,10 +120,11 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
 - [x] `review-profiles` → ported as `aludra/review-profiles` (2026-07-19, unreleased). Hardcoded
   `#f97316` background replaced with `supports.color.background`/`text` + a
   `var(--wp--preset--color--primary, #f97316)`-style fallback chain.
-- [ ] `elayne-hero` / split-pane hero (imagewize.com's `acf/hero`: heading/sub-heading +
-  desktop/mobile image pane) — **structurally different from `hero-banner`** (which is a dark
-  full-width CTA hero, no image pane). Needs its own block, e.g. `aludra/hero-split`, not a
-  variant of `hero-banner`. Surfaced by §13.
+- [x] `elayne-hero` / split-pane hero (imagewize.com's `acf/hero`) → ported as `aludra/hero-split`
+  (2026-07-19, unreleased). Structurally different from `hero-banner` (dark full-width CTA
+  hero, no image pane) so it's its own block, not a variant. The desktop/mobile image swap is
+  a pure CSS media-query toggle between two seeded `core/image` blocks — no JS, both images
+  stay editable in the editor via an `editor.scss` override.
 
 ### Tier C — already present / superseded
 `carousel`, `slide` (present); Nynaeve `faq` vs Aludra `faq-tabs` — **resolved (§11.3):**
@@ -261,7 +262,7 @@ corrections worth recording.
 |---|---|---|
 | Client-logo carousel | `imagewize/carousel` + `imagewize/slide` | ✅ covered by `aludra/carousel` + `aludra/slide` |
 | Pricing grid (3 cards) | `imagewize/pricing` | ✅ covered by `aludra/pricing-tiers` — no separate block needed (§11.6, resolved) |
-| Split-pane hero (heading/sub-heading + desktop/mobile image) | `acf/hero` | ❌ no equivalent — `aludra/hero-banner` is a different shape (dark full-width CTA hero, no image pane). Needs a new block. |
+| Split-pane hero (heading/sub-heading + desktop/mobile image) | `acf/hero` | ✅ ported as `aludra/hero-split` (CSS-only desktop/mobile image toggle) |
 | About section | `nynaeve/about` | ✅ ported as `aludra/about` (theme-adaptive) |
 | "We are here to help" CTA band | `nynaeve/cta-block-blue` | ✅ ported as `aludra/cta-banner` (theme-adaptive) |
 | Services list (icon + heading + text, 2-per-row) | `imagewize/services-block` | ✅ ported as `aludra/services-block` |
@@ -305,8 +306,8 @@ corrections worth recording.
 5. ~~**`aludra/review-profiles`** (Tier B)~~ **Done (2026-07-19, unreleased):** heading + 3-up
    grid of round avatar + quote, generalised colours (avatars ship with an empty `core/image`
    placeholder — no theme-specific photo paths baked in).
-6. **`aludra/hero-split`** (new block, not a `hero-banner` variant) — split-pane hero with
-   desktop/mobile image swap.
+6. ~~**`aludra/hero-split`** (new block, not a `hero-banner` variant)~~ **Done (2026-07-19,
+   unreleased):** split-pane hero with desktop/mobile image swap via CSS media query, no JS.
 7. Once the above exist, assemble the imagewize.com homepage as an Aludra **page pattern**
    (validated via the four-pass harness, §6) — proving the "block library + patterns" model
    end-to-end.

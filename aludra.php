@@ -136,6 +136,7 @@ add_action(
 				'about'                  => true,
 				'services-block'         => true,
 				'review-profiles'        => true,
+				'hero-split'             => true,
 			)
 		);
 
@@ -193,6 +194,7 @@ add_action(
 				'about'                  => true,
 				'services-block'         => true,
 				'review-profiles'        => true,
+				'hero-split'             => true,
 			)
 		);
 

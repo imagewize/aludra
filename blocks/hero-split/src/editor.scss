@@ -1,0 +1,42 @@
+/**
+ * Editor-only styles for aludra/hero-split.
+ *
+ * The frontend CSS toggles desktop/mobile images with a media query so only
+ * one shows per breakpoint. In the editor both must stay visible and
+ * editable regardless of canvas width, each labelled so authors know which
+ * is which.
+ */
+.wp-block-aludra-hero-split {
+	padding: 40px 24px;
+
+	.hero-split__media {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.hero-split__image--desktop,
+	.hero-split__image--mobile {
+		display: block !important;
+		position: relative;
+	}
+
+	.hero-split__image--desktop::before,
+	.hero-split__image--mobile::before {
+		display: block;
+		font-size: 11px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: rgba(0, 0, 0, 0.5);
+		margin-bottom: 6px;
+	}
+
+	.hero-split__image--desktop::before {
+		content: 'Desktop image';
+	}
+
+	.hero-split__image--mobile::before {
+		content: 'Mobile image';
+	}
+}

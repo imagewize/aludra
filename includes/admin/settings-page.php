@@ -73,6 +73,7 @@ function aludra_get_default_settings() {
 		'about'                  => true,
 		'services-block'         => true,
 		'review-profiles'        => true,
+		'hero-split'             => true,
 	);
 }
 
@@ -193,6 +194,11 @@ function aludra_get_available_blocks() {
 			'description' => __( 'Full-width client review section with a heading and a row of round avatar photos with quotes.', 'aludra' ),
 			'category'    => 'marketing',
 		),
+		'hero-split'             => array(
+			'label'       => __( 'Hero Split', 'aludra' ),
+			'description' => __( 'Split-pane hero with heading, lead text, and a button on one side, and a desktop/mobile image pair on the other.', 'aludra' ),
+			'category'    => 'marketing',
+		),
 	);
 }
 
@@ -266,6 +272,7 @@ function aludra_get_block_glyph( $slug ) {
 		'about'                  => '<rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M7 8h10M7 11h10" stroke-linecap="round"/><circle cx="8.5" cy="15" r="0.9"/><circle cx="8.5" cy="18" r="0.9"/><path d="M11 15h6M11 18h6" stroke-linecap="round"/>',
 		'services-block'         => '<rect x="3" y="4" width="8" height="7" rx="1.5"/><rect x="13" y="4" width="8" height="7" rx="1.5"/><rect x="3" y="13" width="8" height="7" rx="1.5"/><rect x="13" y="13" width="8" height="7" rx="1.5"/>',
 		'review-profiles'        => '<circle cx="6" cy="8" r="2.5"/><circle cx="12" cy="8" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M3 18c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5M9 18c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5M15 18c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5" stroke-linecap="round"/>',
+		'hero-split'             => '<rect x="3" y="4" width="8" height="16" rx="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5"/><path d="M6 9h2M6 12h3" stroke-linecap="round"/>',
 	);
 
 	$path = isset( $glyphs[ $slug ] ) ? $glyphs[ $slug ] : '<rect x="5" y="5" width="14" height="14" rx="2"/>';

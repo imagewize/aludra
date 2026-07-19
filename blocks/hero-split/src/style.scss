@@ -1,0 +1,90 @@
+/**
+ * Frontend + editor styles for aludra/hero-split.
+ *
+ * `supports.color.background`/`text` (block.json) expose the block's colours to
+ * the editor's native colour picker, so authors can pick any colour from the
+ * *active* theme's theme.json palette. Text colours default to sensible dark
+ * neutrals so the block reads well on a plain/light section background.
+ *
+ * The desktop/mobile image pair is a pure CSS toggle (no JS): both images
+ * save to markup, and only one is ever visible per breakpoint. editor.scss
+ * overrides this so both stay visible and editable in the block editor.
+ */
+.wp-block-aludra-hero-split {
+	padding: 64px 0;
+
+	.hero-split__inner {
+		max-width: var(--wp--style--global--wide-size, 64rem);
+		margin: 0 auto;
+		padding-left: var(--wp--preset--spacing--50, 24px);
+		padding-right: var(--wp--preset--spacing--50, 24px);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 48px;
+	}
+
+	.hero-split__inner > * {
+		margin-top: 0 !important;
+	}
+
+	/* ─── CONTENT ─── */
+	.hero-split__content {
+		flex: 1 1 380px;
+		gap: 20px !important;
+	}
+
+	.hero-split__title {
+		color: var(--wp--preset--color--contrast, #1a1a1a);
+		font-size: clamp(2rem, 5vw, 3rem);
+		line-height: 1.15;
+	}
+
+	.hero-split__lead {
+		color: var(--wp--preset--color--secondary, #6b7280);
+		font-size: 1.1rem;
+		line-height: 1.6;
+		max-width: 480px;
+	}
+
+	.hero-split__ctas.wp-block-buttons {
+		margin-top: 8px !important;
+	}
+
+	/* ─── MEDIA ─── */
+	.hero-split__media {
+		flex: 1 1 380px;
+	}
+
+	.hero-split__image {
+		margin: 0 !important;
+	}
+
+	.hero-split__image img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: 12px;
+	}
+
+	.hero-split__image--mobile {
+		display: none;
+	}
+
+	/* ─── RESPONSIVE ─── */
+	@media (max-width: 768px) {
+		padding: 40px 0;
+
+		.hero-split__inner {
+			gap: 32px;
+		}
+
+		.hero-split__image--desktop {
+			display: none;
+		}
+
+		.hero-split__image--mobile {
+			display: block;
+		}
+	}
+}
