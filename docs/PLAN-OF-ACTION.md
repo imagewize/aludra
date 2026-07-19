@@ -1,7 +1,7 @@
 # Aludra — Plan of Action
 
 _Last updated: 2026-07-19 (hero-split, about, services-block, review-profiles, cta-banner ported,
-faq-tabs accordion displayMode, homepage page pattern; v2.11.0)_
+faq-tabs accordion displayMode, homepage page pattern; v2.11.1)_
 
 ## 1. What Aludra is
 
@@ -37,13 +37,13 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 > baseline templates use core blocks. WooCommerce is the one accepted "required plugin"
 > exception.
 
-## 2. Current state (v2.11.0)
+## 2. Current state (v2.11.1)
 
 - Forked from `elayne-blocks` (files only, no git history), fresh `git init`.
 - Full identifier rename: `elayne-blocks/*` → `aludra/*`, text domain `aludra`, constants
   `ALUDRA_*`, PHP namespace `Aludra`, files `aludra.php` / `languages/aludra.pot` /
   `languages/aludra-nl_NL.po`. Zero `elayne` references remain.
-- Version: **2.11.0** (current stable).
+- Version: **2.11.1** (current stable).
 - GitHub target: **`imagewize/aludra`** (published and active).
 
 ### Blocks shipped today (20)
@@ -81,6 +81,7 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 - **2.9.4** (2026-07-13): Added ABSPATH guards to mega-menu pattern files, fixed duplicate settings notice
 - **2.10.0** (2026-07-14): Ported Contact Section (Tier A) and Hero Banner (Tier B `service-hero`, generalised — first Tier B block ported; hardcoded colour-scheme block styles dropped in favour of theme color presets with fallbacks)
 - **2.11.0** (2026-07-19): Ported Hero Split, About, Services Block, Review Profiles, and CTA Banner (completing the imagewize.com homepage gap analysis from §13); added `displayMode: 'tabs' | 'accordion'` to FAQ Tabs; shipped the homepage as an Aludra page pattern (`patterns/page-homepage.php`), assembled end-to-end and validated with `wp pattern validate` (structural) and `wp-pattern-sentinel` (browser-based, real Gutenberg round-trip)
+- **2.11.1** (2026-07-19): Fixed missing default `margin:0` inline style on five of the homepage pattern's block wrappers, caught by re-running `wp-pattern-sentinel` against the real released v2.11.0 blocks (the local Pass 3 run during 2.11.0 development predated the demo site's Composer update, so it couldn't fully validate against released code — see §14)
 
 ## 3. Block gap analysis — what to import
 

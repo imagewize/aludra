@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.11.0
+Stable tag: 2.11.1
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -179,6 +179,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.11.1 =
+* Fixed: Homepage page pattern (patterns/page-homepage.php) was missing the default margin:0 inline style on the hero-split, about, cta-banner, services-block, and review-profiles wrapper elements — each block defaults style.spacing.margin to 0/0 in block.json, caught by a wp-pattern-sentinel browser validation run against the released blocks
 
 = 2.11.0 =
 * Added: Hero Split block (aludra/hero-split) — split-pane hero with heading, lead text, CTA button, and a CSS-only desktop/mobile image toggle, ported and generalised from imagewize.com's acf/hero
