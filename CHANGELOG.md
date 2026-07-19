@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned
 - Continue importing native React blocks from the Nynaeve theme (e.g. two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 
+## [2.11.1] - 2026-07-19
+
+### Fixed
+- **Homepage page pattern missing default margin styles** — `patterns/page-homepage.php`'s hand-authored markup omitted the `style="margin-top:0;margin-bottom:0"` inline style that `hero-split`, `about`, `cta-banner`, `services-block`, and `review-profiles` all default via `style.spacing.margin` in `block.json`. `wp pattern validate` (structural, PHP `parse_blocks()`) didn't catch this since it doesn't apply attribute defaults from `block.json`; a `wp-pattern-sentinel` Pass 3 run (real Gutenberg `save()`, browser-based) against the released v2.11.0 blocks did. See `docs/PLAN-OF-ACTION.md` §14 for the general lesson on hand-authoring pattern markup against block attribute defaults.
+
 ## [2.11.0] - 2026-07-19
 
 ### Added
