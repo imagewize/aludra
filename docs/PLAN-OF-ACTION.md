@@ -117,8 +117,9 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
 - [x] `cta-block-blue` → ported as `aludra/cta-banner`. Uses `supports.color.background`/`text`
   (native theme.json palette picker) plus a `var(--wp--preset--color--primary, #017cb6)`-style
   fallback chain in the stylesheet, same convention as `hero-banner`.
-- [ ] `review-profiles` → generalise colours (currently hardcoded `#f97316` background); needed
-  for imagewize.com homepage port (§13).
+- [x] `review-profiles` → ported as `aludra/review-profiles` (2026-07-19, unreleased). Hardcoded
+  `#f97316` background replaced with `supports.color.background`/`text` + a
+  `var(--wp--preset--color--primary, #f97316)`-style fallback chain.
 - [ ] `elayne-hero` / split-pane hero (imagewize.com's `acf/hero`: heading/sub-heading +
   desktop/mobile image pane) — **structurally different from `hero-banner`** (which is a dark
   full-width CTA hero, no image pane). Needs its own block, e.g. `aludra/hero-split`, not a
@@ -265,7 +266,7 @@ corrections worth recording.
 | "We are here to help" CTA band | `nynaeve/cta-block-blue` | ✅ ported as `aludra/cta-banner` (theme-adaptive) |
 | Services list (icon + heading + text, 2-per-row) | `imagewize/services-block` | ✅ ported as `aludra/services-block` |
 | Service icons | `imagewize/svg-block` | ✅ resolved as **not needed** — see below |
-| Client review cards | `imagewize/review-profiles` | ❌ not ported (Tier B, hardcoded `#f97316` background) |
+| Client review cards | `imagewize/review-profiles` | ✅ ported as `aludra/review-profiles` (theme-adaptive) |
 | FAQ accordion | `imagewize/faq` | ⏳ resolved as a `displayMode` addition to `aludra/faq-tabs` (§11.3), not yet implemented |
 
 ### Two scope corrections from this audit
@@ -301,7 +302,9 @@ corrections worth recording.
 4. ~~**`aludra/services-block`** (new Tier A item)~~ **Done (2026-07-19, unreleased):**
    icon+heading+text card grid, 2-per-row; icons via the existing `aludra/icon` binding
    (same mechanism as `feature-cards`/`icon-grid`), no new icon block needed.
-5. **`aludra/review-profiles`** (Tier B) — port + generalise colours.
+5. ~~**`aludra/review-profiles`** (Tier B)~~ **Done (2026-07-19, unreleased):** heading + 3-up
+   grid of round avatar + quote, generalised colours (avatars ship with an empty `core/image`
+   placeholder — no theme-specific photo paths baked in).
 6. **`aludra/hero-split`** (new block, not a `hero-banner` variant) — split-pane hero with
    desktop/mobile image swap.
 7. Once the above exist, assemble the imagewize.com homepage as an Aludra **page pattern**

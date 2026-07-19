@@ -135,6 +135,7 @@ add_action(
 				'cta-banner'             => true,
 				'about'                  => true,
 				'services-block'         => true,
+				'review-profiles'        => true,
 			)
 		);
 
@@ -191,6 +192,7 @@ add_action(
 				'cta-banner'             => true,
 				'about'                  => true,
 				'services-block'         => true,
+				'review-profiles'        => true,
 			)
 		);
 

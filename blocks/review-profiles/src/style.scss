@@ -1,0 +1,77 @@
+/**
+ * Frontend + editor styles for aludra/review-profiles.
+ *
+ * `supports.color.background`/`text` (block.json) expose the block's colours to
+ * the editor's native colour picker, so authors can pick any colour from the
+ * *active* theme's theme.json palette. These rules only supply the default
+ * look when no colour has been chosen — theme colour presets are referenced
+ * with fallbacks so themes that define these slugs (Nynaeve, Elayne, Aviendha)
+ * keep their palette, and any other theme still gets a sensible default.
+ */
+.wp-block-aludra-review-profiles {
+	background: var(--wp--preset--color--primary, #f97316);
+	color: var(--wp--preset--color--white, #ffffff);
+	padding: 80px 0;
+
+	.review-profiles__content {
+		max-width: var(--wp--style--global--wide-size, 64rem);
+		margin: 0 auto;
+		padding-left: var(--wp--preset--spacing--50, 24px);
+		padding-right: var(--wp--preset--spacing--50, 24px);
+	}
+
+	.review-profiles__content > * {
+		margin-top: 0 !important;
+	}
+
+	/* ─── TITLE ─── */
+	.review-profiles__title {
+		color: inherit;
+		font-size: clamp(1.5rem, 3.5vw, 2rem);
+		margin-bottom: 40px !important;
+	}
+
+	/* ─── GRID ─── */
+	.review-profiles__grid {
+		display: grid !important;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 32px;
+	}
+
+	.review-profiles__grid > .wp-block-group {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+	}
+
+	/* ─── ITEM ─── */
+	.review-profiles__item {
+		gap: 16px !important;
+	}
+
+	.review-profiles__avatar {
+		margin: 0 auto !important;
+	}
+
+	.review-profiles__avatar img {
+		width: 95px;
+		height: 95px;
+		object-fit: cover;
+		border-radius: 100px;
+	}
+
+	.review-profiles__quote {
+		color: inherit;
+		font-size: 1.1rem;
+		line-height: 1.6;
+	}
+
+	/* ─── RESPONSIVE ─── */
+	@media (max-width: 781px) {
+		padding: 56px 0;
+
+		.review-profiles__grid {
+			grid-template-columns: 1fr;
+			gap: 40px;
+		}
+	}
+}
