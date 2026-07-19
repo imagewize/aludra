@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned
 - Continue importing native React blocks from the Nynaeve theme (e.g. two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 
+## [2.11.2] - 2026-07-19
+
+### Changed
+- **Hero Split placeholder art** (`assets/placeholders/photo.svg`) — replaced the generic gray "broken image" mountain icon with a signature illustration: a stylised browser/site card with a lightning badge and a rising result bar-chart, staying fully grayscale so it drops into any theme's palette without hardcoding brand colour. Used by `patterns/page-homepage.php` (desktop + mobile hero images).
+- **Hero Split CTA button** (`blocks/hero-split`) — the button inside `.hero-split__ctas` now gets a directional arrow (CSS `mask`, `currentColor`, so it always matches the button's own text colour) that nudges on hover, plus a soft shadow and a 2px lift on hover/focus-visible. No new block attributes; existing patterns render the new styling automatically once rebuilt.
+
 ## [2.11.1] - 2026-07-19
 
 ### Fixed
