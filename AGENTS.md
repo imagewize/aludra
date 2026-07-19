@@ -43,6 +43,10 @@ Note: `blocks/mega-menu` uses `--experimental-modules` in its build/start script
 - Carousel only allows Slide children; Slide is constrained to Carousel.
 - Mega Menu uses the WordPress Interactivity API for frontend state.
 
+## Theme Compatibility
+- **Aludra is designed to be used with the [Aviendha theme](https://github.com/imagewize/aviendha)**. Aviendha is a lean Full Site Editing (FSE) WooCommerce theme and the companion to the Aludra block library.
+- **Nynaeve theme is NOT used with Aludra**. Blocks needed from Nynaeve (located at `~/code/nynaeve`) must be ported to Aludra. See [docs/PLAN-OF-ACTION.md](docs/PLAN-OF-ACTION.md) for the import strategy and gap analysis.
+
 ## Pattern Development
 - **Separator blocks:** Use WordPress 6.7+ compatible format without inline opacity styles:
   - Correct: `<!-- wp:separator {"className":"is-style-wide"} --><hr class="wp-block-separator has-alpha-channel-opacity is-style-wide"/><!-- /wp:separator -->`
