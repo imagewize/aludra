@@ -1,0 +1,34 @@
+<svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="rest-clip"><rect width="400" height="280" rx="14"/></clipPath>
+  </defs>
+  <g clip-path="url(#rest-clip)">
+    <rect width="400" height="280" fill="#F6EEE1"/>
+    <rect width="400" height="42" fill="#EEE2CE"/>
+    <circle cx="18" cy="21" r="4" fill="#5B3A1E" opacity=".28"/>
+    <circle cx="36" cy="21" r="4" fill="#5B3A1E" opacity=".28"/>
+    <circle cx="54" cy="21" r="4" fill="#5B3A1E" opacity=".28"/>
+    <rect x="70" y="12" width="306" height="18" rx="9" fill="#FCF8EF" stroke="#00000014"/>
+    <text x="80" y="24.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#5B3A1E" opacity=".55">harvest-table.com</text>
+
+    <!-- "restaurant-noodle" icon by Maki Icons, via Blade UI Kit (blade-icons) — MIT License -->
+    <g transform="translate(24,66) scale(2.1333)" fill="#8A4B12">
+      <path d="M4.457,11.9892,1,8V7H14V8l-3.4961,3.9891ZM3.9882,2.5a.5.5,0,0,0-1,0v.5671l-1.7969.3675a.25.25,0,1,0,.094.4911l1.7029-.2776v.5662l-1.75.0357a.25.25,0,0,0,0,.5l1.75.0357V5.998h1Zm9.5,1.5-7.5.2625V2.9951l7.594-1.0737a.5.5,0,0,0-.1881-.9822L5.9792,2.4555a.4963.4963,0,0,0-.991.0445v.2276l-.493.1009V3.18l.493-.08V4.2974l-.493.01v.4608L13.4882,5a.5.5,0,0,0,0-1ZM10,13H5v.5757h5Z"/>
+    </g>
+
+    <rect x="24" y="104" width="158" height="13" rx="6.5" fill="#5B3A1E"/>
+
+    <rect x="24" y="132" width="160" height="9" rx="4.5" fill="#5B3A1E" opacity=".6"/>
+    <rect x="328" y="132" width="28" height="9" rx="4.5" fill="#8A4B12" opacity=".85"/>
+
+    <rect x="24" y="156" width="125" height="9" rx="4.5" fill="#5B3A1E" opacity=".6"/>
+    <rect x="328" y="156" width="28" height="9" rx="4.5" fill="#8A4B12" opacity=".85"/>
+
+    <rect x="24" y="180" width="145" height="9" rx="4.5" fill="#5B3A1E" opacity=".6"/>
+    <rect x="328" y="180" width="28" height="9" rx="4.5" fill="#8A4B12" opacity=".85"/>
+
+    <rect x="24" y="204" width="158" height="30" rx="15" fill="#8A4B12"/>
+    <text x="103" y="223.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">Reserve a Table</text>
+  </g>
+  <rect x="0.5" y="0.5" width="399" height="279" rx="13.5" fill="none" stroke="#E9DBC2"/>
+</svg>

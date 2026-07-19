@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned
 - Continue importing native React blocks from the Nynaeve theme (e.g. two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 
+## [2.11.3] - 2026-07-19
+
+### Changed
+- **Homepage pattern "Our Clients" carousel** (`patterns/page-homepage.php`) — replaced the five carousel slides, which all reused the same 6-petal Aludra logo mark recolored, with five distinct mini browser-window mockups of fictional client sites (spa, ecommerce store, design agency, bike shop, restaurant), each with its own palette, layout, and fake domain in the mocked url bar. New source SVGs live in `assets/clients/`. The bike shop and restaurant cards use the Tabler `bike` and Maki `restaurant-noodle` icons via Blade UI Kit (Blade Icons, MIT License) — see README/readme.txt Credits.
+
 ## [2.11.2] - 2026-07-19
 
 ### Changed

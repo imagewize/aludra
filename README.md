@@ -261,6 +261,7 @@ GPL v3 or later - https://www.gnu.org/licenses/gpl-3.0.html
 - Based on blocks originally developed for the Imagewize block themes
 - Feature Cards, Icon Grid, Trust Bar, Pricing Tiers, Testimonial Grid, CTA Columns, Feature List Grid, Contact Section, and Hero Banner blocks ported from the **Nynaeve** theme and generalised for theme neutrality
 - Logo: original "nightflower" mark — a nod to the fireworks ("Nightflowers") made by the Guild of Illuminators in *The Wheel of Time*, Aludra's namesake. Alternate colourways live in `assets/logos/`.
+- Homepage pattern "Our Clients" carousel: the bike and noodle-bowl icons are [Tabler](https://blade-ui-kit.com/blade-icons/tabler-bike) and [Maki](https://blade-ui-kit.com/blade-icons/maki-restaurant-noodle) icons via [Blade UI Kit](https://blade-ui-kit.com/blade-icons) (MIT License). The five client-site mockups themselves live in `assets/clients/`.
 - Mega Menu block originally inspired by [Human Made's HM Mega Menu Block](https://github.com/humanmade/hm-mega-menu-block) and substantially enhanced with multiple layout modes, advanced positioning, focus management, and accessibility features
 - Carousel block originally inspired by the [Carousel Block Plugin](https://wordpress.org/plugins/carousel-block/) by Virgiliu Diaconu, but completely reimplemented using Slick Carousel with a different feature set, extensive customization options, and distinct functionality
 - Built with `@wordpress/scripts`
