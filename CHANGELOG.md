@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Hero Split placeholder art** (`assets/placeholders/photo.svg`) — replaced the generic gray "broken image" mountain icon with a signature illustration: a stylised browser/site card with a lightning badge and a rising result bar-chart, staying fully grayscale so it drops into any theme's palette without hardcoding brand colour. Used by `patterns/page-homepage.php` (desktop + mobile hero images).
 - **Hero Split CTA button** (`blocks/hero-split`) — the button inside `.hero-split__ctas` now gets a directional arrow (CSS `mask`, `currentColor`, so it always matches the button's own text colour) that nudges on hover, plus a soft shadow and a 2px lift on hover/focus-visible. No new block attributes; existing patterns render the new styling automatically once rebuilt.
 
+### Documentation
+- **README.md** — added the five blocks introduced in 2.11.0 (`hero-split`, `about`, `services-block`, `review-profiles`, `cta-banner`) and the homepage page pattern to the "Included Blocks" list and "Block Details", none of which had been documented there.
+
 ## [2.11.1] - 2026-07-19
 
 ### Fixed

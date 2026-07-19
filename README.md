@@ -17,21 +17,28 @@ This plugin was created to align with WordPress.org Theme Review requirements, w
 
 ## Included Blocks
 
+- **About Section Block** (`aludra/about`) - Content section with heading, lead paragraph, offer list, and closing copy
 - **Carousel Block** (`aludra/carousel`) - Responsive image/content carousel with Slick Carousel integration, thumbnails, and arrow customization
 - **Contact Section Block** (`aludra/contact-section`) - Dark contact section with info column and Contact Form 7 form card
+- **CTA Banner Block** (`aludra/cta-banner`) - Full-width call-to-action band with heading, lead text, and button
 - **CTA Columns Block** (`aludra/cta-columns`) - Dual call-to-action cards with headings, descriptions, and buttons
 - **FAQ Tab Answer Block** (`aludra/faq-tab-answer`) - Individual answer child block for FAQ Tabs
 - **FAQ Tabs Block** (`aludra/faq-tabs`) - Interactive FAQ with vertical tab navigation and dynamic content display
 - **Feature Cards Block** (`aludra/feature-cards`) - Responsive grid of feature highlight cards with icons
 - **Feature List Grid Block** (`aludra/feature-list-grid`) - Two-column grid of features with checkmarks and hover effects
 - **Hero Banner Block** (`aludra/hero-banner`) - Dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons
+- **Hero Split Block** (`aludra/hero-split`) - Split-pane hero with heading, lead text, CTA button, and a desktop/mobile image pair
 - **Icon Grid Block** (`aludra/icon-grid`) - Auto-fit grid of icon + text items with a section header
 - **Mega Menu Block** (`aludra/mega-menu`) - Advanced navigation menu with mega menu functionality (works best with FSE/block themes)
 - **Pricing Tiers Block** (`aludra/pricing-tiers`) - Three-column pricing comparison table with featured tier highlighting
+- **Review Profiles Block** (`aludra/review-profiles`) - Heading plus a row of round avatar photos with client quotes
 - **Search Overlay Trigger Block** (`aludra/search-overlay-trigger`) - Search icon that opens a full-screen search overlay
+- **Services Block** (`aludra/services-block`) - Section header with a two-per-row grid of icon, heading, and text service cards
 - **Slide Block** (`aludra/slide`) - Individual carousel slides with InnerBlocks support
 - **Testimonial Grid Block** (`aludra/testimonial-grid`) - Customer testimonial grid with metrics, using Slick Carousel on larger sets
 - **Trust Bar Block** (`aludra/trust-bar`) - Inline bar of trust-signal items that wraps on mobile
+
+Also included: a full **homepage page pattern** (`patterns/page-homepage.php`) that assembles these blocks into a ready-made agency/service-business layout, available when creating a new page.
 
 ## Requirements
 
@@ -190,6 +197,49 @@ Two-column grid of features with checkmarks and hover effects.
 **Features:**
 - Responsive two-column layout that stacks on mobile
 - Hover effects on each feature item
+
+### Hero Split Block
+
+Split-pane hero with heading, lead text, and a button on one side, and a desktop/mobile image pair on the other.
+
+**Features:**
+- Desktop/mobile image swap handled by a pure CSS media-query toggle between two independently editable `core/image` blocks — no JS
+- CTA button with a directional arrow and hover lift
+- Theme colour presets with sensible fallbacks
+
+### About Section Block
+
+Full-width about/value-proposition section with heading, lead text, an offer list, and closing copy.
+
+**Features:**
+- Built from InnerBlocks for full content flexibility
+- Theme colour presets with sensible fallbacks
+
+### Services Block
+
+Section header with a two-per-row grid of icon, heading, and text service cards.
+
+**Features:**
+- Icons resolved via the reusable `aludra/icon` binding
+- Responsive grid that stacks on mobile
+- Theme colour presets with sensible fallbacks
+
+### Review Profiles Block
+
+Full-width client review section with a heading and a row of round avatar photos with quotes.
+
+**Features:**
+- Three-up grid of avatar photo + quote
+- Avatars ship as empty `core/image` placeholders ready for real client photos
+- Theme colour presets with sensible fallbacks
+
+### CTA Banner Block
+
+Full-width call-to-action band with heading, lead text, and button.
+
+**Features:**
+- Native `theme.json` colour palette support with preset-fallback chain
+- Built from InnerBlocks for full content flexibility
 
 ### Hero Banner Block
 
