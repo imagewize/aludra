@@ -1,0 +1,27 @@
+<svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="spa-clip"><rect width="400" height="280" rx="14"/></clipPath>
+    <linearGradient id="spa-blob" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#E7C9BC"/>
+      <stop offset="100%" stop-color="#B4785A"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#spa-clip)">
+    <rect width="400" height="280" fill="#F4EAE4"/>
+    <rect width="400" height="42" fill="#ECD9D0"/>
+    <circle cx="18" cy="21" r="4" fill="#4A342C" opacity=".28"/>
+    <circle cx="36" cy="21" r="4" fill="#4A342C" opacity=".28"/>
+    <circle cx="54" cy="21" r="4" fill="#4A342C" opacity=".28"/>
+    <rect x="70" y="12" width="306" height="18" rx="9" fill="#FBF6F1" stroke="#00000014"/>
+    <text x="80" y="24.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#4A342C" opacity=".55">solstice-retreat.com</text>
+
+    <path d="M26 100C26 78 44 64 66 67C88 70 102 84 99 104C96 124 78 136 58 133C38 130 26 120 26 100Z" fill="url(#spa-blob)"/>
+
+    <rect x="24" y="156" width="176" height="12" rx="6" fill="#4A342C"/>
+    <rect x="24" y="178" width="112" height="9" rx="4.5" fill="#4A342C" opacity=".45"/>
+
+    <rect x="24" y="204" width="148" height="30" rx="15" fill="#B4785A"/>
+    <text x="98" y="223.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">Book a Treatment</text>
+  </g>
+  <rect x="0.5" y="0.5" width="399" height="279" rx="13.5" fill="none" stroke="#E7D5CB"/>
+</svg>

@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.11.2
+Stable tag: 2.11.3
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -179,6 +179,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.11.3 =
+* Changed: Homepage pattern "Our Clients" carousel (patterns/page-homepage.php) — replaced the five carousel slides, which all reused the same 6-petal Aludra logo mark recolored, with five distinct mini browser-window mockups of fictional client sites (spa, ecommerce store, design agency, bike shop, restaurant), each with its own palette, layout, and fake domain in the mocked url bar. New source SVGs live in assets/clients/. The bike shop and restaurant cards use the Tabler bike and Maki restaurant-noodle icons via Blade UI Kit (Blade Icons, MIT License) — see Credits section.
 
 = 2.11.2 =
 * Changed: Hero Split placeholder art (assets/placeholders/photo.svg) — replaced the generic gray mountain icon with a signature illustration (browser/site card, lightning badge, rising result chart), kept fully grayscale so it works with any theme's palette
@@ -436,6 +439,12 @@ The MIT License is GPL-compatible.
 The plugin icon is based on IconPark Block One from Blade UI Kit.
 * Source: https://blade-ui-kit.com/blade-icons/iconpark-blockone-o
 * License: MIT License
+
+= Homepage Pattern Client Icons =
+The bike and noodle-bowl icons used in the homepage pattern's "Our Clients" carousel are from Blade UI Kit (Blade Icons), sourced from the Tabler Icons and Maki Icons sets respectively.
+* Bike icon source: https://blade-ui-kit.com/blade-icons/tabler-bike
+* Restaurant icon source: https://blade-ui-kit.com/blade-icons/maki-restaurant-noodle
+* Blade Icons license: https://github.com/driesvints/blade-icons/blob/main/LICENSE.md (MIT License)
 
 = Mega Menu Implementation =
 The mega menu block was originally inspired by the HM Mega Menu Block by Human Made and substantially enhanced.
