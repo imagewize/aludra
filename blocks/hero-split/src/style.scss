@@ -34,14 +34,41 @@
 		gap: 20px !important;
 	}
 
+	/* Small caps kicker above the H1, with an accent dot marker. */
+	.hero-split__eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		font-size: 0.8125rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--wp--preset--color--primary, #9f1239);
+
+		&::before {
+			content: "";
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			flex-shrink: 0;
+			background: var(--wp--preset--color--accent, #4d7c0f);
+		}
+	}
+
 	.hero-split__title {
 		color: var(--wp--preset--color--contrast, #1a1a1a);
 		font-size: clamp(2rem, 5vw, 3rem);
 		line-height: 1.15;
+
+		/* Two-tone headline: <em> is repurposed as the highlight span. */
+		em {
+			font-style: normal;
+			color: var(--wp--preset--color--primary, #9f1239);
+		}
 	}
 
 	.hero-split__lead {
-		color: var(--wp--preset--color--secondary, #6b7280);
+		color: var(--wp--preset--color--secondary, #57534e);
 		font-size: 1.1rem;
 		line-height: 1.6;
 		max-width: 480px;
@@ -84,6 +111,31 @@
 
 		&:active {
 			transform: translateY(0);
+		}
+	}
+
+	/* Ghost/outline secondary CTA. Core's outline style inherits the theme's
+	   button element colours (often light-on-light); give it a usable default
+	   unless the author picked colours. */
+	.hero-split__ctas .is-style-outline .wp-block-button__link:not(.has-text-color):not(.has-background) {
+		background: transparent;
+		color: var(--wp--preset--color--primary, #9f1239);
+		border: 1.5px solid currentcolor;
+		box-shadow: none;
+
+		&::after {
+			display: none;
+		}
+	}
+
+	/* Proof-point line under the CTAs: "✓ thing · ✓ other thing". */
+	.hero-split__trust {
+		font-size: 0.85rem;
+		color: var(--wp--preset--color--secondary, #57534e);
+
+		.hero-split__check {
+			color: var(--wp--preset--color--accent, #4d7c0f);
+			font-weight: 700;
 		}
 	}
 
@@ -135,12 +187,32 @@
 		}
 
 		&:not(.has-text-color) {
+			.hero-split__eyebrow {
+				color: color-mix(in oklch, var(--wp--preset--color--primary, #9f1239) 55%, white);
+
+				&::before {
+					background: color-mix(in oklch, var(--wp--preset--color--accent, #4d7c0f) 60%, white);
+				}
+			}
+
 			.hero-split__title {
 				color: var(--wp--preset--color--base, #faf7f2);
+
+				em {
+					color: color-mix(in oklch, var(--wp--preset--color--primary, #9f1239) 55%, white);
+				}
 			}
 
 			.hero-split__lead {
 				color: color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 74%, transparent);
+			}
+
+			.hero-split__trust {
+				color: color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 74%, transparent);
+
+				.hero-split__check {
+					color: color-mix(in oklch, var(--wp--preset--color--accent, #4d7c0f) 60%, white);
+				}
 			}
 		}
 
@@ -154,6 +226,29 @@
 			box-shadow:
 				0 1px 2px rgba(0, 0, 0, 0.2),
 				0 12px 28px -10px color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 60%, transparent);
+		}
+
+		/* On the dark band the plain `primary` fill sits too close in value to
+		   the `main` background; brighten it (hover settles back on primary).
+		   Only when the author hasn't picked a background. */
+		.hero-split__ctas .wp-block-button:not(.is-style-outline) .wp-block-button__link:not(.has-background) {
+			background: color-mix(in oklch, var(--wp--preset--color--primary, #9f1239) 82%, white);
+
+			&:hover,
+			&:focus-visible {
+				background: var(--wp--preset--color--primary, #9f1239);
+			}
+		}
+
+		/* Ghost CTA flips to a light outline on the dark band. */
+		.hero-split__ctas .is-style-outline .wp-block-button__link:not(.has-text-color):not(.has-background) {
+			color: var(--wp--preset--color--base, #faf7f2);
+			border-color: color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 28%, transparent);
+
+			&:hover,
+			&:focus-visible {
+				border-color: color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 60%, transparent);
+			}
 		}
 
 		/* ember line along the bottom edge */

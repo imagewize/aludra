@@ -17,11 +17,18 @@ const TEMPLATE = [
 		},
 		[
 			[
+				'core/paragraph',
+				{
+					className: 'hero-split__eyebrow',
+					content: 'What You Do',
+				},
+			],
+			[
 				'core/heading',
 				{
 					level: 1,
 					className: 'hero-split__title',
-					content: 'A Headline That Sets The Tone',
+					content: 'A Headline That <em>Sets The Tone</em>',
 					style: { typography: { lineHeight: '1.15' } },
 				},
 			],
@@ -39,7 +46,25 @@ const TEMPLATE = [
 					className: 'hero-split__ctas',
 					layout: { type: 'flex', flexWrap: 'wrap' },
 				},
-				[ [ 'core/button', { text: 'Get Started', url: '#' } ] ],
+				[
+					[ 'core/button', { text: 'Get Started', url: '#' } ],
+					[
+						'core/button',
+						{
+							text: 'See Our Work',
+							url: '#',
+							className: 'is-style-outline',
+						},
+					],
+				],
+			],
+			[
+				'core/paragraph',
+				{
+					className: 'hero-split__trust',
+					content:
+						'<span class="hero-split__check">✓</span> First proof point&nbsp;&nbsp;·&nbsp;&nbsp;<span class="hero-split__check">✓</span> Second proof point',
+				},
 			],
 		],
 	],

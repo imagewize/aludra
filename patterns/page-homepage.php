@@ -11,12 +11,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 ?>
-<!-- wp:aludra/hero-split -->
-<div class="wp-block-aludra-hero-split alignfull" style="margin-top:0;margin-bottom:0">
+<!-- wp:aludra/hero-split {"className":"is-style-night"} -->
+<div class="wp-block-aludra-hero-split is-style-night alignfull" style="margin-top:0;margin-bottom:0">
 <div class="hero-split__inner">
 <!-- wp:group {"className":"hero-split__content","layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group hero-split__content"><!-- wp:heading {"level":1,"className":"hero-split__title","style":{"typography":{"lineHeight":"1.15"}}} -->
-<h1 class="wp-block-heading hero-split__title" style="line-height:1.15">Fast Sites. Real Results.</h1>
+<div class="wp-block-group hero-split__content"><!-- wp:paragraph {"className":"hero-split__eyebrow"} -->
+<p class="hero-split__eyebrow">WordPress &amp; WooCommerce</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":1,"className":"hero-split__title","style":{"typography":{"lineHeight":"1.15"}}} -->
+<h1 class="wp-block-heading hero-split__title" style="line-height:1.15">Fast Sites. <em>Real Results.</em></h1>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"hero-split__lead"} -->
@@ -26,8 +30,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:buttons {"className":"hero-split__ctas","layout":{"type":"flex","flexWrap":"wrap"}} -->
 <div class="wp-block-buttons hero-split__ctas"><!-- wp:button -->
 <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#">Get in Touch</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#">See Our Work</a></div>
 <!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:paragraph {"className":"hero-split__trust"} -->
+<p class="hero-split__trust"><span class="hero-split__check">✓</span> Performance-first builds&nbsp;&nbsp;·&nbsp;&nbsp;<span class="hero-split__check">✓</span> Roots.io stack</p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"hero-split__media"} -->
