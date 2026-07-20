@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.16.0
+Stable tag: 2.17.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -180,6 +180,13 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.17.0 =
+* Changed: All legacy blue/cool-gray fallback colours in block styles replaced with warm equivalents matching the Aviendha palette (#017cb6/#2563eb → #9f1239, #015a80 → #7f0f2e, #6b7280/#98999a → #57534e, #555 → #78716c, light blues → #fde8ec); blue rgba shadows/glows warmed to burgundy rgba(159, 18, 57, …). Themes missing a palette slug now degrade to the warm look instead of the old blue palette
+* Changed: cta-columns and testimonial-grid primary-accent backgrounds gained an explicit #fde8ec fallback (previously resolved to transparent on themes without the slug)
+* Fixed: Contact Section CF7 response message used primary-accent (a pale background tint) as text colour — now uses primary
+* Changed: Hero Split eyebrow and Icon Grid label opt into an optional terracotta palette slug (falls back to primary on themes without it)
+* Added: docs/PALETTE-CONTRACT.md — the 13 required (and 2 optional) palette slugs a theme must define to host Aludra, with dark-variation reference values and fallback policy
 
 = 2.16.0 =
 * Added: Hero Split content anatomy — eyebrow/kicker line with accent dot, two-tone headline (em highlight in the primary colour), secondary outline/ghost CTA with usable defaults, and a proof-point trust line with accent check marks; all seeded in the block's inner template and the Homepage pattern
