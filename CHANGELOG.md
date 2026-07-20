@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Continue importing the remaining Tier-A blocks from the Nynaeve theme (two-column-card, content-image-text-card, multi-column-content, related-articles, related-links, expect-list, case-studies), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 - Roll the scroll-reveal utility and tilt attribute out to more blocks (`feature-cards`, `icon-grid`, `pricing-tiers`, `feature-list-grid`), then the gradient-overlay media card block. See `docs/CARD-EFFECTS-AND-SCROLL-ANIMATIONS.md` for the full phased plan.
 
+## [2.15.0] - 2026-07-20
+
+### Added
+- **"Night" block style for Hero Split** (`aludra/hero-split`) — a dark hero variant selectable from the editor's style picker. Dark `main` background with a soft radial glow mixed from `primary`, light `base` heading, translucent lead text, a primary-tinted glow on the CTA, stronger imagery shadow, and a thin "ember line" gradient along the bottom edge. All colours resolve from the active theme's palette via `color-mix()` (fallbacks are Aviendha's values), and `:not(.has-background)` / `:not(.has-text-color)` guards keep author-picked colours in charge. Block version bumped to 1.1.0.
+- **Aviendha hero design mockups** (`designs/aviendha/`) — three self-contained HTML design explorations for the split hero (C1 "Sand & Rose", C2 "Night in the Waste" — the basis for the new Night style — and C3 "Threefold Land") plus a comparison index page.
+
 ## [2.14.0] - 2026-07-20
 
 ### Added
