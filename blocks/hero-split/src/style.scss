@@ -107,6 +107,75 @@
 		display: none;
 	}
 
+	/* ─── STYLE: NIGHT ───
+	   Dark hero ("Night in the Waste" — designs/aviendha/hero-c2-night.html in
+	   this repo). Dark `main` background with a soft radial glow
+	   from `primary`, light text, a glowing CTA, and a thin "ember line" along
+	   the bottom edge. All colours resolve from the active theme's palette;
+	   fallbacks are Aviendha's values. `:not(.has-background)` /
+	   `:not(.has-text-color)` keep the editor's native colour picks in charge
+	   when an author sets their own. */
+	&.is-style-night {
+		position: relative;
+		overflow: hidden;
+
+		&:not(.has-background) {
+			background:
+				radial-gradient(
+					1100px 520px at 78% 18%,
+					color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 28%, transparent),
+					transparent 65%
+				),
+				radial-gradient(
+					800px 600px at 8% 95%,
+					color-mix(in srgb, var(--wp--preset--color--contrast, #211c1a) 90%, transparent),
+					transparent 70%
+				),
+				var(--wp--preset--color--main, #2b1a20);
+		}
+
+		&:not(.has-text-color) {
+			.hero-split__title {
+				color: var(--wp--preset--color--base, #faf7f2);
+			}
+
+			.hero-split__lead {
+				color: color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 74%, transparent);
+			}
+		}
+
+		/* white/light imagery is the brightest element on the dark band */
+		.hero-split__image img {
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 32px 64px -20px rgba(0, 0, 0, 0.55);
+		}
+
+		/* glow tied to the theme's primary so the CTA pops off the dark bg */
+		.hero-split__ctas .wp-block-button__link {
+			box-shadow:
+				0 1px 2px rgba(0, 0, 0, 0.2),
+				0 12px 28px -10px color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 60%, transparent);
+		}
+
+		/* ember line along the bottom edge */
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: 3px;
+			background: linear-gradient(
+				90deg,
+				transparent,
+				var(--wp--preset--color--primary, #9f1239) 30%,
+				color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 45%, #fff) 55%,
+				transparent 90%
+			);
+			opacity: 0.8;
+			pointer-events: none;
+		}
+	}
+
 	/* ─── RESPONSIVE ─── */
 	@media (max-width: 768px) {
 		padding: 40px 0;

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviendha Hero C2 — Night in the Waste</title>
+<style>
+	:root {
+		--base: #FAF7F2;
+		--tertiary: #F0E9DD;
+		--border-light: #E5DED2;
+		--contrast: #211C1A;
+		--contrast-2: #57534E;
+		--muted-on-dark: #C9C0B8;
+		--main: #2B1A20;
+		--primary: #9F1239;
+		--primary-bright: #E11D48;
+		--primary-dark: #7F0F2E;
+		--rose: #FDA4AF;
+		--rose-tint: #FDE8EC;
+		--accent: #4D7C0F;
+		--accent-bright: #84CC16;
+		--rose-bloom: linear-gradient(135deg, #9F1239 0%, #2B1A20 100%);
+		--font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	}
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	body { font-family: var(--font); background: var(--base); color: var(--contrast); line-height: 1.6; }
+
+	.option-label {
+		position: fixed; bottom: 12px; left: 12px; z-index: 50;
+		background: var(--base); color: var(--contrast);
+		font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+		padding: 6px 12px; border-radius: 999px; opacity: 0.9;
+		border: 1px solid var(--border-light);
+	}
+
+	/* ── Site header: dark to merge with hero ── */
+	.site-header {
+		display: flex; justify-content: space-between; align-items: center;
+		padding: 18px clamp(1rem, 4vw, 2rem);
+		background: var(--main);
+		border-bottom: 1px solid rgba(250,247,242,0.08);
+	}
+	.site-header .brand { font-weight: 700; font-size: 17px; color: var(--base); }
+	.site-header nav { display: flex; gap: 24px; font-size: 15px; }
+	.site-header a { color: var(--muted-on-dark); text-decoration: none; }
+	.site-header a:hover { color: var(--base); }
+
+	/* ── HERO: dark maroon band with radial depth ── */
+	.hero {
+		position: relative;
+		background:
+			radial-gradient(1100px 520px at 78% 18%, rgba(159,18,57,0.28), transparent 65%),
+			radial-gradient(800px 600px at 8% 95%, rgba(33,28,26,0.9), transparent 70%),
+			var(--main);
+		color: var(--base);
+		padding: clamp(60px, 8vw, 104px) clamp(1rem, 4vw, 2rem);
+		overflow: hidden;
+	}
+	.hero__inner {
+		max-width: 1200px; margin: 0 auto;
+		display: flex; flex-wrap: wrap; align-items: center; gap: 56px;
+	}
+	.hero__content { flex: 1 1 380px; }
+	.hero__eyebrow {
+		display: inline-flex; align-items: center; gap: 10px;
+		font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+		color: var(--rose); margin-bottom: 18px;
+	}
+	.hero__eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-bright); }
+	.hero__title {
+		font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.12; font-weight: 700;
+		letter-spacing: -0.02em; margin-bottom: 20px; color: var(--base);
+	}
+	.hero__title em { font-style: normal; color: var(--rose); }
+	.hero__lead {
+		color: var(--muted-on-dark); font-size: 1.15rem; max-width: 460px; margin-bottom: 32px;
+	}
+	.hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+	.btn {
+		display: inline-flex; align-items: center; gap: 8px;
+		font-size: 15.5px; font-weight: 600; text-decoration: none;
+		padding: 14px 28px; border-radius: 999px;
+		transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+	}
+	.btn--primary {
+		background: var(--primary-bright); color: #fff;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.2), 0 12px 28px -10px rgba(225,29,72,0.6);
+	}
+	.btn--primary:hover { background: var(--primary); transform: translateY(-2px); }
+	.btn--primary .arrow { transition: transform 0.18s ease; }
+	.btn--primary:hover .arrow { transform: translateX(3px); }
+	.btn--ghost {
+		color: var(--base); border: 1.5px solid rgba(250,247,242,0.28); background: transparent;
+	}
+	.btn--ghost:hover { border-color: rgba(250,247,242,0.6); }
+
+	.hero__trust {
+		margin-top: 28px; display: flex; align-items: center; gap: 10px;
+		font-size: 13.5px; color: var(--muted-on-dark);
+	}
+	.hero__trust .check { color: var(--accent-bright); font-weight: 700; }
+
+	/* ── Media: white card = brightest element on screen ── */
+	.hero__media { flex: 1 1 380px; position: relative; }
+	.mock-card {
+		position: relative; z-index: 1;
+		background: #fff; border-radius: 16px; color: var(--contrast);
+		box-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 32px 64px -20px rgba(0,0,0,0.55);
+		padding: 20px 20px 24px; margin: 24px 20px 24px 0;
+	}
+	.mock-card__dots { display: flex; gap: 6px; margin-bottom: 16px; }
+	.mock-card__dots span { width: 9px; height: 9px; border-radius: 50%; background: var(--border-light); }
+	.skel { border-radius: 6px; margin-bottom: 12px; }
+	.skel--title { height: 20px; width: 62%; background: var(--contrast); border-radius: 8px; }
+	.skel--line1 { height: 12px; width: 88%; background: #C9C0B8; }
+	.skel--line2 { height: 12px; width: 55%; background: #DED6CA; }
+	.skel--chip  { height: 30px; width: 34%; background: var(--primary); border-radius: 999px; margin-top: 18px; margin-bottom: 0; }
+	.badge-bolt {
+		position: absolute; top: -16px; left: -16px; z-index: 2;
+		width: 48px; height: 48px; border-radius: 50%;
+		background: var(--rose-bloom); color: var(--base);
+		display: flex; align-items: center; justify-content: center;
+		box-shadow: 0 10px 22px -6px rgba(159,18,57,0.6);
+	}
+	.badge-chart {
+		position: absolute; right: -2px; bottom: 4px; z-index: 2;
+		background: var(--base); border-radius: 12px; padding: 12px 14px 10px;
+		display: flex; align-items: flex-end; gap: 4px;
+		box-shadow: 0 12px 26px -8px rgba(0,0,0,0.5);
+	}
+	.badge-chart i { display: block; width: 7px; border-radius: 2px; }
+	.badge-chart i:nth-child(1) { height: 10px; background: var(--border-light); }
+	.badge-chart i:nth-child(2) { height: 17px; background: var(--rose); }
+	.badge-chart i:nth-child(3) { height: 24px; background: var(--primary); }
+
+	/* thin ember line at the bottom of the hero */
+	.hero::after {
+		content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+		background: linear-gradient(90deg, transparent, var(--primary) 30%, var(--rose) 55%, transparent 90%);
+		opacity: 0.8;
+	}
+
+	/* ── Next section stub ── */
+	.next-section { padding: 72px clamp(1rem, 4vw, 2rem); text-align: center; }
+	.next-section h2 { font-size: 1.7rem; margin-bottom: 10px; }
+	.next-section p { color: var(--contrast-2); max-width: 540px; margin: 0 auto; }
+
+	@media (max-width: 768px) {
+		.hero__inner { gap: 40px; }
+	}
+</style>
+</head>
+<body>
+<div class="option-label">C2 · Night in the Waste — dark hero on <b>main</b></div>
+
+<header class="site-header">
+	<span class="brand">Aviendha</span>
+	<nav><a href="#">Home</a><a href="#">Sample Page</a></nav>
+</header>
+
+<section class="hero">
+	<div class="hero__inner">
+		<div class="hero__content">
+			<span class="hero__eyebrow"><span class="dot"></span> WordPress &amp; WooCommerce</span>
+			<h1 class="hero__title">Fast Sites.<br><em>Real Results.</em></h1>
+			<p class="hero__lead">Custom WordPress and WooCommerce development for businesses that need their site to work as hard as they do.</p>
+			<div class="hero__ctas">
+				<a class="btn btn--primary" href="#">Get in Touch <span class="arrow">→</span></a>
+				<a class="btn btn--ghost" href="#">See Our Work</a>
+			</div>
+			<p class="hero__trust"><span class="check">✓</span> Performance-first builds &nbsp;·&nbsp; <span class="check">✓</span> Roots.io stack</p>
+		</div>
+		<div class="hero__media">
+			<div class="badge-bolt">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+			</div>
+			<div class="mock-card">
+				<div class="mock-card__dots"><span></span><span></span><span></span></div>
+				<div class="skel skel--title"></div>
+				<div class="skel skel--line1"></div>
+				<div class="skel skel--line2"></div>
+				<div class="skel skel--chip"></div>
+			</div>
+			<div class="badge-chart"><i></i><i></i><i></i></div>
+		</div>
+	</div>
+</section>
+
+<section class="next-section">
+	<h2>What We Do — And Why It Matters.</h2>
+	<p>Dropping from the dark <code>main</code> hero back onto <code>base</code> cream gives the page its drama anchor; pairs naturally with the Twilight style variation.</p>
+</section>
+</body>
+</html>

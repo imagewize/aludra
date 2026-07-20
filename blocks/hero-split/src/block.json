@@ -2,13 +2,17 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "aludra/hero-split",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"title": "Hero Split",
 	"category": "aludra",
 	"icon": "columns",
 	"description": "Split-pane hero with heading, lead text, and a button on one side, and a desktop/mobile image pair on the other — colours adapt to the active theme's palette.",
 	"keywords": ["hero", "split", "image", "banner"],
 	"example": {},
+	"styles": [
+		{ "name": "default", "label": "Default", "isDefault": true },
+		{ "name": "night", "label": "Night" }
+	],
 	"supports": {
 		"html": false,
 		"align": ["wide", "full"],
