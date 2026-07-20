@@ -457,6 +457,11 @@ The bike and noodle-bowl icons used in the homepage pattern's "Our Clients" caro
 * Restaurant icon source: https://blade-ui-kit.com/blade-icons/maki-restaurant-noodle
 * Blade Icons license: https://github.com/driesvints/blade-icons/blob/main/LICENSE.md (MIT License)
 
+= README Logo =
+The Aludra logo displayed in README.md (assets/logos/f-sun.svg) is the Forkawesome sun icon from Blade UI Kit (Blade Icons), recoloured with Aludra's ember gradient. The earlier "nightflower" mark colourways remain in assets/logos/ as alternates.
+* Sun icon source: https://blade-ui-kit.com/blade-icons/forkawesome-sun
+* Blade Icons license: https://github.com/driesvints/blade-icons/blob/main/LICENSE.md (MIT License)
+
 = Mega Menu Implementation =
 The mega menu block was originally inspired by the HM Mega Menu Block by Human Made and substantially enhanced.
 * Original Source: https://github.com/humanmade/hm-mega-menu-block
