@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.15.0
+Stable tag: 2.16.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -180,6 +180,12 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.16.0 =
+* Added: Hero Split content anatomy — eyebrow/kicker line with accent dot, two-tone headline (em highlight in the primary colour), secondary outline/ghost CTA with usable defaults, and a proof-point trust line with accent check marks; all seeded in the block's inner template and the Homepage pattern
+* Changed: Homepage pattern hero now ships with the Night style, the new eyebrow, highlighted headline, ghost CTA, and trust line
+* Changed: Night style CTA contrast — default button brightens the primary colour on the dark band (hover returns to solid primary); ghost CTA flips to a light translucent outline
+* Changed: Hero lead fallback colour warmed from #6b7280 to #57534E for themes without a secondary palette slug
 
 = 2.15.0 =
 * Added: "Night" block style for the Hero Split block (aludra/hero-split) — a dark hero variant selectable from the editor's style picker, with a dark main background, soft radial glow from the primary colour, light heading and lead text, a glowing CTA, and a thin "ember line" along the bottom edge; all colours resolve from the active theme's palette with sensible fallbacks

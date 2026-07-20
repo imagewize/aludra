@@ -11,6 +11,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Continue importing the remaining Tier-A blocks from the Nynaeve theme (two-column-card, content-image-text-card, multi-column-content, related-articles, related-links, expect-list, case-studies), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 - Roll the scroll-reveal utility and tilt attribute out to more blocks (`feature-cards`, `icon-grid`, `pricing-tiers`, `feature-list-grid`), then the gradient-overlay media card block. See `docs/CARD-EFFECTS-AND-SCROLL-ANIMATIONS.md` for the full phased plan.
 
+## [2.16.0] - 2026-07-20
+
+### Added
+- **Hero Split content anatomy** (`aludra/hero-split`) — the hero's inner template and the Homepage
+  pattern gained the remaining elements from the C2 "Night in the Waste" mockup: a small-caps
+  eyebrow/kicker line with an accent dot (`hero-split__eyebrow`), a two-tone headline (`<em>` inside
+  the title renders upright in `primary`, or a rose tint on the Night style), a secondary
+  outline/ghost CTA (core `is-style-outline`, given usable defaults since core's outline style
+  otherwise inherits light-on-light theme button colours), and a proof-point trust line
+  (`hero-split__trust` with accent-coloured `hero-split__check` marks). Block version 1.2.0.
+
+### Changed
+- **Night style CTA contrast** — on the dark band the default button now brightens `primary` via
+  `color-mix(in oklch, … 82%, white)` (hover settles back on solid `primary`), and the ghost CTA
+  flips to a light translucent outline. Both respect author-picked colours via
+  `:not(.has-background)` / `:not(.has-text-color)` guards.
+- **Homepage pattern** (`aludra/page-homepage`) — hero now ships with the Night style
+  (`is-style-night`) and the new eyebrow ("WordPress & WooCommerce"), highlighted headline
+  ("Fast Sites. *Real Results.*"), "See Our Work" ghost CTA, and trust line.
+- **Warm fallbacks** — `hero-split__lead` fallback changed from cool gray `#6b7280` to warm
+  `#57534E` so the block degrades gracefully under themes that don't define `secondary`.
+
 ## [2.15.0] - 2026-07-20
 
 ### Added

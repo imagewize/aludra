@@ -2,7 +2,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "aludra/hero-split",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Hero Split",
   "category": "aludra",
   "icon": "columns",
