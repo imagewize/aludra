@@ -10,6 +10,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned
 - Continue importing native React blocks from the Nynaeve theme (e.g. two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 
+## [2.13.0] - 2026-07-20
+
+### Added
+- **Service Intro** block (`aludra/service-intro`) — introductory text section for service pages with constrained-width editable paragraphs, ported and generalised from Nynaeve's `imagewize/service-intro`.
+- **Service Detail Cards** block (`aludra/service-blocks`) — stacked, numbered service cards with a heading, description, and checklist, ported and generalised from Nynaeve's `imagewize/service-blocks`. Hardcoded colours (label blue, headings, body text, card borders) replaced with theme colour presets and fallbacks, matching the convention established by `feature-cards`/`icon-grid`; the source's `DM Serif Display` font reference was dropped in favour of `font-family: inherit` so the block stays theme-neutral.
+- Both new blocks registered in the `aludra_enabled` defaults and the Settings → Aludra admin page.
+
+### Documentation
+- Split the root `README.md`'s long per-block "Block Details" section out into `docs/BLOCKS.md`; the README now keeps only the short one-line "Included Blocks" summary list and links out for full feature notes.
+- Added `docs/README.md` as an index of the `docs/` directory, separating living documents (`PLAN-OF-ACTION.md`, `BLOCKS.md`, `BLOCK-CONSOLIDATION-AND-RENAMING.md`) from historical point-in-time notes (admin panel, mega menu, phase plans, translations, wp.org submission prep).
+- Replaced the README logo with the Forkawesome sun icon (`assets/logos/f-sun.svg`), sourced from Blade UI Kit (Blade Icons, MIT License); the earlier "nightflower" mark colourways remain in `assets/logos/` as alternates. Credited in README.md/readme.txt.
+
 ## [2.12.0] - 2026-07-20
 
 ### Added

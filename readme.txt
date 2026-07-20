@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.12.0
+Stable tag: 2.13.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -179,6 +179,13 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.13.0 =
+* Added: Service Intro block (aludra/service-intro) — introductory text section for service pages with constrained-width editable paragraphs, ported and generalised from Nynaeve's imagewize/service-intro
+* Added: Service Detail Cards block (aludra/service-blocks) — stacked, numbered service cards with a heading, description, and checklist, ported and generalised from Nynaeve's imagewize/service-blocks
+* Both new blocks registered in the aludra_enabled defaults and the Settings → Aludra admin page
+* Documentation: split README.md's per-block "Block Details" section out into docs/BLOCKS.md, and added docs/README.md indexing the docs/ directory (living docs vs. historical notes)
+* Replaced the README logo with the Forkawesome sun icon (assets/logos/f-sun.svg), sourced from Blade UI Kit (Blade Icons, MIT License); the earlier "nightflower" mark colourways remain in assets/logos/ as alternates
 
 = 2.12.0 =
 * Added: Dedicated "Aludra" block inserter category — all 20 aludra/* blocks moved off the shared core design/widgets categories into their own group.
