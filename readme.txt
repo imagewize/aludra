@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.13.0
+Stable tag: 2.14.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -79,6 +79,7 @@ Aludra is a theme-neutral shared block library for the Imagewize block themes (N
 **CTA Columns Block**
 * Dual call-to-action cards with headings, descriptions, and buttons
 * Color variant control via the block inspector
+* Optional "Reveal on scroll" entrance animation, fading and sliding the section into view
 
 **Feature List Grid Block**
 * Two-column grid of features with checkmarks and hover effects
@@ -179,6 +180,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.14.0 =
+* Added: Shared scroll-reveal utility — a small vanilla IntersectionObserver script (assets/js/scroll-reveal.js) that fades/slides elements into view as they enter the viewport, enqueued only on pages containing a block with its "Reveal on scroll" option enabled
+* Added: "Reveal on scroll" toggle on the CTA Columns block (aludra/cta-columns), the first block wired up to the new utility
+* Respects prefers-reduced-motion: reduce (no motion, content stays fully visible)
 
 = 2.13.0 =
 * Added: Service Intro block (aludra/service-intro) — introductory text section for service pages with constrained-width editable paragraphs, ported and generalised from Nynaeve's imagewize/service-intro

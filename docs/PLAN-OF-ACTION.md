@@ -2,7 +2,8 @@
 
 _Last updated: 2026-07-20 (homepage pattern carousel/validation fixes 2.11.2–2.11.5; Aludra
 block inserter category + block.json title/keyword cleanup 2.12.0; Service Intro + Service
-Detail Cards ported, Tier B fully resolved 2.13.0)_
+Detail Cards ported, Tier B fully resolved 2.13.0; shared scroll-reveal utility + CTA Columns
+pilot, Card Effects Phase 1, 2.14.0)_
 
 ## 1. What Aludra is
 
@@ -98,6 +99,14 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 - **2.11.5** (2026-07-19): Fixed the 2.11.4 fix itself — an inline `width:100%;height:auto` style isn't an attribute `core/image`'s `save()` produces, so it failed re-validation; replaced with the first-class `"align":"full"` attribute
 - **2.12.0** (2026-07-20): Registered a dedicated **`Aludra` block inserter category** so all 20 blocks group together instead of sharing core's `design`/`widgets` categories; fixed the **Pricing Tiers** block title (dropped the implementation-detail `"(3 Column)"` suffix); added missing `keywords` to `carousel`, `feature-list-grid`, `pricing-tiers`, `search-overlay-trigger`, and `slide`. First (non-breaking) pass of the Phase 1 items from [BLOCK-CONSOLIDATION-AND-RENAMING.md](./BLOCK-CONSOLIDATION-AND-RENAMING.md)
 - **2.13.0** (2026-07-20): Ported the last two Tier B blocks — **Service Intro** (`aludra/service-intro`, plain intro-text section) and **Service Detail Cards** (`aludra/service-blocks`, stacked numbered service cards with a checklist), both generalised from Nynaeve with theme colour-preset fallbacks and genericised placeholder copy. `page-heading-blue` dropped from the Tier B list as too outdated to be worth porting. Tier B is now fully resolved.
+- **2.14.0** (2026-07-20): Card Effects & Scroll Animations Phase 1 (see
+  [CARD-EFFECTS-AND-SCROLL-ANIMATIONS.md](./CARD-EFFECTS-AND-SCROLL-ANIMATIONS.md)) — added a
+  shared vanilla `IntersectionObserver` scroll-reveal utility (`assets/js/scroll-reveal.js`),
+  conditionally enqueued via a new `aludra_blocks_have_reveal_on_scroll()` helper in `aludra.php`
+  that recursively scans the current post's parsed blocks for a `revealOnScroll: true` attribute
+  (no jQuery, no Interactivity API). Piloted on **CTA Columns** (`aludra/cta-columns`) as a
+  "Reveal on scroll" Inspector toggle; respects `prefers-reduced-motion: reduce`. Establishes the
+  pattern for Phase 2+ (tilt attribute, more blocks, gradient-overlay media card).
 
 ## 3. Block gap analysis — what to import
 
