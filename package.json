@@ -6,7 +6,7 @@
     "validate:clear-cache": "sentinel --clear-cache"
   },
   "devDependencies": {
-    "@imwz/wp-pattern-sentinel": "^1.0.2",
+    "@imwz/wp-pattern-sentinel": "^1.0.4",
     "@playwright/test": "^1.57.0"
   }
 }
