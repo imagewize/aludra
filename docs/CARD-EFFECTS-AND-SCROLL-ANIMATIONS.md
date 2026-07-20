@@ -1,6 +1,7 @@
 # Card Effects & Scroll Animations — Investigation & Plan
 
-_Status: proposal, not yet implemented._
+_Status: Phase 1 shipped in v2.14.0 (shared scroll-reveal utility + CTA Columns pilot).
+Phases 2–5 not yet implemented._
 
 ## 1. Source
 
@@ -203,10 +204,15 @@ Purely a consistency/snappiness pass — not blocking on A–C, can land indepen
 
 ## 5. Suggested phasing
 
-1. **Phase 1 — shared utility + one pilot block.** Build the scroll-reveal script and
-   wire it into `cta-columns` only (closest existing analog to the reference cards).
-   Validate the `has_block`-gated enqueue pattern and `prefers-reduced-motion` handling
-   end-to-end before touching more blocks.
+1. **Phase 1 — shared utility + one pilot block.** ✅ Done in v2.14.0. Built the
+   scroll-reveal script (`assets/js/scroll-reveal.js`) and wired it into `cta-columns`
+   only (closest existing analog to the reference cards) via a `revealOnScroll`
+   attribute + Inspector toggle. The enqueue gate ended up attribute-aware rather than
+   just `has_block()`-gated — `aludra_blocks_have_reveal_on_scroll()` in `aludra.php`
+   recursively scans the current post's parsed blocks for `revealOnScroll: true`, so
+   the script only loads on pages where the toggle is actually on, not just wherever
+   `aludra/cta-columns` is present. `prefers-reduced-motion: reduce` handled in
+   `cta-columns/src/style.scss`.
 2. **Phase 2 — tilt attribute on `feature-cards` and `cta-columns`.** CSS-only, no new
    JS surface; fast to ship once (A) is proven.
 3. **Phase 3 — roll reveal + tilt out to `icon-grid`, `pricing-tiers`,

@@ -7,13 +7,13 @@
 	"category": "aludra",
 	"icon": "megaphone",
 	"description": "Dual call-to-action cards with headings, descriptions, and buttons",
-	"keywords": ["cta", "call to action", "buttons", "cards", "conversion"],
+	"keywords": [ "cta", "call to action", "buttons", "cards", "conversion" ],
 	"textdomain": "aludra",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"supports": {
-		"align": ["wide", "full"],
+		"align": [ "wide", "full" ],
 		"anchor": true,
 		"spacing": {
 			"margin": true,
@@ -29,9 +29,15 @@
 			"type": "string",
 			"default": "default"
 		},
+		"revealOnScroll": {
+			"type": "boolean",
+			"default": false
+		},
 		"style": {
 			"type": "object",
-			"default": { "spacing": { "margin": { "top": "0", "bottom": "0" } } }
+			"default": {
+				"spacing": { "margin": { "top": "0", "bottom": "0" } }
+			}
 		}
 	},
 	"example": {

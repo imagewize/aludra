@@ -3,7 +3,7 @@
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
  * Description: Shared custom block library for Imagewize block themes (Nynaeve, Elayne, Aviendha) — Mega Menu, Carousel, FAQ Tabs, and content blocks (Feature Cards, Pricing Tiers, Testimonial Grid, Contact Section, Hero Banner, and more). Built with React, block.json, and @wordpress/scripts.
- * Version: 2.13.0
+ * Version: 2.14.0
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.13.0' );
+define( 'ALUDRA_VERSION', '2.14.0' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -242,6 +242,58 @@ add_action(
 		}
 	}
 );
+
+/**
+ * Enqueue the shared scroll-reveal utility conditionally.
+ *
+ * Vanilla IntersectionObserver script (assets/js/scroll-reveal.js) that toggles
+ * `.is-revealed` on elements carrying `data-aludra-reveal`. Only enqueued on
+ * pages that actually contain a block with its `revealOnScroll` attribute set
+ * to true, so it never loads on pages that don't use it. See
+ * docs/CARD-EFFECTS-AND-SCROLL-ANIMATIONS.md for the full design.
+ */
+add_action(
+	'wp_enqueue_scripts',
+	function () {
+		$post = get_post();
+
+		if ( ! $post || ! has_blocks( $post->post_content ) ) {
+			return;
+		}
+
+		if ( ! aludra_blocks_have_reveal_on_scroll( parse_blocks( $post->post_content ) ) ) {
+			return;
+		}
+
+		wp_enqueue_script(
+			'aludra-scroll-reveal',
+			ALUDRA_PLUGIN_URL . 'assets/js/scroll-reveal.js',
+			array(),
+			ALUDRA_VERSION,
+			true
+		);
+	}
+);
+
+/**
+ * Recursively check parsed blocks for a `revealOnScroll` attribute set to true.
+ *
+ * @param array $blocks Parsed blocks, as returned by parse_blocks().
+ * @return bool
+ */
+function aludra_blocks_have_reveal_on_scroll( array $blocks ) {
+	foreach ( $blocks as $block ) {
+		if ( ! empty( $block['attrs']['revealOnScroll'] ) ) {
+			return true;
+		}
+
+		if ( ! empty( $block['innerBlocks'] ) && aludra_blocks_have_reveal_on_scroll( $block['innerBlocks'] ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
 
 /**
  * Register a dedicated "Aludra" block category.

@@ -38,6 +38,10 @@
       "type": "string",
       "default": "default"
     },
+    "revealOnScroll": {
+      "type": "boolean",
+      "default": false
+    },
     "style": {
       "type": "object",
       "default": {

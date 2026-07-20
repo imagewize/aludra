@@ -3,7 +3,7 @@ import {
 	InnerBlocks,
 	InspectorControls,
 } from '@wordpress/block-editor';
-import { PanelBody, SelectControl } from '@wordpress/components';
+import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 import './editor.scss';
@@ -323,7 +323,7 @@ function getBackgroundClass( colorVariant ) {
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
-	const { colorVariant } = attributes;
+	const { colorVariant, revealOnScroll } = attributes;
 
 	const blockProps = useBlockProps( {
 		className: `cta-columns ${ getBackgroundClass( colorVariant ) }`.trim(),
@@ -359,6 +359,17 @@ export default function Edit( { attributes, setAttributes } ) {
 						}
 						help={ __(
 							'Choose the background color for the entire CTA section (cards remain dark blue)',
+							'aludra'
+						) }
+					/>
+					<ToggleControl
+						label={ __( 'Reveal on scroll', 'aludra' ) }
+						checked={ !! revealOnScroll }
+						onChange={ ( value ) =>
+							setAttributes( { revealOnScroll: value } )
+						}
+						help={ __(
+							'Fade and slide the section into view as it enters the viewport.',
 							'aludra'
 						) }
 					/>

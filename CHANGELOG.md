@@ -8,7 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- Continue importing native React blocks from the Nynaeve theme (e.g. two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
+- Continue importing the remaining Tier-A blocks from the Nynaeve theme (two-column-card, content-image-text-card, multi-column-content, related-articles, related-links, expect-list, case-studies), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
+- Roll the scroll-reveal utility and tilt attribute out to more blocks (`feature-cards`, `icon-grid`, `pricing-tiers`, `feature-list-grid`), then the gradient-overlay media card block. See `docs/CARD-EFFECTS-AND-SCROLL-ANIMATIONS.md` for the full phased plan.
+
+## [2.14.0] - 2026-07-20
+
+### Added
+- **Shared scroll-reveal utility** (`assets/js/scroll-reveal.js`) — a small vanilla `IntersectionObserver` script that toggles `.is-revealed` on elements carrying `data-aludra-reveal`, fading/sliding them into view as they cross into the viewport. No jQuery, no Interactivity API — plain DOM + CSS classes. Enqueued conditionally in `aludra.php` (new `aludra_blocks_have_reveal_on_scroll()` helper recursively scans the current post's parsed blocks), so it's never loaded on pages without an opted-in block.
+- **CTA Columns** (`aludra/cta-columns`) gained a "Reveal on scroll" Inspector toggle (`revealOnScroll` attribute) — the first block wired to the new utility, per Phase 1 of `docs/CARD-EFFECTS-AND-SCROLL-ANIMATIONS.md`. Motion respects `prefers-reduced-motion: reduce`.
 
 ## [2.13.0] - 2026-07-20
 

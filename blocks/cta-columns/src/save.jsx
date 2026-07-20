@@ -27,10 +27,11 @@ function getBackgroundClass( colorVariant ) {
  * @return {Element} Element to render.
  */
 export default function Save( { attributes } ) {
-	const { colorVariant } = attributes;
+	const { colorVariant, revealOnScroll } = attributes;
 
 	const blockProps = useBlockProps.save( {
 		className: `cta-columns ${ getBackgroundClass( colorVariant ) }`.trim(),
+		'data-aludra-reveal': revealOnScroll ? 'true' : undefined,
 	} );
 
 	return (
