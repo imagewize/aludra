@@ -137,6 +137,8 @@ add_action(
 				'services-block'         => true,
 				'review-profiles'        => true,
 				'hero-split'             => true,
+				'service-intro'          => true,
+				'service-blocks'         => true,
 			)
 		);
 
@@ -195,6 +197,8 @@ add_action(
 				'services-block'         => true,
 				'review-profiles'        => true,
 				'hero-split'             => true,
+				'service-intro'          => true,
+				'service-blocks'         => true,
 			)
 		);
 

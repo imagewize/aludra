@@ -1,0 +1,9 @@
+/**
+ * Service Intro — editor-only overrides.
+ *
+ * Ensure paragraphs remain block-level in the editor context (prevents
+ * flex/pseudo-element issues on contenteditable targets).
+ */
+.wp-block-aludra-service-intro .wp-block-paragraph {
+	display: block !important;
+}
