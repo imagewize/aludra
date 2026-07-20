@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|medium","bottom":"var:preset|spacing|medium","left":"var:preset|spacing|medium","right":"var:preset|spacing|medium"}}},"layout":{"type":"grid","columnCount":null,"minimumColumnWidth":"18rem"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--medium);padding-right:var(--wp--preset--spacing--medium);padding-bottom:var(--wp--preset--spacing--medium);padding-left:var(--wp--preset--spacing--medium)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|small","padding":{"top":"var:preset|spacing|small","bottom":"var:preset|spacing|small","left":"var:preset|spacing|small","right":"var:preset|spacing|small"}},"border":{"radius":"12px","width":"1px"}},"borderColor":"contrast-2","backgroundColor":"contrast","layout":{"type":"constrained"}} -->
-<div class="wp-block-group has-border-color has-contrast-2-border-color has-contrast-background-color has-background" style="border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--small);padding-right:var(--wp--preset--spacing--small);padding-bottom:var(--wp--preset--spacing--small);padding-left:var(--wp--preset--spacing--small)"><!-- wp:image {"sizeSlug":"large","style":{"border":{"radius":"8px"}}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--medium);padding-right:var(--wp--preset--spacing--medium);padding-bottom:var(--wp--preset--spacing--medium);padding-left:var(--wp--preset--spacing--medium)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|small","padding":{"top":"var:preset|spacing|small","bottom":"var:preset|spacing|small","left":"var:preset|spacing|small","right":"var:preset|spacing|small"}},"border":{"radius":"12px","width":"1px"}},"borderColor":"secondary","backgroundColor":"contrast","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-border-color has-secondary-border-color has-contrast-background-color has-background" style="border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--small);padding-right:var(--wp--preset--spacing--small);padding-bottom:var(--wp--preset--spacing--small);padding-left:var(--wp--preset--spacing--small)"><!-- wp:image {"sizeSlug":"large","style":{"border":{"radius":"8px"}}} -->
 <figure class="wp-block-image size-large has-custom-border"><img src="https://placehold.co/400x300" alt="Promotional banner" style="border-radius:8px"/></figure>
 <!-- /wp:image -->
 
@@ -21,8 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading has-large-font-size">Summer Sale</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast-2"}}}},"textColor":"contrast-2"} -->
-<p class="has-contrast-2-color has-text-color has-link-color">Save up to 50% on selected items</p>
+<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|secondary"}}}},"textColor":"secondary"} -->
+<p class="has-secondary-color has-text-color has-link-color">Save up to 50% on selected items</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->

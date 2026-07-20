@@ -300,8 +300,8 @@ Pattern files ship in the distribution (they are `include`d at runtime to captur
 
 ❌ **Avoid (causes validation errors):**
 ```html
-<!-- wp:separator {"className":"is-style-wide","style":{"color":{"background":"var:preset|color|contrast-2"}}} -->
-<hr class="wp-block-separator has-background is-style-wide" style="background-color:var(--wp--preset--color--contrast-2);opacity:0.2"/>
+<!-- wp:separator {"className":"is-style-wide","style":{"color":{"background":"var:preset|color|secondary"}}} -->
+<hr class="wp-block-separator has-background is-style-wide" style="background-color:var(--wp--preset--color--secondary);opacity:0.2"/>
 <!-- /wp:separator -->
 ```
 

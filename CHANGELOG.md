@@ -11,6 +11,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Continue importing the remaining Tier-A blocks from the Nynaeve theme (two-column-card, content-image-text-card, multi-column-content, related-articles, related-links, expect-list, case-studies), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 - Roll the scroll-reveal utility and tilt attribute out to more blocks (`feature-cards`, `icon-grid`, `pricing-tiers`, `feature-list-grid`), then the gradient-overlay media card block. See `docs/CARD-EFFECTS-AND-SCROLL-ANIMATIONS.md` for the full phased plan.
 
+## [2.18.0] - 2026-07-20
+
+### Changed
+- **Palette slug naming cleanup** — `primary-dark` renamed to `primary-alt` to match the
+  `<family>-alt` tier naming used by other block themes (Ollie); updated in
+  `hero-banner`, `cta-banner`, and `contact-section` block SCSS. `contrast-2` removed —
+  it duplicated `secondary` (identical hex in both light and dark variations); the three
+  mega-menu patterns (`mega-menu-image-links`, `mega-menu-featured-content`,
+  `mega-menu-icon-features`) now reference `secondary` instead.
+- `docs/PALETTE-CONTRACT.md` updated: required slug count 13 → 12, dark-variation
+  reference table and notes updated to match.
+
 ## [2.16.0] - 2026-07-20
 
 ### Added

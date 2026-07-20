@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.17.0
+Stable tag: 2.18.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -180,6 +180,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.18.0 =
+* Changed: `primary-dark` palette slug renamed to `primary-alt` to match the `<family>-alt` naming tier used by other block themes (Ollie); all block SCSS fallbacks updated
+* Changed: `contrast-2` palette slug removed — it was a duplicate of `secondary` (same hex in both light and dark variations); mega-menu patterns now reference `secondary`
+* Changed: docs/PALETTE-CONTRACT.md — required slug count 13 → 12, contract updated to match the renamed/removed slugs
 
 = 2.17.0 =
 * Changed: All legacy blue/cool-gray fallback colours in block styles replaced with warm equivalents matching the Aviendha palette (#017cb6/#2563eb → #9f1239, #015a80 → #7f0f2e, #6b7280/#98999a → #57534e, #555 → #78716c, light blues → #fde8ec); blue rgba shadows/glows warmed to burgundy rgba(159, 18, 57, …). Themes missing a palette slug now degrade to the warm look instead of the old blue palette

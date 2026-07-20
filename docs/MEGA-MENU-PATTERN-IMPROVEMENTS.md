@@ -200,8 +200,8 @@ style="{
 
 #### Section Separators
 ```php
-<!-- wp:separator {"className":"is-style-wide","style":{"color":{"background":"var:preset|color|contrast-2"}}} -->
-<hr class="wp-block-separator has-background" style="background-color:var(--wp--preset--color--contrast-2);opacity:0.1"/>
+<!-- wp:separator {"className":"is-style-wide","style":{"color":{"background":"var:preset|color|secondary"}}} -->
+<hr class="wp-block-separator has-background" style="background-color:var(--wp--preset--color--secondary);opacity:0.1"/>
 ```
 
 #### Background Treatments
@@ -247,7 +247,7 @@ style="{
 
 **Pattern Type: Heading + Description Cards (Promotional Content)**
 ```php
-<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|small","padding":{...}},"border":{"radius":"12px","width":"1px"}},"borderColor":"contrast-2","layout":{"type":"constrained"}} -->
+<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|small","padding":{...}},"border":{"radius":"12px","width":"1px"}},"borderColor":"secondary","layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
   <!-- wp:heading {"level":4,"fontSize":"medium"} -->
   <h4>Featured This Week</h4>
@@ -255,7 +255,7 @@ style="{
   <!-- wp:image {...} -->
   <figure class="wp-block-image">...</figure>
 
-  <!-- wp:paragraph {"fontSize":"small","style":{"color":{"text":"var:preset|color|contrast-2"}}} -->
+  <!-- wp:paragraph {"fontSize":"small","style":{"color":{"text":"var:preset|color|secondary"}}} -->
   <p>Brief description of the featured content</p>
 
   <!-- wp:buttons -->
@@ -450,8 +450,8 @@ style="{"border":{"width":"1px","color":"var:preset|color|contrast","style":"sol
     <h4 class="has-medium-font-size"><a href="#">Free Shipping</a></h4>
     <!-- /wp:heading -->
 
-    <!-- wp:paragraph {"fontSize":"small","style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast-2"}}}},"textColor":"contrast-2"} -->
-    <p class="has-small-font-size has-contrast-2-color has-text-color">On orders over $50</p>
+    <!-- wp:paragraph {"fontSize":"small","style":{"elements":{"link":{"color":{"text":"var:preset|color|secondary"}}}},"textColor":"secondary"} -->
+    <p class="has-small-font-size has-secondary-color has-text-color">On orders over $50</p>
     <!-- /wp:paragraph -->
   </div>
   <!-- /wp:group -->

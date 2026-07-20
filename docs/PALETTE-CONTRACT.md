@@ -1,6 +1,6 @@
 # Aludra Palette Contract
 
-Every theme that hosts Aludra blocks **must define the 13 color slugs below** in its
+Every theme that hosts Aludra blocks **must define the 12 color slugs below** in its
 `theme.json` palette (and in every style variation under `styles/`). Aludra block
 stylesheets and patterns reference these slugs via `var(--wp--preset--color--<slug>)`
 and `textColor`/`backgroundColor` attributes. A missing slug does not error — it
@@ -15,21 +15,17 @@ color (patterns), which is how off-palette colors leak into a page.
 | `tertiary` | Alternate section band, subtle surface | section backgrounds, cards | `#F0E9DD` |
 | `border-light` | Hairline borders, dividers | cards, inputs, separators | `#E5DED2` |
 | `contrast` | Primary text (near-black) | headings, body | `#211C1A` |
-| `contrast-2` | Secondary/muted text | lead paragraphs, captions | `#57534E` |
 | `main` | Dark brand tone | dark sections, dark text accents | `#2B1A20` |
 | `primary` | Brand color — buttons, links, fills | 34 refs across blocks | `#9F1239` |
 | `accent` | Second accent (green) | icon fills, highlights | `#4D7C0F` |
 | `secondary` | Muted body text in blocks/patterns | hero-split lead, services, about, 11 pattern refs | `#57534E` |
 | `main-accent` | Muted text on cards | feature-cards, icon-grid, service-* | `#78716C` |
 | `primary-accent` | Pale tint of `primary` — card/badge **backgrounds** | feature-cards, icon-grid, services, testimonial-grid, cta-columns | `#FDE8EC` |
-| `primary-dark` | Darker `primary` — hover states | cta-banner, hero-banner, contact-section | `#7F0F2E` |
+| `primary-alt` | Darker `primary` — hover states | cta-banner, hero-banner, contact-section | `#7F0F2E` |
 | `white` | True white — text on dark/brand fills | cta-banner, review-profiles, patterns | `#FFFFFF` |
 
 Notes:
 
-- `secondary` intentionally duplicates `contrast-2` in Aviendha. Both must exist:
-  block SCSS and the homepage pattern reference `secondary`; theme-level styles use
-  `contrast-2`.
 - `primary-accent` is a **background tint**, not a text color. It must stay legible
   as a surface under `contrast` text and must contrast with `base`. Never use it
   for text.
@@ -52,7 +48,7 @@ slug: `var(--wp--preset--color--terracotta, var(--wp--preset--color--primary, #9
 
 ## Dark variations
 
-Dark style variations (e.g. Aviendha `styles/twilight.json`) must redefine **all 13
+Dark style variations (e.g. Aviendha `styles/twilight.json`) must redefine **all 12
 slugs**, inverting roles, not values — e.g. `base` becomes the dark background,
 `contrast` the light text, `primary-accent` a dark rose surface tint. Reference:
 
@@ -61,10 +57,9 @@ slugs**, inverting roles, not values — e.g. `base` becomes the dark background
 | `base` | `#211C1A` | | `secondary` | `#C9C0B8` |
 | `tertiary` | `#2B2422` | | `main-accent` | `#A8A29E` |
 | `border-light` | `#3D3532` | | `primary-accent` | `#3B1F28` |
-| `contrast` | `#FAF7F2` | | `primary-dark` | `#F43F5E` |
-| `contrast-2` | `#C9C0B8` | | `white` | `#FFFFFF` |
-| `main` | `#FDA4AF` | | `accent` | `#84CC16` |
-| `primary` | `#FB7185` | | | |
+| `contrast` | `#FAF7F2` | | `primary-alt` | `#F43F5E` |
+| `main` | `#FDA4AF` | | `white` | `#FFFFFF` |
+| `primary` | `#FB7185` | | `accent` | `#84CC16` |
 
 ## Fallback policy
 
@@ -90,3 +85,9 @@ Rules for new/edited block styles:
   missing (`secondary`, `main-accent`, `primary-accent`, `primary-dark`, `white`);
   Aludra 2.17.0 replaced all legacy blue/cool-gray fallbacks with warm ones.
   Background: `imagewize.com` repo, `docs/aviendha/COLOR-AND-HERO-REDESIGN.md`.
+- **2026-07:** Naming cleanup against the Ollie theme's slug convention. `primary-dark`
+  renamed to `primary-alt` (matches Ollie's `<family>-alt` tier naming). `contrast-2`
+  removed — it was a byte-for-byte duplicate of `secondary` in both Aviendha (`#57534E`)
+  and Twilight (`#C9C0B8`), split only by which layer referenced it; all references now
+  use `secondary`. Required slug count: 13 → 12. Shipped as Aludra 2.18.0 and Aviendha
+  1.2.0. Background: `imagewize.com` repo, `docs/aludra/ALUDRA-THEME-COMPATIBILITY.md`.
