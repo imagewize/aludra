@@ -16,12 +16,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **Palette slug naming cleanup** — `primary-dark` renamed to `primary-alt` to match the
   `<family>-alt` tier naming used by other block themes (Ollie); updated in
-  `hero-banner`, `cta-banner`, and `contact-section` block SCSS. `contrast-2` removed —
-  it duplicated `secondary` (identical hex in both light and dark variations); the three
-  mega-menu patterns (`mega-menu-image-links`, `mega-menu-featured-content`,
-  `mega-menu-icon-features`) now reference `secondary` instead.
+  `hero-banner`, `cta-banner`, and `contact-section` block SCSS and `testimonial-grid`'s
+  editor template defaults. `contrast-2` removed — it duplicated `secondary` (identical
+  hex in both light and dark variations); the three mega-menu patterns
+  (`mega-menu-image-links`, `mega-menu-featured-content`, `mega-menu-icon-features`) now
+  reference `secondary` instead.
 - `docs/PALETTE-CONTRACT.md` updated: required slug count 13 → 12, dark-variation
-  reference table and notes updated to match.
+  reference table and notes updated to match. Elayne added alongside Aviendha as a
+  maintained theme the contract applies to.
+- **Dropped Nynaeve from Aludra's list of supported/maintained themes** (plugin
+  description, README, CLAUDE.md, readme.txt). Nynaeve was never actually a live Aludra
+  host — it has its own separate native block library and doesn't require the plugin —
+  so this just corrects the docs to match reality. Nynaeve remains the historical source
+  many blocks were ported from; see `docs/PLAN-OF-ACTION.md`.
 
 ## [2.16.0] - 2026-07-20
 

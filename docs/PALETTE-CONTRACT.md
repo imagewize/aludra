@@ -73,7 +73,9 @@ Hardcoded accent colors (shadows, glows, focus rings) use burgundy-based
 Rules for new/edited block styles:
 
 1. Never introduce a new slug without adding it to this contract and to every
-   maintained theme (Aviendha `theme.json` + `styles/*.json`).
+   maintained theme (Aviendha and Elayne `theme.json` + `styles/*.json`). Nynaeve is
+   not a maintained Aludra host and is exempt from this contract — see
+   `docs/PLAN-OF-ACTION.md`.
 2. Every `var(--wp--preset--color--<slug>)` gets a fallback matching the
    Aviendha value from the table above.
 3. No raw cool grays or blues (`#6b7280`, `#555`, `#017cb6`, …) — use the slug
@@ -91,3 +93,11 @@ Rules for new/edited block styles:
   and Twilight (`#C9C0B8`), split only by which layer referenced it; all references now
   use `secondary`. Required slug count: 13 → 12. Shipped as Aludra 2.18.0 and Aviendha
   1.2.0. Background: `imagewize.com` repo, `docs/aludra/ALUDRA-THEME-COMPATIBILITY.md`.
+- **2026-07:** Dropped Nynaeve as a maintained Aludra host (plugin description, README,
+  CLAUDE.md, readme.txt). Nynaeve was never a live consumer — it has its own separate
+  native block library and doesn't require the plugin — so this corrects the docs to
+  match reality rather than changing any behavior. Elayne added explicitly as a
+  maintained theme alongside Aviendha, since it does require the plugin
+  (`imagewize/aludra` in its `composer.json`) and its own `primary-alt` slug
+  (`#111827`, used for dark overlays/headers) already aligns in role with this
+  contract's `primary-alt`, unlike Ollie's unrelated light-tint slug of the same name.

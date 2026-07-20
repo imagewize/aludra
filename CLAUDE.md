@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Aludra is a shared custom block library for Imagewize block themes (Nynaeve, Elayne, Aviendha). The plugin ships blocks under the `aludra/` namespace:
+Aludra is a shared custom block library for Imagewize block themes (Elayne, Aviendha). The plugin ships blocks under the `aludra/` namespace:
 
 - **carousel** / **slide** — Slick-based carousel with slide children
 - **mega-menu** — Interactivity API mega menu backed by template parts
