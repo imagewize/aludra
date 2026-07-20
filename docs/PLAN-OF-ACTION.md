@@ -1,7 +1,7 @@
 # Aludra — Plan of Action
 
-_Last updated: 2026-07-19 (hero-split, about, services-block, review-profiles, cta-banner ported,
-faq-tabs accordion displayMode, homepage page pattern; v2.11.1)_
+_Last updated: 2026-07-20 (homepage pattern carousel/validation fixes 2.11.2–2.11.5; Aludra
+block inserter category + block.json title/keyword cleanup 2.12.0)_
 
 ## 1. What Aludra is
 
@@ -37,14 +37,18 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 > baseline templates use core blocks. WooCommerce is the one accepted "required plugin"
 > exception.
 
-## 2. Current state (v2.11.1)
+## 2. Current state (v2.12.0)
 
 - Forked from `elayne-blocks` (files only, no git history), fresh `git init`.
 - Full identifier rename: `elayne-blocks/*` → `aludra/*`, text domain `aludra`, constants
   `ALUDRA_*`, PHP namespace `Aludra`, files `aludra.php` / `languages/aludra.pot` /
   `languages/aludra-nl_NL.po`. Zero `elayne` references remain.
-- Version: **2.11.1** (current stable).
+- Version: **2.12.0** (current stable).
 - GitHub target: **`imagewize/aludra`** (published and active).
+- All 20 blocks now register under a dedicated **`Aludra` inserter category** (`block_categories_all`
+  filter in `aludra.php`) instead of sharing core's `design`/`widgets` categories — see
+  [BLOCK-CONSOLIDATION-AND-RENAMING.md](./BLOCK-CONSOLIDATION-AND-RENAMING.md) for the naming/category
+  audit this came out of, and §"Recent milestones" below (v2.12.0).
 
 ### Blocks shipped today (20)
 
@@ -82,6 +86,11 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 - **2.10.0** (2026-07-14): Ported Contact Section (Tier A) and Hero Banner (Tier B `service-hero`, generalised — first Tier B block ported; hardcoded colour-scheme block styles dropped in favour of theme color presets with fallbacks)
 - **2.11.0** (2026-07-19): Ported Hero Split, About, Services Block, Review Profiles, and CTA Banner (completing the imagewize.com homepage gap analysis from §13); added `displayMode: 'tabs' | 'accordion'` to FAQ Tabs; shipped the homepage as an Aludra page pattern (`patterns/page-homepage.php`), assembled end-to-end and validated with `wp pattern validate` (structural) and `wp-pattern-sentinel` (browser-based, real Gutenberg round-trip)
 - **2.11.1** (2026-07-19): Fixed missing default `margin:0` inline style on five of the homepage pattern's block wrappers, caught by re-running `wp-pattern-sentinel` against the real released v2.11.0 blocks (the local Pass 3 run during 2.11.0 development predated the demo site's Composer update, so it couldn't fully validate against released code — see §14)
+- **2.11.2** (2026-07-19): New Hero Split placeholder illustration (signature browser-card/chart art replacing the generic gray "broken image" icon); Hero Split CTA button gained a hover arrow + lift; README caught up with the five 2.11.0 blocks it was missing
+- **2.11.3** (2026-07-19): Homepage pattern "Our Clients" carousel — replaced five repeated/recolored logo-mark slides with distinct fictional client-site browser mockups (`assets/clients/`)
+- **2.11.4** (2026-07-19): Fixed the 2.11.3 client-mockup images not filling their carousel slide width (fixed `width`/`height` attributes with no scaling CSS)
+- **2.11.5** (2026-07-19): Fixed the 2.11.4 fix itself — an inline `width:100%;height:auto` style isn't an attribute `core/image`'s `save()` produces, so it failed re-validation; replaced with the first-class `"align":"full"` attribute
+- **2.12.0** (2026-07-20): Registered a dedicated **`Aludra` block inserter category** so all 20 blocks group together instead of sharing core's `design`/`widgets` categories; fixed the **Pricing Tiers** block title (dropped the implementation-detail `"(3 Column)"` suffix); added missing `keywords` to `carousel`, `feature-list-grid`, `pricing-tiers`, `search-overlay-trigger`, and `slide`. First (non-breaking) pass of the Phase 1 items from [BLOCK-CONSOLIDATION-AND-RENAMING.md](./BLOCK-CONSOLIDATION-AND-RENAMING.md)
 
 ## 3. Block gap analysis — what to import
 

@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.11.6
+Stable tag: 2.12.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -180,7 +180,7 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 
 == Changelog ==
 
-= 2.11.6 =
+= 2.12.0 =
 * Added: Dedicated "Aludra" block inserter category — all 20 aludra/* blocks moved off the shared core design/widgets categories into their own group.
 * Added: Keywords added to carousel, feature-list-grid, pricing-tiers, search-overlay-trigger, and slide blocks (previously empty).
 * Changed: Pricing Tiers block title changed from "Pricing Tiers (3 Column)" to "Pricing Tiers"; description updated to describe it as a multi-column comparison layout.
