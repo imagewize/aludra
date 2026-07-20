@@ -4,9 +4,16 @@
   "name": "aludra/carousel",
   "version": "1.0.0",
   "title": "Carousel",
-  "category": "design",
+  "category": "aludra",
   "icon": "slides",
   "description": "Create a customizable slideshow of content with this carousel block.",
+  "keywords": [
+    "carousel",
+    "slider",
+    "slideshow",
+    "gallery",
+    "slides"
+  ],
   "supports": {
     "align": [
       "wide",

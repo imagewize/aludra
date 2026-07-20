@@ -4,7 +4,7 @@
   "name": "aludra/faq-tabs",
   "version": "1.0.0",
   "title": "FAQ Tabs",
-  "category": "widgets",
+  "category": "aludra",
   "icon": "list-view",
   "description": "Interactive FAQ tabs with vertical navigation and dynamic content display.",
   "keywords": [

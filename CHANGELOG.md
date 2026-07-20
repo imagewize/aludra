@@ -10,6 +10,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned
 - Continue importing native React blocks from the Nynaeve theme (e.g. two-column-card, content-image-text-card, multi-column-content, related-articles), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 
+## [2.11.6] - 2026-07-20
+
+### Added
+- Dedicated **"Aludra" block inserter category** (`block_categories_all` filter in `aludra.php`) — all 20 `aludra/*` blocks moved off the shared core `design`/`widgets` categories into their own group, so they're easy to find as a set in the inserter.
+- Keywords added to `carousel`, `feature-list-grid`, `pricing-tiers`, `search-overlay-trigger`, and `slide` block.json files (previously empty, hurting inserter search discoverability).
+
+### Changed
+- **Pricing Tiers** block title changed from `"Pricing Tiers (3 Column)"` to `"Pricing Tiers"` — the column count was an implementation detail, not a user-facing distinction. Description updated to describe it as a multi-column comparison layout.
+
 ## [2.11.5] - 2026-07-19
 
 ### Fixed

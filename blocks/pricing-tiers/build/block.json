@@ -3,10 +3,17 @@
   "apiVersion": 3,
   "name": "aludra/pricing-tiers",
   "version": "1.0.0",
-  "title": "Pricing Tiers (3 Column)",
-  "category": "design",
+  "title": "Pricing Tiers",
+  "category": "aludra",
   "icon": "money-alt",
-  "description": "A three-column pricing comparison table with featured tier highlighting.",
+  "description": "Display pricing options in a multi-column comparison layout (default: 3 columns) with featured tier highlighting.",
+  "keywords": [
+    "pricing",
+    "tiers",
+    "plans",
+    "comparison",
+    "table"
+  ],
   "example": {},
   "supports": {
     "html": false,

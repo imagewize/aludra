@@ -4,7 +4,7 @@
 	"name": "aludra/icon-grid",
 	"version": "1.0.0",
 	"title": "Icon Grid",
-	"category": "design",
+	"category": "aludra",
 	"icon": "grid-view",
 	"description": "Responsive auto-fit grid of icon + text items with an eyebrow, title, and lead.",
 	"keywords": ["icon", "grid", "checklist", "features", "list"],

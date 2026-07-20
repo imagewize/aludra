@@ -7,9 +7,14 @@
   "parent": [
     "aludra/carousel"
   ],
-  "category": "design",
+  "category": "aludra",
   "icon": "media",
   "description": "A single slide container that can hold any content within the carousel.",
+  "keywords": [
+    "slide",
+    "carousel",
+    "slider"
+  ],
   "supports": {
     "html": false
   },

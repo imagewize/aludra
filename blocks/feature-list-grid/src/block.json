@@ -4,9 +4,10 @@
 	"name": "aludra/feature-list-grid",
 	"version": "1.0.0",
 	"title": "Feature List Grid",
-	"category": "design",
+	"category": "aludra",
 	"icon": "grid-view",
 	"description": "Display features in a 2-column grid with checkmarks and hover effects.",
+	"keywords": [ "features", "list", "grid", "checklist", "checkmarks" ],
 	"example": {},
 	"supports": {
 		"html": false,

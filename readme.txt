@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.11.5
+Stable tag: 2.11.6
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -179,6 +179,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.11.6 =
+* Added: Dedicated "Aludra" block inserter category — all 20 aludra/* blocks moved off the shared core design/widgets categories into their own group.
+* Added: Keywords added to carousel, feature-list-grid, pricing-tiers, search-overlay-trigger, and slide blocks (previously empty).
+* Changed: Pricing Tiers block title changed from "Pricing Tiers (3 Column)" to "Pricing Tiers"; description updated to describe it as a multi-column comparison layout.
 
 = 2.11.5 =
 * Fixed: Homepage pattern "Our Clients" carousel (patterns/page-homepage.php) — the 2.11.4 fix used an inline style="width:100%;height:auto" on each client-mockup img, which is not an attribute Gutenberg's core/image save() produces, so the block failed validation the moment the pattern was re-inserted/re-saved in the editor. Replaced it with "align":"full" on the image blocks (alignfull class on the figure) — a first-class Gutenberg attribute that already carries the width:100%;height:auto CSS in core, and round-trips through the editor without a validation error. Verified with wp-pattern-sentinel.

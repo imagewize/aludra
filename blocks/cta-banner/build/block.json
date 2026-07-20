@@ -4,7 +4,7 @@
   "name": "aludra/cta-banner",
   "version": "1.0.0",
   "title": "CTA Banner",
-  "category": "design",
+  "category": "aludra",
   "icon": "megaphone",
   "description": "Full-width call-to-action band with heading, lead text, and button — colours adapt to the active theme's palette.",
   "keywords": [
