@@ -4,9 +4,16 @@
   "name": "aludra/search-overlay-trigger",
   "version": "1.0.0",
   "title": "Search Overlay Trigger",
-  "category": "widgets",
+  "category": "aludra",
   "icon": "search",
   "description": "A search icon that opens a full-screen search overlay when clicked.",
+  "keywords": [
+    "search",
+    "overlay",
+    "trigger",
+    "icon",
+    "modal"
+  ],
   "supports": {
     "html": false,
     "anchor": false

@@ -4,7 +4,7 @@
 	"name": "aludra/review-profiles",
 	"version": "1.0.0",
 	"title": "Review Profiles",
-	"category": "design",
+	"category": "aludra",
 	"icon": "groups",
 	"description": "Full-width client review section with a heading and a row of round avatar photos with quotes — colours adapt to the active theme's palette.",
 	"keywords": ["reviews", "testimonials", "clients", "avatars"],

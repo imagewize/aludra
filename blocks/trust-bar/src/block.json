@@ -4,7 +4,7 @@
 	"name": "aludra/trust-bar",
 	"version": "1.0.0",
 	"title": "Trust Bar",
-	"category": "design",
+	"category": "aludra",
 	"icon": "yes-alt",
 	"description": "Inline bar of trust-signal items (icon + text) that wraps on mobile.",
 	"keywords": ["trust", "bar", "signals", "icons", "badges"],

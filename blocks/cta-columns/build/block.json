@@ -4,7 +4,7 @@
   "name": "aludra/cta-columns",
   "version": "1.0.0",
   "title": "CTA Columns",
-  "category": "design",
+  "category": "aludra",
   "icon": "megaphone",
   "description": "Dual call-to-action cards with headings, descriptions, and buttons",
   "keywords": [

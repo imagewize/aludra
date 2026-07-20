@@ -4,7 +4,7 @@
   "name": "aludra/services-block",
   "version": "1.0.0",
   "title": "Services Block",
-  "category": "design",
+  "category": "aludra",
   "icon": "list-view",
   "description": "Section header with a two-per-row grid of icon, heading, and text service cards — colours adapt to the active theme's palette.",
   "keywords": [

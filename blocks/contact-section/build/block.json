@@ -4,7 +4,7 @@
   "name": "aludra/contact-section",
   "version": "1.0.0",
   "title": "Contact Section",
-  "category": "design",
+  "category": "aludra",
   "icon": "email",
   "description": "Dark contact section with info column and Contact Form 7 form card.",
   "keywords": [

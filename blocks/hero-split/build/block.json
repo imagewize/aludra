@@ -4,7 +4,7 @@
   "name": "aludra/hero-split",
   "version": "1.0.0",
   "title": "Hero Split",
-  "category": "design",
+  "category": "aludra",
   "icon": "columns",
   "description": "Split-pane hero with heading, lead text, and a button on one side, and a desktop/mobile image pair on the other — colours adapt to the active theme's palette.",
   "keywords": [

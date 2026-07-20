@@ -4,7 +4,7 @@
 	"name": "aludra/faq-tab-answer",
 	"version": "1.0.0",
 	"title": "FAQ Tab Answer",
-	"category": "widgets",
+	"category": "aludra",
 	"parent": ["aludra/faq-tabs"],
 	"icon": "editor-alignleft",
 	"description": "A single FAQ tab answer with customizable content.",
