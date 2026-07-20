@@ -20,12 +20,12 @@
 /* Featured column - slightly raised by default */
 .wp-block-aludra-pricing-tiers .pricing-featured-column {
 	transform: translateY(-10px);
-	box-shadow: 0 5px 15px rgba(1, 124, 182, 0.15);
+	box-shadow: 0 5px 15px rgba(159, 18, 57, 0.15);
 }
 
 .wp-block-aludra-pricing-tiers .pricing-featured-column:hover {
 	transform: translateY(-15px);
-	box-shadow: 0 15px 35px rgba(1, 124, 182, 0.25);
+	box-shadow: 0 15px 35px rgba(159, 18, 57, 0.25);
 }
 
 /* Checkmark sizing (for when SVG is used) */

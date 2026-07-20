@@ -4,7 +4,7 @@
 .wp-block-aludra-testimonial-grid {
 	width: 100%;
 	padding: 4rem 0;
-	background-color: var(--wp--preset--color--primary-accent);
+	background-color: var(--wp--preset--color--primary-accent, #fde8ec);
 }
 
 /* Heading - constrain width, center, and always display above slides */
@@ -141,7 +141,7 @@
 	border-radius: 50%;
 
 	/* Arrow background matches the block background for a cutout effect */
-	background: var(--wp--preset--color--primary-accent, #d4ecf5) !important;
+	background: var(--wp--preset--color--primary-accent, #fde8ec) !important;
 	box-shadow: none !important;
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	display: flex !important;
@@ -159,7 +159,7 @@
 
 .testimonial-grid__slides-wrapper .slick-next:hover,
 .testimonial-grid__slides-wrapper .slick-prev:hover {
-	background: var(--wp--preset--color--primary-accent, #d4ecf5) !important;
+	background: var(--wp--preset--color--primary-accent, #fde8ec) !important;
 	box-shadow: none !important;
 	transform: translateY(-50%) scale(1.08);
 }
@@ -238,7 +238,7 @@
 }
 
 .testimonial-grid__slides-wrapper .slick-dots li button:hover {
-	background: rgba(1, 124, 182, 0.5);
+	background: rgba(159, 18, 57, 0.5);
 }
 
 .testimonial-grid__slides-wrapper .slick-dots li.slick-active button {
