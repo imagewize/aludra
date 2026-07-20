@@ -27,7 +27,7 @@
 		font-weight: 800;
 		letter-spacing: 3px;
 		text-transform: uppercase;
-		color: var(--wp--preset--color--primary, #2563eb) !important;
+		color: var(--wp--preset--color--primary, #9f1239) !important;
 		margin-bottom: 12px !important;
 	}
 
@@ -41,7 +41,7 @@
 
 	.feature-cards__lead {
 		font-size: 1.05rem;
-		color: var(--wp--preset--color--main-accent, #555) !important;
+		color: var(--wp--preset--color--main-accent, #78716c) !important;
 		line-height: 1.8;
 		max-width: 520px;
 		margin: 0 auto !important;
@@ -77,7 +77,7 @@
 		left: 0;
 		right: 0;
 		height: 3px;
-		background: var(--wp--preset--color--primary, #2563eb);
+		background: var(--wp--preset--color--primary, #9f1239);
 		transform: scaleX(0);
 		transform-origin: left;
 		transition: transform 0.25s;
@@ -96,7 +96,7 @@
 	.feature-card__icon-wrap {
 		width: 52px;
 		height: 52px;
-		background: var(--wp--preset--color--primary-accent, #eef2ff);
+		background: var(--wp--preset--color--primary-accent, #fde8ec);
 		border-radius: 12px;
 		margin-bottom: 18px !important;
 		flex-shrink: 0;
@@ -120,7 +120,7 @@
 	/* Card paragraph */
 	.feature-card p {
 		font-size: 0.875rem;
-		color: var(--wp--preset--color--main-accent, #555) !important;
+		color: var(--wp--preset--color--main-accent, #78716c) !important;
 		line-height: 1.7;
 		margin: 0 !important;
 	}

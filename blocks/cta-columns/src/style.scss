@@ -10,7 +10,7 @@
 
 /* Light Blue Background Variant */
 .wp-block-aludra-cta-columns.has-primary-accent-background-color {
-	background-color: var(--wp--preset--color--primary-accent);
+	background-color: var(--wp--preset--color--primary-accent, #fde8ec);
 }
 
 /* Dark Background Variant */
