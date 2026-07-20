@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviendha Hero C3 — Threefold Land</title>
+<style>
+	:root {
+		--base: #FAF7F2;
+		--tertiary: #F0E9DD;
+		--border-light: #E5DED2;
+		--contrast: #211C1A;
+		--contrast-2: #57534E;
+		--main: #2B1A20;
+		--primary: #9F1239;
+		--primary-dark: #7F0F2E;
+		--rose: #FDA4AF;
+		--rose-tint: #FDE8EC;
+		--accent: #4D7C0F;
+		--rose-bloom: linear-gradient(135deg, #9F1239 0%, #2B1A20 100%);
+		--font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	}
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	body { font-family: var(--font); background: var(--base); color: var(--contrast); line-height: 1.6; }
+
+	.option-label {
+		position: fixed; bottom: 12px; left: 12px; z-index: 50;
+		background: var(--contrast); color: var(--base);
+		font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+		padding: 6px 12px; border-radius: 999px; opacity: 0.85;
+	}
+
+	/* ── Site header ── */
+	.site-header {
+		display: flex; justify-content: space-between; align-items: center;
+		padding: 18px clamp(1rem, 4vw, 2rem);
+		border-bottom: 1px solid var(--border-light);
+		background: var(--base);
+	}
+	.site-header .brand { font-weight: 700; font-size: 17px; }
+	.site-header nav { display: flex; gap: 24px; font-size: 15px; }
+	.site-header a { color: var(--contrast); text-decoration: none; }
+
+	/* ── HERO: literal split — cream left, Rose Bloom panel right ── */
+	.hero {
+		position: relative;
+		background: var(--base);
+		overflow: hidden;
+	}
+	/* the gradient panel: hard-ish stop at ~58% on desktop */
+	.hero::before {
+		content: ""; position: absolute; inset: 0;
+		background: var(--rose-bloom);
+		clip-path: polygon(58% 0, 100% 0, 100% 100%, 50% 100%);
+	}
+	/* faint sand texture line where the panels meet */
+	.hero::after {
+		content: ""; position: absolute; top: 0; bottom: 0; width: 1px;
+		left: 54%;
+		background: linear-gradient(180deg, transparent, rgba(159,18,57,0.25), transparent);
+	}
+	.hero__inner {
+		position: relative; z-index: 1;
+		max-width: 1200px; margin: 0 auto;
+		display: flex; flex-wrap: wrap; align-items: center; gap: 56px;
+		padding: clamp(56px, 8vw, 100px) clamp(1rem, 4vw, 2rem);
+	}
+	.hero__content { flex: 1 1 380px; }
+	.hero__eyebrow {
+		display: inline-block;
+		font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+		color: var(--primary); background: var(--rose-tint);
+		padding: 6px 14px; border-radius: 999px; margin-bottom: 20px;
+	}
+	.hero__title {
+		font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.12; font-weight: 700;
+		letter-spacing: -0.02em; margin-bottom: 20px;
+	}
+	.hero__title em { font-style: normal; color: var(--primary); }
+	.hero__lead {
+		color: var(--contrast-2); font-size: 1.15rem; max-width: 440px; margin-bottom: 32px;
+	}
+	.hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+	.btn {
+		display: inline-flex; align-items: center; gap: 8px;
+		font-size: 15.5px; font-weight: 600; text-decoration: none;
+		padding: 14px 28px; border-radius: 999px;
+		transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+	}
+	.btn--primary {
+		background: var(--primary); color: var(--base);
+		box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 8px 20px -10px rgba(159,18,57,0.55);
+	}
+	.btn--primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+	.btn--primary .arrow { transition: transform 0.18s ease; }
+	.btn--primary:hover .arrow { transform: translateX(3px); }
+	.btn--ghost { color: var(--contrast); border: 1.5px solid var(--border-light); background: transparent; }
+	.btn--ghost:hover { border-color: var(--contrast-2); }
+
+	.hero__trust {
+		margin-top: 28px; display: flex; align-items: center; gap: 10px;
+		font-size: 13.5px; color: var(--contrast-2);
+	}
+	.hero__trust .check { color: var(--accent); font-weight: 700; }
+
+	/* ── Media: white card straddling the gradient edge ── */
+	.hero__media { flex: 1 1 380px; position: relative; }
+	.mock-card {
+		position: relative; z-index: 1;
+		background: #fff; border-radius: 16px;
+		box-shadow: 0 2px 8px rgba(43,26,32,0.15), 0 32px 64px -18px rgba(43,26,32,0.5);
+		padding: 20px 20px 24px;
+		/* pull the card left so it overlaps the cream/gradient seam */
+		margin: 28px 8px 28px -48px;
+	}
+	.mock-card__dots { display: flex; gap: 6px; margin-bottom: 16px; }
+	.mock-card__dots span { width: 9px; height: 9px; border-radius: 50%; background: var(--border-light); }
+	.skel { border-radius: 6px; margin-bottom: 12px; }
+	.skel--title { height: 20px; width: 62%; background: var(--contrast); border-radius: 8px; }
+	.skel--line1 { height: 12px; width: 88%; background: #C9C0B8; }
+	.skel--line2 { height: 12px; width: 55%; background: #DED6CA; }
+	.skel--chip  { height: 30px; width: 34%; background: var(--primary); border-radius: 999px; margin-top: 18px; margin-bottom: 0; }
+	.badge-bolt {
+		position: absolute; top: 6px; left: -68px; z-index: 2;
+		width: 48px; height: 48px; border-radius: 50%;
+		background: var(--main); color: var(--base);
+		display: flex; align-items: center; justify-content: center;
+		box-shadow: 0 8px 18px -6px rgba(43,26,32,0.5);
+	}
+	.badge-chart {
+		position: absolute; right: -8px; bottom: 8px; z-index: 2;
+		background: var(--base); border-radius: 12px; padding: 12px 14px 10px;
+		display: flex; align-items: flex-end; gap: 4px;
+		box-shadow: 0 12px 26px -8px rgba(0,0,0,0.45);
+	}
+	.badge-chart i { display: block; width: 7px; border-radius: 2px; }
+	.badge-chart i:nth-child(1) { height: 10px; background: var(--border-light); }
+	.badge-chart i:nth-child(2) { height: 17px; background: var(--rose); }
+	.badge-chart i:nth-child(3) { height: 24px; background: var(--primary); }
+
+	/* stat chips floating on the gradient panel */
+	.hero__stats {
+		position: absolute; z-index: 1; right: 0; top: -14px;
+		display: flex; gap: 10px;
+	}
+	.stat-chip {
+		background: rgba(250,247,242,0.14); backdrop-filter: blur(4px);
+		border: 1px solid rgba(250,247,242,0.25);
+		color: var(--base); font-size: 12.5px; font-weight: 600;
+		padding: 7px 13px; border-radius: 999px;
+	}
+
+	/* ── Mobile: split collapses to a rounded gradient panel around the media ── */
+	@media (max-width: 768px) {
+		.hero::before, .hero::after { display: none; }
+		.hero__inner { gap: 44px; }
+		.hero__media {
+			background: var(--rose-bloom);
+			border-radius: 20px;
+			padding: 18px 16px 22px;
+		}
+		.mock-card { margin: 30px 4px 8px; }
+		.badge-bolt { left: 4px; top: 2px; }
+		.hero__stats { position: static; margin-bottom: 4px; justify-content: flex-end; }
+	}
+
+	/* ── Next section stub ── */
+	.next-section { background: var(--tertiary); padding: 72px clamp(1rem, 4vw, 2rem); text-align: center; }
+	.next-section h2 { font-size: 1.7rem; margin-bottom: 10px; }
+	.next-section p { color: var(--contrast-2); max-width: 540px; margin: 0 auto; }
+</style>
+</head>
+<body>
+<div class="option-label">C3 · Threefold Land — literal split, Rose Bloom panel</div>
+
+<header class="site-header">
+	<span class="brand">Aviendha</span>
+	<nav><a href="#">Home</a><a href="#">Sample Page</a></nav>
+</header>
+
+<section class="hero">
+	<div class="hero__inner">
+		<div class="hero__content">
+			<span class="hero__eyebrow">WordPress &amp; WooCommerce</span>
+			<h1 class="hero__title">Fast Sites.<br><em>Real Results.</em></h1>
+			<p class="hero__lead">Custom WordPress and WooCommerce development for businesses that need their site to work as hard as they do.</p>
+			<div class="hero__ctas">
+				<a class="btn btn--primary" href="#">Get in Touch <span class="arrow">→</span></a>
+				<a class="btn btn--ghost" href="#">See Our Work</a>
+			</div>
+			<p class="hero__trust"><span class="check">✓</span> Performance-first builds &nbsp;·&nbsp; <span class="check">✓</span> Roots.io stack</p>
+		</div>
+		<div class="hero__media">
+			<div class="hero__stats">
+				<span class="stat-chip">99/100 PageSpeed</span>
+				<span class="stat-chip">&lt; 1s LCP</span>
+			</div>
+			<div class="badge-bolt">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+			</div>
+			<div class="mock-card">
+				<div class="mock-card__dots"><span></span><span></span><span></span></div>
+				<div class="skel skel--title"></div>
+				<div class="skel skel--line1"></div>
+				<div class="skel skel--line2"></div>
+				<div class="skel skel--chip"></div>
+			</div>
+			<div class="badge-chart"><i></i><i></i><i></i></div>
+		</div>
+	</div>
+</section>
+
+<section class="next-section">
+	<h2>What We Do — And Why It Matters.</h2>
+	<p>The split hero hands off to a <code>tertiary</code> band — three surfaces in the first two screens instead of one endless cream sheet.</p>
+</section>
+</body>
+</html>
