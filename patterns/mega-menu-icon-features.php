@@ -22,8 +22,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h4 class="wp-block-heading has-medium-font-size"><a href="#">Free Shipping</a></h4>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast-2"}}}},"textColor":"contrast-2","fontSize":"small"} -->
-<p class="has-contrast-2-color has-text-color has-link-color has-small-font-size">On orders over $50</p>
+<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|secondary"}}}},"textColor":"secondary","fontSize":"small"} -->
+<p class="has-secondary-color has-text-color has-link-color has-small-font-size">On orders over $50</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
@@ -38,8 +38,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h4 class="wp-block-heading has-medium-font-size"><a href="#">Secure Payment</a></h4>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast-2"}}}},"textColor":"contrast-2","fontSize":"small"} -->
-<p class="has-contrast-2-color has-text-color has-link-color has-small-font-size">100% secure checkout</p>
+<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|secondary"}}}},"textColor":"secondary","fontSize":"small"} -->
+<p class="has-secondary-color has-text-color has-link-color has-small-font-size">100% secure checkout</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
@@ -54,8 +54,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h4 class="wp-block-heading has-medium-font-size"><a href="#">Easy Returns</a></h4>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast-2"}}}},"textColor":"contrast-2","fontSize":"small"} -->
-<p class="has-contrast-2-color has-text-color has-link-color has-small-font-size">30-day return policy</p>
+<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|secondary"}}}},"textColor":"secondary","fontSize":"small"} -->
+<p class="has-secondary-color has-text-color has-link-color has-small-font-size">30-day return policy</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
@@ -70,8 +70,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h4 class="wp-block-heading has-medium-font-size"><a href="#">24/7 Support</a></h4>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast-2"}}}},"textColor":"contrast-2","fontSize":"small"} -->
-<p class="has-contrast-2-color has-text-color has-link-color has-small-font-size">Always here to help</p>
+<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|secondary"}}}},"textColor":"secondary","fontSize":"small"} -->
+<p class="has-secondary-color has-text-color has-link-color has-small-font-size">Always here to help</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>

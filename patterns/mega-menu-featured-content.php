@@ -48,8 +48,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:list --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|small","padding":{"top":"var:preset|spacing|small","bottom":"var:preset|spacing|small","left":"var:preset|spacing|small","right":"var:preset|spacing|small"}},"border":{"radius":"12px","width":"1px"}},"borderColor":"contrast-2","layout":{"type":"constrained"}} -->
-<div class="wp-block-group has-border-color has-contrast-2-border-color" style="border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--small);padding-right:var(--wp--preset--spacing--small);padding-bottom:var(--wp--preset--spacing--small);padding-left:var(--wp--preset--spacing--small)"><!-- wp:heading {"level":4,"fontSize":"medium"} -->
+<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|small","padding":{"top":"var:preset|spacing|small","bottom":"var:preset|spacing|small","left":"var:preset|spacing|small","right":"var:preset|spacing|small"}},"border":{"radius":"12px","width":"1px"}},"borderColor":"secondary","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-border-color has-secondary-border-color" style="border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--small);padding-right:var(--wp--preset--spacing--small);padding-bottom:var(--wp--preset--spacing--small);padding-left:var(--wp--preset--spacing--small)"><!-- wp:heading {"level":4,"fontSize":"medium"} -->
 <h4 class="wp-block-heading has-medium-font-size">Featured This Week</h4>
 <!-- /wp:heading -->
 

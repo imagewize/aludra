@@ -9,7 +9,7 @@ Custom WordPress blocks that work with any theme.
 
 ## Description
 
-Aludra is a WordPress plugin that provides custom Gutenberg blocks. It is a theme-neutral shared block library used across the Imagewize block themes — **Nynaeve**, **Elayne**, and the **Aviendha** e-commerce theme — but **the blocks work with any WordPress theme**: FSE (Full Site Editing) themes, block themes, or classic themes.
+Aludra is a WordPress plugin that provides custom Gutenberg blocks. It is a theme-neutral shared block library used across the Imagewize block themes — **Elayne** and the **Aviendha** e-commerce theme — but **the blocks work with any WordPress theme**: FSE (Full Site Editing) themes, block themes, or classic themes. (Many blocks were originally ported from the **Nynaeve** theme's native block library, but Nynaeve itself doesn't install Aludra — see `docs/PLAN-OF-ACTION.md`.)
 
 This plugin was created to align with WordPress.org Theme Review requirements, which prohibit custom block registration in themes. The blocks are theme-agnostic and can be used in any WordPress site.
 

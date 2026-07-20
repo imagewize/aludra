@@ -4,15 +4,15 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.17.0
+Stable tag: 2.18.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-A theme-neutral shared library of custom Gutenberg blocks for the Imagewize block themes (Nynaeve, Elayne, Aviendha) — and any other WordPress theme.
+A theme-neutral shared library of custom Gutenberg blocks for the Imagewize block themes (Elayne, Aviendha) — and any other WordPress theme.
 
 == Description ==
 
-Aludra is a theme-neutral shared block library for the Imagewize block themes (Nynaeve, Elayne, and the Aviendha e-commerce theme). The blocks work with any WordPress theme — FSE, block, or classic — and are individually enable/disable-able under Settings → Aludra. It provides the following custom Gutenberg blocks:
+Aludra is a theme-neutral shared block library for the Imagewize block themes (Elayne and the Aviendha e-commerce theme). The blocks work with any WordPress theme — FSE, block, or classic — and are individually enable/disable-able under Settings → Aludra. It provides the following custom Gutenberg blocks:
 
 = Blocks Included =
 
@@ -141,7 +141,7 @@ Each block follows standard WordPress block structure:
 
 = Does this plugin work with any theme? =
 
-Yes. Aludra is a theme-neutral block library and works with any WordPress theme — FSE, block, or classic. It is used across the Imagewize block themes (Nynaeve, Elayne, Aviendha), and blocks reference theme color presets with fallbacks so they render correctly everywhere.
+Yes. Aludra is a theme-neutral block library and works with any WordPress theme — FSE, block, or classic. It is used across the Imagewize block themes (Elayne, Aviendha), and blocks reference theme color presets with fallbacks so they render correctly everywhere.
 
 = How do I build the blocks from source? =
 
@@ -180,6 +180,12 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.18.0 =
+* Changed: `primary-dark` palette slug renamed to `primary-alt` to match the `<family>-alt` naming tier used by other block themes (Ollie); all block SCSS fallbacks and testimonial-grid editor defaults updated
+* Changed: `contrast-2` palette slug removed — it was a duplicate of `secondary` (same hex in both light and dark variations); mega-menu patterns now reference `secondary`
+* Changed: docs/PALETTE-CONTRACT.md — required slug count 13 → 12, contract updated to match the renamed/removed slugs; Elayne added alongside Aviendha as a maintained theme
+* Changed: dropped Nynaeve from the plugin description and docs as a supported/maintained theme — it was never a live Aludra host (has its own native block library, doesn't require the plugin); it remains the historical source many blocks were ported from
 
 = 2.17.0 =
 * Changed: All legacy blue/cool-gray fallback colours in block styles replaced with warm equivalents matching the Aviendha palette (#017cb6/#2563eb → #9f1239, #015a80 → #7f0f2e, #6b7280/#98999a → #57534e, #555 → #78716c, light blues → #fde8ec); blue rgba shadows/glows warmed to burgundy rgba(159, 18, 57, …). Themes missing a palette slug now degrade to the warm look instead of the old blue palette
