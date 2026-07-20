@@ -1,0 +1,40 @@
+/**
+ * Frontend + editor styles for aludra/service-intro.
+ *
+ * `supports.color.background`/`text` (block.json) expose the block's colours to
+ * the editor's native colour picker, so authors can pick any colour from the
+ * *active* theme's theme.json palette. These rules only supply the default
+ * look when no colour has been chosen — theme colour presets are referenced
+ * with fallbacks so themes that define these slugs (Nynaeve, Elayne, Aviendha)
+ * keep their palette, and any other theme still gets a sensible default.
+ */
+.wp-block-aludra-service-intro {
+	background: var(--wp--preset--color--base, #fff);
+	padding: 64px 0;
+
+	.service-intro__inner {
+		max-width: 860px;
+		margin: 0 auto;
+		padding-left: var(--wp--preset--spacing--50, 24px);
+		padding-right: var(--wp--preset--spacing--50, 24px);
+	}
+
+	p {
+		color: var(--wp--preset--color--main-accent, #555);
+		font-size: 1.0625rem;
+		line-height: 1.75;
+		font-weight: 400;
+		margin-top: 0.75rem;
+		margin-bottom: 0.75rem;
+	}
+
+	p strong {
+		color: var(--wp--preset--color--main, #0e0e0e);
+		font-weight: 600;
+	}
+
+	/* ─── RESPONSIVE ─── */
+	@media (max-width: 640px) {
+		padding: 48px 0;
+	}
+}

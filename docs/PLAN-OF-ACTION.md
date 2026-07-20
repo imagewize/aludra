@@ -1,7 +1,8 @@
 # Aludra — Plan of Action
 
 _Last updated: 2026-07-20 (homepage pattern carousel/validation fixes 2.11.2–2.11.5; Aludra
-block inserter category + block.json title/keyword cleanup 2.12.0)_
+block inserter category + block.json title/keyword cleanup 2.12.0; Service Intro + Service
+Detail Cards ported, Tier B fully resolved 2.13.0)_
 
 ## 1. What Aludra is
 
@@ -37,20 +38,23 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 > baseline templates use core blocks. WooCommerce is the one accepted "required plugin"
 > exception.
 
-## 2. Current state (v2.12.0)
+## 2. Current state (v2.13.0)
 
 - Forked from `elayne-blocks` (files only, no git history), fresh `git init`.
 - Full identifier rename: `elayne-blocks/*` → `aludra/*`, text domain `aludra`, constants
   `ALUDRA_*`, PHP namespace `Aludra`, files `aludra.php` / `languages/aludra.pot` /
   `languages/aludra-nl_NL.po`. Zero `elayne` references remain.
-- Version: **2.12.0** (current stable).
+- Version: **2.13.0** (current stable).
 - GitHub target: **`imagewize/aludra`** (published and active).
-- All 20 blocks now register under a dedicated **`Aludra` inserter category** (`block_categories_all`
+- All 22 blocks now register under a dedicated **`Aludra` inserter category** (`block_categories_all`
   filter in `aludra.php`) instead of sharing core's `design`/`widgets` categories — see
   [BLOCK-CONSOLIDATION-AND-RENAMING.md](./BLOCK-CONSOLIDATION-AND-RENAMING.md) for the naming/category
   audit this came out of, and §"Recent milestones" below (v2.12.0).
+- Tier B (theme/colour-specific Nynaeve blocks) is now **fully resolved** — `service-intro` and
+  `service-blocks` (v2.13.0) were the last two; `page-heading-blue` was dropped as not worth
+  generalising (too outdated). See §3.
 
-### Blocks shipped today (20)
+### Blocks shipped today (22)
 
 | Block | Namespace | Origin | Version Added |
 |-------|-----------|--------|---------------|
@@ -74,6 +78,8 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 | Services Block | `aludra/services-block` | Nynaeve (`imagewize/services-block`) | 2.11.0 |
 | Review Profiles | `aludra/review-profiles` | Nynaeve (`imagewize/review-profiles`, Tier B generalised) | 2.11.0 |
 | CTA Banner | `aludra/cta-banner` | Nynaeve (`nynaeve/cta-block-blue`, Tier B generalised) | 2.11.0 |
+| Service Intro | `aludra/service-intro` | Nynaeve (`imagewize/service-intro`, Tier B generalised) | 2.13.0 |
+| Service Detail Cards | `aludra/service-blocks` | Nynaeve (`imagewize/service-blocks`, Tier B generalised) | 2.13.0 |
 
 ### Recent milestones
 - **2.7.2** (2026-07-10): Rename from Elayne Blocks → Aludra
@@ -91,6 +97,7 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
 - **2.11.4** (2026-07-19): Fixed the 2.11.3 client-mockup images not filling their carousel slide width (fixed `width`/`height` attributes with no scaling CSS)
 - **2.11.5** (2026-07-19): Fixed the 2.11.4 fix itself — an inline `width:100%;height:auto` style isn't an attribute `core/image`'s `save()` produces, so it failed re-validation; replaced with the first-class `"align":"full"` attribute
 - **2.12.0** (2026-07-20): Registered a dedicated **`Aludra` block inserter category** so all 20 blocks group together instead of sharing core's `design`/`widgets` categories; fixed the **Pricing Tiers** block title (dropped the implementation-detail `"(3 Column)"` suffix); added missing `keywords` to `carousel`, `feature-list-grid`, `pricing-tiers`, `search-overlay-trigger`, and `slide`. First (non-breaking) pass of the Phase 1 items from [BLOCK-CONSOLIDATION-AND-RENAMING.md](./BLOCK-CONSOLIDATION-AND-RENAMING.md)
+- **2.13.0** (2026-07-20): Ported the last two Tier B blocks — **Service Intro** (`aludra/service-intro`, plain intro-text section) and **Service Detail Cards** (`aludra/service-blocks`, stacked numbered service cards with a checklist), both generalised from Nynaeve with theme colour-preset fallbacks and genericised placeholder copy. `page-heading-blue` dropped from the Tier B list as too outdated to be worth porting. Tier B is now fully resolved.
 
 ## 3. Block gap analysis — what to import
 
@@ -125,8 +132,8 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
   as `feature-cards`/`icon-grid`), not a dedicated svg block — see §13's `svg-block` note.
 
 ### Tier B — theme/colour-specific → generalise before importing
-`elayne-hero`, `page-heading-blue`, `cta-block-blue` (hardcoded "blue"),
-`service-intro`, `service-blocks`, `review-profiles`.
+`elayne-hero`, `cta-block-blue` (hardcoded "blue"), `service-intro`, `service-blocks`,
+`review-profiles`. (`page-heading-blue` dropped from this list — see note below.)
 → Replace hardcoded colours with `theme.json` preset references so they work across themes.
 
 - [x] `service-hero` → ported as `aludra/hero-banner` (v2.10.0). Dropped the four hardcoded
@@ -143,6 +150,18 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
   hero, no image pane) so it's its own block, not a variant. The desktop/mobile image swap is
   a pure CSS media-query toggle between two seeded `core/image` blocks — no JS, both images
   stay editable in the editor via an `editor.scss` override.
+- [x] `service-intro` → ported as `aludra/service-intro` (2026-07-20, v2.13.0). Plain intro-text
+  section (InnerBlocks-seeded paragraphs); hardcoded white background and Nynaeve-specific
+  preset slugs replaced with `var(--wp--preset--color--base/main-accent/main, ...)` fallback
+  chains, same convention as `feature-cards`/`icon-grid`.
+- [x] `service-blocks` → ported as `aludra/service-blocks` (2026-07-20, v2.13.0). Stacked,
+  numbered service cards with a checklist; hardcoded label/heading/body colours and the
+  `DM Serif Display` font reference replaced with theme colour presets (fallbacks) and
+  `font-family: inherit`, so it stays theme-neutral. Placeholder copy genericised (the
+  Nynaeve source had Imagewize's own SEO-service copy baked in).
+- [~] `page-heading-blue` — **not ported.** Judged too outdated/superseded relative to
+  Aludra's current hero blocks (`hero-banner`, `hero-split`) to be worth generalising;
+  dropped from the Tier B list rather than carried forward as a future task.
 
 ### Tier C — already present / superseded
 `carousel`, `slide` (present); Nynaeve `faq` vs Aludra `faq-tabs` — **resolved (§11.3):**
@@ -261,8 +280,11 @@ Aludra, and require WooCommerce for the store templates.
 - [x] Port second batch of Tier-A blocks → tagged **2.9.0**.
 - [x] Settings page redesign and bug fixes → **2.9.3-2.9.4**.
 - [x] Port Contact Section (Tier A) and Hero Banner (Tier B `service-hero`, generalised) → **2.10.0**.
+- [x] Port Hero Split, About, Services Block, Review Profiles, and CTA Banner → **2.11.0**.
+- [x] Port remaining Tier B blocks `service-intro` and `service-blocks` → **2.13.0**. (`page-heading-blue`
+  dropped — judged too outdated to be worth generalising; see the Tier B section above.) Tier B is
+  now fully resolved.
 - [ ] Port remaining Tier-A blocks: `two-column-card`, `content-image-text-card`, `multi-column-content`, `related-articles`, `related-links`, `expect-list`, `case-studies`. (`pricing`, `faq`, and `about` resolved per §11.6, §11.3, and the Tier A table above)
-- [ ] Generalise and import remaining Tier B blocks: `elayne-hero`, `page-heading-blue`, `cta-block-blue`, `service-intro`, `service-blocks`, `review-profiles`.
 - [ ] Add de_DE and fr_FR translations.
 - [ ] Decide on back-compat approach for elayne-blocks sites (A, B, or C).
 - [ ] Scaffold `~/code/aviendha` theme with its own plan.
