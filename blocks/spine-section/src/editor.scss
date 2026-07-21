@@ -1,0 +1,30 @@
+/**
+ * Editor-only styles for aludra/spine-section.
+ *
+ * The frontend grid comes from style.scss (loaded in the editor too). What's
+ * needed here is only what the editor breaks: sticky positioning doesn't
+ * behave usefully inside the editor canvas, and the placeholders need to stay
+ * visible when their RichText is empty (style.scss hides :empty on the
+ * frontend, which would otherwise hide the placeholder mid-edit).
+ */
+
+.editor-styles-wrapper .wp-block-aludra-spine-section {
+	.spine-section__spine {
+		position: static;
+	}
+
+	.spine-section__label,
+	.spine-section__heading,
+	.spine-section__aside {
+		&:empty {
+			display: revert;
+		}
+	}
+
+	/* Without a visible track boundary the two columns are hard to tell apart
+	   while editing, since the content column is often a single nested block. */
+	.spine-section__content {
+		outline: 1px dashed var(--wp-admin-theme-color, #3858e9);
+		outline-offset: 0.75rem;
+	}
+}

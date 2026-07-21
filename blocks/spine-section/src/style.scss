@@ -1,0 +1,152 @@
+/**
+ * Frontend + editor styles for aludra/spine-section.
+ *
+ * Ported from designs/aviendha/aviendha-redesign.html (.section/.shell/.spine,
+ * ~lines 180-193) — the "editorial spine" that replaces the centred stack:
+ * a sticky label/heading/aside column on the left, section content on the
+ * right, collapsing to one stacked column on narrow screens.
+ *
+ * Type sizes reference Aviendha's named font-size scale
+ * (var(--wp--preset--font-size--*)) rather than one-off clamp()/rem literals,
+ * so the scale is set once in theme.json and every block draws from it. The
+ * mockup's literals map as: label .72rem -> x-small, heading
+ * clamp(1.7rem..2.3rem) -> x-large, aside .95rem -> base.
+ *
+ * The sticky offset is a custom property (--aludra-spine-top) rather than the
+ * mockup's hardcoded 100px, because it has to clear Aviendha's sticky
+ * masthead — a theme with a taller or non-sticky header can retune it without
+ * patching this block.
+ */
+
+.wp-block-aludra-spine-section {
+	--aludra-spine-top: 100px;
+	--aludra-spine-gutter: clamp(2rem, 6vw, 5.5rem);
+	--aludra-spine-collapse: 860px;
+
+	padding-block: clamp(3.5rem, 8vw, 6.5rem);
+	border-bottom: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+
+	&.is-tinted {
+		background: var(--wp--preset--color--tertiary, #f0e9dd);
+	}
+
+	.spine-section__shell {
+		max-width: var(--wp--style--global--wide-size, 1200px);
+		margin-inline: auto;
+		padding-inline: var(--wp--preset--spacing--medium, 24px);
+
+		display: grid;
+		gap: var(--aludra-spine-gutter);
+		grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+		align-items: start;
+	}
+
+	.spine-section__spine {
+		position: sticky;
+		top: var(--aludra-spine-top);
+	}
+
+	/* The mockup's .label — a mono, letterspaced eyebrow preceded by a short
+	   rule. Same treatment as hero-split's eyebrow (see docs/FONT-CONTRACT.md),
+	   so the two read as one system. */
+	.spine-section__label {
+		margin: 0;
+		font-family: var( --wp--preset--font-family--mono, ui-monospace, monospace );
+		font-size: var( --wp--preset--font-size--x-small, 0.72rem );
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--wp--preset--color--main-accent, #b4785a);
+		display: flex;
+		align-items: baseline;
+		gap: 0.6rem;
+
+		&::before {
+			content: "";
+			width: 1.5rem;
+			height: 1px;
+			background: currentColor;
+			translate: 0 -0.28em;
+		}
+
+		/* An empty RichText still renders its element; don't let it reserve
+		   space or draw a stray rule. */
+		&:empty {
+			display: none;
+		}
+	}
+
+	.spine-section__heading {
+		margin: 0.9rem 0 0;
+		font-family: var( --wp--preset--font-family--display, sans-serif );
+		font-size: var( --wp--preset--font-size--x-large, 1.7rem );
+		letter-spacing: -0.02em;
+		line-height: 1.15;
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	.spine-section__aside {
+		margin: 0.75rem 0 0;
+		color: var(--wp--preset--color--secondary, #57534e);
+		font-size: var( --wp--preset--font-size--base, 0.95rem );
+		max-width: 26ch;
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	/* Content column owns no width of its own — the grid track sizes it, so a
+	   full-bleed child (e.g. a work rail) can still break out via its own
+	   alignment rules without fighting a max-width here. */
+	.spine-section__content > * {
+		margin-block-start: 0;
+	}
+
+	/* Every Aludra section block ships its own page shell (content-size
+	   max-width + auto margins + inline padding, plus vertical padding),
+	   because until now each one *was* the section. Nested in the spine's
+	   already-constrained content track that shell double-applies: the column
+	   gets capped a second time and indented past the spine's own label, which
+	   is most obvious in the single-column mobile layout.
+	   Suppress it for direct children only, so a section block used standalone
+	   (outside a spine) keeps its shell.
+	   The inner wrapper is targeted with `> *` rather than by class because
+	   these blocks don't share a naming convention for it — about uses
+	   `__content`, services-block `__inner`, faq-tabs a raw core/columns. */
+	.spine-section__content {
+		> .wp-block-aludra-about,
+		> .wp-block-aludra-services-block,
+		> .wp-block-aludra-review-profiles,
+		> .wp-block-aludra-pricing-tiers,
+		> .wp-block-aludra-faq-tabs {
+			padding-block: 0;
+
+			> * {
+				max-width: none;
+				margin-inline: 0;
+				padding-inline: 0;
+			}
+		}
+	}
+
+	@media (max-width: 860px) {
+		.spine-section__shell {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.spine-section__spine {
+			position: static;
+		}
+	}
+}
+
+/* Consecutive sections would otherwise draw two hairlines where they meet the
+   page's own footer/CTA rule; the last one in a run is redundant. */
+.wp-block-aludra-spine-section:last-of-type {
+	border-bottom: 0;
+}

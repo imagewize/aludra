@@ -25,8 +25,11 @@ Note: `blocks/mega-menu` uses `--experimental-modules` in its build/start script
 - Formatting and linting should be done with `npm run format` and lint scripts above.
 
 ## Testing Guidelines
-- No automated test runner is configured in this repository.
-- Validate changes manually in WordPress (editor and frontend).
+- No unit test runner is configured; validate block behavior manually in WordPress (editor and frontend).
+- **Patterns have an automated validator and PRs touching `patterns/` must pass it:**
+  `npm run validate` (all) or `npm run validate:file patterns/<file>.php` (one).
+  It round-trips each pattern through the real block editor and diffs the result, catching
+  block-validation mismatches that a frontend screenshot cannot show. ~60s per pattern.
 - Run linting commands before opening a PR.
 
 ### Local WordPress environment (Trellis + Bedrock)
@@ -79,6 +82,11 @@ install they have Aludra installed on; adjust paths and site names accordingly.
 - **Nynaeve theme is NOT used with Aludra**. Blocks needed from Nynaeve (located at `~/code/nynaeve`) must be ported to Aludra. See [docs/PLAN-OF-ACTION.md](docs/PLAN-OF-ACTION.md) for the import strategy and gap analysis.
 
 ## Pattern Development
+- **Validate before opening a PR:** `npm run validate`. On failure, rebuild the pattern body
+  from the editor's own serialization (`savedContent` in the `sentinel-*.log.json` the run
+  writes) rather than hand-editing markup — see CLAUDE.md "Validate Patterns Before Opening
+  a PR" for the procedure and the usual causes (sourced attributes duplicated in the block
+  comment, attributes equal to defaults, class order, deprecated attribute forms).
 - **Separator blocks:** Use WordPress 6.7+ compatible format without inline opacity styles:
   - Correct: `<!-- wp:separator {"className":"is-style-wide"} --><hr class="wp-block-separator has-alpha-channel-opacity is-style-wide"/><!-- /wp:separator -->`
   - Avoid: Custom background colors and opacity in inline styles (causes validation errors)

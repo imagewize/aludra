@@ -3,7 +3,7 @@
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
  * Description: Shared custom block library for Imagewize block themes (Elayne, Aviendha) — Mega Menu, Carousel, FAQ Tabs, and content blocks (Feature Cards, Pricing Tiers, Testimonial Grid, Contact Section, Hero Banner, and more). Built with React, block.json, and @wordpress/scripts.
- * Version: 2.21.1
+ * Version: 2.22.0
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.21.1' );
+define( 'ALUDRA_VERSION', '2.22.0' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -142,6 +142,7 @@ add_action(
 				'load-waterfall'         => true,
 				'stat-rail'              => true,
 				'stat-item'              => true,
+				'spine-section'          => true,
 			)
 		);
 
@@ -205,6 +206,7 @@ add_action(
 				'load-waterfall'         => true,
 				'stat-rail'              => true,
 				'stat-item'              => true,
+				'spine-section'          => true,
 			)
 		);
 

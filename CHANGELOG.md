@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.22.0] - 2026-07-21
+
+### Added
+- `aludra/spine-section` — the editorial spine layout from the Aviendha redesign: a
+  `minmax(0,15rem) minmax(0,1fr)` grid with a `position: sticky` label/heading/aside column
+  on the left and section content on the right, collapsing to a single stacked column (sticky
+  disabled) below 860px. Label/heading/aside are RichText attributes; content is InnerBlocks,
+  so it wraps existing section blocks rather than replacing them. Optional `tint` background.
+  The sticky offset is the `--aludra-spine-top` custom property (default 100px) rather than a
+  hardcoded value, so a theme with a different masthead height can retune it.
+  See `docs/aludra/AVIENDHA-REDESIGN-BLOCKS.md` §3 in the imagewize.com repo.
+
+### Changed
+- `patterns/page-homepage.php` — the "What We Do" section is now wrapped in
+  `aludra/spine-section`, with its heading moved out of the `aludra/about` content and into
+  the spine column.
+- CLAUDE.md / AGENTS.md — running the pattern validator (`npm run validate`) is now a
+  documented requirement for any PR touching `patterns/`, with the procedure for fixing a
+  failure from the validator's own `savedContent` output. Neither file previously mentioned
+  the validator, which is why mismatches accumulated unnoticed.
+- `.gitignore` — ignore `sentinel-*.log.json` validator run logs.
+
+### Fixed
+- `patterns/page-homepage.php` failed block validation before this release (it fails on
+  `main` as of 2.21.1). Accumulated mismatches: class ordering normalized by the editor
+  (`alignfull is-style-night`), attributes explicitly set to their `block.json` defaults,
+  `wp:image` `width`/`height` as numbers rather than `"26px"` strings plus stale `is-resized`
+  classes, and paragraphs using the deprecated `"align":"center"` form instead of
+  `"style":{"typography":{"textAlign":"center"}}`. The pattern body is now the editor's own
+  serialization; all 9 patterns pass.
+
 ## [2.21.1] - 2026-07-21
 
 Republish of 2.21.0 with no code changes. The `v2.21.0` tag was moved after

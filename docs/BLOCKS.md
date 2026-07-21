@@ -241,3 +241,26 @@ Child block for a single big-number stat with a caption, used inside Stat Rail.
 - Editable number and caption via RichText
 - Optional "highlight" toggle to render the number in the theme's accent colour
 - Parent constraint (only valid inside the Stat Rail block)
+
+### Spine Section Block
+
+The "editorial spine" page section: a sticky label/heading/aside column on the left,
+section content on the right. Replaces the centred heading → subtitle → content stack
+that every section otherwise uses.
+
+**Features:**
+- `minmax(0,15rem) minmax(0,1fr)` grid; the left column is `position: sticky` so the
+  heading tracks the reader down long sections
+- Collapses to a single stacked column with sticky disabled below 860px
+- Label (mono eyebrow with a leading rule), heading, and optional one-line aside are
+  editable via RichText; content is InnerBlocks, so it **wraps** existing section
+  blocks rather than replacing them
+- Optional tinted background (`tint`), so consecutive sections read as separate bands
+- Nested Aludra section blocks have their own page shell (max-width, auto margins,
+  inline/vertical padding) suppressed for direct children, so the content column
+  aligns with the spine instead of being capped and indented a second time — a
+  section block used standalone keeps its shell
+- Sticky offset is the `--aludra-spine-top` custom property (default `100px`), tunable
+  per theme to clear a sticky masthead of a different height
+- Theme colour presets with sensible fallbacks; type sizes resolve through the named
+  font-size scale (`--wp--preset--font-size--*`)

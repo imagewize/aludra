@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.21.1
+Stable tag: 2.22.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -108,6 +108,12 @@ Aludra is a theme-neutral shared block library for the Imagewize block themes (E
 * Optional "highlight" toggle to render the number in the theme's accent color
 * Only valid inside the Stat Rail block
 
+**Spine Section Block**
+* Page section with a sticky label/heading/aside column on the left and its content on the right
+* Wraps any block as its content — nested Aludra section blocks have their own page shell suppressed so both columns align
+* Collapses to a single stacked column (sticky disabled) below 860px
+* Optional tinted background, and a tunable sticky offset via the --aludra-spine-top custom property
+
 = Key Features =
 
 * **Theme Neutral** - Works with any WordPress theme; uses theme color presets with fallbacks
@@ -195,6 +201,12 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.22.0 =
+* Added: `aludra/spine-section` block — the editorial spine layout: a sticky label/heading/aside column beside section content, collapsing to one column below 860px (Aviendha redesign)
+* Changed: patterns/page-homepage.php — the "What We Do" section now uses Spine Section; its heading moved from a core/heading inside the content into the spine
+* Fixed: patterns/page-homepage.php had accumulated block-validation mismatches (class ordering, attributes equal to defaults, deprecated `align`/`width` attribute forms) — the pattern body is now the editor's own canonical serialization and all 9 patterns pass the validator
+* Changed: CLAUDE.md/AGENTS.md now require running the pattern validator (`npm run validate`) on any PR touching `patterns/`, and document how to fix a failure
 
 = 2.21.1 =
 * Republish of 2.21.0 with no code changes — the 2.21.0 tag was moved after publication and Packagist kept serving the pre-fix commit
