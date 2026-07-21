@@ -1,0 +1,94 @@
+/**
+ * Frontend + editor styles for aludra/stat-rail + aludra/stat-item.
+ *
+ * Ported from designs/aviendha/aviendha-redesign.html (.rail/.rail-*,
+ * ~lines 164-178) — the dark stat band sitting on the seam between the hero
+ * and the rest of the page. The item count isn't fixed at 3 in CSS
+ * (grid-auto-flow/grid-auto-columns divides evenly for however many
+ * aludra/stat-item children exist), even though the default template and
+ * mockup both use 3.
+ *
+ * The hairline dividers use the *mockup's own* base-at-14%-opacity value via
+ * color-mix rather than the theme's `border-light` var: border-light is a
+ * light-mode hairline and reads wrong on this dark band (see
+ * docs/aludra/AVIENDHA-REDESIGN-BLOCKS.md §2).
+ *
+ * Type sizes reference Aviendha's named font-size scale
+ * (var(--wp--preset--font-size--*)) rather than one-off clamp()/rem literals,
+ * so the scale is set once in theme.json and every block draws from it.
+ */
+
+/* hero-split's "night" style has a decorative ember-line ::after on its
+   bottom edge, meant for the case where a lighter section follows the dark
+   hero. Stat Rail continues the same dark `main` background flush against
+   the hero (see mockup: hero + rail are one continuous dark band), so that
+   line reads as a stray seam when the two sit back to back — suppress it
+   only in that exact adjacency, leaving other hero-split usages untouched. */
+.wp-block-aludra-hero-split.is-style-night:has(+ .wp-block-aludra-stat-rail)::after {
+	display: none;
+}
+
+.wp-block-aludra-stat-rail {
+	background: var(--wp--preset--color--main, #2b1a20);
+	color: var(--wp--preset--color--base, #faf7f2);
+	padding-top: clamp(2.5rem, 6vw, 4rem);
+
+	.stat-rail__shell {
+		max-width: var(--wp--style--global--wide-size, 64rem);
+		margin: 0 auto;
+		padding-left: var(--wp--preset--spacing--50, 24px);
+		padding-right: var(--wp--preset--spacing--50, 24px);
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: minmax(0, 1fr);
+		border-top: 1px solid color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 14%, transparent);
+
+		/* Let the grid pass through the editor's InnerBlocks wrapper divs so
+		   stat-items become direct grid children in both contexts. */
+		.block-editor-inner-blocks,
+		.block-editor-block-list__layout {
+			display: contents;
+		}
+	}
+
+	.stat-rail__item {
+		padding: 1.5rem 1.25rem 1.75rem;
+
+		& + & {
+			border-left: 1px solid color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 14%, transparent);
+		}
+	}
+
+	.stat-rail__num {
+		font-family: var(--wp--preset--font-family--display, "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif);
+		font-size: var(--wp--preset--font-size--base, 1rem);
+		font-weight: 800;
+		letter-spacing: -0.04em;
+		line-height: 1;
+	}
+
+	.stat-rail__item.is-good .stat-rail__num {
+		color: var(--wp--preset--color--accent, #4d7c0f);
+	}
+
+	.stat-rail__cap {
+		font-family: var(--wp--preset--font-family--mono, "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace);
+		font-size: var(--wp--preset--font-size--xx-small, 0.7rem);
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 60%, transparent);
+		margin-top: 0.5rem;
+	}
+
+	@media (max-width: 700px) {
+		.stat-rail__shell {
+			grid-auto-flow: row;
+			grid-auto-columns: unset;
+		}
+
+		.stat-rail__item + .stat-rail__item {
+			border-left: 0;
+			border-top: 1px solid color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 14%, transparent);
+		}
+	}
+}

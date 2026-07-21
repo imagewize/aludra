@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "aludra/stat-item",
+	"version": "1.0.0",
+	"title": "Stat Item",
+	"parent": [ "aludra/stat-rail" ],
+	"category": "aludra",
+	"icon": "chart-bar",
+	"description": "A single big-number stat with a caption, used inside Stat Rail.",
+	"keywords": [ "stat", "metric", "number" ],
+	"textdomain": "aludra",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"number": {
+			"type": "string",
+			"default": "0"
+		},
+		"caption": {
+			"type": "string",
+			"default": "Caption"
+		},
+		"good": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}

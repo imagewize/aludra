@@ -43,16 +43,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"hero-split__media"} -->
-<div class="wp-block-group hero-split__media"><!-- wp:image {"className":"hero-split__image hero-split__image--desktop","sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large hero-split__image hero-split__image--desktop"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIHJ4PSIxNiIgZmlsbD0iI0YzRjRGNiIvPgogIDxyZWN0IHg9IjMyIiB5PSIyOCIgd2lkdGg9IjMzNiIgaGVpZ2h0PSIyMjgiIHJ4PSIxMiIgZmlsbD0iI0ZGRkZGRiIgc3Ryb2tlPSIjRTVFN0VCIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8Y2lyY2xlIGN4PSI1NCIgY3k9IjUwIiByPSI0IiBmaWxsPSIjRDFENURCIi8+CiAgPGNpcmNsZSBjeD0iNzAiIGN5PSI1MCIgcj0iNCIgZmlsbD0iI0QxRDVEQiIvPgogIDxjaXJjbGUgY3g9Ijg2IiBjeT0iNTAiIHI9IjQiIGZpbGw9IiNEMUQ1REIiLz4KICA8cmVjdCB4PSIxMTAiIHk9IjQ0IiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iI0U1RTdFQiIvPgogIDxyZWN0IHg9IjU2IiB5PSI5MCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxNiIgcng9IjgiIGZpbGw9IiMzNzQxNTEiLz4KICA8cmVjdCB4PSI1NiIgeT0iMTIwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iIzlDQTNBRiIvPgogIDxyZWN0IHg9IjU2IiB5PSIxMzgiIHdpZHRoPSIxNjAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjOUNBM0FGIi8+CiAgPHJlY3QgeD0iNTYiIHk9IjE2NiIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIyMiIgcng9IjExIiBmaWxsPSIjNkI3MjgwIi8+CiAgPGNpcmNsZSBjeD0iNDAiIGN5PSIzNiIgcj0iMjQiIGZpbGw9IiMzNzQxNTEiIHN0cm9rZT0iI0YzRjRGNiIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPHBhdGggZD0iTTQyLjcgMjIuOEwyOC45IDQwLjhIMzcuNEwzNS4xIDUxLjhMNTAuMyAzMkg0MS40TDQyLjcgMjIuOFoiIGZpbGw9IiNGOUZBRkIiLz4KICA8cmVjdCB4PSIzMTYiIHk9IjIxMCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjU2IiByeD0iMTAiIGZpbGw9IiMzNzQxNTEiIHN0cm9rZT0iI0YzRjRGNiIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPHJlY3QgeD0iMzI4IiB5PSIyNDQiIHdpZHRoPSI4IiBoZWlnaHQ9IjE0IiByeD0iMiIgZmlsbD0iIzlDQTNBRiIgZmlsbC1vcGFjaXR5PSIwLjYiLz4KICA8cmVjdCB4PSIzNDAiIHk9IjIzNiIgd2lkdGg9IjgiIGhlaWdodD0iMjIiIHJ4PSIyIiBmaWxsPSIjOUNBM0FGIiBmaWxsLW9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjM1MiIgeT0iMjI2IiB3aWR0aD0iOCIgaGVpZ2h0PSIzMiIgcng9IjIiIGZpbGw9IiNGOUZBRkIiLz4KPC9zdmc+Cg==" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:image {"className":"hero-split__image hero-split__image--mobile","sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large hero-split__image hero-split__image--mobile"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIHJ4PSIxNiIgZmlsbD0iI0YzRjRGNiIvPgogIDxyZWN0IHg9IjMyIiB5PSIyOCIgd2lkdGg9IjMzNiIgaGVpZ2h0PSIyMjgiIHJ4PSIxMiIgZmlsbD0iI0ZGRkZGRiIgc3Ryb2tlPSIjRTVFN0VCIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8Y2lyY2xlIGN4PSI1NCIgY3k9IjUwIiByPSI0IiBmaWxsPSIjRDFENURCIi8+CiAgPGNpcmNsZSBjeD0iNzAiIGN5PSI1MCIgcj0iNCIgZmlsbD0iI0QxRDVEQiIvPgogIDxjaXJjbGUgY3g9Ijg2IiBjeT0iNTAiIHI9IjQiIGZpbGw9IiNEMUQ1REIiLz4KICA8cmVjdCB4PSIxMTAiIHk9IjQ0IiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iI0U1RTdFQiIvPgogIDxyZWN0IHg9IjU2IiB5PSI5MCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxNiIgcng9IjgiIGZpbGw9IiMzNzQxNTEiLz4KICA8cmVjdCB4PSI1NiIgeT0iMTIwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iIzlDQTNBRiIvPgogIDxyZWN0IHg9IjU2IiB5PSIxMzgiIHdpZHRoPSIxNjAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjOUNBM0FGIi8+CiAgPHJlY3QgeD0iNTYiIHk9IjE2NiIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIyMiIgcng9IjExIiBmaWxsPSIjNkI3MjgwIi8+CiAgPGNpcmNsZSBjeD0iNDAiIGN5PSIzNiIgcj0iMjQiIGZpbGw9IiMzNzQxNTEiIHN0cm9rZT0iI0YzRjRGNiIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPHBhdGggZD0iTTQyLjcgMjIuOEwyOC45IDQwLjhIMzcuNEwzNS4xIDUxLjhMNTAuMyAzMkg0MS40TDQyLjcgMjIuOFoiIGZpbGw9IiNGOUZBRkIiLz4KICA8cmVjdCB4PSIzMTYiIHk9IjIxMCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjU2IiByeD0iMTAiIGZpbGw9IiMzNzQxNTEiIHN0cm9rZT0iI0YzRjRGNiIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPHJlY3QgeD0iMzI4IiB5PSIyNDQiIHdpZHRoPSI4IiBoZWlnaHQ9IjE0IiByeD0iMiIgZmlsbD0iIzlDQTNBRiIgZmlsbC1vcGFjaXR5PSIwLjYiLz4KICA8cmVjdCB4PSIzNDAiIHk9IjIzNiIgd2lkdGg9IjgiIGhlaWdodD0iMjIiIHJ4PSIyIiBmaWxsPSIjOUNBM0FGIiBmaWxsLW9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjM1MiIgeT0iMjI2IiB3aWR0aD0iOCIgaGVpZ2h0PSIzMiIgcng9IjIiIGZpbGw9IiNGOUZBRkIiLz4KPC9zdmc+Cg==" alt=""/></figure>
-<!-- /wp:image --></div>
+<div class="wp-block-group hero-split__media"><!-- wp:aludra/load-waterfall -->
+<figure class="wp-block-aludra-load-waterfall" aria-label="Load waterfall for harvest-table.com: LCP 0.9s"><figcaption class="wf-head"><span class="wf-url">harvest-table.com</span><span class="wf-badge">after rebuild</span></figcaption><div class="wf-rows"><div class="wf-row"><span>document</span><div class="wf-track"><i class="wf-bar is-doc" style="left:0%;width:22%;animation-delay:0.1s"></i></div></div><div class="wf-row"><span>critical.css</span><div class="wf-track"><i class="wf-bar is-css" style="left:22%;width:14%;animation-delay:0.25s"></i></div></div><div class="wf-row"><span>hero.webp</span><div class="wf-track"><i class="wf-bar is-img" style="left:26%;width:26%;animation-delay:0.4s"></i></div></div><div class="wf-row"><span>fonts</span><div class="wf-track"><i class="wf-bar" style="left:30%;width:18%;animation-delay:0.55s"></i></div></div><div class="wf-row"><span>cart.js</span><div class="wf-track"><i class="wf-bar" style="left:52%;width:20%;animation-delay:0.7s"></i><b class="wf-lcp" style="left:52%"><span>LCP 0.9s</span></b></div></div><div class="wf-row"><span>analytics</span><div class="wf-track"><i class="wf-bar" style="left:72%;width:12%;animation-delay:0.85s"></i></div></div></div><div class="wf-axis"><span></span><span class="wf-ticks"><span>0s</span><span>0.5s</span><span>1.0s</span><span>1.5s</span></span></div></figure>
+<!-- /wp:aludra/load-waterfall --></div>
 <!-- /wp:group --></div>
 </div>
 <!-- /wp:aludra/hero-split -->
+
+<!-- wp:aludra/stat-rail -->
+<div class="wp-block-aludra-stat-rail alignfull" style="margin-top:0;margin-bottom:0">
+<div class="stat-rail__shell"><!-- wp:aludra/stat-item {"number":"0.9s","caption":"Median LCP after rebuild","good":true} -->
+<div class="wp-block-aludra-stat-item stat-rail__item is-good"><div class="stat-rail__num">0.9s</div><div class="stat-rail__cap">Median LCP after rebuild</div></div>
+<!-- /wp:aludra/stat-item -->
+
+<!-- wp:aludra/stat-item {"number":"-71%","caption":"Page weight, typical build"} -->
+<div class="wp-block-aludra-stat-item stat-rail__item"><div class="stat-rail__num">-71%</div><div class="stat-rail__cap">Page weight, typical build</div></div>
+<!-- /wp:aludra/stat-item -->
+
+<!-- wp:aludra/stat-item {"number":"1 day","caption":"Reply time on every enquiry"} -->
+<div class="wp-block-aludra-stat-item stat-rail__item"><div class="stat-rail__num">1 day</div><div class="stat-rail__cap">Reply time on every enquiry</div></div>
+<!-- /wp:aludra/stat-item --></div>
+</div>
+<!-- /wp:aludra/stat-rail -->
 
 <!-- wp:aludra/about -->
 <div class="wp-block-aludra-about alignfull" style="margin-top:0;margin-bottom:0">

@@ -1,0 +1,149 @@
+/**
+ * Frontend + editor styles for aludra/load-waterfall.
+ *
+ * Ported from designs/aviendha/aviendha-redesign.html (.waterfall/.wf-*,
+ * ~lines 130-162). Every colour resolves from the active theme's preset
+ * palette with the mockup's own values as fallback, following the same
+ * pattern as hero-split/trust-bar. The bars/LCP marker grow in once on
+ * mount via CSS animation — see the reduced-motion override at the bottom.
+ *
+ * Type sizes reference Aviendha's named font-size scale
+ * (var(--wp--preset--font-size--*)) rather than one-off rem literals, so the
+ * scale is set once in theme.json and every block draws from it.
+ */
+.wp-block-aludra-load-waterfall {
+	background: var(--wp--preset--color--base, #faf7f2);
+	color: var(--wp--preset--color--contrast, #211c1a);
+	border-radius: 14px;
+	padding: 1.35rem 1.4rem 1.15rem;
+	box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.55);
+	font-family: var(--wp--preset--font-family--mono, "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace);
+	margin: 0;
+
+	.wf-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 0.85rem;
+		border-bottom: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+		font-size: var(--wp--preset--font-size--x-small, 0.8rem);
+		color: var(--wp--preset--color--secondary, #57534e);
+	}
+
+	.wf-url {
+		color: var(--wp--preset--color--contrast, #211c1a);
+		font-weight: 600;
+	}
+
+	.wf-badge {
+		color: var(--wp--preset--color--accent, #4d7c0f);
+		font-weight: 600;
+	}
+
+	.wf-rows {
+		margin: 1rem 0 0.5rem;
+		display: grid;
+		gap: 0.5rem;
+	}
+
+	.wf-row {
+		display: grid;
+		grid-template-columns: 5.6rem 1fr;
+		align-items: center;
+		gap: 0.7rem;
+		font-size: var(--wp--preset--font-size--xx-small, 0.7rem);
+		color: var(--wp--preset--color--secondary, #57534e);
+	}
+
+	.wf-track {
+		height: 9px;
+		background: var(--wp--preset--color--tertiary, #f0e9dd);
+		border-radius: 3px;
+		position: relative;
+	}
+
+	.wf-bar {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		border-radius: 3px;
+		background: var(--wp--preset--color--sand-deep, #d6c7ae);
+		transform-origin: left;
+		animation: aludra-waterfall-grow 0.55s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+
+		&.is-doc {
+			background: var(--wp--preset--color--main, #2b1a20);
+		}
+
+		&.is-css {
+			background: var(--wp--preset--color--terracotta, #c2410c);
+		}
+
+		&.is-img {
+			background: var(--wp--preset--color--accent, #4d7c0f);
+		}
+	}
+
+	.wf-axis {
+		display: grid;
+		grid-template-columns: 5.6rem 1fr;
+		gap: 0.7rem;
+		font-size: var(--wp--preset--font-size--xx-small, 0.7rem);
+		color: var(--wp--preset--color--main-accent, #78716c);
+		padding-top: 0.55rem;
+		border-top: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+	}
+
+	.wf-ticks {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.wf-lcp {
+		position: absolute;
+		top: -1.6rem;
+		bottom: -1.6rem;
+		width: 1px;
+		background: var(--wp--preset--color--primary, #9f1239);
+		animation: aludra-waterfall-fade 0.4s 0.95s both;
+
+		span {
+			position: absolute;
+			top: -1.55rem;
+			left: 0.4rem;
+			white-space: nowrap;
+			font-size: var(--wp--preset--font-size--xx-small, 0.7rem);
+			font-weight: 600;
+			color: var(--wp--preset--color--primary, #9f1239);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.wf-bar,
+		.wf-lcp {
+			animation-duration: 0.001ms !important;
+		}
+	}
+}
+
+@keyframes aludra-waterfall-grow {
+	from {
+		transform: scaleX(0);
+		opacity: 0.4;
+	}
+
+	to {
+		transform: scaleX(1);
+		opacity: 1;
+	}
+}
+
+@keyframes aludra-waterfall-fade {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}

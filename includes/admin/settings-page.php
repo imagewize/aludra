@@ -76,6 +76,9 @@ function aludra_get_default_settings() {
 		'hero-split'             => true,
 		'service-intro'          => true,
 		'service-blocks'         => true,
+		'load-waterfall'         => true,
+		'stat-rail'              => true,
+		'stat-item'              => true,
 	);
 }
 
@@ -210,6 +213,22 @@ function aludra_get_available_blocks() {
 			'label'       => __( 'Service Detail Cards', 'aludra' ),
 			'description' => __( 'Stacked, numbered service cards with a heading, description, and checklist.', 'aludra' ),
 			'category'    => 'marketing',
+		),
+		'load-waterfall'         => array(
+			'label'       => __( 'Load Waterfall', 'aludra' ),
+			'description' => __( 'Network load-time waterfall panel with an animated LCP marker, for hero sections.', 'aludra' ),
+			'category'    => 'marketing',
+		),
+		'stat-rail'              => array(
+			'label'       => __( 'Stat Rail', 'aludra' ),
+			'description' => __( 'Full-width band of big-number stats with captions, for the seam between a hero and the rest of the page.', 'aludra' ),
+			'category'    => 'marketing',
+		),
+		'stat-item'              => array(
+			'label'       => __( 'Stat Item', 'aludra' ),
+			'description' => __( 'A single big-number stat with a caption, used inside Stat Rail.', 'aludra' ),
+			'category'    => 'marketing',
+			'parent'      => 'stat-rail',
 		),
 	);
 }

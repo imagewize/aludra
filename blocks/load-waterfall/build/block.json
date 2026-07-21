@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aludra/load-waterfall",
+  "version": "1.0.0",
+  "title": "Load Waterfall",
+  "category": "aludra",
+  "icon": "chart-bar",
+  "description": "A network load-time waterfall panel with an animated LCP marker, for hero sections that need to show off site speed.",
+  "keywords": [
+    "waterfall",
+    "performance",
+    "lcp",
+    "speed",
+    "hero"
+  ],
+  "textdomain": "aludra",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {
+    "siteUrl": {
+      "type": "string",
+      "default": "harvest-table.com"
+    },
+    "badge": {
+      "type": "string",
+      "default": "after rebuild"
+    },
+    "rowLabels": {
+      "type": "array",
+      "default": [
+        "document",
+        "critical.css",
+        "hero.webp",
+        "fonts",
+        "cart.js",
+        "analytics"
+      ]
+    },
+    "lcpLabel": {
+      "type": "string",
+      "default": "LCP 0.9s"
+    }
+  },
+  "example": {
+    "attributes": {}
+  }
+}

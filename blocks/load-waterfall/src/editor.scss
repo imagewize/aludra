@@ -1,0 +1,20 @@
+/**
+ * Editor-only styles for aludra/load-waterfall.
+ *
+ * Gives the inline RichText fields (site url, badge, row labels, LCP label)
+ * a minimum width and focus outline so empty/short values stay clickable.
+ */
+.wp-block-aludra-load-waterfall {
+	.wf-url,
+	.wf-badge,
+	.wf-row > [contenteditable],
+	.wf-lcp span {
+		display: inline-block;
+		min-width: 1.5em;
+
+		&:focus {
+			outline: 1px solid var(--wp--preset--color--primary, #9f1239);
+			outline-offset: 2px;
+		}
+	}
+}
