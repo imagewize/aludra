@@ -250,6 +250,31 @@ add_action(
 				)
 			);
 		}
+
+		/*
+		 * The carousel's own frontend script is enqueued here rather than
+		 * declared as `viewScript` in block.json, because core enqueues a
+		 * viewScript whenever the block appears on the page — it has no way to
+		 * know the block came in rail mode. view.js opens with
+		 * `( function ( $ ) { … } )( jQuery )`, so on a page whose only
+		 * carousel is a rail it threw "Can't find variable: jQuery" before
+		 * ever reaching its own rail guard, and jQuery wasn't loaded because
+		 * the generated view.asset.php declared no dependencies. Gating it on
+		 * $carousel_active keeps the rail-mode promise of zero JS.
+		 *
+		 * It lives in blocks/carousel/js/ rather than src/ because dropping
+		 * viewScript from block.json also drops it as a webpack entry point —
+		 * and it needs no bundling: hand-written jQuery, no imports.
+		 */
+		if ( $carousel_active ) {
+			wp_enqueue_script(
+				'aludra-carousel-view',
+				ALUDRA_PLUGIN_URL . 'blocks/carousel/js/view.js',
+				array( 'jquery', 'slick-carousel' ),
+				ALUDRA_VERSION,
+				true
+			);
+		}
 	}
 );
 

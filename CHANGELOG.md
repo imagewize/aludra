@@ -23,8 +23,30 @@ the mockup. See `docs/AVIENDHA-REDESIGN.md` step 13 in the imagewize.com repo.
   restores the scrolling in the same move. The cards were always the mockup's
   `minmax(19rem, 22rem)`; they only looked undersized against 500px of dead space
   either side.
+- `aludra/carousel` — rail mode gained a scroll affordance: a right-edge fade (a mask on
+  the scroll container, which stays pinned to the edge where an absolutely positioned
+  child would scroll away) that itself fades out at the end of the track via a
+  scroll-driven animation, plus an `.aludra-rail-hint` class for a mono "Scroll for more"
+  label, authored as a paragraph in the pattern so it stays translatable and removable.
+  Rail mode draws no arrows and no dots, so the scrollbar was the only cue — and on macOS
+  that is an overlay scrollbar reserving zero layout space and staying invisible until you
+  already scrolled. Styling `::-webkit-scrollbar` did not override the platform default
+  (measured `offsetHeight - clientHeight === 0` on the demo site), so the bar is now
+  treated as a bonus rather than the affordance. Both cues are pure CSS; rail mode stays
+  zero-JS.
 
 ### Fixed
+- `aludra/carousel` — a rail-mode carousel threw `ReferenceError: Can't find variable:
+  jQuery` on the frontend. `view.js` was declared as `viewScript` in block.json, and core
+  enqueues a viewScript whenever the block is on the page — it cannot know the block came
+  in rail mode. The script opens with `( function ( $ ) { … } )( jQuery )`, so it died on
+  that line before ever reaching its own rail guard, and jQuery wasn't loaded because the
+  generated view.asset.php declared no dependencies. It is now enqueued from `aludra.php`
+  behind `aludra_blocks_have_slick_carousel()`, the same gate as the Slick vendor assets,
+  which also finally delivers 2.21.1's stated promise: a rail-only page now loads no
+  carousel JavaScript at all, not just no Slick. The file moved to
+  `blocks/carousel/js/view.js` because dropping `viewScript` also drops it as a webpack
+  entry point, and it needs no bundling — hand-written jQuery, no imports.
 - `aludra/spine-section` — the single-column mobile layout used a bare `1fr` track,
   which is `minmax(auto, 1fr)`: its automatic minimum is the track's *min-content*
   width. A horizontally overflowing child therefore widened the track — and with it the

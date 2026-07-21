@@ -205,6 +205,8 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 == Changelog ==
 
 = 2.23.1 =
+* Fixed: a rail-mode `aludra/carousel` threw `ReferenceError: Can't find variable: jQuery` — its `view.js` was a block.json `viewScript`, which core enqueues whenever the block is present regardless of engine; it is now enqueued behind the same engine gate as the Slick vendor assets, so a rail-only page loads no carousel JavaScript at all
+* Added: rail mode now shows a right-edge fade that clears itself at the end of the track, plus an `.aludra-rail-hint` class for a mono "Scroll for more" label — rail mode draws no arrows or dots, and macOS overlay scrollbars gave it no visible cue that it scrolled
 * Fixed: `aludra/spine-section` no longer lets an overflowing child widen the whole page on narrow screens — the single-column mobile track is now `minmax(0, 1fr)` rather than a bare `1fr`, whose automatic minimum is min-content
 * Changed: patterns/page-homepage.php — the client work rail moved into a tinted Spine Section ("Selected work") and dropped its full-width alignment, so it sits in the content shell like the mockup and, being narrower than its five cards, actually scrolls
 
