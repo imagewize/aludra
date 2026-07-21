@@ -108,3 +108,110 @@
 		}
 	}
 }
+
+/**
+ * ─── STYLE VARIANT: is-style-list ───────────────────────────────────────────
+ *
+ * The mockup's `.svc` (designs/aviendha/aviendha-redesign.html ~lines 246-253):
+ * a single-column list of hairline-separated rows — icon, heading + copy, and
+ * a mono two-digit index — rather than the default two-per-row cards. Meant to
+ * sit inside an `aludra/spine-section`, which supplies the section's label and
+ * heading, so the block's own `__header` is normally left out of the content.
+ *
+ * The block keeps its own shell and background when used standalone; this
+ * variant strips both, because the surrounding section owns them.
+ *
+ * Every declaration here is written to beat two things: the base rules above
+ * (several of which are `!important` to override WordPress' own layout output),
+ * and the inline width/height the core/image block writes onto the icon. The
+ * `.is-style-list` compound selector wins on specificity against the block's
+ * own base rules regardless of source order, which is why the responsive
+ * overrides below don't need to be repeated in the base media query.
+ */
+.wp-block-aludra-services-block.is-style-list {
+	background: transparent;
+	padding: 0;
+
+	.services-block__inner {
+		max-width: none;
+		margin: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.services-block__header {
+		margin-bottom: 2rem !important;
+	}
+
+	/* The index is a CSS counter rather than an authored `01`/`02` span, so it
+	   can never drift out of step when an author reorders, adds or removes a
+	   row. The counter lives on the grid and increments per card; the digits
+	   render from the card's own `::after`, which also supplies the third grid
+	   column. */
+	.services-block__grid {
+		grid-template-columns: 1fr;
+		gap: 0;
+		border-top: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+		counter-reset: aludra-svc;
+	}
+
+	.services-block__card {
+		display: grid !important;
+		grid-template-columns: auto 1fr auto;
+		gap: 1.25rem !important;
+		align-items: start;
+		background: transparent;
+		border-radius: 0;
+		box-shadow: none;
+		padding: 1.6rem 0;
+		border-bottom: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+		counter-increment: aludra-svc;
+	}
+
+	.services-block__card::after {
+		content: counter(aludra-svc, decimal-leading-zero);
+		font-family: var( --wp--preset--font-family--mono, ui-monospace, monospace );
+		font-size: var( --wp--preset--font-size--xx-small, 0.7rem );
+		color: var(--wp--preset--color--main-accent, #b4785a);
+		line-height: 1.6;
+	}
+
+	/* No badge — the icon sits bare on the page, drawn in `primary` at the
+	   size the mockup uses. The `!important` is aimed at core/image's inline
+	   width/height attributes, not at any rule in this stylesheet. */
+	.services-block__icon {
+		width: 34px;
+		height: 34px;
+		min-width: 34px;
+		background: transparent;
+		border-radius: 0;
+		color: var(--wp--preset--color--primary, #7a2f3a);
+	}
+
+	.services-block__icon img {
+		width: 34px !important;
+		height: 34px !important;
+	}
+
+	.services-block__content .wp-block-heading {
+		font-size: var( --wp--preset--font-size--medium, 1.1rem );
+	}
+
+	.services-block__content p {
+		font-size: var( --wp--preset--font-size--base, 0.95rem );
+		max-width: 52ch;
+	}
+
+	/* Below the mockup's 560px breakpoint the index is dropped rather than
+	   wrapped — at that width the row needs its horizontal space for the copy,
+	   and the numbering is decorative. */
+	@media (max-width: 560px) {
+		.services-block__card {
+			grid-template-columns: auto 1fr;
+		}
+
+		.services-block__card::after {
+			display: none;
+		}
+	}
+}

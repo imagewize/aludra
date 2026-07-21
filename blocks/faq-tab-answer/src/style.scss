@@ -3,6 +3,8 @@
  */
 
 .faq-tab-answer {
+	/* Tabs/accordion mode shows one answer at a time and `view.js` adds
+	   `.active` to whichever that is, so the default state is hidden. */
 	display: none;
 
 	&.active {
@@ -29,4 +31,14 @@
 			}
 		}
 	}
+}
+
+/**
+ * Native mode saves this block as a `<details>` element instead of a div, and
+ * `view.js` deliberately never runs for it — so nothing will ever add
+ * `.active`, and the JS-mode `display: none` above would hide the whole FAQ.
+ * The element selector outranks the bare class, so this needs no `!important`.
+ */
+details.faq-tab-answer {
+	display: block;
 }

@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.22.0
+Stable tag: 2.23.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -40,6 +40,7 @@ Aludra is a theme-neutral shared block library for the Imagewize block themes (E
 **FAQ Tabs Block**
 * Interactive FAQ section with vertical tab navigation and dynamic content display
 * Inline-editable questions via RichText, responsive mobile accordion layout
+* Three display modes: tabs (desktop tabs / mobile accordion), accordion (stacked everywhere), and native (real <details>/<summary> elements — no JavaScript, and browser find-in-page can expand a closed answer)
 * Parent of the FAQ Tab Answer block
 
 **FAQ Tab Answer Block**
@@ -70,6 +71,7 @@ Aludra is a theme-neutral shared block library for the Imagewize block themes (E
 **Pricing Tiers Block**
 * Three-column pricing comparison table with featured tier highlighting
 * Built from InnerBlocks so every price, feature, and button is fully editable
+* Two styles: separate cards (default) or a single bordered spec sheet split by internal hairlines, with the featured tier marked by a thin accent bar
 
 **Testimonial Grid Block**
 * Grid of customer testimonials with metrics
@@ -201,6 +203,15 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.23.0 =
+* Added: `aludra/services-block` gained an `is-style-list` style — a single-column list of hairline-separated rows with a mono two-digit index, drawn from a CSS counter so it never drifts out of step with the actual row order; the default `cards` style is unchanged (Aviendha redesign)
+* Added: `aludra/pricing-tiers` gained an `is-style-spec-sheet` style — one bordered container split by internal hairlines instead of three floating cards, with the featured tier marked by a 3px accent bar and a background tint rather than a heavier border
+* Added: `aludra/review-profiles` gained an `is-style-quotes` style — bordered quote cards with a decorative quote glyph and role + sector attribution, no avatar
+* Added: `aludra/faq-tabs` gained a `native` display mode rendering real `<details>`/`<summary>` elements — no JavaScript, CSS-only chevron, and browser find-in-page can expand a closed answer; `aludra/faq-tab-answer` gained matching `displayMode` and `openByDefault` attributes
+* Changed: patterns/page-homepage.php — pricing, services, reviews and FAQ each now sit inside a Spine Section using the new styles; their standalone headings moved into the spine column, and the pricing section's Nynaeve-specific font-size slugs and inline border styles were replaced by the shared scale and variant CSS
+* Changed: assets/placeholders/avatar.svg — replaced the hand-drawn cool-grey bust with the eos-face icon from Blade UI Kit (MIT, see Credits), recoloured into Aludra's warm neutrals and with a transparent backdrop so it takes on whatever surface it sits on
+* Fixed: `.faq-tab-answer { display: none }` hid the entire FAQ in `native` mode — the rule exists so tabs/accordion can reveal one answer at a time via a class `view.js` adds, and `view.js` never runs for native
 
 = 2.22.0 =
 * Added: `aludra/spine-section` block — the editorial spine layout: a sticky label/heading/aside column beside section content, collapsing to one column below 860px (Aviendha redesign)
@@ -538,6 +549,11 @@ The plugin icon is based on IconPark Block One from Blade UI Kit.
 The bike and noodle-bowl icons used in the homepage pattern's "Our Clients" carousel are from Blade UI Kit (Blade Icons), sourced from the Tabler Icons and Maki Icons sets respectively.
 * Bike icon source: https://blade-ui-kit.com/blade-icons/tabler-bike
 * Restaurant icon source: https://blade-ui-kit.com/blade-icons/maki-restaurant-noodle
+* Blade Icons license: https://github.com/driesvints/blade-icons/blob/main/LICENSE.md (MIT License)
+
+= Review Avatar Placeholder =
+The bundled review-avatar placeholder (assets/placeholders/avatar.svg) is the eos-face icon from Blade UI Kit (Blade Icons), sourced from the EOS Icons set and recoloured into Aludra's warm sand/terracotta neutrals.
+* Face icon source: https://blade-ui-kit.com/blade-icons/eos-face
 * Blade Icons license: https://github.com/driesvints/blade-icons/blob/main/LICENSE.md (MIT License)
 
 = README Logo =

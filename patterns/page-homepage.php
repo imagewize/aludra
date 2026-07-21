@@ -147,176 +147,129 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons --></div></div>
 <!-- /wp:aludra/cta-banner -->
 
-<!-- wp:aludra/pricing-tiers -->
-<div class="wp-block-aludra-pricing-tiers alignfull has-base-background-color has-background" style="margin-top:0;margin-bottom:0"><!-- wp:spacer {"height":"50px"} -->
-<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:heading {"className":"pricing-main-title","style":{"typography":{"textAlign":"center"}},"fontSize":"3xl","fontFamily":"open-sans"} -->
-<h2 class="wp-block-heading has-text-align-center pricing-main-title has-open-sans-font-family has-3-xl-font-size">Choose Your Plan</h2>
+<!-- wp:aludra/spine-section {"tint":true} -->
+<div class="wp-block-aludra-spine-section is-tinted alignfull" style="margin-top:0;margin-bottom:0"><div class="spine-section__shell"><div class="spine-section__spine"><p class="spine-section__label">Pricing</p><h2 class="spine-section__heading">Choose Your Plan</h2><p class="spine-section__aside">Select the perfect plan for your needs. Monthly, cancel whenever.</p></div><div class="spine-section__content"><!-- wp:aludra/pricing-tiers {"backgroundColor":"","className":"is-style-spec-sheet"} -->
+<div class="wp-block-aludra-pricing-tiers is-style-spec-sheet alignfull" style="margin-top:0;margin-bottom:0"><!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Essential</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"className":"pricing-main-subtitle has-secondary-color has-text-color","style":{"typography":{"textAlign":"center"}},"textColor":"secondary","fontSize":"lg"} -->
-<p class="has-text-align-center pricing-main-subtitle has-secondary-color has-text-color has-lg-font-size">Select the perfect plan for your needs</p>
+<!-- wp:paragraph {"className":"pricing-who"} -->
+<p class="pricing-who">Perfect for small businesses</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:group {"align":"full","backgroundColor":"base","layout":{"type":"constrained","contentSize":"64rem"}} -->
-<div class="wp-block-group alignfull has-base-background-color has-background"><!-- wp:spacer {"height":"50px"} -->
-<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:columns {"style":{"spacing":{"blockGap":{"top":"2rem","left":"2rem"}}}} -->
-<div class="wp-block-columns"><!-- wp:column {"style":{"border":{"width":"1px","color":"#cbcbcb","radius":"0.5rem"},"spacing":{"padding":{"top":"2rem","right":"2rem","bottom":"2rem","left":"2rem"}}},"backgroundColor":"white"} -->
-<div class="wp-block-column has-border-color has-white-background-color has-background" style="border-color:#cbcbcb;border-width:1px;border-radius:0.5rem;padding-top:2rem;padding-right:2rem;padding-bottom:2rem;padding-left:2rem"><!-- wp:heading {"level":3,"style":{"typography":{"textAlign":"center"}}} -->
-<h3 class="wp-block-heading has-text-align-center">Essential</h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"className":"has-secondary-color has-text-color","style":{"typography":{"textAlign":"center"}},"textColor":"secondary","fontSize":"lg"} -->
-<p class="has-text-align-center has-secondary-color has-text-color has-lg-font-size">Perfect for small businesses</p>
+<!-- wp:paragraph {"className":"pricing-price"} -->
+<p class="pricing-price">€59<span class="pricing-price__unit">/ month</span></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4,"style":{"typography":{"textAlign":"center"}}} -->
-<h4 class="wp-block-heading has-text-align-center"><strong>€59</strong> <span style="font-weight:normal;font-size:1rem;color:#98999a">per month</span></h4>
-<!-- /wp:heading -->
+<!-- wp:list {"className":"pricing-features"} -->
+<ul class="wp-block-list pricing-features"><!-- wp:list-item -->
+<li>Basic monitoring</li>
+<!-- /wp:list-item -->
 
-<!-- wp:spacer {"height":"1rem"} -->
-<div style="height:1rem" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
+<!-- wp:list-item -->
+<li>Monthly updates</li>
+<!-- /wp:list-item -->
 
-<!-- wp:paragraph {"className":"pricing-feature-item","style":{"spacing":{"padding":{"bottom":"1rem"},"margin":{"bottom":"1rem"}},"border":{"bottom":{"width":"2px","style":"dotted","color":"rgba(0,0,0,0.1)"}}},"textColor":"secondary"} -->
-<p class="pricing-feature-item has-secondary-color has-text-color" style="border-bottom-color:rgba(0,0,0,0.1);border-bottom-style:dotted;border-bottom-width:2px;margin-bottom:1rem;padding-bottom:1rem">✓ Basic monitoring</p>
-<!-- /wp:paragraph -->
+<!-- wp:list-item -->
+<li>Email support</li>
+<!-- /wp:list-item -->
 
-<!-- wp:paragraph {"className":"pricing-feature-item","style":{"spacing":{"padding":{"bottom":"1rem"},"margin":{"bottom":"1rem"}},"border":{"bottom":{"width":"2px","style":"dotted","color":"rgba(0,0,0,0.1)"}}},"textColor":"secondary"} -->
-<p class="pricing-feature-item has-secondary-color has-text-color" style="border-bottom-color:rgba(0,0,0,0.1);border-bottom-style:dotted;border-bottom-width:2px;margin-bottom:1rem;padding-bottom:1rem">✓ Monthly updates</p>
-<!-- /wp:paragraph -->
+<!-- wp:list-item -->
+<li>1 hour response time</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
 
-<!-- wp:paragraph {"className":"pricing-feature-item","style":{"spacing":{"padding":{"bottom":"1rem"},"margin":{"bottom":"1rem"}},"border":{"bottom":{"width":"2px","style":"dotted","color":"rgba(0,0,0,0.1)"}}},"textColor":"secondary"} -->
-<p class="pricing-feature-item has-secondary-color has-text-color" style="border-bottom-color:rgba(0,0,0,0.1);border-bottom-style:dotted;border-bottom-width:2px;margin-bottom:1rem;padding-bottom:1rem">✓ Email support</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"textColor":"secondary"} -->
-<p class="has-secondary-color has-text-color">✓ 1 hour response time</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:spacer {"height":"1rem"} -->
-<div style="height:1rem" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"1rem"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons" style="margin-top:1rem"><!-- wp:button {"backgroundColor":"primary","textColor":"white","className":"is-style-fill","style":{"border":{"radius":"0.5rem"}}} -->
-<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-white-color has-primary-background-color has-text-color has-background wp-element-button" href="#" style="border-radius:0.5rem">Get Started</a></div>
+<!-- wp:buttons {"className":"pricing-cta"} -->
+<div class="wp-block-buttons pricing-cta"><!-- wp:button {"backgroundColor":"primary","textColor":"white","className":"is-style-fill"} -->
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-white-color has-primary-background-color has-text-color has-background wp-element-button" href="#">Get Started</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:column -->
 
-<!-- wp:column {"className":"pricing-featured-column","style":{"border":{"width":"2px","color":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dcolor\u002d\u002dprimary)","radius":"0.5rem"},"spacing":{"padding":{"top":"2rem","right":"2rem","bottom":"2rem","left":"2rem"}}},"backgroundColor":"primary-accent"} -->
-<div class="wp-block-column pricing-featured-column has-border-color has-primary-accent-background-color has-background" style="border-color:var(--wp--preset--color--primary);border-width:2px;border-radius:0.5rem;padding-top:2rem;padding-right:2rem;padding-bottom:2rem;padding-left:2rem"><!-- wp:heading {"level":3,"style":{"typography":{"textAlign":"center"}}} -->
-<h3 class="wp-block-heading has-text-align-center">Business <span class="has-primary-color has-text-color has-background has-xs-font-size" style="border-radius:1rem;background-color:#ffffff;padding:0.5rem 1rem;font-size:0.75rem;margin-left:0.5rem"><strong>MOST POPULAR</strong></span></h3>
+<!-- wp:column {"className":"pricing-featured-column"} -->
+<div class="wp-block-column pricing-featured-column"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Business <span class="pricing-tag">Most popular</span></h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"className":"has-main-color has-text-color","style":{"typography":{"textAlign":"center"}},"textColor":"main","fontSize":"lg"} -->
-<p class="has-text-align-center has-main-color has-text-color has-lg-font-size">For growing businesses</p>
+<!-- wp:paragraph {"className":"pricing-who"} -->
+<p class="pricing-who">For growing businesses</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4,"style":{"typography":{"textAlign":"center"}}} -->
-<h4 class="wp-block-heading has-text-align-center"><strong>€99</strong> <span style="font-weight:normal;font-size:1rem;color:#98999a">per month</span></h4>
-<!-- /wp:heading -->
-
-<!-- wp:spacer {"height":"1rem"} -->
-<div style="height:1rem" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:paragraph {"className":"pricing-feature-item","style":{"spacing":{"padding":{"bottom":"1rem"},"margin":{"bottom":"1rem"}},"border":{"bottom":{"width":"2px","style":"dotted","color":"rgba(1,124,182,0.3)"}}},"textColor":"main"} -->
-<p class="pricing-feature-item has-main-color has-text-color" style="border-bottom-color:rgba(1,124,182,0.3);border-bottom-style:dotted;border-bottom-width:2px;margin-bottom:1rem;padding-bottom:1rem">✓ Advanced monitoring</p>
+<!-- wp:paragraph {"className":"pricing-price"} -->
+<p class="pricing-price">€99<span class="pricing-price__unit">/ month</span></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"pricing-feature-item","style":{"spacing":{"padding":{"bottom":"1rem"},"margin":{"bottom":"1rem"}},"border":{"bottom":{"width":"2px","style":"dotted","color":"rgba(1,124,182,0.3)"}}},"textColor":"main"} -->
-<p class="pricing-feature-item has-main-color has-text-color" style="border-bottom-color:rgba(1,124,182,0.3);border-bottom-style:dotted;border-bottom-width:2px;margin-bottom:1rem;padding-bottom:1rem">✓ Weekly updates</p>
-<!-- /wp:paragraph -->
+<!-- wp:list {"className":"pricing-features"} -->
+<ul class="wp-block-list pricing-features"><!-- wp:list-item -->
+<li>Advanced monitoring</li>
+<!-- /wp:list-item -->
 
-<!-- wp:paragraph {"className":"pricing-feature-item","style":{"spacing":{"padding":{"bottom":"1rem"},"margin":{"bottom":"1rem"}},"border":{"bottom":{"width":"2px","style":"dotted","color":"rgba(1,124,182,0.3)"}}},"textColor":"main"} -->
-<p class="pricing-feature-item has-main-color has-text-color" style="border-bottom-color:rgba(1,124,182,0.3);border-bottom-style:dotted;border-bottom-width:2px;margin-bottom:1rem;padding-bottom:1rem">✓ Priority support</p>
-<!-- /wp:paragraph -->
+<!-- wp:list-item -->
+<li>Weekly updates</li>
+<!-- /wp:list-item -->
 
-<!-- wp:paragraph {"textColor":"main"} -->
-<p class="has-main-color has-text-color">✓ 30 min response time</p>
-<!-- /wp:paragraph -->
+<!-- wp:list-item -->
+<li>Priority support</li>
+<!-- /wp:list-item -->
 
-<!-- wp:spacer {"height":"1rem"} -->
-<div style="height:1rem" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
+<!-- wp:list-item -->
+<li>30 min response time</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
 
-<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"1rem"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons" style="margin-top:1rem"><!-- wp:button {"backgroundColor":"primary","textColor":"white","className":"is-style-fill","style":{"border":{"radius":"0.5rem"}}} -->
-<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-white-color has-primary-background-color has-text-color has-background wp-element-button" href="#" style="border-radius:0.5rem">Get Started</a></div>
+<!-- wp:buttons {"className":"pricing-cta"} -->
+<div class="wp-block-buttons pricing-cta"><!-- wp:button {"backgroundColor":"primary","textColor":"white","className":"is-style-fill"} -->
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-white-color has-primary-background-color has-text-color has-background wp-element-button" href="#">Get Started</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:column -->
 
-<!-- wp:column {"style":{"border":{"width":"1px","color":"#cbcbcb","radius":"0.5rem"},"spacing":{"padding":{"top":"2rem","right":"2rem","bottom":"2rem","left":"2rem"}}},"backgroundColor":"white"} -->
-<div class="wp-block-column has-border-color has-white-background-color has-background" style="border-color:#cbcbcb;border-width:1px;border-radius:0.5rem;padding-top:2rem;padding-right:2rem;padding-bottom:2rem;padding-left:2rem"><!-- wp:heading {"level":3,"style":{"typography":{"textAlign":"center"}}} -->
-<h3 class="wp-block-heading has-text-align-center">Enterprise</h3>
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Enterprise</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"className":"has-secondary-color has-text-color","style":{"typography":{"textAlign":"center"}},"textColor":"secondary","fontSize":"lg"} -->
-<p class="has-text-align-center has-secondary-color has-text-color has-lg-font-size">For large organizations</p>
+<!-- wp:paragraph {"className":"pricing-who"} -->
+<p class="pricing-who">For large organizations</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4,"style":{"typography":{"textAlign":"center"}}} -->
-<h4 class="wp-block-heading has-text-align-center"><strong>€199</strong> <span style="font-weight:normal;font-size:1rem;color:#98999a">per month</span></h4>
-<!-- /wp:heading -->
-
-<!-- wp:spacer {"height":"1rem"} -->
-<div style="height:1rem" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:paragraph {"className":"pricing-feature-item","style":{"spacing":{"padding":{"bottom":"1rem"},"margin":{"bottom":"1rem"}},"border":{"bottom":{"width":"2px","style":"dotted","color":"rgba(0,0,0,0.1)"}}},"textColor":"secondary"} -->
-<p class="pricing-feature-item has-secondary-color has-text-color" style="border-bottom-color:rgba(0,0,0,0.1);border-bottom-style:dotted;border-bottom-width:2px;margin-bottom:1rem;padding-bottom:1rem">✓ 24/7 monitoring</p>
+<!-- wp:paragraph {"className":"pricing-price"} -->
+<p class="pricing-price">€199<span class="pricing-price__unit">/ month</span></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"pricing-feature-item","style":{"spacing":{"padding":{"bottom":"1rem"},"margin":{"bottom":"1rem"}},"border":{"bottom":{"width":"2px","style":"dotted","color":"rgba(0,0,0,0.1)"}}},"textColor":"secondary"} -->
-<p class="pricing-feature-item has-secondary-color has-text-color" style="border-bottom-color:rgba(0,0,0,0.1);border-bottom-style:dotted;border-bottom-width:2px;margin-bottom:1rem;padding-bottom:1rem">✓ Daily updates</p>
-<!-- /wp:paragraph -->
+<!-- wp:list {"className":"pricing-features"} -->
+<ul class="wp-block-list pricing-features"><!-- wp:list-item -->
+<li>24/7 monitoring</li>
+<!-- /wp:list-item -->
 
-<!-- wp:paragraph {"className":"pricing-feature-item","style":{"spacing":{"padding":{"bottom":"1rem"},"margin":{"bottom":"1rem"}},"border":{"bottom":{"width":"2px","style":"dotted","color":"rgba(0,0,0,0.1)"}}},"textColor":"secondary"} -->
-<p class="pricing-feature-item has-secondary-color has-text-color" style="border-bottom-color:rgba(0,0,0,0.1);border-bottom-style:dotted;border-bottom-width:2px;margin-bottom:1rem;padding-bottom:1rem">✓ Dedicated support</p>
-<!-- /wp:paragraph -->
+<!-- wp:list-item -->
+<li>Daily updates</li>
+<!-- /wp:list-item -->
 
-<!-- wp:paragraph {"textColor":"secondary"} -->
-<p class="has-secondary-color has-text-color">✓ 15 min response time</p>
-<!-- /wp:paragraph -->
+<!-- wp:list-item -->
+<li>Dedicated support</li>
+<!-- /wp:list-item -->
 
-<!-- wp:spacer {"height":"1rem"} -->
-<div style="height:1rem" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
+<!-- wp:list-item -->
+<li>15 min response time</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
 
-<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"1rem"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons" style="margin-top:1rem"><!-- wp:button {"backgroundColor":"primary","textColor":"white","className":"is-style-fill","style":{"border":{"radius":"0.5rem"}}} -->
-<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-white-color has-primary-background-color has-text-color has-background wp-element-button" href="#" style="border-radius:0.5rem">Get Started</a></div>
+<!-- wp:buttons {"className":"pricing-cta"} -->
+<div class="wp-block-buttons pricing-cta"><!-- wp:button {"backgroundColor":"primary","textColor":"white","className":"is-style-fill"} -->
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-white-color has-primary-background-color has-text-color has-background wp-element-button" href="#">Get Started</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:column --></div>
-<!-- /wp:columns -->
+<!-- /wp:columns --></div>
+<!-- /wp:aludra/pricing-tiers --></div></div></div>
+<!-- /wp:aludra/spine-section -->
 
-<!-- wp:spacer {"height":"50px"} -->
-<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer --></div>
-<!-- /wp:group --></div>
-<!-- /wp:aludra/pricing-tiers -->
-
-<!-- wp:aludra/services-block -->
-<div class="wp-block-aludra-services-block alignfull" style="margin-top:0;margin-bottom:0"><div class="services-block__inner"><!-- wp:group {"className":"services-block__header","layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-<div class="wp-block-group services-block__header"><!-- wp:heading {"style":{"typography":{"fontWeight":"700","textAlign":"center"}}} -->
-<h2 class="wp-block-heading has-text-align-center" style="font-weight:700">Our Services</h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"className":"services-block__lead","style":{"typography":{"textAlign":"center"}}} -->
-<p class="has-text-align-center services-block__lead">A quick look at what we do and how it helps your business grow.</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"services-block__grid"} -->
+<!-- wp:aludra/spine-section -->
+<div class="wp-block-aludra-spine-section alignfull" style="margin-top:0;margin-bottom:0"><div class="spine-section__shell"><div class="spine-section__spine"><p class="spine-section__label">Services</p><h2 class="spine-section__heading">Our Services</h2><p class="spine-section__aside">A quick look at what we do and how it helps your business grow.</p></div><div class="spine-section__content"><!-- wp:aludra/services-block {"className":"is-style-list"} -->
+<div class="wp-block-aludra-services-block alignfull is-style-list" style="margin-top:0;margin-bottom:0"><div class="services-block__inner"><!-- wp:group {"className":"services-block__grid"} -->
 <div class="wp-block-group services-block__grid"><!-- wp:group {"className":"services-block__card","layout":{"type":"flex","orientation":"horizontal","verticalAlignment":"top","flexWrap":"nowrap"}} -->
 <div class="wp-block-group services-block__card"><!-- wp:group {"className":"services-block__icon","layout":{"type":"flex","justifyContent":"center","verticalAlignment":"center"}} -->
 <div class="wp-block-group services-block__icon"><!-- wp:image {"width":"26px","height":"26px","sizeSlug":"full","linkDestination":"none","metadata":{"bindings":{"url":{"source":"aludra/icon","args":{"path":"icon-performance.svg"}}}}} -->
@@ -389,88 +342,81 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div></div>
-<!-- /wp:aludra/services-block -->
+<!-- /wp:aludra/services-block --></div></div></div>
+<!-- /wp:aludra/spine-section -->
 
-<!-- wp:aludra/review-profiles -->
-<div class="wp-block-aludra-review-profiles alignfull" style="margin-top:0;margin-bottom:0"><div class="review-profiles__content"><!-- wp:heading {"className":"review-profiles__title","style":{"typography":{"fontWeight":"600","textAlign":"center"}}} -->
-<h2 class="wp-block-heading has-text-align-center review-profiles__title" style="font-weight:600">Client Reviews</h2>
-<!-- /wp:heading -->
-
-<!-- wp:group {"className":"review-profiles__grid"} -->
+<!-- wp:aludra/spine-section -->
+<div class="wp-block-aludra-spine-section alignfull" style="margin-top:0;margin-bottom:0"><div class="spine-section__shell"><div class="spine-section__spine"><p class="spine-section__label">Clients</p><h2 class="spine-section__heading">In Their Words.</h2><p class="spine-section__aside">Three of the last twelve projects.</p></div><div class="spine-section__content"><!-- wp:aludra/review-profiles {"className":"is-style-quotes"} -->
+<div class="wp-block-aludra-review-profiles alignfull is-style-quotes" style="margin-top:0;margin-bottom:0"><div class="review-profiles__content"><!-- wp:group {"className":"review-profiles__grid"} -->
 <div class="wp-block-group review-profiles__grid"><!-- wp:group {"className":"review-profiles__item","layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-<div class="wp-block-group review-profiles__item"><!-- wp:image {"className":"is-resized review-profiles__avatar","style":{"border":{"radius":"100px"}}} -->
-<figure class="wp-block-image has-custom-border is-resized review-profiles__avatar"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8Y2lyY2xlIGN4PSI0OCIgY3k9IjQ4IiByPSI0OCIgZmlsbD0iI2U1ZTdlYiIvPgogIDxjaXJjbGUgY3g9IjQ4IiBjeT0iMzgiIHI9IjE2IiBzdHJva2U9IiM5Y2EzYWYiIHN0cm9rZS13aWR0aD0iNSIvPgogIDxwYXRoIGQ9Ik0xOCA4MkMyMiA2MiAzNCA1NCA0OCA1NEM2MiA1NCA3NCA2MiA3OCA4MiIgc3Ryb2tlPSIjOWNhM2FmIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K" alt="" style="border-radius:100px"/></figure>
-<!-- /wp:image -->
+<div class="wp-block-group review-profiles__item"><!-- wp:paragraph {"className":"review-profiles__quote"} -->
+<p class="review-profiles__quote">Working with this team made a real difference — they delivered on time and communicated clearly throughout the whole project.</p>
+<!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"review-profiles__quote","style":{"typography":{"textAlign":"center"}}} -->
-<p class="has-text-align-center review-profiles__quote">"Working with this team made a real difference — they delivered on time and communicated clearly throughout the whole project."</p>
+<!-- wp:paragraph {"className":"review-profiles__attribution"} -->
+<p class="review-profiles__attribution"><strong>Operations lead</strong>Online retailer, Rotterdam</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"review-profiles__item","layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-<div class="wp-block-group review-profiles__item"><!-- wp:image {"className":"is-resized review-profiles__avatar","style":{"border":{"radius":"100px"}}} -->
-<figure class="wp-block-image has-custom-border is-resized review-profiles__avatar"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8Y2lyY2xlIGN4PSI0OCIgY3k9IjQ4IiByPSI0OCIgZmlsbD0iI2U1ZTdlYiIvPgogIDxjaXJjbGUgY3g9IjQ4IiBjeT0iMzgiIHI9IjE2IiBzdHJva2U9IiM5Y2EzYWYiIHN0cm9rZS13aWR0aD0iNSIvPgogIDxwYXRoIGQ9Ik0xOCA4MkMyMiA2MiAzNCA1NCA0OCA1NEM2MiA1NCA3NCA2MiA3OCA4MiIgc3Ryb2tlPSIjOWNhM2FmIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K" alt="" style="border-radius:100px"/></figure>
-<!-- /wp:image -->
+<div class="wp-block-group review-profiles__item"><!-- wp:paragraph {"className":"review-profiles__quote"} -->
+<p class="review-profiles__quote">Great communication, strong technical skills, and a genuine understanding of what our business needed. We'll be back for future projects.</p>
+<!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"review-profiles__quote","style":{"typography":{"textAlign":"center"}}} -->
-<p class="has-text-align-center review-profiles__quote">"Great communication, strong technical skills, and a genuine understanding of what our business needed. We'll be back for future projects."</p>
+<!-- wp:paragraph {"className":"review-profiles__attribution"} -->
+<p class="review-profiles__attribution"><strong>Managing director</strong>Design studio, Berlin</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"review-profiles__item","layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-<div class="wp-block-group review-profiles__item"><!-- wp:image {"className":"is-resized review-profiles__avatar","style":{"border":{"radius":"100px"}}} -->
-<figure class="wp-block-image has-custom-border is-resized review-profiles__avatar"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8Y2lyY2xlIGN4PSI0OCIgY3k9IjQ4IiByPSI0OCIgZmlsbD0iI2U1ZTdlYiIvPgogIDxjaXJjbGUgY3g9IjQ4IiBjeT0iMzgiIHI9IjE2IiBzdHJva2U9IiM5Y2EzYWYiIHN0cm9rZS13aWR0aD0iNSIvPgogIDxwYXRoIGQ9Ik0xOCA4MkMyMiA2MiAzNCA1NCA0OCA1NEM2MiA1NCA3NCA2MiA3OCA4MiIgc3Ryb2tlPSIjOWNhM2FmIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K" alt="" style="border-radius:100px"/></figure>
-<!-- /wp:image -->
+<div class="wp-block-group review-profiles__item"><!-- wp:paragraph {"className":"review-profiles__quote"} -->
+<p class="review-profiles__quote">Couldn't have done this without them. Our site is faster and easier to manage than ever. Would definitely hire again.</p>
+<!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"review-profiles__quote","style":{"typography":{"textAlign":"center"}}} -->
-<p class="has-text-align-center review-profiles__quote">"Couldn't have done this without them. Our site is faster and easier to manage than ever. Would definitely hire again."</p>
+<!-- wp:paragraph {"className":"review-profiles__attribution"} -->
+<p class="review-profiles__attribution"><strong>Owner</strong>Restaurant group, Amsterdam</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div></div>
-<!-- /wp:aludra/review-profiles -->
+<!-- /wp:aludra/review-profiles --></div></div></div>
+<!-- /wp:aludra/spine-section -->
 
-<!-- wp:heading {"style":{"typography":{"textAlign":"center"}}} -->
-<h2 class="wp-block-heading has-text-align-center">Frequently Asked Questions</h2>
-<!-- /wp:heading -->
-
-<!-- wp:spacer {"height":"30px"} -->
-<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:aludra/faq-tabs {"displayMode":"accordion"} -->
-<div class="wp-block-aludra-faq-tabs alignwide faq-tabs-wrapper is-display-mode-accordion" data-display-mode="accordion"><div class="wp-block-columns"><div class="wp-block-column faq-questions-column" style="flex-basis:40%"><div class="faq-vertical-tabs"></div></div><div class="wp-block-column faq-content-column" style="flex-basis:60%"><div class="faq-content-area"><!-- wp:aludra/faq-tab-answer {"question":"What services do you offer?","title":"Our Comprehensive Services"} -->
-<div class="wp-block-aludra-faq-tab-answer faq-tab-answer" data-question="What services do you offer?"><div class="faq-answer-header"><h3 class="faq-answer-title">Our Comprehensive Services</h3></div><div class="faq-answer-content"><!-- wp:paragraph -->
+<!-- wp:aludra/spine-section {"tint":true} -->
+<div class="wp-block-aludra-spine-section is-tinted alignfull" style="margin-top:0;margin-bottom:0"><div class="spine-section__shell"><div class="spine-section__spine"><p class="spine-section__label">Questions</p><h2 class="spine-section__heading">Before You Write In.</h2><p class="spine-section__aside"></p></div><div class="spine-section__content"><!-- wp:aludra/faq-tabs {"displayMode":"native"} -->
+<div class="wp-block-aludra-faq-tabs alignwide faq-tabs-wrapper is-display-mode-native" data-display-mode="native"><div class="faq-native"><!-- wp:aludra/faq-tab-answer {"question":"What services do you offer?","title":"Our Comprehensive Services","displayMode":"native","openByDefault":true} -->
+<details class="wp-block-aludra-faq-tab-answer faq-tab-answer" data-question="What services do you offer?" open><summary>What services do you offer?</summary><div class="faq-answer-content"><!-- wp:paragraph -->
 <p>We provide a comprehensive range of professional services tailored to meet your specific needs. Our experienced team specializes in delivering high-quality solutions that drive results and exceed expectations.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
 <p>Whether you're looking for strategic consulting, creative design, technical development, or ongoing support, we have the expertise and resources to help you succeed.</p>
-<!-- /wp:paragraph --></div></div>
+<!-- /wp:paragraph --></div></details>
 <!-- /wp:aludra/faq-tab-answer -->
 
-<!-- wp:aludra/faq-tab-answer {"question":"How long does a typical project take?","title":"Project Timeline \u0026 Process"} -->
-<div class="wp-block-aludra-faq-tab-answer faq-tab-answer" data-question="How long does a typical project take?"><div class="faq-answer-header"><h3 class="faq-answer-title">Project Timeline & Process</h3></div><div class="faq-answer-content"><!-- wp:paragraph -->
+<!-- wp:aludra/faq-tab-answer {"question":"How long does a typical project take?","title":"Project Timeline & Process","displayMode":"native"} -->
+<details class="wp-block-aludra-faq-tab-answer faq-tab-answer" data-question="How long does a typical project take?"><summary>How long does a typical project take?</summary><div class="faq-answer-content"><!-- wp:paragraph -->
 <p>Project timelines vary depending on scope and complexity, but most engagements follow a structured process designed for efficiency and quality. We typically divide projects into clear phases with defined milestones.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
 <p>During our initial consultation, we assess your requirements and provide a detailed timeline estimate. We maintain transparent communication throughout the project to ensure deadlines are met and expectations are exceeded.</p>
-<!-- /wp:paragraph --></div></div>
+<!-- /wp:paragraph --></div></details>
 <!-- /wp:aludra/faq-tab-answer -->
 
-<!-- wp:aludra/faq-tab-answer {"question":"What makes your approach different?","title":"Our Unique Approach"} -->
-<div class="wp-block-aludra-faq-tab-answer faq-tab-answer" data-question="What makes your approach different?"><div class="faq-answer-header"><h3 class="faq-answer-title">Our Unique Approach</h3></div><div class="faq-answer-content"><!-- wp:paragraph -->
+<!-- wp:aludra/faq-tab-answer {"question":"What makes your approach different?","title":"Our Unique Approach","displayMode":"native"} -->
+<details class="wp-block-aludra-faq-tab-answer faq-tab-answer" data-question="What makes your approach different?"><summary>What makes your approach different?</summary><div class="faq-answer-content"><!-- wp:paragraph -->
 <p>Our approach combines industry best practices with innovative thinking and personalized attention. We take the time to understand your business goals, challenges, and vision to create solutions that truly fit your needs.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
 <p>We believe in collaborative partnerships, transparent communication, and continuous improvement. This client-centered methodology ensures that every project delivers measurable value and long-term success.</p>
-<!-- /wp:paragraph --></div></div>
+<!-- /wp:paragraph --></div></details>
 <!-- /wp:aludra/faq-tab-answer -->
 
-<!-- wp:aludra/faq-tab-answer {"question":"Do you offer ongoing support after launch?","title":"Ongoing Support"} -->
-<div class="wp-block-aludra-faq-tab-answer faq-tab-answer" data-question="Do you offer ongoing support after launch?"><div class="faq-answer-header"><h3 class="faq-answer-title">Ongoing Support</h3></div><div class="faq-answer-content"><!-- wp:paragraph -->
+<!-- wp:aludra/faq-tab-answer {"question":"Do you offer ongoing support after launch?","title":"Ongoing Support","displayMode":"native"} -->
+<details class="wp-block-aludra-faq-tab-answer faq-tab-answer" data-question="Do you offer ongoing support after launch?"><summary>Do you offer ongoing support after launch?</summary><div class="faq-answer-content"><!-- wp:paragraph -->
 <p>Yes. Every engagement includes a support window after launch, and we offer ongoing maintenance plans for clients who want continued monitoring, updates, and improvements.</p>
-<!-- /wp:paragraph --></div></div>
-<!-- /wp:aludra/faq-tab-answer --></div></div></div></div>
-<!-- /wp:aludra/faq-tabs -->
+<!-- /wp:paragraph --></div></details>
+<!-- /wp:aludra/faq-tab-answer --></div></div>
+<!-- /wp:aludra/faq-tabs --></div></div></div>
+<!-- /wp:aludra/spine-section -->

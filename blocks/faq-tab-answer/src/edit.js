@@ -17,7 +17,7 @@ import {
 	InspectorControls,
 } from '@wordpress/block-editor';
 
-import { PanelBody, TextControl } from '@wordpress/components';
+import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -37,7 +37,10 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
-	const { question, title } = attributes;
+	const { question, title, displayMode, openByDefault } = attributes;
+
+	// Kept in sync by the parent faq-tabs block; see its edit.js.
+	const isNative = displayMode === 'native';
 
 	const blockProps = useBlockProps( {
 		className: 'faq-tab-answer-editor',
@@ -53,26 +56,67 @@ export default function Edit( { attributes, setAttributes } ) {
 						onChange={ ( value ) =>
 							setAttributes( { question: value } )
 						}
-						help={ __(
-							'The question shown in the tab navigation',
-							'aludra'
-						) }
+						help={
+							isNative
+								? __(
+										'The question shown in the summary line',
+										'aludra'
+								  )
+								: __(
+										'The question shown in the tab navigation',
+										'aludra'
+								  )
+						}
 					/>
+					{ isNative && (
+						<ToggleControl
+							label={ __( 'Open by default', 'aludra' ) }
+							help={ __(
+								'Renders this entry expanded on page load. Usually reserved for the first question.',
+								'aludra'
+							) }
+							checked={ openByDefault }
+							onChange={ ( value ) =>
+								setAttributes( { openByDefault: value } )
+							}
+						/>
+					) }
 				</PanelBody>
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				<div className="faq-answer-header">
-					<RichText
-						tagName="h3"
-						className="faq-answer-title"
-						value={ title }
-						onChange={ ( value ) =>
-							setAttributes( { title: value } )
-						}
-						placeholder={ __( 'Enter answer title…', 'aludra' ) }
-					/>
-				</div>
+				{ /* Native mode has one label per entry and it is the
+				     question, so the separate answer title is not shown. */ }
+				{ ! isNative && (
+					<div className="faq-answer-header">
+						<RichText
+							tagName="h3"
+							className="faq-answer-title"
+							value={ title }
+							onChange={ ( value ) =>
+								setAttributes( { title: value } )
+							}
+							placeholder={ __(
+								'Enter answer title…',
+								'aludra'
+							) }
+						/>
+					</div>
+				) }
+				{ isNative && (
+					<div className="faq-answer-header">
+						<RichText
+							tagName="div"
+							className="faq-answer-summary"
+							value={ question }
+							onChange={ ( value ) =>
+								setAttributes( { question: value } )
+							}
+							allowedFormats={ [] }
+							placeholder={ __( 'Enter question…', 'aludra' ) }
+						/>
+					</div>
+				) }
 				<div className="faq-answer-content">
 					<InnerBlocks
 						template={ [

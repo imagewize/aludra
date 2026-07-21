@@ -6,7 +6,7 @@
   "title": "Pricing Tiers",
   "category": "aludra",
   "icon": "money-alt",
-  "description": "Display pricing options in a multi-column comparison layout (default: 3 columns) with featured tier highlighting.",
+  "description": "Display pricing options in a multi-column comparison layout (default: 3 columns) with featured tier highlighting — as separate cards (default) or as one bordered spec sheet split by internal hairlines.",
   "keywords": [
     "pricing",
     "tiers",
@@ -15,6 +15,17 @@
     "table"
   ],
   "example": {},
+  "styles": [
+    {
+      "name": "cards",
+      "label": "Cards",
+      "isDefault": true
+    },
+    {
+      "name": "spec-sheet",
+      "label": "Spec sheet"
+    }
+  ],
   "supports": {
     "html": false,
     "align": [

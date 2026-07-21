@@ -6,7 +6,7 @@
 	"title": "FAQ Tabs",
 	"category": "aludra",
 	"icon": "list-view",
-	"description": "Interactive FAQ tabs with vertical navigation and dynamic content display.",
+	"description": "FAQ list with vertical tab navigation, a stacked accordion, or native <details> elements that need no JavaScript.",
 	"keywords": ["faq", "tabs", "accordion", "questions", "interactive"],
 	"textdomain": "aludra",
 	"editorScript": "file:./index.js",
@@ -20,7 +20,7 @@
 		},
 		"displayMode": {
 			"type": "string",
-			"enum": ["tabs", "accordion"],
+			"enum": ["tabs", "accordion", "native"],
 			"default": "tabs"
 		}
 	},

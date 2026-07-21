@@ -21,6 +21,15 @@
 		"title": {
 			"type": "string",
 			"default": "Answer Title"
+		},
+		"displayMode": {
+			"type": "string",
+			"enum": ["tabs", "accordion", "native"],
+			"default": "tabs"
+		},
+		"openByDefault": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {
