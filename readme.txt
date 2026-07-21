@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.20.0
+Stable tag: 2.21.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -195,6 +195,12 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.21.0 =
+* Added: Carousel `engine` attribute (`slick` default / `rail`) — `rail` renders a zero-JS CSS scroll-snap track instead of Slick's JS-driven slider (Aviendha redesign)
+* Changed: patterns/page-homepage.php — the "Our Clients" carousel now uses the new `rail` engine
+* Changed: Slick Carousel assets are no longer enqueued on pages where every carousel block uses the `rail` engine, instead of loading whenever any carousel block is merely present
+* Fixed: Carousel's frontend script no longer throws (and aborts initializing other carousels on the page) when it encounters a rail-mode carousel with no `data-slick` attribute
 
 = 2.20.0 =
 * Added: `aludra/load-waterfall` block — animated network load-time waterfall panel with an LCP marker, for hero sections (Aviendha redesign)

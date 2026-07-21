@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.21.0] - 2026-07-21
+
+### Added
+- Carousel (`aludra/carousel`) gained an `engine` attribute (`slick` default / `rail`) — `rail`
+  renders a zero-JS CSS scroll-snap track (`grid-auto-flow` + `scroll-snap-type: x mandatory`)
+  instead of Slick's JS/data-attribute-driven slider. Part of the Aviendha redesign's carousel
+  replacement (see `docs/aludra/AVIENDHA-REDESIGN-BLOCKS.md` §5 in the imagewize.com repo).
+  Carousel block bumped to 1.1.0.
+
+### Changed
+- `patterns/page-homepage.php` — the "Our Clients" carousel now uses `engine: "rail"`.
+- Slick Carousel assets (`slick.min.js`, `slick.css`, `slick-theme.css`) are no longer enqueued
+  for pages whose only `aludra/carousel` blocks are in `rail` mode — the `wp_enqueue_scripts`
+  gate now scans parsed post content (`aludra_blocks_have_slick_carousel()`) instead of just
+  checking block presence via `has_block()`, so a rail-only page loads no jQuery/Slick at all.
+
+### Fixed
+- Carousel's frontend `view.js` unconditionally ran Slick's `JSON.parse()` on every carousel's
+  `data-slick` attribute, which rail-mode carousels don't render — this threw and aborted
+  jQuery's `.each()` loop, silently breaking any other Slick carousel on the same page. The
+  script now skips Slick initialization for sliders with no `data-slick` attribute.
+
 ## [2.20.0] - 2026-07-21
 
 ### Added
