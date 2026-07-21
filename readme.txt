@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.19.0
+Stable tag: 2.20.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -93,6 +93,21 @@ Aludra is a theme-neutral shared block library for the Imagewize block themes (E
 * Dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons
 * Theme color presets with fallbacks, so it renders correctly on any theme
 
+**Load Waterfall Block**
+* Animated network load-time waterfall panel with an LCP marker, for hero sections that need to show off site speed
+* Site URL, badge, row labels, and the LCP label are editable via RichText; row timing/positions are fixed to match the reference design
+* Respects prefers-reduced-motion
+
+**Stat Rail Block**
+* Full-width band of big-number stats with captions, for the seam between a hero and the rest of the page
+* Equal-width columns via CSS grid, so the layout isn't locked to a fixed item count
+* Built from InnerBlocks — add or remove stat items freely; parent of the Stat Item block
+
+**Stat Item Block**
+* Single big-number stat with a caption, used inside Stat Rail
+* Optional "highlight" toggle to render the number in the theme's accent color
+* Only valid inside the Stat Rail block
+
 = Key Features =
 
 * **Theme Neutral** - Works with any WordPress theme; uses theme color presets with fallbacks
@@ -180,6 +195,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.20.0 =
+* Added: `aludra/load-waterfall` block — animated network load-time waterfall panel with an LCP marker, for hero sections (Aviendha redesign)
+* Added: `aludra/stat-rail` (parent) + `aludra/stat-item` (repeatable child) blocks — full-width band of big-number stats for the seam between a hero and the rest of the page (Aviendha redesign)
+* Changed: patterns/page-homepage.php — hero-split's media slot now uses `aludra/load-waterfall` instead of the static desktop/mobile image pair; `aludra/stat-rail` (3 default stats) added directly under the hero
 
 = 2.19.0 =
 * Added: docs/FONT-CONTRACT.md — the font family slug contract (`primary`, `display`, `mono`) a theme must define to host Aludra

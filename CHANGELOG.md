@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.20.0] - 2026-07-21
+
+### Added
+- `aludra/load-waterfall` block — animated network load-time waterfall panel with an LCP
+  marker, replacing the static desktop/mobile image pair in Hero Split's media slot.
+  Site URL, badge, row labels, and the LCP label are editable via RichText; row
+  timing/positions are fixed to match the reference design. Part of the Aviendha
+  redesign (see `docs/aludra/AVIENDHA-REDESIGN-BLOCKS.md` §1 in the imagewize.com repo).
+- `aludra/stat-rail` (parent) + `aludra/stat-item` (repeatable child) blocks — the dark
+  full-width band of big-number stats sitting flush under the hero. Equal-width columns
+  via CSS grid (`grid-auto-flow`) rather than a fixed `repeat(3, …)`, so the layout isn't
+  locked to exactly 3 items. Hairline dividers use `color-mix` against the theme's base
+  colour instead of `border-light`, which reads wrong on a dark band. Part of the
+  Aviendha redesign (see `docs/aludra/AVIENDHA-REDESIGN-BLOCKS.md` §2).
+
+### Changed
+- `patterns/page-homepage.php` — hero-split's media slot now uses `aludra/load-waterfall`;
+  `aludra/stat-rail` (3 default stats: `0.9s` good / `-71%` / `1 day`) added directly
+  under the hero.
+
 ## [2.19.0] - 2026-07-21
 
 ### Added
