@@ -10,6 +10,13 @@
 	$( document ).ready( function () {
 		$( '.wp-block-aludra-carousel' ).each( function () {
 			const $slider = $( this );
+
+			// Rail mode (engine: 'rail') is a pure CSS scroll-snap track with
+			// no data-slick attribute — skip Slick initialization entirely.
+			if ( $slider.attr( 'data-slick' ) === undefined ) {
+				return;
+			}
+
 			const hasThumbnails =
 				$slider.data( 'thumbnails' ) === true ||
 				$slider.data( 'thumbnails' ) === 'true';

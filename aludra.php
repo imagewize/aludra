@@ -3,7 +3,7 @@
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
  * Description: Shared custom block library for Imagewize block themes (Elayne, Aviendha) — Mega Menu, Carousel, FAQ Tabs, and content blocks (Feature Cards, Pricing Tiers, Testimonial Grid, Contact Section, Hero Banner, and more). Built with React, block.json, and @wordpress/scripts.
- * Version: 2.20.0
+ * Version: 2.21.0
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.20.0' );
+define( 'ALUDRA_VERSION', '2.21.0' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -208,7 +208,9 @@ add_action(
 			)
 		);
 
-		$carousel_active         = ! empty( $enabled_blocks['carousel'] ) && has_block( 'aludra/carousel' );
+		$post                    = get_post();
+		$parsed_blocks           = ( $post && has_blocks( $post->post_content ) ) ? parse_blocks( $post->post_content ) : array();
+		$carousel_active         = ! empty( $enabled_blocks['carousel'] ) && aludra_blocks_have_slick_carousel( $parsed_blocks );
 		$testimonial_grid_active = ! empty( $enabled_blocks['testimonial-grid'] ) && has_block( 'aludra/testimonial-grid' );
 
 		// Only load Slick assets if a block that needs them is being used.
@@ -294,6 +296,32 @@ function aludra_blocks_have_reveal_on_scroll( array $blocks ) {
 		}
 
 		if ( ! empty( $block['innerBlocks'] ) && aludra_blocks_have_reveal_on_scroll( $block['innerBlocks'] ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+ * Recursively check parsed blocks for an `aludra/carousel` that needs Slick.
+ *
+ * Rail-mode carousels (`engine: 'rail'`) are a pure CSS scroll-snap track and
+ * never touch Slick, so a page containing only rail carousels shouldn't load
+ * Slick's JS/CSS at all.
+ *
+ * @param array $blocks Parsed blocks, as returned by parse_blocks().
+ * @return bool
+ */
+function aludra_blocks_have_slick_carousel( array $blocks ) {
+	foreach ( $blocks as $block ) {
+		if ( 'aludra/carousel' === $block['blockName']
+			&& 'rail' !== ( $block['attrs']['engine'] ?? 'slick' )
+		) {
+			return true;
+		}
+
+		if ( ! empty( $block['innerBlocks'] ) && aludra_blocks_have_slick_carousel( $block['innerBlocks'] ) ) {
 			return true;
 		}
 	}
