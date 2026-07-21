@@ -13,6 +13,17 @@
  * light-mode hairline and reads wrong on this dark band (see
  * docs/aludra/AVIENDHA-REDESIGN-BLOCKS.md §2).
  */
+
+/* hero-split's "night" style has a decorative ember-line ::after on its
+   bottom edge, meant for the case where a lighter section follows the dark
+   hero. Stat Rail continues the same dark `main` background flush against
+   the hero (see mockup: hero + rail are one continuous dark band), so that
+   line reads as a stray seam when the two sit back to back — suppress it
+   only in that exact adjacency, leaving other hero-split usages untouched. */
+.wp-block-aludra-hero-split.is-style-night:has(+ .wp-block-aludra-stat-rail)::after {
+	display: none;
+}
+
 .wp-block-aludra-stat-rail {
 	background: var(--wp--preset--color--main, #2b1a20);
 	color: var(--wp--preset--color--base, #faf7f2);
