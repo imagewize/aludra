@@ -3,6 +3,7 @@ import classnames from 'classnames';
 
 export default function save({ attributes }) {
     const {
+        engine,
         slidesToShow,
         slidesToScroll,
         arrows,
@@ -36,6 +37,23 @@ export default function save({ attributes }) {
         customArrowSvg
     } = attributes;
 
+    // Rail mode: CSS scroll-snap, no JS
+    if (engine === 'rail') {
+        const railProps = useBlockProps.save({
+            className: classnames(
+                'aludra-work-rail',
+                'work-rail'
+            ),
+        });
+
+        return (
+            <div {...railProps}>
+                <InnerBlocks.Content />
+            </div>
+        );
+    }
+
+    // Slick mode (default): JS-driven carousel
     const slickSettings = {
         slidesToShow: centerMode ? 1 : parseInt(slidesToShow),
         slidesToScroll: parseInt(slidesToScroll),
