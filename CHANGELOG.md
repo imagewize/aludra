@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.21.1] - 2026-07-21
+
+Republish of 2.21.0 with no code changes. The `v2.21.0` tag was moved after
+publication to include the carousel rail fixes, but Packagist does not follow a
+moved tag — it kept serving the pre-fix commit, so `composer update` reported
+"nothing to modify" while installing code without the fixes below. This tag
+gives Packagist a version that resolves to the correct commit.
+
 ## [2.21.0] - 2026-07-21
 
 ### Added
