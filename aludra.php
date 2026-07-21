@@ -139,6 +139,7 @@ add_action(
 				'hero-split'             => true,
 				'service-intro'          => true,
 				'service-blocks'         => true,
+				'load-waterfall'         => true,
 			)
 		);
 
@@ -199,6 +200,7 @@ add_action(
 				'hero-split'             => true,
 				'service-intro'          => true,
 				'service-blocks'         => true,
+				'load-waterfall'         => true,
 			)
 		);
 

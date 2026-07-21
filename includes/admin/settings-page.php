@@ -76,6 +76,7 @@ function aludra_get_default_settings() {
 		'hero-split'             => true,
 		'service-intro'          => true,
 		'service-blocks'         => true,
+		'load-waterfall'         => true,
 	);
 }
 
@@ -209,6 +210,11 @@ function aludra_get_available_blocks() {
 		'service-blocks'         => array(
 			'label'       => __( 'Service Detail Cards', 'aludra' ),
 			'description' => __( 'Stacked, numbered service cards with a heading, description, and checklist.', 'aludra' ),
+			'category'    => 'marketing',
+		),
+		'load-waterfall'         => array(
+			'label'       => __( 'Load Waterfall', 'aludra' ),
+			'description' => __( 'Network load-time waterfall panel with an animated LCP marker, for hero sections.', 'aludra' ),
 			'category'    => 'marketing',
 		),
 	);
