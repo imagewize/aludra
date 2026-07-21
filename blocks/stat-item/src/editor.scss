@@ -1,0 +1,12 @@
+/**
+ * Editor-only styles for aludra/stat-item.
+ */
+.wp-block-aludra-stat-item {
+	.stat-rail__num,
+	.stat-rail__cap {
+		&:focus {
+			outline: 1px solid var(--wp--preset--color--primary, #9f1239);
+			outline-offset: 2px;
+		}
+	}
+}

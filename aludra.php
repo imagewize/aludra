@@ -140,6 +140,8 @@ add_action(
 				'service-intro'          => true,
 				'service-blocks'         => true,
 				'load-waterfall'         => true,
+				'stat-rail'              => true,
+				'stat-item'              => true,
 			)
 		);
 
@@ -201,6 +203,8 @@ add_action(
 				'service-intro'          => true,
 				'service-blocks'         => true,
 				'load-waterfall'         => true,
+				'stat-rail'              => true,
+				'stat-item'              => true,
 			)
 		);
 

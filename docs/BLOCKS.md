@@ -212,3 +212,32 @@ Stacked, numbered service cards, each with a heading, description, and checklist
 **Features:**
 - Built from InnerBlocks for full content flexibility — heading, description, and checklist per card
 - Theme colour presets with sensible fallbacks
+
+### Load Waterfall Block
+
+A network load-time waterfall panel with an animated LCP marker, for hero sections that need to show off site speed.
+
+**Features:**
+- Six fixed-geometry rows (document, critical.css, hero.webp, fonts, cart.js, analytics) with staggered grow-in bar animations and an LCP marker line
+- Site URL, badge, row labels, and the LCP label are editable via RichText; row timing/positions are fixed to match the reference design
+- Respects `prefers-reduced-motion`
+- Theme colour presets with sensible fallbacks
+
+### Stat Rail Block
+
+A full-width band of big-number stats with captions, for the seam between a hero and the rest of the page. Holds `aludra/stat-item` children.
+
+**Features:**
+- Equal-width columns via CSS grid (`grid-auto-flow`), so the layout isn't hardcoded to a fixed item count
+- Hairline dividers between items; stacks to a single column under 700px
+- Built from InnerBlocks — add/remove stat items freely
+- Theme colour presets with sensible fallbacks
+
+### Stat Item Block
+
+Child block for a single big-number stat with a caption, used inside Stat Rail.
+
+**Features:**
+- Editable number and caption via RichText
+- Optional "highlight" toggle to render the number in the theme's accent colour
+- Parent constraint (only valid inside the Stat Rail block)

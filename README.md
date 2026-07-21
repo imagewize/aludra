@@ -29,6 +29,7 @@ This plugin was created to align with WordPress.org Theme Review requirements, w
 - **Hero Banner Block** (`aludra/hero-banner`) - Dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons
 - **Hero Split Block** (`aludra/hero-split`) - Split-pane hero with heading, lead text, CTA button, and a desktop/mobile image pair
 - **Icon Grid Block** (`aludra/icon-grid`) - Auto-fit grid of icon + text items with a section header
+- **Load Waterfall Block** (`aludra/load-waterfall`) - Animated network load-time waterfall panel with an LCP marker, for hero sections
 - **Mega Menu Block** (`aludra/mega-menu`) - Advanced navigation menu with mega menu functionality (works best with FSE/block themes)
 - **Pricing Tiers Block** (`aludra/pricing-tiers`) - Three-column pricing comparison table with featured tier highlighting
 - **Review Profiles Block** (`aludra/review-profiles`) - Heading plus a row of round avatar photos with client quotes
@@ -37,6 +38,8 @@ This plugin was created to align with WordPress.org Theme Review requirements, w
 - **Service Intro Block** (`aludra/service-intro`) - Introductory text section for service pages with constrained-width editable paragraphs
 - **Services Block** (`aludra/services-block`) - Section header with a two-per-row grid of icon, heading, and text service cards
 - **Slide Block** (`aludra/slide`) - Individual carousel slides with InnerBlocks support
+- **Stat Item Block** (`aludra/stat-item`) - Single big-number stat with a caption, used inside Stat Rail
+- **Stat Rail Block** (`aludra/stat-rail`) - Full-width band of big-number stats, for the seam between a hero and the rest of the page
 - **Testimonial Grid Block** (`aludra/testimonial-grid`) - Customer testimonial grid with metrics, using Slick Carousel on larger sets
 - **Trust Bar Block** (`aludra/trust-bar`) - Inline bar of trust-signal items that wraps on mobile
 

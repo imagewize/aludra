@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aludra/stat-rail",
+  "version": "1.0.0",
+  "title": "Stat Rail",
+  "category": "aludra",
+  "icon": "chart-bar",
+  "description": "A full-width band of big-number stats with captions, for the seam between a hero and the rest of the page.",
+  "keywords": [
+    "stats",
+    "metrics",
+    "numbers",
+    "rail",
+    "band"
+  ],
+  "textdomain": "aludra",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "anchor": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "color": {
+      "background": true,
+      "text": true
+    }
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "spacing": {
+          "margin": {
+            "top": "0",
+            "bottom": "0"
+          }
+        }
+      }
+    }
+  },
+  "example": {
+    "attributes": {}
+  }
+}
