@@ -12,6 +12,10 @@
  * color-mix rather than the theme's `border-light` var: border-light is a
  * light-mode hairline and reads wrong on this dark band (see
  * docs/aludra/AVIENDHA-REDESIGN-BLOCKS.md §2).
+ *
+ * Type sizes reference Aviendha's named font-size scale
+ * (var(--wp--preset--font-size--*)) rather than one-off clamp()/rem literals,
+ * so the scale is set once in theme.json and every block draws from it.
  */
 
 /* hero-split's "night" style has a decorative ember-line ::after on its
@@ -57,7 +61,7 @@
 
 	.stat-rail__num {
 		font-family: var(--wp--preset--font-family--display, "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif);
-		font-size: clamp(1.8rem, 1.2rem + 2vw, 2.7rem);
+		font-size: var(--wp--preset--font-size--base, 1rem);
 		font-weight: 800;
 		letter-spacing: -0.04em;
 		line-height: 1;
@@ -69,7 +73,7 @@
 
 	.stat-rail__cap {
 		font-family: var(--wp--preset--font-family--mono, "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace);
-		font-size: 0.68rem;
+		font-size: var(--wp--preset--font-size--xx-small, 0.7rem);
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		color: color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 60%, transparent);

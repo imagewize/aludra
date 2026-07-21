@@ -200,6 +200,8 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 * Added: `aludra/load-waterfall` block — animated network load-time waterfall panel with an LCP marker, for hero sections (Aviendha redesign)
 * Added: `aludra/stat-rail` (parent) + `aludra/stat-item` (repeatable child) blocks — full-width band of big-number stats for the seam between a hero and the rest of the page (Aviendha redesign)
 * Changed: patterns/page-homepage.php — hero-split's media slot now uses `aludra/load-waterfall` instead of the static desktop/mobile image pair; `aludra/stat-rail` (3 default stats) added directly under the hero
+* Changed: `aludra/stat-rail` and `aludra/load-waterfall` reference Aviendha's named font-size scale instead of hardcoded clamp()/rem values; stat numbers now resolve to the `base` tier (16px) to match the reference design
+* Fixed: hero-split's `is-style-night` ember-line bottom edge no longer shows when `aludra/stat-rail` immediately follows it (was reading as a stray seam between the two dark sections)
 
 = 2.19.0 =
 * Added: docs/FONT-CONTRACT.md — the font family slug contract (`primary`, `display`, `mono`) a theme must define to host Aludra

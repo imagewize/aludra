@@ -26,6 +26,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `patterns/page-homepage.php` — hero-split's media slot now uses `aludra/load-waterfall`;
   `aludra/stat-rail` (3 default stats: `0.9s` good / `-71%` / `1 day`) added directly
   under the hero.
+- `aludra/stat-rail` and `aludra/load-waterfall` no longer hardcode one-off
+  `clamp()`/rem font sizes — both now reference Aviendha's named font-size scale
+  (`var(--wp--preset--font-size--*)`, with a static rem fallback for themes missing a
+  given slug), the same fallback-chain convention already used for colour and font-family
+  presets. `stat-rail__num` in particular now resolves to the `base` tier (16px) instead
+  of a large fluid clamp, matching the reference design's actual rendered size.
+
+### Fixed
+- `aludra/hero-split`'s `is-style-night` decorative bottom-edge "ember line" (`::after`)
+  was designed for a lighter section following the dark hero; it read as a stray seam
+  now that `aludra/stat-rail` sits flush underneath with the same dark background.
+  Suppressed narrowly via `:has(+ .wp-block-aludra-stat-rail)` so other hero-split usages
+  keep the line.
 
 ## [2.19.0] - 2026-07-21
 

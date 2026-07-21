@@ -6,6 +6,10 @@
  * palette with the mockup's own values as fallback, following the same
  * pattern as hero-split/trust-bar. The bars/LCP marker grow in once on
  * mount via CSS animation — see the reduced-motion override at the bottom.
+ *
+ * Type sizes reference Aviendha's named font-size scale
+ * (var(--wp--preset--font-size--*)) rather than one-off rem literals, so the
+ * scale is set once in theme.json and every block draws from it.
  */
 .wp-block-aludra-load-waterfall {
 	background: var(--wp--preset--color--base, #faf7f2);
@@ -22,7 +26,7 @@
 		align-items: center;
 		padding-bottom: 0.85rem;
 		border-bottom: 1px solid var(--wp--preset--color--border-light, #e5ded2);
-		font-size: 0.72rem;
+		font-size: var(--wp--preset--font-size--x-small, 0.8rem);
 		color: var(--wp--preset--color--secondary, #57534e);
 	}
 
@@ -47,7 +51,7 @@
 		grid-template-columns: 5.6rem 1fr;
 		align-items: center;
 		gap: 0.7rem;
-		font-size: 0.68rem;
+		font-size: var(--wp--preset--font-size--xx-small, 0.7rem);
 		color: var(--wp--preset--color--secondary, #57534e);
 	}
 
@@ -84,7 +88,7 @@
 		display: grid;
 		grid-template-columns: 5.6rem 1fr;
 		gap: 0.7rem;
-		font-size: 0.62rem;
+		font-size: var(--wp--preset--font-size--xx-small, 0.7rem);
 		color: var(--wp--preset--color--main-accent, #78716c);
 		padding-top: 0.55rem;
 		border-top: 1px solid var(--wp--preset--color--border-light, #e5ded2);
@@ -108,7 +112,7 @@
 			top: -1.55rem;
 			left: 0.4rem;
 			white-space: nowrap;
-			font-size: 0.62rem;
+			font-size: var(--wp--preset--font-size--xx-small, 0.7rem);
 			font-weight: 600;
 			color: var(--wp--preset--color--primary, #9f1239);
 		}
