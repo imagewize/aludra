@@ -1,0 +1,71 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "aludra/spine-section",
+	"version": "1.0.0",
+	"title": "Spine Section",
+	"category": "aludra",
+	"icon": "align-pull-left",
+	"description": "A page section with a sticky label/heading column on the left and its content on the right. Collapses to a single stacked column on narrow screens.",
+	"keywords": [ "section", "spine", "editorial", "sticky", "two column" ],
+	"textdomain": "aludra",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"label": {
+			"type": "string",
+			"source": "html",
+			"selector": ".spine-section__label",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"source": "html",
+			"selector": ".spine-section__heading",
+			"default": ""
+		},
+		"aside": {
+			"type": "string",
+			"source": "html",
+			"selector": ".spine-section__aside",
+			"default": ""
+		},
+		"tint": {
+			"type": "boolean",
+			"default": false
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"margin": { "top": "0", "bottom": "0" }
+				}
+			}
+		}
+	},
+	"example": {
+		"attributes": {
+			"label": "What we do",
+			"heading": "Speed is a feature you can sell.",
+			"aside": "Most of our work starts as a rescue and turns into a rebuild."
+		}
+	}
+}

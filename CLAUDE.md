@@ -267,6 +267,50 @@ add_filter( 'default_wp_template_part_areas', function( $areas ) {
 
 ## Pattern Development Guidelines
 
+### Validate Patterns Before Opening a PR (Required)
+
+**Any PR that touches `patterns/` must pass the pattern validator.** It round-trips
+each pattern through the real block editor on the demo subsite and diffs what went
+in against what the editor serialized back, which is the only reliable way to catch
+block-validation mismatches — they do not show up in a frontend screenshot, only in
+the editor console, so a pattern can look perfect and still be broken for editors.
+
+```bash
+npm run validate              # all patterns in patterns/
+npm run validate:file patterns/page-homepage.php   # one pattern
+```
+
+Each pattern takes ~60s (real editor, real login), so a full run is a few minutes.
+
+**Fixing a failure:** don't hand-edit markup to chase the diff — the editor's own
+serialization is authoritative. Each run writes `sentinel-<timestamp>.log.json`
+containing `results[].savedContent`, which is exactly what the editor produced,
+already formatted the way WordPress formats patterns. Replace the pattern body
+(everything after the closing `?>`) with it:
+
+```python
+import json, glob
+d = json.load(open(sorted(glob.glob('sentinel-*.log.json'))[-1]))
+saved = d['results'][0]['savedContent']          # index of the failing pattern
+p = 'patterns/page-homepage.php'
+header = '\n'.join(open(p).read().split('\n')[:13])   # through the closing ?>
+open(p, 'w').write(header + '\n' + saved.rstrip('\n') + '\n')
+```
+
+Check `savedContent` for baked-in absolute URLs or attachment IDs before using it —
+it comes from a live site. Then re-run the validator to confirm.
+
+Common causes of a mismatch, all of which this fixes at once:
+
+- **Attributes with `"source": "html"`** (typical for `RichText`) must **not** also
+  appear in the block comment — they're parsed back out of the markup, so the editor
+  strips them from the comment and the round-trip differs.
+- **Attributes equal to their `block.json` default** are omitted by the editor.
+- **Class order** is normalized (e.g. `alignfull is-style-night`, not the reverse).
+- **Deprecated attribute forms** get migrated (e.g. a paragraph's `"align":"center"`
+  becomes `"style":{"typography":{"textAlign":"center"}}`; `"width":26` becomes
+  `"width":"26px"`).
+
 ### Direct-File-Access Guard
 
 **Required:** Every pattern PHP file in `patterns/` must start with a direct-access guard, immediately after the header doc-block and before the closing `?>`:

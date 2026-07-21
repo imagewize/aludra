@@ -73,3 +73,6 @@ release-plugin.sh
 
 # translation extraction script
 extract-translations.sh
+
+# Pattern validator run logs (@imwz/wp-pattern-sentinel)
+sentinel-*.log.json
