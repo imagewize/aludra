@@ -522,3 +522,51 @@
 .carousel-with-thumbnails.carousel-thumbnails-right[dir="rtl"] {
     flex-direction: row;
 }
+
+/**
+ * Rail Mode - CSS Scroll-Snap
+ * Zero-JS horizontal scrolling rail replacing Slick.js
+ */
+.wp-block-aludra-carousel.aludra-work-rail,
+.wp-block-aludra-carousel.work-rail {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(19rem, 22rem);
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    padding-bottom: 1.25rem;
+    margin-inline: calc(var(--wp--custom--spacing--content-padding, 0) * -1);
+    padding-inline: var(--wp--custom--spacing--content-padding, 0);
+    -webkit-overflow-scrolling: touch;
+
+    /* Smooth scrolling on non-mobile */
+    scroll-behavior: smooth;
+}
+
+.wp-block-aludra-carousel.aludra-work-rail > *,
+.wp-block-aludra-carousel.work-rail > * {
+    scroll-snap-align: start;
+}
+
+/* Hide scrollbar for cleaner look (optional) */
+.wp-block-aludra-carousel.aludra-work-rail::-webkit-scrollbar,
+.wp-block-aludra-carousel.work-rail::-webkit-scrollbar {
+    display: none;
+}
+
+.wp-block-aludra-carousel.aludra-work-rail,
+.wp-block-aludra-carousel.work-rail {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Responsive: stack on very small screens if needed */
+@media (max-width: 480px) {
+    .wp-block-aludra-carousel.aludra-work-rail,
+    .wp-block-aludra-carousel.work-rail {
+        grid-auto-columns: minmax(16rem, 1fr);
+        gap: 1rem;
+    }
+}

@@ -22,6 +22,10 @@
     "style": "file:./style-index.css",
     "viewScript": "file:./view.js",
     "attributes": {
+        "engine": {
+            "type": "string",
+            "default": "slick"
+        },
         "slidesToShow": {
             "type": "number",
             "default": 3
