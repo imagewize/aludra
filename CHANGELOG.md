@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.19.0] - 2026-07-21
+
+### Added
+- `docs/FONT-CONTRACT.md` — the font family slug contract (`primary`, `display`, `mono`)
+  a theme must define to host Aludra, parallel to `docs/PALETTE-CONTRACT.md`.
+
+### Changed
+- Hero Split eyebrow now references the optional `mono` font family slug (falls back to
+  a system mono stack on themes without it), matching the Aviendha redesign's
+  eyebrow/label typography. Bumped to 1.3.0.
+
 ### Planned
 - Continue importing the remaining Tier-A blocks from the Nynaeve theme (two-column-card, content-image-text-card, multi-column-content, related-articles, related-links, expect-list, case-studies), re-namespaced from `imagewize/*` to `aludra/*`. See `docs/PLAN-OF-ACTION.md` for the full gap analysis and import order.
 - Roll the scroll-reveal utility and tilt attribute out to more blocks (`feature-cards`, `icon-grid`, `pricing-tiers`, `feature-list-grid`), then the gradient-overlay media card block. See `docs/CARD-EFFECTS-AND-SCROLL-ANIMATIONS.md` for the full phased plan.

@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.18.0
+Stable tag: 2.19.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -180,6 +180,10 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.19.0 =
+* Added: docs/FONT-CONTRACT.md — the font family slug contract (`primary`, `display`, `mono`) a theme must define to host Aludra
+* Changed: Hero Split eyebrow references the optional `mono` font family slug (falls back to a system mono stack); block bumped to 1.3.0
 
 = 2.18.0 =
 * Changed: `primary-dark` palette slug renamed to `primary-alt` to match the `<family>-alt` naming tier used by other block themes (Ollie); all block SCSS fallbacks and testimonial-grid editor defaults updated

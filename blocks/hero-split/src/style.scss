@@ -39,6 +39,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 10px;
+		font-family: var(--wp--preset--font-family--mono, "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace);
 		font-size: 0.8125rem;
 		font-weight: 700;
 		letter-spacing: 0.12em;
