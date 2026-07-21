@@ -91,16 +91,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:aludra/about --></div></div></div>
 <!-- /wp:aludra/spine-section -->
 
-<!-- wp:heading {"style":{"typography":{"textAlign":"center"}}} -->
-<h2 class="wp-block-heading has-text-align-center">Our Clients</h2>
-<!-- /wp:heading -->
-
-<!-- wp:spacer {"height":"30px"} -->
-<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:aludra/carousel {"engine":"rail","arrows":false,"adaptiveHeight":true,"align":"full"} -->
-<div class="wp-block-aludra-carousel alignfull aludra-work-rail work-rail"><!-- wp:aludra/slide -->
+<!-- wp:aludra/spine-section {"tint":true} -->
+<div class="wp-block-aludra-spine-section is-tinted alignfull" style="margin-top:0;margin-bottom:0"><div class="spine-section__shell"><div class="spine-section__spine"><p class="spine-section__label">Selected work</p><h2 class="spine-section__heading">Our Clients</h2><p class="spine-section__aside">A few of the sites we designed, built and shipped.</p></div><div class="spine-section__content"><!-- wp:aludra/carousel {"engine":"rail","arrows":false,"adaptiveHeight":true} -->
+<div class="wp-block-aludra-carousel aludra-work-rail work-rail"><!-- wp:aludra/slide -->
 <div class="wp-block-aludra-slide"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"full"} -->
 <figure class="wp-block-image alignfull size-full"><img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxjbGlwUGF0aCBpZD0ic3BhLWNsaXAiPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjgwIiByeD0iMTQiLz48L2NsaXBQYXRoPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJzcGEtYmxvYiIgeDE9IjEwJSIgeTE9IjAlIiB4Mj0iOTAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNFN0M5QkMiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQjQ3ODVBIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8ZyBjbGlwLXBhdGg9InVybCgjc3BhLWNsaXApIj4KICAgIDxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjgwIiBmaWxsPSIjRjRFQUU0Ii8+CiAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQyIiBmaWxsPSIjRUNEOUQwIi8+CiAgICA8Y2lyY2xlIGN4PSIxOCIgY3k9IjIxIiByPSI0IiBmaWxsPSIjNEEzNDJDIiBvcGFjaXR5PSIuMjgiLz4KICAgIDxjaXJjbGUgY3g9IjM2IiBjeT0iMjEiIHI9IjQiIGZpbGw9IiM0QTM0MkMiIG9wYWNpdHk9Ii4yOCIvPgogICAgPGNpcmNsZSBjeD0iNTQiIGN5PSIyMSIgcj0iNCIgZmlsbD0iIzRBMzQyQyIgb3BhY2l0eT0iLjI4Ii8+CiAgICA8cmVjdCB4PSI3MCIgeT0iMTIiIHdpZHRoPSIzMDYiIGhlaWdodD0iMTgiIHJ4PSI5IiBmaWxsPSIjRkJGNkYxIiBzdHJva2U9IiMwMDAwMDAxNCIvPgogICAgPHRleHQgeD0iODAiIHk9IjI0LjUiIGZvbnQtZmFtaWx5PSJ1aS1tb25vc3BhY2UsIFNGTW9uby1SZWd1bGFyLCBNZW5sbywgbW9ub3NwYWNlIiBmb250LXNpemU9IjExIiBmaWxsPSIjNEEzNDJDIiBvcGFjaXR5PSIuNTUiPnNvbHN0aWNlLXJldHJlYXQuY29tPC90ZXh0PgoKICAgIDxwYXRoIGQ9Ik0yNiAxMDBDMjYgNzggNDQgNjQgNjYgNjdDODggNzAgMTAyIDg0IDk5IDEwNEM5NiAxMjQgNzggMTM2IDU4IDEzM0MzOCAxMzAgMjYgMTIwIDI2IDEwMFoiIGZpbGw9InVybCgjc3BhLWJsb2IpIi8+CgogICAgPHJlY3QgeD0iMjQiIHk9IjE1NiIgd2lkdGg9IjE3NiIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiM0QTM0MkMiLz4KICAgIDxyZWN0IHg9IjI0IiB5PSIxNzgiIHdpZHRoPSIxMTIiIGhlaWdodD0iOSIgcng9IjQuNSIgZmlsbD0iIzRBMzQyQyIgb3BhY2l0eT0iLjQ1Ii8+CgogICAgPHJlY3QgeD0iMjQiIHk9IjIwNCIgd2lkdGg9IjE0OCIgaGVpZ2h0PSIzMCIgcng9IjE1IiBmaWxsPSIjQjQ3ODVBIi8+CiAgICA8dGV4dCB4PSI5OCIgeT0iMjIzLjUiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgSGVsdmV0aWNhLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMi41IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Cb29rIGEgVHJlYXRtZW50PC90ZXh0PgogIDwvZz4KICA8cmVjdCB4PSIwLjUiIHk9IjAuNSIgd2lkdGg9IjM5OSIgaGVpZ2h0PSIyNzkiIHJ4PSIxMy41IiBmaWxsPSJub25lIiBzdHJva2U9IiNFN0Q1Q0IiLz4KPC9zdmc+Cg==" alt="Solstice Retreat — spa website, one of our client sites"/></figure>
 <!-- /wp:image --></div>
@@ -130,6 +123,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:image --></div>
 <!-- /wp:aludra/slide --></div>
 <!-- /wp:aludra/carousel -->
+
+<!-- wp:paragraph {"className":"aludra-rail-hint"} -->
+<p class="aludra-rail-hint">Scroll for more →</p>
+<!-- /wp:paragraph --></div></div></div>
+<!-- /wp:aludra/spine-section -->
 
 <!-- wp:aludra/cta-banner -->
 <div class="wp-block-aludra-cta-banner alignfull" style="margin-top:0;margin-bottom:0"><div class="cta-banner__content"><!-- wp:heading {"className":"cta-banner__title","style":{"typography":{"lineHeight":"1.2"}}} -->

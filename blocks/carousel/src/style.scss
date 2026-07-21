@@ -535,7 +535,6 @@
     gap: 1.25rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
     padding-bottom: 1.25rem;
     margin-inline: calc(var(--wp--custom--spacing--content-padding, 0) * -1);
     padding-inline: var(--wp--custom--spacing--content-padding, 0);
@@ -550,16 +549,117 @@
     scroll-snap-align: start;
 }
 
-/* Hide scrollbar for cleaner look (optional) */
+/* Rail mode renders no arrows and no dots, so the only thing telling a visitor
+ * the rail scrolls is the scrollbar — and on macOS that is an *overlay*
+ * scrollbar: zero layout space, invisible until the moment you scroll, which
+ * is exactly when you no longer need the hint. Measured on the demo site the
+ * rail reported `offsetHeight - clientHeight === 0`, i.e. nothing reserved.
+ * Styling ::-webkit-scrollbar is documented to opt an element into a classic
+ * always-visible bar, but it does not survive the platform default here, so
+ * the bar is treated as a bonus and the real affordances are the edge fade and
+ * the hint label below. Note the standard scrollbar-width/scrollbar-color pair
+ * is confined to @supports-not below: setting either to a non-auto value makes
+ * Chromium ignore these pseudo-elements outright, so they are for Firefox,
+ * which supports the properties and not the pseudo-elements. */
 .wp-block-aludra-carousel.aludra-work-rail::-webkit-scrollbar,
 .wp-block-aludra-carousel.work-rail::-webkit-scrollbar {
-    display: none;
+    height: 8px;
 }
 
+.wp-block-aludra-carousel.aludra-work-rail::-webkit-scrollbar-track,
+.wp-block-aludra-carousel.work-rail::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.wp-block-aludra-carousel.aludra-work-rail::-webkit-scrollbar-thumb,
+.wp-block-aludra-carousel.work-rail::-webkit-scrollbar-thumb {
+    background: var(--wp--preset--color--border-light, #e5ded2);
+    border-radius: 999px;
+}
+
+.wp-block-aludra-carousel.aludra-work-rail:hover::-webkit-scrollbar-thumb,
+.wp-block-aludra-carousel.work-rail:hover::-webkit-scrollbar-thumb {
+    background: var(--wp--preset--color--main-accent, #b4785a);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    .wp-block-aludra-carousel.aludra-work-rail,
+    .wp-block-aludra-carousel.work-rail {
+        scrollbar-width: thin;
+        scrollbar-color: var(--wp--preset--color--border-light, #e5ded2) transparent;
+    }
+}
+
+/* Edge fade — the platform-independent half of the scroll affordance.
+ *
+ * This is a mask on the scroll container itself rather than an overlay
+ * element, because the rail is the block's root element and rail mode has no
+ * wrapper to hang an overlay on. A mask is applied to the element as rendered,
+ * so it stays pinned to the right edge instead of scrolling away with the
+ * content the way an absolutely positioned child of a scroll container would.
+ * It also needs no background color to fake a fade against, so it survives the
+ * tinted and untinted spine sections alike. */
 .wp-block-aludra-carousel.aludra-work-rail,
 .wp-block-aludra-carousel.work-rail {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    --aludra-rail-fade: 3rem;
+
+    mask-image: linear-gradient(
+        to right,
+        #000 calc(100% - var(--aludra-rail-fade)),
+        transparent
+    );
+}
+
+/* Fade the fade out as the rail reaches its end, so the last card isn't left
+   permanently ghosted. Scroll-driven animation, so it stays zero-JS; browsers
+   without it keep a constant edge fade, which is a soft degradation rather
+   than a broken one. */
+@property --aludra-rail-fade {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 3rem;
+}
+
+@supports (animation-timeline: scroll()) {
+    .wp-block-aludra-carousel.aludra-work-rail,
+    .wp-block-aludra-carousel.work-rail {
+        animation: aludra-rail-fade-out linear both;
+        animation-timeline: scroll(self inline);
+    }
+
+    @keyframes aludra-rail-fade-out {
+        0%,
+        88% {
+            --aludra-rail-fade: 3rem;
+        }
+
+        100% {
+            --aludra-rail-fade: 0rem;
+        }
+    }
+}
+
+/* The written half of the affordance. Authored as a paragraph in the pattern
+   rather than a pseudo-element, because a ::after on the rail would either
+   become an extra grid column or scroll out of view with the content — and as
+   real content it stays translatable and removable by the page author. Type
+   matches the spine label and hero eyebrow (see docs/FONT-CONTRACT.md). */
+.aludra-rail-hint {
+    margin: 0.75rem 0 0;
+    font-family: var(--wp--preset--font-family--mono, ui-monospace, monospace);
+    font-size: var(--wp--preset--font-size--xx-small, 0.68rem);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--secondary, #57534e);
+}
+
+/* Neither cue means anything to a visitor who isn't scrolling by hand. */
+@media (prefers-reduced-motion: reduce) {
+    .wp-block-aludra-carousel.aludra-work-rail,
+    .wp-block-aludra-carousel.work-rail {
+        scroll-behavior: auto;
+    }
 }
 
 /* Responsive: stack on very small screens if needed */

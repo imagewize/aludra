@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Aludra is a shared custom block library for Imagewize block themes (Elayne, Aviendha). The plugin ships blocks under the `aludra/` namespace:
 
-- **carousel** / **slide** — Slick-based carousel with slide children
+- **carousel** / **slide** — carousel with slide children; `engine: "slick"` (default) or `engine: "rail"`, a zero-JS CSS scroll-snap track. Its frontend script is **not** a `viewScript` and lives in `blocks/carousel/js/view.js`, not `src/` — core enqueues a `viewScript` whenever the block is on the page regardless of engine, which put jQuery back on rail-only pages. It is enqueued from `aludra.php` behind `aludra_blocks_have_slick_carousel()`, the same gate as the Slick vendor assets. Any future per-engine or per-attribute asset gating has to follow this shape.
 - **mega-menu** — Interactivity API mega menu backed by template parts
 - **faq-tabs** / **faq-tab-answer** — tabbed FAQ with answer children
 - **search-overlay-trigger** — search icon that opens a full-screen search overlay
