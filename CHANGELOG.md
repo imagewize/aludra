@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.23.1] - 2026-07-21
+
+Step 13 of the Aviendha redesign — the last layout gap between the demo homepage and
+the mockup. See `docs/AVIENDHA-REDESIGN.md` step 13 in the imagewize.com repo.
+
+### Changed
+- `patterns/page-homepage.php` — the client work rail now sits inside a tinted
+  `aludra/spine-section` (label "Selected work"), matching the mockup's
+  `.section.section-tint > .shell > .spine` treatment, and the carousel dropped
+  `align: "full"`. Two visible symptoms had one cause here: at full viewport width all
+  five cards fit side by side, so the rail-mode scroll-snap container had nothing to
+  overflow and never scrolled — it read as a broken slider rather than a full-bleed
+  layout. Constraining it to the ~820px spine content column fixes the proportions and
+  restores the scrolling in the same move. The cards were always the mockup's
+  `minmax(19rem, 22rem)`; they only looked undersized against 500px of dead space
+  either side.
+
+### Fixed
+- `aludra/spine-section` — the single-column mobile layout used a bare `1fr` track,
+  which is `minmax(auto, 1fr)`: its automatic minimum is the track's *min-content*
+  width. A horizontally overflowing child therefore widened the track — and with it the
+  document — rather than being cropped, so the work rail made the whole page scroll
+  sideways on a phone. Now `minmax(0, 1fr)`, matching the desktop track, which had
+  already been floored at 0 for this reason. Any wide child (a rail, a wide table, a
+  `pre`) was affected, not just the carousel.
+
 ## [2.23.0] - 2026-07-21
 
 Steps 7–10 of the Aviendha redesign — the four remaining homepage sections move into

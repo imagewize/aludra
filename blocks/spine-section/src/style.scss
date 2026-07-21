@@ -134,8 +134,14 @@
 	}
 
 	@media (max-width: 860px) {
+		/* minmax(0, 1fr), not 1fr: a bare `1fr` is `minmax(auto, 1fr)`, whose
+		   automatic minimum is the track's min-content width. An overflowing
+		   child — the work rail, whose five 16-19rem columns are far wider
+		   than a phone — then forces the track (and the whole document) wide
+		   enough to fit them uncropped, and the page scrolls sideways instead
+		   of the rail. The desktop track already floors at 0 for this reason. */
 		.spine-section__shell {
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0, 1fr);
 			gap: 2rem;
 		}
 

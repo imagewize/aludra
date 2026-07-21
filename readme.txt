@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.23.0
+Stable tag: 2.23.1
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,6 +203,10 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.23.1 =
+* Fixed: `aludra/spine-section` no longer lets an overflowing child widen the whole page on narrow screens — the single-column mobile track is now `minmax(0, 1fr)` rather than a bare `1fr`, whose automatic minimum is min-content
+* Changed: patterns/page-homepage.php — the client work rail moved into a tinted Spine Section ("Selected work") and dropped its full-width alignment, so it sits in the content shell like the mockup and, being narrower than its five cards, actually scrolls
 
 = 2.23.0 =
 * Added: `aludra/services-block` gained an `is-style-list` style — a single-column list of hairline-separated rows with a mono two-digit index, drawn from a CSS counter so it never drifts out of step with the actual row order; the default `cards` style is unchanged (Aviendha redesign)
