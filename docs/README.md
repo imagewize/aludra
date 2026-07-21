@@ -13,6 +13,10 @@ Kept up to date; read these first.
   the root README to keep it short).
 - **[BLOCK-CONSOLIDATION-AND-RENAMING.md](BLOCK-CONSOLIDATION-AND-RENAMING.md)** — naming/
   overlap audit across the block library and the phased plan to address it.
+- **[PALETTE-CONTRACT.md](PALETTE-CONTRACT.md)** — the color slugs a theme must define to
+  host Aludra, with dark-variation reference values and fallback policy.
+- **[FONT-CONTRACT.md](FONT-CONTRACT.md)** — the font family slugs (`display`, `mono`) a
+  theme may define to host Aludra, with fallback policy and per-theme status.
 
 ## Historical / point-in-time notes
 

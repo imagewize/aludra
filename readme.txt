@@ -181,6 +181,10 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 
 == Changelog ==
 
+= 2.19.0 =
+* Added: docs/FONT-CONTRACT.md — the font family slug contract (`primary`, `display`, `mono`) a theme must define to host Aludra
+* Changed: Hero Split eyebrow references the optional `mono` font family slug (falls back to a system mono stack); block bumped to 1.3.0
+
 = 2.18.0 =
 * Changed: `primary-dark` palette slug renamed to `primary-alt` to match the `<family>-alt` naming tier used by other block themes (Ollie); all block SCSS fallbacks and testimonial-grid editor defaults updated
 * Changed: `contrast-2` palette slug removed — it was a duplicate of `secondary` (same hex in both light and dark variations); mega-menu patterns now reference `secondary`
