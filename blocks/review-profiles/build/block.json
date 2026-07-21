@@ -6,7 +6,7 @@
   "title": "Review Profiles",
   "category": "aludra",
   "icon": "groups",
-  "description": "Full-width client review section with a heading and a row of round avatar photos with quotes — colours adapt to the active theme's palette.",
+  "description": "Full-width client review section with a heading and a row of quotes — as round avatar photos (default) or as avatar-free quote cards with role and sector attribution. Colours adapt to the active theme's palette.",
   "keywords": [
     "reviews",
     "testimonials",
@@ -14,6 +14,17 @@
     "avatars"
   ],
   "example": {},
+  "styles": [
+    {
+      "name": "avatars",
+      "label": "Avatars",
+      "isDefault": true
+    },
+    {
+      "name": "quotes",
+      "label": "Quote cards"
+    }
+  ],
   "supports": {
     "html": false,
     "align": [

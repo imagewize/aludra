@@ -7,6 +7,52 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.23.0] - 2026-07-21
+
+Steps 7–10 of the Aviendha redesign — the four remaining homepage sections move into
+`aludra/spine-section` and pick up the mockup's treatment. See
+`docs/aludra/AVIENDHA-REDESIGN-BLOCKS.md` §§5–8 in the imagewize.com repo.
+
+### Added
+- `aludra/services-block` — new `is-style-list` style variant: a single-column list of
+  hairline-separated rows (icon, heading + copy, mono two-digit index) instead of the default
+  two-per-row cards. The index is a CSS counter rather than authored `01`/`02` text, so it
+  cannot drift out of step when rows are reordered, added or removed; it is dropped below
+  560px. The default `cards` style is unchanged, so Elayne and other consumers are unaffected.
+- `aludra/pricing-tiers` — new `is-style-spec-sheet` style variant: one bordered, rounded
+  container split by internal hairlines rather than three separately bordered cards, with no
+  shadow and no hover lift. The featured tier is marked by a 3px accent bar (a `::before`,
+  which is why this needs real CSS and not just column attributes) plus a background tint.
+  Dividers switch from vertical to horizontal at 781px, matching where core stacks columns.
+- `aludra/review-profiles` — new `is-style-quotes` style variant: bordered quote cards with a
+  decorative quote glyph and a role + sector attribution footer, no avatar. Chosen over
+  swapping the pattern to `aludra/testimonial-grid`, which renders a Slick carousel and would
+  have put jQuery and Slick back on the page immediately after 2.21.1 removed them.
+- `aludra/faq-tabs` — new `native` display mode rendering real `<details>`/`<summary>`
+  elements: no JavaScript, CSS-only chevron, and find-in-page can expand a closed answer.
+  `view.js` returns early for this mode. `aludra/faq-tab-answer` gains matching `displayMode`
+  and `openByDefault` attributes; `displayMode` is duplicated onto each child (kept in sync by
+  the parent's `edit.js`) because block context is not available inside `save()`.
+
+### Changed
+- `patterns/page-homepage.php` — pricing, services, reviews and FAQ are each now wrapped in
+  `aludra/spine-section`, using the new style variants. Their standalone headings move into
+  the spine column, and the pricing section's Nynaeve-specific font-size slugs (`3xl`, `lg`,
+  `xs`) and per-element inline border/spacing styles are replaced by the shared scale and
+  variant CSS. Pricing features are now a `core/list` with a CSS-drawn checkmark instead of
+  paragraphs with a literal `✓` baked into the copy.
+- `assets/placeholders/avatar.svg` — replaced the hand-drawn front-facing bust, which was
+  drawn in cool greys (`#e5e7eb`/`#9ca3af`) that the palette contract set out to remove, with
+  the eos-face icon from Blade UI Kit (MIT, credited in readme.txt) recoloured into Aludra's
+  warm neutrals. No background disc, so the avatar takes on whatever surface it is dropped
+  onto rather than stamping a fixed cream circle onto all of them.
+
+### Fixed
+- `.faq-tab-answer { display: none }` hid the entire FAQ in `native` mode: the rule exists so
+  tabs/accordion can reveal one answer at a time via an `.active` class that `view.js` adds,
+  and `view.js` deliberately never runs for native. Now scoped so `details.faq-tab-answer`
+  stays visible.
+
 ## [2.22.0] - 2026-07-21
 
 ### Added

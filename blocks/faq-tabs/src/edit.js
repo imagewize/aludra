@@ -88,6 +88,25 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 		}
 	}, [ innerBlocks.length, activeTab ] );
 
+	/**
+	 * Mirror the display mode onto every answer child.
+	 *
+	 * The children need it in their own `save()` — native mode changes their
+	 * markup from a div/heading pair to `<details>`/`<summary>` — and block
+	 * context is not passed to `save()`, so it has to live on each child as a
+	 * real attribute. The equality check keeps this from looping: it only
+	 * dispatches for children whose copy is actually stale.
+	 */
+	useEffect( () => {
+		innerBlocks.forEach( ( block ) => {
+			if ( block.attributes.displayMode !== displayMode ) {
+				updateBlockAttributes( block.clientId, { displayMode } );
+			}
+		} );
+	}, [ displayMode, innerBlocks, updateBlockAttributes ] );
+
+	const isNative = displayMode === 'native';
+
 	// Handle question text change
 	const handleQuestionChange = ( newQuestion, blockId ) => {
 		updateBlockAttributes( blockId, { question: newQuestion } );
@@ -185,6 +204,14 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 							setAttributes( { displayMode: 'accordion' } )
 						}
 					/>
+					<ToolbarButton
+						icon="editor-ul"
+						label={ __( 'Native details', 'aludra' ) }
+						isPressed={ isNative }
+						onClick={ () =>
+							setAttributes( { displayMode: 'native' } )
+						}
+					/>
 				</ToolbarGroup>
 			</BlockControls>
 			<InspectorControls>
@@ -196,8 +223,14 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 							setAttributes( { displayMode: value } )
 						}
 						isBlock
-						help={
-							displayMode === 'accordion'
+						help={ ( () => {
+							if ( isNative ) {
+								return __(
+									'Native <details> elements — no JavaScript, works with the browser’s own find-in-page.',
+									'aludra'
+								);
+							}
+							return displayMode === 'accordion'
 								? __(
 										'Single-column accordion at every breakpoint.',
 										'aludra'
@@ -205,8 +238,8 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 								: __(
 										'Two-column tabs on desktop, accordion on mobile.',
 										'aludra'
-								  )
-						}
+								  );
+						} )() }
 					>
 						<ToggleGroupControlOption
 							value="tabs"
@@ -216,9 +249,28 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 							value="accordion"
 							label={ __( 'Accordion', 'aludra' ) }
 						/>
+						<ToggleGroupControlOption
+							value="native"
+							label={ __( 'Native', 'aludra' ) }
+						/>
 					</ToggleGroupControl>
 				</PanelBody>
 			</InspectorControls>
+			{ /* Native mode has no tab column to preview — the children render
+			     themselves as summaries, so the parent is just a container. */ }
+			{ isNative ? (
+				<div { ...blockProps }>
+					<div className="faq-native">
+						<InnerBlocks
+							allowedBlocks={ [ 'aludra/faq-tab-answer' ] }
+							template={ TEMPLATE }
+							renderAppender={ () => (
+								<InnerBlocks.ButtonBlockAppender />
+							) }
+						/>
+					</div>
+				</div>
+			) : (
 			<div { ...blockProps }>
 				<div className="wp-block-columns">
 					<div
@@ -313,6 +365,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 					</div>
 				</div>
 			</div>
+			) }
 		</>
 	);
 }

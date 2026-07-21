@@ -15,6 +15,14 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	const faqBlocks = document.querySelectorAll( '.faq-tabs-wrapper' );
 
 	faqBlocks.forEach( ( block ) => {
+		// 'native' renders <details>/<summary>, which the browser opens and
+		// closes on its own. Bail out before touching the DOM — the markup has
+		// no tab column to build, and hijacking it would break find-in-page
+		// auto-expansion, which is half the reason for using <details>.
+		if ( block.getAttribute( 'data-display-mode' ) === 'native' ) {
+			return;
+		}
+
 		// Get the tab navigation container and all answer blocks
 		const tabsContainer = block.querySelector( '.faq-vertical-tabs' );
 		const contentArea = block.querySelector( '.faq-content-area' );

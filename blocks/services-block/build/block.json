@@ -6,7 +6,7 @@
   "title": "Services Block",
   "category": "aludra",
   "icon": "list-view",
-  "description": "Section header with a two-per-row grid of icon, heading, and text service cards — colours adapt to the active theme's palette.",
+  "description": "Section header with icon, heading, and text services — as a two-per-row card grid (default) or as a numbered hairline list. Colours adapt to the active theme's palette.",
   "keywords": [
     "services",
     "features",
@@ -15,6 +15,17 @@
     "cards"
   ],
   "example": {},
+  "styles": [
+    {
+      "name": "cards",
+      "label": "Cards",
+      "isDefault": true
+    },
+    {
+      "name": "list",
+      "label": "Numbered list"
+    }
+  ],
   "supports": {
     "html": false,
     "align": [

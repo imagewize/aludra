@@ -18,6 +18,27 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 export default function save( { attributes } ) {
 	const { displayMode } = attributes;
 
+	/**
+	 * Native mode drops the whole two-column scaffold: no tab-navigation
+	 * column to populate, so no `.faq-vertical-tabs` and no columns wrapper.
+	 * Each child saves itself as a `<details>` element, which needs no
+	 * JavaScript at all — `view.js` bails out for this mode.
+	 */
+	if ( displayMode === 'native' ) {
+		return (
+			<div
+				{ ...useBlockProps.save( {
+					className: `faq-tabs-wrapper is-display-mode-${ displayMode }`,
+					'data-display-mode': displayMode,
+				} ) }
+			>
+				<div className="faq-native">
+					<InnerBlocks.Content />
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<div
 			{ ...useBlockProps.save( {

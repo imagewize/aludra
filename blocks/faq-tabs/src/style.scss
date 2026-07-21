@@ -266,3 +266,85 @@
 		}
 	}
 }
+
+/**
+ * ─── DISPLAY MODE: native ───────────────────────────────────────────────────
+ *
+ * The mockup's `.faq` (designs/aviendha/aviendha-redesign.html ~lines
+ * 299-312): a single column of `<details>` rows separated by hairlines, with a
+ * CSS-only chevron that flips on `[open]`. No tab column, no `view.js`, no
+ * height animation — the browser owns the open/close, which also means
+ * find-in-page can expand a closed answer to reveal a match.
+ *
+ * Rules are scoped to `.is-display-mode-native` so nothing here can reach the
+ * tabs/accordion markup above, which shares the `.faq-tab-answer` class name.
+ */
+.faq-tabs-wrapper.is-display-mode-native {
+
+	.faq-native {
+		border-top: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+	}
+
+	details.faq-tab-answer {
+		border-bottom: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+	}
+
+	summary {
+		position: relative;
+		padding: 1.25rem 2.5rem 1.25rem 0;
+		cursor: pointer;
+		font-family: var( --wp--preset--font-family--display, sans-serif );
+		font-size: var( --wp--preset--font-size--medium, 1.05rem );
+		font-weight: 600;
+		letter-spacing: -0.01em;
+
+		/* Both are needed: `list-style: none` covers Firefox and current
+		   Chrome, the WebKit pseudo-element covers Safari. */
+		list-style: none;
+
+		&::-webkit-details-marker {
+			display: none;
+		}
+	}
+
+	/* Chevron drawn from two borders rather than an SVG or a glyph, so it
+	   inherits nothing from the icon font and rotates cheaply. */
+	summary::after {
+		content: "";
+		position: absolute;
+		right: 0.35rem;
+		top: 1.55rem;
+		width: 10px;
+		height: 10px;
+		border-right: 2px solid var(--wp--preset--color--primary, #7a2f3a);
+		border-bottom: 2px solid var(--wp--preset--color--primary, #7a2f3a);
+		rotate: 45deg;
+		transition: rotate 0.22s;
+	}
+
+	details[open] summary::after {
+		rotate: 225deg;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+
+		summary::after {
+			transition: none;
+		}
+	}
+
+	.faq-answer-content {
+		padding: 0 3rem 1.4rem 0;
+		max-width: 62ch;
+		color: var(--wp--preset--color--secondary, #57534e);
+		font-size: var( --wp--preset--font-size--base, 0.97rem );
+
+		> *:first-child {
+			margin-top: 0;
+		}
+
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
