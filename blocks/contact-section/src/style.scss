@@ -294,6 +294,10 @@
 	.contact-section__card input[type='url'],
 	.contact-section__card select,
 	.contact-section__card textarea {
+		/* Themes without a global border-box reset would otherwise render the
+		   fields 34px wider than their column — overlapping in the two-column
+		   gutter and swallowing the card's right padding. */
+		box-sizing: border-box;
 		width: 100%;
 		background: rgba(255, 255, 255, 0.06);
 		border: 1px solid rgba(255, 255, 255, 0.12);
@@ -329,6 +333,7 @@
 	}
 
 	.contact-section__card input[type='submit'] {
+		box-sizing: border-box;
 		width: 100%;
 		padding: 15px 48px 15px 24px;
 		background-color: var(--wp--preset--color--primary, #9f1239);
