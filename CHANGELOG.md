@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.24.1] - 2026-07-23
+
+### Changed
+- **Demo-site syncing moved to [wp-ops](https://github.com/imagewize/wp-ops)**
+  (`scripts/rsync-package-to-site.sh`), replacing the `bin/sync-demo.sh` that 2.24.0 added here.
+  It does the same thing — rsyncs a dist-faithful tree (`--delete --delete-excluded`, honouring
+  `.distignore`) into a local Bedrock site — but takes the package kind and slug as arguments and
+  reads the destination from `SITE_ROOT`, so one script serves this plugin, Aviendha, Elayne and
+  Nynaeve instead of a near-identical copy drifting in each repo. The paths in the old copy were
+  personal configuration rather than plugin code. Aviendha's copy surfaced the wider problem: a
+  `.sh` file committed to a theme fails WordPress Theme Check's `File_Check` outright, and Elayne
+  and Nynaeve had already settled on keeping their copies untracked. `bin/sync-demo.sh` is
+  gitignored here if you want a local shortcut.
+
 ## [2.24.0] - 2026-07-23
 
 Aludra's second page pattern, ported from the imagewize.com Nynaeve service pages. See
