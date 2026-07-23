@@ -201,8 +201,9 @@ omitting it was the v2.11.1 bug.
    and a services page is a good stress test of that.
 
    ⚠️ Aludra is a **pinned Composer dependency** on the demo site, not a symlink, and sentinel
-   reads patterns from the *installed* plugin. Run `bin/sync-demo.sh` (added in 2.24.0, see §10)
-   before validating; the theme has its own `~/code/aviendha/bin/sync-demo.sh`.
+   reads patterns from the *installed* plugin. Sync before validating, with wp-ops'
+   `scripts/rsync-package-to-site.sh plugin aludra` (`theme aviendha` for the theme). This was
+   `bin/sync-demo.sh` in 2.24.0; 2.24.1 moved it to wp-ops — see §10.
 
 ## 8. Release checklist
 
@@ -247,10 +248,12 @@ Nynaeve section was reaching for. The pattern **passed `wp-pattern-sentinel` on 
 
 **Changed versus the plan:**
 
-- **§7.6's release-or-hand-sync loop was replaced by tooling.** `bin/sync-demo.sh` now rsyncs a
-  dist-faithful tree (`--delete --delete-excluded`, mirroring `.distignore`) into the demo site,
-  and Aviendha got its own copy plus the `.distignore` / `.gitattributes` / release workflow it
-  was missing. Documented in `CLAUDE.md` and `AGENTS.md` in both repos. Risk #2 is closed.
+- **§7.6's release-or-hand-sync loop was replaced by tooling.** A sync script now rsyncs a
+  dist-faithful tree (`--delete --delete-excluded`, honouring `.distignore`) into the demo site,
+  and Aviendha got the `.distignore` / `.gitattributes` / release workflow it was missing.
+  Documented in `CLAUDE.md` and `AGENTS.md` in both repos. Risk #2 is closed.
+  *(2.24.1: the script shipped as `bin/sync-demo.sh` in each repo, then moved to wp-ops as
+  `scripts/rsync-package-to-site.sh` — a `.sh` file committed to a theme fails Theme Check.)*
 - **Version target was 2.15.0 in the original draft; shipped as 2.24.0** — the draft was written
   against a stale `PLAN-OF-ACTION.md` that predated the Aviendha redesign releases.
 - The hero eyebrow uses `icon-search.svg` rather than a service-specific mark, matching the
