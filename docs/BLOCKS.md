@@ -38,6 +38,11 @@ Dark contact section with info column and Contact Form 7 form card.
 - Info column for contact details
 - Contact Form 7 integration
 - Responsive design
+- Detail rows (email, response time, location) use `aludra/icon` bindings, so icon
+  URLs resolve at render time instead of being baked into saved content
+- Shipped as a ready-made page pattern (`patterns/page-contact.php`, "Contact Page");
+  the form is a `core/shortcode` block with a `FORM_ID` placeholder to swap for the
+  site's own Contact Form 7 ID
 
 ### Slide Block
 
