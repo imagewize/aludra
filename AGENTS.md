@@ -47,8 +47,13 @@ install they have Aludra installed on; adjust paths and site names accordingly.
   **[Aviendha](https://github.com/imagewize/aviendha)** (`imagewize/aviendha` on Packagist; local
   checkout `~/code/aviendha`). Both plugin and theme are regular pinned Composer dependencies
   (`imagewize/aludra`, `imagewize/aviendha`), installed from Packagist — **not** symlinked to these
-  working copies, so testing unreleased local changes needs a new tagged release or manual
-  `blocks/*/build/` / theme-file syncing.
+  working copies.
+- **Testing unreleased changes: sync, don't release.** `bin/sync-demo.sh` rsyncs this working copy
+  into `~/code/imagewize.com/demo/web/app/plugins/aludra`; the theme has its own copy at
+  `~/code/aviendha/bin/sync-demo.sh`. Both push a dist-faithful tree (`--delete --delete-excluded`,
+  mirroring `.distignore`), so what you test is what ships, and a `composer update` on the demo site
+  puts the released code back. Run the sync **before** `npm run validate` — the pattern validator
+  reads patterns from the installed plugin, not from this repo.
 - `imagewize.com` (host `imagewize.test`, Bedrock root `~/code/imagewize.com/site`) is the
   **production content clone** running the Nynaeve theme's blocks (`imagewize/*`/`nynaeve/*`) —
   Aludra's blocks (and the homepage page pattern) are ported/cloned from this site's content. Used
