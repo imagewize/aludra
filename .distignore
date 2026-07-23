@@ -23,6 +23,7 @@ pnpm-lock.yaml
 # Documentation and scripts
 docs/*
 designs/*
+bin/*
 CLAUDE.md
 AGENTS.md
 CONTRIBUTING.md

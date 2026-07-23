@@ -3,7 +3,9 @@
 _Last updated: 2026-07-20 (homepage pattern carousel/validation fixes 2.11.2–2.11.5; Aludra
 block inserter category + block.json title/keyword cleanup 2.12.0; Service Intro + Service
 Detail Cards ported, Tier B fully resolved 2.13.0; shared scroll-reveal utility + CTA Columns
-pilot, Card Effects Phase 1, 2.14.0)_
+pilot, Card Effects Phase 1, 2.14.0; service page pattern + `two-column-card` resolved by
+reuse, 2.24.0 — §2's "current state" text still describes 2.13.0 and has not been rewritten
+for the 2.15–2.23 Aviendha redesign run)_
 
 ## 1. What Aludra is
 
@@ -107,6 +109,17 @@ React blocks; patterns become one-liners** (`<!-- wp:aludra/feature-cards /-->`)
   (no jQuery, no Interactivity API). Piloted on **CTA Columns** (`aludra/cta-columns`) as a
   "Reveal on scroll" Inspector toggle; respects `prefers-reduced-motion: reduce`. Establishes the
   pattern for Phase 2+ (tilt attribute, more blocks, gradient-overlay media card).
+- _(2.15.0–2.23.1 are not itemised here — that run was the Aviendha redesign, tracked in
+  `docs/AVIENDHA-REDESIGN.md` in the imagewize.com repo and in [CHANGELOG.md](../CHANGELOG.md).)_
+- **2.24.0** (2026-07-23): Second page pattern — **`patterns/page-service.php`**
+  (`aludra/page-service`), a full service/landing page ported from the imagewize.com Nynaeve
+  service pages and assembled entirely from shipped blocks: Hero Banner, Trust Bar, a Spine
+  Section of capability cards, a why-us card grid, fixed-price tiers behind a `#pricing` anchor,
+  an FAQ accordion, and a CTA band. `two-column-card` resolved by reuse rather than porting
+  (§3 Tier A). Fixed `feature-list-grid`'s hardcoded blue checkmark, the last palette-contract
+  violation in that block. Added `bin/sync-demo.sh` so unreleased changes reach the demo site
+  without a release — Aviendha 1.6.0 got the matching script plus the `.distignore` and release
+  workflow it lacked. See [SERVICES-PAGE-PATTERN-PLAN.md](./SERVICES-PAGE-PATTERN-PLAN.md).
 
 ## 3. Block gap analysis — what to import
 
@@ -130,7 +143,10 @@ Triage (do **not** import all 27 blindly — some are hardcoded to a theme's loo
 - [ ] `related-articles`
 - [ ] `related-links`
 - [x] `contact-section` (v2.10.0)
-- [ ] `two-column-card`
+- [x] `two-column-card` — **resolved by reuse, not ported** (v2.24.0): `aludra/feature-list-grid`
+  is the same shape (InnerBlocks card grid, `h4` + body, optional checklist) and covers the
+  "why choose us" sections `two-column-card` existed for. Used that way in
+  `patterns/page-service.php`; see [SERVICES-PAGE-PATTERN-PLAN.md](./SERVICES-PAGE-PATTERN-PLAN.md) §4.1.
 - [ ] `content-image-text-card`
 - [ ] `multi-column-content`
 - [ ] `expect-list`
@@ -293,7 +309,7 @@ Aludra, and require WooCommerce for the store templates.
 - [x] Port remaining Tier B blocks `service-intro` and `service-blocks` → **2.13.0**. (`page-heading-blue`
   dropped — judged too outdated to be worth generalising; see the Tier B section above.) Tier B is
   now fully resolved.
-- [ ] Port remaining Tier-A blocks: `two-column-card`, `content-image-text-card`, `multi-column-content`, `related-articles`, `related-links`, `expect-list`, `case-studies`. (`pricing`, `faq`, and `about` resolved per §11.6, §11.3, and the Tier A table above)
+- [ ] Port remaining Tier-A blocks: `content-image-text-card`, `multi-column-content`, `related-articles`, `related-links`, `expect-list`, `case-studies`. (`pricing`, `faq`, `about`, and `two-column-card` resolved per §11.6, §11.3, and the Tier A table above)
 - [ ] Add de_DE and fr_FR translations.
 - [ ] Decide on back-compat approach for elayne-blocks sites (A, B, or C).
 - [ ] Scaffold `~/code/aviendha` theme with its own plan.

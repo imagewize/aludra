@@ -23,10 +23,13 @@
 	gap: 1.875rem;
 }
 
-/* Feature cards styling */
+/* Feature cards styling.
+   `--aludra-band-card` is published by whatever band the cards sit on (currently
+   aludra/spine-section) so the card lands one step lighter than it; the fallback
+   is the standalone colour, so this only changes anything inside a band. */
 .feature-list-grid__card,
 .wp-block-aludra-feature-list-grid .wp-block-group.feature-list-grid__card {
-	background: var(--wp--preset--color--base, #fff);
+	background: var(--aludra-band-card, var(--wp--preset--color--base, #fff));
 	padding: 2.5rem;
 	border-radius: 0.75rem;
 	border: 1px solid var(--wp--preset--color--border-light, #ebeced);
@@ -53,9 +56,12 @@
 	top: 0.35rem;
 	width: 1.25rem;
 	height: 1.25rem;
-	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23017cb6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>');
-	background-size: contain;
-	background-repeat: no-repeat;
+	/* Masked, not a background image, so the tick takes the theme's primary colour. */
+	background-color: var(--wp--preset--color--primary, #9f1239);
+	mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>');
+	mask-size: contain;
+	mask-repeat: no-repeat;
+	mask-position: center;
 }
 
 /* Remove default list marker */

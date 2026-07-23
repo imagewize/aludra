@@ -44,7 +44,7 @@ This plugin was created to align with WordPress.org Theme Review requirements, w
 - **Testimonial Grid Block** (`aludra/testimonial-grid`) - Customer testimonial grid with metrics, using Slick Carousel on larger sets
 - **Trust Bar Block** (`aludra/trust-bar`) - Inline bar of trust-signal items that wraps on mobile
 
-Also included: a full **homepage page pattern** (`patterns/page-homepage.php`) that assembles these blocks into a ready-made agency/service-business layout, available when creating a new page.
+Also included: two full **page patterns** that assemble these blocks into ready-made layouts, both available when creating a new page — a **homepage** (`patterns/page-homepage.php`, agency/service-business) and a **service page** (`patterns/page-service.php`, hero + trust bar + capabilities + pricing + FAQ + CTA).
 
 See [docs/BLOCKS.md](docs/BLOCKS.md) for full feature details on every block.
 
