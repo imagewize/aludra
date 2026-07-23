@@ -25,8 +25,30 @@ and the decisions behind it.
   changes can be tested and pattern-validated without cutting a release. Both Aludra and
   Aviendha are pinned Composer dependencies there; the theme ships its own copy of the
   script. Excluded from the distributed zip via `.distignore` and `.gitattributes`.
+- `--aludra-band-card` — a surface token declared by `aludra/spine-section` and read by
+  the card blocks nested in it (`feature-cards`, `feature-list-grid`), encoding the rule
+  the Aviendha mockup already used: *a card sits one step lighter than the band it is on*
+  (`white` on an untinted band, `base` on a tinted one). Cards read
+  `var(--aludra-band-card, <their standalone colour>)`, so a block used outside a spine is
+  unaffected. This is what keeps the two consecutive card sections on the service page
+  legible as separate sections — they differ by inverting figure and ground rather than by
+  introducing a third surface colour, which would have been a new palette slug for every
+  hosting theme to define.
+- `designs/aviendha/service-page-surfaces.html` — the surface ladder and both bands as
+  plain HTML/CSS, documenting where each palette slug lands on a service page.
 
 ### Fixed
+- `aludra/feature-cards` nested in an `aludra/spine-section` painted its own 88px-padded
+  `tertiary` band, which inside the spine's content track rendered as a floating tinted box
+  in the right-hand column instead of a full-width band — the spine *is* the section, so a
+  block nested in it must not draw one. The existing shell-suppression rule stripped the
+  nested block's max-width, inline padding and vertical padding but not its background;
+  it now strips the background too, and `feature-cards`/`feature-list-grid` were added to
+  the list it applies to.
+- `aludra/feature-cards` — the card is a vertical flex layout, so core applied the *theme's*
+  block gap between icon, heading and paragraph on top of the margins the block already
+  sets (24px + 18px under the icon on Aviendha), pulling the card apart. The card now sets
+  `gap: 0` and keeps the authored rhythm.
 - `aludra/feature-list-grid` drew its checkmarks from an inline SVG with Nynaeve's blue
   (`#017cb6`) baked into the stroke and no palette fallback, so every hosting theme got an
   off-palette tick — the one place in the block that ignored

@@ -23,10 +23,13 @@
 	gap: 1.875rem;
 }
 
-/* Feature cards styling */
+/* Feature cards styling.
+   `--aludra-band-card` is published by whatever band the cards sit on (currently
+   aludra/spine-section) so the card lands one step lighter than it; the fallback
+   is the standalone colour, so this only changes anything inside a band. */
 .feature-list-grid__card,
 .wp-block-aludra-feature-list-grid .wp-block-group.feature-list-grid__card {
-	background: var(--wp--preset--color--base, #fff);
+	background: var(--aludra-band-card, var(--wp--preset--color--base, #fff));
 	padding: 2.5rem;
 	border-radius: 0.75rem;
 	border: 1px solid var(--wp--preset--color--border-light, #ebeced);

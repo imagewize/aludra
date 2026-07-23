@@ -26,8 +26,21 @@
 	padding-block: clamp(3.5rem, 8vw, 6.5rem);
 	border-bottom: 1px solid var(--wp--preset--color--border-light, #e5ded2);
 
+	/* Surface contract: a card sits one step lighter than the band it is on.
+	   The mockup encodes this as `.card { background: var(--white) }` on a plain
+	   `.section` and `.quote { background: var(--base) }` on `.section-tint`;
+	   here the band publishes its own card surface instead, so a nested block
+	   doesn't have to know whether the spine wrapping it is tinted.
+	   Nested blocks read it as
+	   `var(--aludra-band-card, var(--wp--preset--color--base, #fff))` — the
+	   fallback is their standalone (own-band) colour, so this only takes effect
+	   inside a spine. */
+	--aludra-band-card: var(--wp--preset--color--white, #fff);
+
 	&.is-tinted {
 		background: var(--wp--preset--color--tertiary, #f0e9dd);
+
+		--aludra-band-card: var(--wp--preset--color--base, #faf7f2);
 	}
 
 	.spine-section__shell {
@@ -107,11 +120,13 @@
 	}
 
 	/* Every Aludra section block ships its own page shell (content-size
-	   max-width + auto margins + inline padding, plus vertical padding),
-	   because until now each one *was* the section. Nested in the spine's
-	   already-constrained content track that shell double-applies: the column
-	   gets capped a second time and indented past the spine's own label, which
-	   is most obvious in the single-column mobile layout.
+	   max-width + auto margins + inline padding, vertical padding, and for most
+	   of them a band background), because until now each one *was* the section.
+	   Nested in the spine's already-constrained content track that shell
+	   double-applies: the column gets capped a second time and indented past
+	   the spine's own label, and the band background paints a floating tinted
+	   box inside the content column instead of running the full width of the
+	   page — the spine is the band, so the nested block must not draw one.
 	   Suppress it for direct children only, so a section block used standalone
 	   (outside a spine) keeps its shell.
 	   The inner wrapper is targeted with `> *` rather than by class because
@@ -122,8 +137,11 @@
 		> .wp-block-aludra-services-block,
 		> .wp-block-aludra-review-profiles,
 		> .wp-block-aludra-pricing-tiers,
+		> .wp-block-aludra-feature-cards,
+		> .wp-block-aludra-feature-list-grid,
 		> .wp-block-aludra-faq-tabs {
 			padding-block: 0;
+			background: none;
 
 			> * {
 				max-width: none;

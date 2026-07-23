@@ -59,12 +59,23 @@
 		margin-top: 0 !important;
 	}
 
-	/* Individual card */
+	/* Individual card.
+	   `--aludra-band-card` is published by whatever band the cards sit on
+	   (currently aludra/spine-section) so the card lands one step lighter than
+	   it; standalone the block paints its own tertiary band above, and the
+	   fallback keeps the card on `base` against it. */
 	.feature-card {
-		background: var(--wp--preset--color--base, #fff);
+		background: var(--aludra-band-card, var(--wp--preset--color--base, #fff));
 		border: 1px solid rgba(0, 0, 0, 0.08);
 		border-radius: 10px;
 		padding: 32px 28px !important;
+
+		/* The card is a vertical flex layout, so core applies the *theme's*
+		   block gap between icon, heading and paragraph — which then stacks on
+		   top of the margins set below and pulls the card apart (24px + 18px
+		   under the icon on Aviendha). The margins are the intended rhythm; the
+		   inherited gap is not. */
+		gap: 0;
 		transition: transform 0.2s, box-shadow 0.2s;
 		position: relative;
 		overflow: hidden;
