@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.23.1
+Stable tag: 2.24.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,6 +203,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.24.0 =
+* Added: `patterns/page-service.php` — a full service/landing page pattern (Hero Banner, Trust Bar, capability cards, why-us cards, fixed-price tiers behind a `#pricing` anchor, FAQ accordion, closing CTA band), assembled entirely from shipped Aludra and core blocks
+* Added: `bin/sync-demo.sh`, a development helper that pushes the working copy into a local Bedrock site so unreleased changes can be tested without cutting a release (not shipped in the plugin zip)
+* Fixed: `aludra/feature-list-grid` checkmarks had a hardcoded blue baked into the SVG stroke with no palette fallback, so they ignored the hosting theme's colours — they now mask over `var(--wp--preset--color--primary)`
 
 = 2.23.1 =
 * Fixed: a rail-mode `aludra/carousel` threw `ReferenceError: Can't find variable: jQuery` — its `view.js` was a block.json `viewScript`, which core enqueues whenever the block is present regardless of engine; it is now enqueued behind the same engine gate as the Slick vendor assets, so a rail-only page loads no carousel JavaScript at all

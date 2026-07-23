@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.24.0] - 2026-07-23
+
+Aludra's second page pattern, ported from the imagewize.com Nynaeve service pages. See
+[docs/SERVICES-PAGE-PATTERN-PLAN.md](docs/SERVICES-PAGE-PATTERN-PLAN.md) for the mapping
+and the decisions behind it.
+
+### Added
+- `patterns/page-service.php` — a full service/landing page pattern (`aludra/page-service`):
+  Hero Banner with dual CTAs, Trust Bar, six capability cards in a Spine Section, a
+  why-us card grid, fixed-price tiers behind a `#pricing` anchor, an FAQ accordion, and a
+  closing CTA band. Assembled entirely from shipped `aludra/*` and core blocks — no new
+  block was needed. Validated end-to-end with `wp-pattern-sentinel` against the Aviendha
+  demo subsite, and checked at 1440/1024/768/390px with no horizontal overflow and no
+  jQuery on the page.
+- `bin/sync-demo.sh` — pushes this working copy into the demo Bedrock site so unreleased
+  changes can be tested and pattern-validated without cutting a release. Both Aludra and
+  Aviendha are pinned Composer dependencies there; the theme ships its own copy of the
+  script. Excluded from the distributed zip via `.distignore` and `.gitattributes`.
+
+### Fixed
+- `aludra/feature-list-grid` drew its checkmarks from an inline SVG with Nynaeve's blue
+  (`#017cb6`) baked into the stroke and no palette fallback, so every hosting theme got an
+  off-palette tick — the one place in the block that ignored
+  [the palette contract](docs/PALETTE-CONTRACT.md). A `url()` background can't read a CSS
+  custom property, so the tick is now a mask over
+  `var(--wp--preset--color--primary, #9f1239)`.
+
 ## [2.23.1] - 2026-07-21
 
 Step 13 of the Aviendha redesign — the last layout gap between the demo homepage and
