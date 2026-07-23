@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.25.0] - 2026-07-23
+
+Aludra's third page pattern, ported from the imagewize.com Nynaeve contact section.
+
+### Added
+- `patterns/page-contact.php` — a contact page pattern (`aludra/page-contact`) built on the
+  existing `aludra/contact-section` block: intro, a two-column grid with contact details
+  (email, response time, location) beside a Contact Form 7 card, and an "available for new
+  projects" badge. Ported from the `nynaeve/contact-section` markup on imagewize.com, with
+  the theme-specific parts generalised: `imagewize/theme-icon` bindings become `aludra/icon`
+  ones, the absolute `imagewize.test` icon URLs are dropped (the binding resolves them at
+  render time, so nothing site-specific is baked into the pattern), and the copy is generic.
+  The form is a `core/shortcode` block carrying a `FORM_ID` placeholder for the site's own
+  Contact Form 7 ID. Validated with `wp-pattern-sentinel` against the Aviendha demo subsite.
+
+### Fixed
+- `aludra/contact-section` form fields sized as `content-box` under any theme without a global
+  `box-sizing` reset, so `width: 100%` plus 32px of padding and a 1px border made every field
+  34px wider than its grid column. Two symptoms, one cause: the name and email inputs
+  overlapped in the 16px gutter — the overlap reads as a stray vertical bar where the two
+  translucent backgrounds stack — and the fields ran past the card's right padding to its
+  border. Nynaeve, where the block was ported from, sets a global border-box reset and never
+  showed it; Aviendha does not. The fields (and the submit button) now set `box-sizing`
+  themselves rather than relying on the theme.
+
 ## [2.24.1] - 2026-07-23
 
 ### Changed

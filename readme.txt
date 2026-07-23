@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.24.1
+Stable tag: 2.25.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,6 +203,10 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.25.0 =
+* Added: `patterns/page-contact.php` — a contact page pattern built on the Contact Section block: intro, contact details (email, response time, location) beside a Contact Form 7 card, and an "available for new projects" badge. Icons resolve through the `aludra/icon` binding, and the form ships as a shortcode block with a `FORM_ID` placeholder to swap for the site's own form ID
+* Fixed: Contact Section form fields sized as content-box on themes without a global `box-sizing` reset, making every field 34px wider than its column — the name and email inputs overlapped in the gutter (showing as a stray vertical bar) and the fields ran past the card's right padding. They now set `box-sizing: border-box` themselves
 
 = 2.24.1 =
 * Changed: demo-site syncing moved to a shared script kept outside this repository, replacing the `bin/sync-demo.sh` that 2.24.0 added — one script now serves this plugin and the Aviendha, Elayne and Nynaeve themes, instead of a near-identical copy drifting in each. Development-only change; nothing in the plugin zip is affected
