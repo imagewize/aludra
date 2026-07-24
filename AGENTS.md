@@ -84,7 +84,7 @@ install they have Aludra installed on; adjust paths and site names accordingly.
 
 ## Theme Compatibility
 - **Aludra is designed to be used with the [Aviendha theme](https://github.com/imagewize/aviendha)**. Aviendha is a lean Full Site Editing (FSE) WooCommerce theme and the companion to the Aludra block library.
-- **Nynaeve theme is NOT used with Aludra**. Blocks needed from Nynaeve (located at `~/code/nynaeve`) must be ported to Aludra. See [docs/PLAN-OF-ACTION.md](docs/PLAN-OF-ACTION.md) for the import strategy and gap analysis.
+- **Nynaeve theme is NOT used with Aludra**. Blocks needed from Nynaeve (located at `~/code/nynaeve`) must be ported to Aludra.
 
 ## Pattern Development
 - **Validate before opening a PR:** `npm run validate`. On failure, rebuild the pattern body

@@ -284,8 +284,7 @@ add_action(
  * Vanilla IntersectionObserver script (assets/js/scroll-reveal.js) that toggles
  * `.is-revealed` on elements carrying `data-aludra-reveal`. Only enqueued on
  * pages that actually contain a block with its `revealOnScroll` attribute set
- * to true, so it never loads on pages that don't use it. See
- * docs/CARD-EFFECTS-AND-SCROLL-ANIMATIONS.md for the full design.
+ * to true, so it never loads on pages that don't use it.
  */
 add_action(
 	'wp_enqueue_scripts',
