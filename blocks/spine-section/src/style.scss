@@ -151,6 +151,16 @@
 		}
 	}
 
+	/* Dropping the band above leaves any text colour that was chosen to pair
+	   with it stranded. review-profiles is the only block in that list with
+	   one — `color: white`, legible on its own `primary` fill and invisible on
+	   the spine's light surface (white quotes on sand). The others colour
+	   descendants rather than the root, or (about) use a body colour that reads
+	   on any spine surface, so they keep theirs. */
+	.spine-section__content > .wp-block-aludra-review-profiles {
+		color: inherit;
+	}
+
 	@media (max-width: 860px) {
 		/* minmax(0, 1fr), not 1fr: a bare `1fr` is `minmax(auto, 1fr)`, whose
 		   automatic minimum is the track's min-content width. An overflowing

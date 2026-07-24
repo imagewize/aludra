@@ -9,7 +9,7 @@ Custom WordPress blocks that work with any theme.
 
 ## Description
 
-Aludra is a WordPress plugin that provides custom Gutenberg blocks. It is a theme-neutral shared block library used across the Imagewize block themes — **Elayne** and the **Aviendha** e-commerce theme — but **the blocks work with any WordPress theme**: FSE (Full Site Editing) themes, block themes, or classic themes. (Many blocks were originally ported from the **Nynaeve** theme's native block library, but Nynaeve itself doesn't install Aludra — see `docs/PLAN-OF-ACTION.md`.)
+Aludra is a WordPress plugin that provides custom Gutenberg blocks. It is a theme-neutral shared block library used across the Imagewize block themes — **Elayne** and the **Aviendha** e-commerce theme — but **the blocks work with any WordPress theme**: FSE (Full Site Editing) themes, block themes, or classic themes. (Many blocks were originally ported from the **Nynaeve** theme's native block library, but Nynaeve itself doesn't install Aludra.)
 
 This plugin was created to align with WordPress.org Theme Review requirements, which prohibit custom block registration in themes. The blocks are theme-agnostic and can be used in any WordPress site.
 
@@ -44,9 +44,7 @@ This plugin was created to align with WordPress.org Theme Review requirements, w
 - **Testimonial Grid Block** (`aludra/testimonial-grid`) - Customer testimonial grid with metrics, using Slick Carousel on larger sets
 - **Trust Bar Block** (`aludra/trust-bar`) - Inline bar of trust-signal items that wraps on mobile
 
-Also included: three full **page patterns** that assemble these blocks into ready-made layouts, all available when creating a new page — a **homepage** (`patterns/page-homepage.php`, agency/service-business), a **service page** (`patterns/page-service.php`, hero + trust bar + capabilities + pricing + FAQ + CTA), and a **contact page** (`patterns/page-contact.php`, contact details + Contact Form 7 card).
-
-See [docs/BLOCKS.md](docs/BLOCKS.md) for full feature details on every block.
+Also included: four full **page patterns** that assemble these blocks into ready-made layouts, all available when creating a new page — a **homepage** (`patterns/page-homepage.php`, agency/service-business), a **service page** (`patterns/page-service.php`, hero + trust bar + capabilities + pricing + FAQ + CTA), an **about page** (`patterns/page-about.php`, hero + trust bar + studio story + capabilities + client types + reviews + CTA), and a **contact page** (`patterns/page-contact.php`, contact details + Contact Form 7 card).
 
 ## Requirements
 
