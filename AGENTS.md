@@ -76,6 +76,14 @@ install they have Aludra installed on; adjust paths and site names accordingly.
   - A clear description of the block change and motivation.
   - Screenshots or screen recordings for UI changes.
   - Notes on any updated `build/` assets and how they were generated.
+- **Bump the block's version when you change a block:** each block carries its own `version` in
+  `block.json` — patch for a style or rendering fix, minor for a new attribute or style
+  variation. Bump it in `blocks/<block>/src/block.json` and in the committed
+  `blocks/<block>/build/block.json` (running `npm run build` copies the source file over). That
+  `version` is what WordPress cache-busts the block's script and style with, so a style fix
+  shipped without it can keep serving stale CSS. The plugin version in `aludra.php`,
+  `readme.txt` and `CHANGELOG.md` is separate and still moves on its own — see CLAUDE.md
+  "Version Management".
 
 ## Architecture Notes
 - Blocks are auto-discovered at runtime by scanning `blocks/*/build/block.json`.
