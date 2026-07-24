@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.25.0
+Stable tag: 2.26.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,6 +203,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.26.0 =
+* Added: `patterns/page-about.php` — an about page pattern assembled from blocks the library already ships: Hero Banner and Trust Bar, then four Spine Section bands wrapping About (who we are), Feature Cards (five capability cards), Feature List Grid (the two client types) and Review Profiles in its avatar style, closing on a CTA Banner. Icons resolve through the `aludra/icon` binding, and the copy is generic placeholder text to replace with your own
+* Fixed: Review Profiles rendered white quote text on a light background when nested in a Spine Section. The spine strips the nested block's band background — the spine is the band — but the white text colour paired with that band survived. The spine now resets it to inherit
+* Changed: planning documents and design mockups moved out of the plugin repository; nothing in the plugin zip is affected
 
 = 2.25.0 =
 * Added: `patterns/page-contact.php` — a contact page pattern built on the Contact Section block: intro, contact details (email, response time, location) beside a Contact Form 7 card, and an "available for new projects" badge. Icons resolve through the `aludra/icon` binding, and the form ships as a shortcode block with a `FORM_ID` placeholder to swap for the site's own form ID

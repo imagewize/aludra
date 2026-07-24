@@ -7,6 +7,50 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.26.0] - 2026-07-24
+
+Aludra's fourth page pattern, ported from the imagewize.com about page, plus the
+repo-hygiene move that takes `docs/` and `designs/` out of the distributable plugin.
+
+### Added
+- `patterns/page-about.php` — an about page pattern (`aludra/page-about`) assembled from
+  blocks the library already ships: `hero-banner`, `trust-bar`, then four `spine-section`
+  bands wrapping `about` (who we are), `feature-cards` (five capability cards),
+  `feature-list-grid` (the two client types), and `review-profiles` in its default avatar
+  style, closing on `cta-banner`. Ported from the imagewize.com about page, with the
+  theme-specific parts generalised: `imagewize/*` and `nynaeve/*` blocks map onto their
+  `aludra/*` equivalents, the hard-coded `/app/themes/nynaeve/public/build/assets/*.svg`
+  icon URLs become `aludra/icon` bindings that resolve at render time, the founder
+  portrait and the JSON-LD `Person` block are dropped, and the copy is generic rather than
+  first-person. Validated with `wp-pattern-sentinel` against the Aviendha demo subsite.
+
+### Fixed
+- `aludra/review-profiles` rendered white quote text on the section's light surface when
+  nested in an `aludra/spine-section`. The spine strips a nested section block's band
+  background (the spine *is* the band), but the block's paired `color: white` — chosen to
+  read on its own `primary` fill — survived, leaving white on sand. The spine now resets
+  the colour to `inherit` for that one child; the other nested blocks colour descendants
+  rather than the root, or use a body colour that reads on any spine surface, so they are
+  untouched. Only reachable via the block's default avatar style, which is why the
+  homepage's `is-style-quotes` usage never showed it. (`spine-section` 1.0.1 → 1.0.2)
+
+### Changed
+- **`docs/` and `designs/` no longer live in this repo.** Planning documents, roadmaps, the
+  palette/font/block contracts and the HTML design mockups moved to the private
+  `imagewize/imagewize.com` repo under `docs/aludra/` and `designs/aludra/`, matching the
+  layout Aviendha, Elayne and Nynaeve already use. This repo is public and distributable,
+  so mockups carrying client names and roadmaps of unshipped work do not belong in it —
+  and every file in the old `designs/aviendha/` was already byte-identical to a copy in
+  that repo, which is exactly the drift the split prevents. `.distignore` and
+  `.gitattributes` keep their `docs/`/`designs/` entries as a guard so a stray file never
+  reaches a release zip. In-repo references that pointed at those paths (README.md,
+  AGENTS.md, an `aludra.php` comment) were removed rather than re-pointed: the target repo
+  is team-only, so no public file should cite a document its readers cannot open.
+- `CLAUDE.md` and `AGENTS.md` now spell out that a block's own `version` in `block.json`
+  must be bumped alongside any change to that block's markup, styles, or attributes — in
+  both the `src/` and committed `build/` copies, since that value is what WordPress
+  cache-busts the block's enqueued script and style with.
+
 ## [2.25.0] - 2026-07-23
 
 Aludra's third page pattern, ported from the imagewize.com Nynaeve contact section.
