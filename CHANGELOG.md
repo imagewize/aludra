@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.26.1] - 2026-07-24
+
+### Changed
+- README logo replaced with the Lucide flower icon (`assets/logos/g-flower.svg`), sourced
+  from Blade UI Kit (Blade Icons, MIT License), drawn in a single flat ember orange
+  (`#D9480F`) rather than the sun mark's gradient — a mid-tone that clears 4:1 contrast
+  against both a white and a GitHub-dark backdrop, so the mark reads in either colour
+  scheme. Same licensing as the Forkawesome sun mark it replaces, which remains in
+  `assets/logos/` alongside the original "nightflower" colourways as alternates.
+  Documentation only — no change to any block.
+
 ## [2.26.0] - 2026-07-24
 
 Aludra's fourth page pattern, ported from the imagewize.com about page, plus the

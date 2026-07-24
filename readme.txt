@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.26.0
+Stable tag: 2.26.1
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,6 +203,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.26.1 =
+* Changed: README logo replaced with the Lucide flower icon (assets/logos/g-flower.svg) from Blade UI Kit (Blade Icons, MIT License), drawn in a single flat ember orange (#D9480F) instead of the sun mark's gradient — a mid-tone that clears 4:1 contrast on both a white and a dark backdrop, so the mark reads in either colour scheme. The Forkawesome sun mark and the "nightflower" colourways remain in assets/logos/ as alternates. Documentation only — no change to any block
 
 = 2.26.0 =
 * Added: `patterns/page-about.php` — an about page pattern assembled from blocks the library already ships: Hero Banner and Trust Bar, then four Spine Section bands wrapping About (who we are), Feature Cards (five capability cards), Feature List Grid (the two client types) and Review Profiles in its avatar style, closing on a CTA Banner. Icons resolve through the `aludra/icon` binding, and the copy is generic placeholder text to replace with your own
@@ -582,8 +585,8 @@ The bundled review-avatar placeholder (assets/placeholders/avatar.svg) is the eo
 * Blade Icons license: https://github.com/driesvints/blade-icons/blob/main/LICENSE.md (MIT License)
 
 = README Logo =
-The Aludra logo displayed in README.md (assets/logos/f-sun.svg) is the Forkawesome sun icon from Blade UI Kit (Blade Icons), recoloured with Aludra's ember gradient. The earlier "nightflower" mark colourways remain in assets/logos/ as alternates.
-* Sun icon source: https://blade-ui-kit.com/blade-icons/forkawesome-sun
+The Aludra logo displayed in README.md (assets/logos/g-flower.svg) is the Lucide flower icon from Blade UI Kit (Blade Icons), drawn in a flat ember orange (#D9480F) that reads on both light and dark backgrounds. The earlier Forkawesome sun mark and the "nightflower" mark colourways remain in assets/logos/ as alternates.
+* Flower icon source: https://blade-ui-kit.com/blade-icons/lucide-flower
 * Blade Icons license: https://github.com/driesvints/blade-icons/blob/main/LICENSE.md (MIT License)
 
 = Mega Menu Implementation =
