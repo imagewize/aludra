@@ -57,12 +57,12 @@ composer run test       # PHPUnit
 Manual/visual testing happens against a local **Trellis** (Roots) VM running **Bedrock** sites, checked out as a sibling repo at `~/code/imagewize.com`. This is the Imagewize maintainer's own setup — other contributors test against whatever local WordPress/Bedrock install they have Aludra installed on; adjust paths and site names accordingly.
 
 - Trellis root: `~/code/imagewize.com/trellis`. The VM is **Lima-based** (not Vagrant) — use `trellis vm shell`, which shells out to `limactl`.
-- **`demo.imagewize.com`** (host `demo.imagewize.test`, Bedrock root `~/code/imagewize.com/demo`) is where **Aludra is installed and tested** — a multisite with subsites at `/`, `/spa/`, `/legal/`, `/kafe/`, `/plumbing/`, `/nail-salon/`, `/store/` (all on the **Elayne** theme), plus **`/aviendha/`**, running Aludra's primary target theme **[Aviendha](https://github.com/imagewize/aviendha)** (`imagewize/aviendha` on Packagist; local checkout `~/code/aviendha`). Both Aludra and Aviendha are regular pinned Composer dependencies there (`imagewize/aludra`, `imagewize/aviendha`) installed from Packagist, not symlinked to these working copies. **Do not cut a release to test local changes — sync instead**, using `scripts/rsync-package-to-site.sh` from [wp-ops](https://github.com/imagewize/wp-ops):
+- **`demo.imagewize.com`** (host `demo.imagewize.test`, Bedrock root `~/code/imagewize.com/demo`) is where **Aludra is installed and tested** — a multisite with subsites at `/`, `/spa/`, `/legal/`, `/kafe/`, `/plumbing/`, `/nail-salon/`, `/store/` (all on the **Elayne** theme), plus **`/aviendha/`**, running Aludra's primary target theme **[Aviendha](https://github.com/imagewize/aviendha)** (`imagewize/aviendha` on Packagist; local checkout `~/code/aviendha`). Both Aludra and Aviendha are regular pinned Composer dependencies there (`imagewize/aludra`, `imagewize/aviendha`) installed from Packagist, not symlinked to these working copies. **Do not cut a release to test local changes — sync instead**, using `rsync-package-to-site` from [wp-ops](https://github.com/imagewize/wp-ops), via the `wp-ops` CLI (run `~/code/wp-ops/install.sh` once if `wp-ops` isn't on your PATH yet):
 
 ```bash
 export SITE_ROOT=~/code/imagewize.com/demo/web/app
-~/code/wp-ops/scripts/rsync-package-to-site.sh plugin aludra   ~/code/aludra
-~/code/wp-ops/scripts/rsync-package-to-site.sh theme  aviendha ~/code/aviendha
+wp-ops rsync-package-to-site plugin aludra   ~/code/aludra
+wp-ops rsync-package-to-site theme  aviendha ~/code/aviendha
 ```
 
 It rsyncs a dist-faithful tree (`--delete --delete-excluded`, honouring `.distignore`), so what you test is what ships. A `composer update` on the demo site restores the released code. **Sync before every `npm run validate` run** — the pattern validator reads patterns from the *installed* plugin, not from this repo.
