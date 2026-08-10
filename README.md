@@ -4,6 +4,10 @@
 <div align="center">
 <h1>Aludra</h1>
 
+[![Total Downloads](https://img.shields.io/packagist/dt/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
+[![Latest Stable Version](https://img.shields.io/packagist/v/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
+[![License](https://img.shields.io/packagist/l/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
+
 Custom WordPress blocks that work with any theme.
 </div>
 
