@@ -10,7 +10,11 @@
  */
 .wp-block-aludra-cta-banner {
 	background: var(--wp--preset--color--primary, #9f1239);
-	color: var(--wp--preset--color--white, #ffffff);
+	/* `base`, not `white`: the pairing has to survive a dark style variation,
+	   where `primary` is a *light* colour and white-on-primary drops to ~2.7:1.
+	   `base` is the page surface, so it inverts with the palette and stays
+	   readable in both — the same pairing the themes' own button element uses. */
+	color: var(--wp--preset--color--base, #ffffff);
 	padding: 96px 0;
 	text-align: center;
 

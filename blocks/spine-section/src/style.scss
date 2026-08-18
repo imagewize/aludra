@@ -35,7 +35,10 @@
 	   `var(--aludra-band-card, var(--wp--preset--color--base, #fff))` — the
 	   fallback is their standalone (own-band) colour, so this only takes effect
 	   inside a spine. */
-	--aludra-band-card: var(--wp--preset--color--white, #fff);
+	/* `base`, not `white`: cards published onto this band inherit the page's
+	   `contrast` for text, so a hardcoded white card is unreadable under a dark
+	   style variation. `base` stays one step off the band in either scheme. */
+	--aludra-band-card: var(--wp--preset--color--base, #fff);
 
 	&.is-tinted {
 		background: var(--wp--preset--color--tertiary, #f0e9dd);

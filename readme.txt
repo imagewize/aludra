@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.26.1
+Stable tag: 2.27.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,6 +203,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.27.0 =
+* Fixed: CTA Banner, Review Profiles and the Pricing Tiers "most popular" flag drew white text on a Primary background. Under a dark style variation Primary is a light colour, so that text fell to 2.7:1 — well below the 4.5:1 WCAG 2.1 AA asks for. They now use Base, which inverts with the palette and reads in both light and dark schemes (6.1-6.3:1 on the dark variations tested)
+* Fixed: the Pricing Tiers spec-sheet surface and the card background Spine Section publishes to its children were hardcoded white. Text on them inherits the page text colour, which under a dark variation is near-white — white on white. Both now use Base
+* Changed: on light themes where Base and White differ the change is imperceptible (on Aviendha, 8.0:1 becomes 7.5:1); themes whose Base is pure white are unaffected
 
 = 2.26.1 =
 * Changed: README logo replaced with the Lucide flower icon (assets/logos/g-flower.svg) from Blade UI Kit (Blade Icons, MIT License), drawn in a single flat ember orange (#D9480F) instead of the sun mark's gradient — a mid-tone that clears 4:1 contrast on both a white and a dark backdrop, so the mark reads in either colour scheme. The Forkawesome sun mark and the "nightflower" colourways remain in assets/logos/ as alternates. Documentation only — no change to any block

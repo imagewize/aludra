@@ -10,7 +10,9 @@
  */
 .wp-block-aludra-review-profiles {
 	background: var(--wp--preset--color--primary, #f97316);
-	color: var(--wp--preset--color--white, #ffffff);
+	/* `base`, not `white` — see the note in cta-banner: white-on-primary fails
+	   AA under any dark style variation, where `primary` is a light colour. */
+	color: var(--wp--preset--color--base, #ffffff);
 	padding: 80px 0;
 
 	.review-profiles__content {

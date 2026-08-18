@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.27.0] - 2026-08-18
+
+### Fixed
+- **Four blocks hardcoded `white` where the theme's surface token belongs, breaking
+  every dark style variation.** Two distinct symptoms, one root cause.
+
+  `aludra/cta-banner`, `aludra/review-profiles` and the `.pricing-tag` flag in
+  `aludra/pricing-tiers` painted white text on a `primary` background. Under a dark
+  variation `primary` is a *light* colour, so that pairing fell to **2.69:1** on
+  Aviendha's Twilight and **2.98:1** on Ixian's — both below the 4.5:1 WCAG 2.1 AA
+  needs for body text.
+
+  `aludra/pricing-tiers` (`is-style-spec-sheet`) and `aludra/spine-section` (via
+  `--aludra-band-card`) painted white *surfaces*. Text on them inherits the page's
+  `contrast`, which under a dark variation is near-white — white-on-white, unreadable.
+
+  All five now use `base`. It is the page surface, so it inverts with the palette and
+  stays readable in both schemes — the same pairing the themes' own button element
+  already uses. Dark variations go to **6.26:1** (Aviendha Twilight) and **6.09:1**
+  (Ixian Twilight).
+
+  No palette can fix the text case on its own: with Twilight's `base` at 18.17:1
+  against white, the best any single `primary` can do on *both* white text and `base`
+  text is 4.26:1, short of 4.5:1. The two constraints are unsatisfiable, so the fix
+  had to be here.
+
+### Changed
+- Light themes shift imperceptibly where `white` and `base` differ — on Aviendha a CTA
+  banner's text goes from `#FFFFFF` to `#FAF7F2` (8.02:1 to 7.50:1), on Elayne it does
+  not move at all. Every light theme and variation stays well clear of AA.
+
 ## [2.26.1] - 2026-07-24
 
 ### Changed
