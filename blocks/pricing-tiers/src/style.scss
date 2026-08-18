@@ -85,7 +85,10 @@
 		border: 1px solid var(--wp--preset--color--border-light, #e5ded2);
 		border-radius: 14px;
 		overflow: hidden;
-		background: var(--wp--preset--color--white, #ffffff);
+		/* `base`, not `white`. Text inside inherits the page's `contrast`, which
+		   under a dark variation is near-white — on a hardcoded white panel that
+		   is unreadable. `base` tracks the palette in both directions. */
+		background: var(--wp--preset--color--base, #ffffff);
 	}
 
 	.wp-block-column {
@@ -136,7 +139,9 @@
 		font-weight: 600;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
-		color: var(--wp--preset--color--white, #ffffff);
+		/* `base`, not `white`: readable against `primary` in both light and
+		   dark variations. */
+		color: var(--wp--preset--color--base, #ffffff);
 		background: var(--wp--preset--color--primary, #7a2f3a);
 		padding: 0.25rem 0.5rem;
 		border-radius: 4px;
