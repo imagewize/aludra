@@ -205,7 +205,7 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 == Changelog ==
 
 = 2.29.0 =
-* Added: Split Section — a layout host pairing a centred eyebrow/heading/lead with two panes, media on one side and content on the other, stacking to one column at 860px. Media width is adjustable 30-70% and the panes can be swapped; the media always leads once stacked. A "how it works" section is now a composition of blocks the library already ships, rather than a block of its own
+* Added: Split Section — a layout host pairing a centred eyebrow/heading/lead with two panes, media on one side and content on the other, stacking to one column at 860px. Media width is adjustable 30-70% and the panes can be swapped; the media always leads once stacked. An optional "Reveal on scroll" toggle brings the panes in from opposite sides as the section enters the viewport, and respects reduced-motion. A "how it works" section is now a composition of blocks the library already ships, rather than a block of its own
 * Added: A "Numbered steps" style for Service Detail Cards — circular badge numerals in place of the default's large italic figures, tinted from the active palette's Primary so they hold up under dark style variations. The block's existing look is unchanged and is now the explicit "Default" style
 * Fixed: Spine Section was missing from Settings → Aludra, so it could not be toggled there and did not appear in the block list, despite the plugin's own defaults enabling it
 

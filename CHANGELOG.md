@@ -20,7 +20,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   swapped so the media sits on the right; the header stays centred either way,
   and the media always leads once stacked. The width is published as a custom
   property rather than an inline `grid-template-columns`, so the collapse rule
-  still wins on narrow screens.
+  still wins on narrow screens. An optional "Reveal on scroll" toggle brings the
+  two panes in from opposite sides as the section enters the viewport, using the
+  shared scroll-reveal utility; stacked, both drift up instead, and
+  reduced-motion disables it.
 - **A "Numbered steps" style for Service Detail Cards.** Circular badge
   numerals in place of the default's large italic outline figures, for
   sequences a reader follows rather than a quiet index. The badge tint is mixed
