@@ -1,0 +1,85 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aludra/split-section",
+  "version": "1.0.0",
+  "title": "Split Section",
+  "category": "aludra",
+  "icon": "columns",
+  "description": "A page section with a centred header and two panes — media on one side, content on the other. Collapses to a single stacked column on narrow screens.",
+  "keywords": [
+    "section",
+    "split",
+    "media",
+    "two column",
+    "layout"
+  ],
+  "example": {},
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "anchor": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "color": {
+      "background": true,
+      "text": true
+    }
+  },
+  "textdomain": "aludra",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "label": {
+      "type": "string",
+      "source": "html",
+      "selector": ".split-section__label",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "source": "html",
+      "selector": ".split-section__heading",
+      "default": ""
+    },
+    "lead": {
+      "type": "string",
+      "source": "html",
+      "selector": ".split-section__lead",
+      "default": ""
+    },
+    "reversed": {
+      "type": "boolean",
+      "default": false
+    },
+    "mediaWidth": {
+      "type": "number",
+      "default": 50
+    },
+    "tint": {
+      "type": "boolean",
+      "default": false
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "spacing": {
+          "margin": {
+            "top": "0",
+            "bottom": "0"
+          }
+        }
+      }
+    }
+  }
+}

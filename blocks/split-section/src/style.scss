@@ -1,0 +1,233 @@
+/**
+ * Frontend + editor styles for aludra/split-section.
+ *
+ * The second layout host in the library, after spine-section. Where the spine
+ * puts its label/heading/aside in a sticky left rail beside one content track,
+ * this one centres the header above two free panes — media on one side,
+ * content on the other. Everything the two hosts share (the band card surface,
+ * the shell suppression list, the collapse breakpoint, the type scale) is
+ * shared by convention, copied deliberately; if a third host ever lands, that
+ * is the moment to extract a partial, not before.
+ *
+ * Type sizes reference the named font-size scale
+ * (var(--wp--preset--font-size--*)) rather than one-off literals, so the scale
+ * is set once in theme.json and every block draws from it — see
+ * docs/aludra/FONT-CONTRACT.md. Colours carry a literal fallback so a theme
+ * that doesn't define the slug still renders — docs/aludra/PALETTE-CONTRACT.md.
+ */
+
+.wp-block-aludra-split-section {
+	--aludra-split-gutter: clamp(2rem, 6vw, 4.5rem);
+
+	/* Declared for themes that want to reason about the breakpoint, but the
+	   media query below repeats the literal: a custom property cannot be used
+	   in a media query condition. spine-section carries the same pair. */
+	--aludra-split-collapse: 860px;
+
+	padding-block: clamp(3.5rem, 8vw, 6.5rem);
+	border-bottom: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+
+	/* Surface contract, identical to spine-section's: the band publishes the
+	   colour a card sitting on it should use, so a nested block never has to
+	   know whether the band under it is tinted. Nested blocks read it as
+	   `var(--aludra-band-card, var(--wp--preset--color--base, #fff))`, so the
+	   fallback is their own standalone colour and this only bites inside a
+	   host. `base` rather than `white`, because cards inherit the page's
+	   `contrast` for text and a hardcoded white card is unreadable under a dark
+	   style variation. */
+	--aludra-band-card: var(--wp--preset--color--base, #fff);
+
+	&.is-tinted {
+		background: var(--wp--preset--color--tertiary, #f0e9dd);
+
+		--aludra-band-card: var(--wp--preset--color--base, #faf7f2);
+	}
+
+	.split-section__shell {
+		max-width: var(--wp--style--global--wide-size, 1200px);
+		margin-inline: auto;
+		padding-inline: var(--wp--preset--spacing--medium, 24px);
+	}
+
+	/* ─── CENTRED HEADER ─── */
+
+	.split-section__header {
+		max-width: 48rem;
+		margin-inline: auto;
+		margin-block-end: clamp(2.5rem, 5vw, 4rem);
+		text-align: center;
+	}
+
+	/* The spine's eyebrow is preceded by a short rule, which reads as a
+	   left-rail device — a centred header gets the same type treatment without
+	   it, so the two hosts still look like one system. */
+	.split-section__label {
+		margin: 0;
+		font-family: var(--wp--preset--font-family--mono, ui-monospace, monospace);
+		font-size: var(--wp--preset--font-size--x-small, 0.72rem);
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--wp--preset--color--main-accent, #b4785a);
+
+		/* An empty RichText still renders its element; don't let it reserve
+		   space. editor.scss re-shows these so placeholders stay visible. */
+		&:empty {
+			display: none;
+		}
+	}
+
+	.split-section__heading {
+		margin: 0.9rem 0 0;
+		font-family: var(--wp--preset--font-family--display, sans-serif);
+		font-size: var(--wp--preset--font-size--x-large, 1.7rem);
+		letter-spacing: -0.02em;
+		line-height: 1.15;
+
+		/* Two-tone headline: <em> is repurposed as the highlight span, as in
+		   hero-split. Hence `allowedFormats: [ 'core/italic' ]` on the heading
+		   in edit.js — the format is the highlight, not an italic. */
+		em {
+			font-style: normal;
+			color: var(--wp--preset--color--primary, #9f1239);
+		}
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	.split-section__lead {
+		margin: 0.75rem auto 0;
+		max-width: 46ch;
+		color: var(--wp--preset--color--secondary, #57534e);
+		font-size: var(--wp--preset--font-size--base, 0.95rem);
+		line-height: 1.6;
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	/* ─── PANES ─── */
+
+	/* minmax(0, …) on both tracks, never a bare `1fr`: a bare `1fr` is
+	   `minmax(auto, 1fr)`, whose automatic minimum is the track's min-content
+	   width. A wide child — a code panel, a rail, a long unbroken string — then
+	   forces the track (and the document) wide enough to fit it uncropped, and
+	   the page scrolls sideways. spine-section carries the same note.
+	   `--aludra-split-media` is written inline by save() only when the author
+	   moved the mediaWidth slider off its default; see save.jsx. */
+	.split-section__panes {
+		display: grid;
+		gap: var(--aludra-split-gutter);
+		align-items: center;
+		grid-template-columns:
+			minmax(0, var(--aludra-split-media, 1fr))
+			minmax(0, 1fr);
+	}
+
+	.split-section__media,
+	.split-section__content {
+		min-width: 0;
+
+		> * {
+			margin-block-start: 0;
+		}
+
+		/* ─── NESTED SECTION BLOCKS ─── */
+
+		/* Every Aludra section block ships its own page shell (content-size
+		   max-width + auto margins + inline padding, vertical padding, and for
+		   most of them a band background), because until the hosts arrived each
+		   one *was* the section. Nested in a pane that shell double-applies: the
+		   pane gets capped a second time and indented, and the band background
+		   paints a floating tinted box inside one pane instead of running the
+		   width of the page — the host is the band, so the nested block must not
+		   draw one. Direct children only, so a section block used standalone
+		   keeps its shell. The inner wrapper is targeted with `> *` rather than
+		   by class because these blocks don't share a naming convention for it —
+		   about uses `__content`, services-block `__inner`, faq-tabs a raw
+		   core/columns. Kept in step with spine-section's copy of this list. */
+		> .wp-block-aludra-about,
+		> .wp-block-aludra-services-block,
+		> .wp-block-aludra-service-blocks,
+		> .wp-block-aludra-review-profiles,
+		> .wp-block-aludra-pricing-tiers,
+		> .wp-block-aludra-feature-cards,
+		> .wp-block-aludra-feature-list-grid,
+		> .wp-block-aludra-faq-tabs {
+			padding-block: 0;
+			background: none;
+
+			> * {
+				max-width: none;
+				margin-inline: 0;
+				padding-inline: 0;
+			}
+		}
+
+		/* Dropping the band above leaves any text colour chosen to pair with it
+		   stranded. review-profiles is the only block in that list with one —
+		   `color: white`, legible on its own `primary` fill and invisible on a
+		   light host surface. The others colour descendants rather than the
+		   root, so they keep theirs. */
+		> .wp-block-aludra-review-profiles {
+			color: inherit;
+		}
+	}
+
+	.split-section__media {
+
+		:where(img) {
+			display: block;
+			height: auto;
+			max-width: 100%;
+		}
+	}
+
+	/* Order, not `direction`: `direction: rtl` on the grid would also flip the
+	   text inside both panes. The header is never reordered. */
+	&.is-reversed {
+
+		.split-section__media {
+			order: 2;
+		}
+
+		.split-section__content {
+			order: 1;
+		}
+	}
+
+	@media (max-width: 860px) {
+
+		/* This wins over the inline `--aludra-split-media` because it sets
+		   grid-template-columns directly — the custom property goes inert
+		   rather than being overridden, which is the whole reason the media
+		   width is published as a variable instead of an inline grid. */
+		.split-section__panes {
+			grid-template-columns: minmax(0, 1fr);
+			gap: 2rem;
+		}
+
+		/* Media leads when stacked whichever way the panes are ordered on
+		   desktop: a mockup above the copy explaining it reads correctly, the
+		   reverse does not. */
+		&.is-reversed {
+
+			.split-section__media {
+				order: 1;
+			}
+
+			.split-section__content {
+				order: 2;
+			}
+		}
+	}
+}
+
+/* Consecutive sections would otherwise draw two hairlines where they meet the
+   page's own footer/CTA rule; the last one in a run is redundant. */
+.wp-block-aludra-split-section:last-of-type {
+	border-bottom: 0;
+}

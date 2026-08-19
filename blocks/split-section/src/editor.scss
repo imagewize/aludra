@@ -1,0 +1,28 @@
+/**
+ * Editor-only styles for aludra/split-section.
+ *
+ * The layout comes from style.scss (loaded in the editor too). What's needed
+ * here is only what the editor breaks: the header placeholders have to stay
+ * visible when their RichText is empty (style.scss hides :empty on the
+ * frontend, which would otherwise hide the placeholder mid-edit), and the two
+ * panes need a visible boundary — each is usually a single nested block, so
+ * without one it isn't obvious which pane the cursor is in.
+ */
+
+.editor-styles-wrapper .wp-block-aludra-split-section {
+
+	.split-section__label,
+	.split-section__heading,
+	.split-section__lead {
+
+		&:empty {
+			display: revert;
+		}
+	}
+
+	.split-section__media,
+	.split-section__content {
+		outline: 1px dashed var(--wp-admin-theme-color, #3858e9);
+		outline-offset: 0.75rem;
+	}
+}
