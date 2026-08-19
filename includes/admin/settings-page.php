@@ -79,6 +79,8 @@ function aludra_get_default_settings() {
 		'load-waterfall'         => true,
 		'stat-rail'              => true,
 		'stat-item'              => true,
+		'spine-section'          => true,
+		'split-section'          => true,
 	);
 }
 
@@ -229,6 +231,16 @@ function aludra_get_available_blocks() {
 			'description' => __( 'A single big-number stat with a caption, used inside Stat Rail.', 'aludra' ),
 			'category'    => 'marketing',
 			'parent'      => 'stat-rail',
+		),
+		'spine-section'          => array(
+			'label'       => __( 'Spine Section', 'aludra' ),
+			'description' => __( 'Layout host: a sticky label/heading column on the left and section content on the right.', 'aludra' ),
+			'category'    => 'marketing',
+		),
+		'split-section'          => array(
+			'label'       => __( 'Split Section', 'aludra' ),
+			'description' => __( 'Layout host: a centred header above two panes, media on one side and content on the other.', 'aludra' ),
+			'category'    => 'marketing',
 		),
 	);
 }

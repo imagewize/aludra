@@ -2,13 +2,17 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "aludra/service-blocks",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"title": "Service Detail Cards",
 	"category": "aludra",
 	"icon": "list-view",
 	"description": "Stacked, numbered service cards with a heading, description, and checklist — colours adapt to the active theme's palette.",
 	"keywords": ["service", "checklist", "services", "numbered", "cards"],
 	"example": {},
+	"styles": [
+		{ "name": "default", "label": "Default", "isDefault": true },
+		{ "name": "steps", "label": "Numbered steps" }
+	],
 	"supports": {
 		"html": false,
 		"align": ["wide", "full"],

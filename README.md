@@ -43,6 +43,7 @@ This plugin was created to align with WordPress.org Theme Review requirements, w
 - **Services Block** (`aludra/services-block`) - Section header with a two-per-row grid of icon, heading, and text service cards
 - **Slide Block** (`aludra/slide`) - Individual carousel slides with InnerBlocks support
 - **Spine Section Block** (`aludra/spine-section`) - Page section with a sticky label/heading column beside its content, collapsing to one column on narrow screens
+- **Split Section Block** (`aludra/split-section`) - Page section with a centred header above two panes, media on one side and content on the other, collapsing to one column on narrow screens
 - **Stat Item Block** (`aludra/stat-item`) - Single big-number stat with a caption, used inside Stat Rail
 - **Stat Rail Block** (`aludra/stat-rail`) - Full-width band of big-number stats, for the seam between a hero and the rest of the page
 - **Testimonial Grid Block** (`aludra/testimonial-grid`) - Customer testimonial grid with metrics, using Slick Carousel on larger sets

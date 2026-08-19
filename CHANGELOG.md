@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.29.0] - 2026-08-19
+
+### Added
+- **Split Section, a second layout host.** A page section with a centred
+  eyebrow/heading/lead above two panes — media on one side, content on the
+  other — collapsing to a single stacked column at 860px. Where Spine Section
+  puts its header in a sticky left rail beside one content track, this one
+  centres it above two. Both panes take any blocks, so a "how it works" section
+  is now a composition (image + Service Detail Cards + buttons) rather than a
+  block of its own. Media width is adjustable 30–70%, and the panes can be
+  swapped so the media sits on the right; the header stays centred either way,
+  and the media always leads once stacked. The width is published as a custom
+  property rather than an inline `grid-template-columns`, so the collapse rule
+  still wins on narrow screens. An optional "Reveal on scroll" toggle brings the
+  two panes in from opposite sides as the section enters the viewport, using the
+  shared scroll-reveal utility; stacked, both drift up instead, and
+  reduced-motion disables it.
+- **A "Numbered steps" style for Service Detail Cards.** Circular badge
+  numerals in place of the default's large italic outline figures, for
+  sequences a reader follows rather than a quiet index. The badge tint is mixed
+  from the active palette's `primary`, so it stays correct under dark style
+  variations. The block's existing look is unchanged and is now the explicit
+  "Default" style.
+
+### Fixed
+- **Spine Section was missing from Settings → Aludra**, so it could not be
+  toggled there and did not appear in the block list, even though the plugin's
+  own defaults enabled it. Both of the settings page's arrays now carry it.
+
 ## [2.28.1] - 2026-08-19
 
 ### Fixed
