@@ -44,8 +44,8 @@ This plugin was created to align with WordPress.org Theme Review requirements, w
 - **Slide Block** (`aludra/slide`) - Individual carousel slides with InnerBlocks support
 - **Spine Section Block** (`aludra/spine-section`) - Page section with a sticky label/heading column beside its content, collapsing to one column on narrow screens
 - **Split Section Block** (`aludra/split-section`) - Page section with a centred header above two panes, media on one side and content on the other, collapsing to one column on narrow screens
-- **Stat Item Block** (`aludra/stat-item`) - Single big-number stat with a caption, used inside Stat Rail
-- **Stat Rail Block** (`aludra/stat-rail`) - Full-width band of big-number stats, for the seam between a hero and the rest of the page
+- **Stat Item Block** (`aludra/stat-item`) - Single big-number stat with a caption, used inside Stat Rail; number and caption colours are set independently, and the number can render as a heading
+- **Stat Rail Block** (`aludra/stat-rail`) - Full-width band of big-number stats, for the seam between a hero and the rest of the page, in a dark or light band style
 - **Testimonial Grid Block** (`aludra/testimonial-grid`) - Customer testimonial grid with metrics, using Slick Carousel on larger sets
 - **Trust Bar Block** (`aludra/trust-bar`) - Inline bar of trust-signal items that wraps on mobile
 

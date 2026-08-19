@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.30.0
+Stable tag: 2.31.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -103,11 +103,14 @@ Aludra is a theme-neutral shared block library for the Imagewize block themes (E
 **Stat Rail Block**
 * Full-width band of big-number stats with captions, for the seam between a hero and the rest of the page
 * Equal-width columns via CSS grid, so the layout isn't locked to a fixed item count
+* Dark band by default, with a "Light band" style for light-ground themes — both draw their colors from the active palette
 * Built from InnerBlocks — add or remove stat items freely; parent of the Stat Item block
 
 **Stat Item Block**
 * Single big-number stat with a caption, used inside Stat Rail
 * Optional "highlight" toggle to render the number in the theme's accent color
+* Number and caption colors set independently from the theme palette, or a custom value
+* The number can render as a heading (H1-H6) where the rail is a real section of the page, or as plain text (the default)
 * Only valid inside the Stat Rail block
 
 **Spine Section Block**
@@ -203,6 +206,12 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.31.0 =
+* Added: A "Light band" style for Stat Rail — the same band on a white ground with Contrast type, Border Light hairlines above and below the stats, and a Secondary caption, for themes whose pages are white and near-white throughout. The dark band is unchanged and remains the default
+* Added: Per-stat colour for Stat Item's number and caption, set independently from the theme palette or a custom value. Palette choices save as a preset class, so they follow the theme and survive a style variation swapping the palette underneath them
+* Added: A heading level for Stat Item's number — H1-H6 where the rail is a real section of the page. It stays plain text by default, so a decorative band does not put three big figures in the document outline and the screen reader heading list
+* Changed: Stat Rail's colours route through custom properties declared once on the block, so a style variation is a palette swap rather than a second copy of the layout. The rendered dark band is identical to 2.30.0, and existing Stat Item content serializes byte-identically and needs no deprecation
 
 = 2.30.0 =
 * Added: Load Waterfall's panel length is now editable — a "Rows" control sets how many stages the waterfall lists, from 1 to 12, with six more hand-authored rows continuing the original cascade so a longer panel still reads as designed rather than generated
