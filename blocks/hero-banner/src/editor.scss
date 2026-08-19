@@ -6,16 +6,38 @@
  * frontend rules use display/pseudo-element tricks that break editing.
  */
 .wp-block-aludra-hero-banner {
-	background: var(--wp--preset--color--main, #1a1a1a);
 	padding: 60px 24px;
 
-	.wp-block-heading,
-	.wp-block-paragraph {
-		color: rgba(255, 255, 255, 0.9);
+	/* The dark editor preview belongs to the default style only. The canvas
+	   style paints a light surface, where forcing near-white text leaves the
+	   eyebrow, the lead and any inner paragraph unreadable while editing —
+	   and these selectors outrank the colour classes an author's inner blocks
+	   carry, so they have to stay off canvas rather than be overridden. */
+	&:not(.is-style-canvas) {
+		background: var(--wp--preset--color--main, #1a1a1a);
+
+		.wp-block-heading,
+		.wp-block-paragraph {
+			color: rgba(255, 255, 255, 0.9);
+		}
 	}
 
 	&::before {
 		display: none;
+	}
+
+	/* Defensive: if an icon does not resolve — a missing file, or an editor
+	   without the aludra/icon resolver — core/image falls back to a full-size
+	   placeholder. That placeholder is not an `img`, so the 14px cap in
+	   style.scss never reaches it and it inflates the eyebrow pill. Cap the
+	   slot itself so a broken icon degrades quietly. */
+	.hero-banner__eyebrow .wp-block-image,
+	.hero-banner__eyebrow .components-placeholder,
+	.hero-banner__eyebrow .block-editor-media-placeholder {
+		max-width: 14px !important;
+		max-height: 14px !important;
+		min-height: 0 !important;
+		overflow: hidden;
 	}
 
 	.hero-banner__ctas .wp-block-button__link {
