@@ -70,6 +70,10 @@
       "type": "boolean",
       "default": false
     },
+    "revealOnScroll": {
+      "type": "boolean",
+      "default": false
+    },
     "style": {
       "type": "object",
       "default": {

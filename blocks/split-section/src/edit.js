@@ -29,7 +29,8 @@ const TEMPLATE = [
 ];
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { label, heading, lead, reversed, mediaWidth, tint } = attributes;
+	const { label, heading, lead, reversed, mediaWidth, tint, revealOnScroll } =
+		attributes;
 
 	const blockProps = useBlockProps( {
 		className: [
@@ -81,6 +82,17 @@ export default function Edit( { attributes, setAttributes } ) {
 						checked={ tint }
 						onChange={ ( value ) =>
 							setAttributes( { tint: value } )
+						}
+					/>
+					<ToggleControl
+						label={ __( 'Reveal on scroll', 'aludra' ) }
+						help={ __(
+							'The two panes travel in from opposite sides as the section enters the viewport. Front end only; respects reduced-motion.',
+							'aludra'
+						) }
+						checked={ !! revealOnScroll }
+						onChange={ ( value ) =>
+							setAttributes( { revealOnScroll: value } )
 						}
 					/>
 				</PanelBody>

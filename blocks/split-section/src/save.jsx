@@ -19,7 +19,8 @@ export function panesStyle( mediaWidth ) {
 }
 
 export default function save( { attributes } ) {
-	const { label, heading, lead, reversed, mediaWidth, tint } = attributes;
+	const { label, heading, lead, reversed, mediaWidth, tint, revealOnScroll } =
+		attributes;
 
 	const blockProps = useBlockProps.save( {
 		className: [
@@ -29,6 +30,12 @@ export default function save( { attributes } ) {
 		]
 			.filter( Boolean )
 			.join( ' ' ),
+
+		/* Read by the shared assets/js/scroll-reveal.js utility, which adds
+		   `.is-revealed` once the block enters the viewport. aludra.php only
+		   enqueues that script on pages carrying a block with revealOnScroll
+		   set, so the attribute is what gates the request. */
+		'data-aludra-reveal': revealOnScroll ? 'true' : undefined,
 	} );
 
 	return (

@@ -127,12 +127,21 @@
 			minmax(0, 1fr);
 	}
 
+	/* A pane stacks its children with a gap rather than leaning on their own
+	   margins. Spine Section can zero margins outright because its content
+	   track almost always holds one nested block; a pane routinely holds two or
+	   more — a section block plus a CTA is the common case — and every Aludra
+	   section block zeroes its own outer margins, so with margins alone the
+	   button ends up flush against the last card. */
 	.split-section__media,
 	.split-section__content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--aludra-split-stack, clamp(1.5rem, 3vw, 2rem));
 		min-width: 0;
 
 		> * {
-			margin-block-start: 0;
+			margin-block: 0;
 		}
 
 		/* ─── NESTED SECTION BLOCKS ─── */
@@ -187,7 +196,10 @@
 	}
 
 	/* Order, not `direction`: `direction: rtl` on the grid would also flip the
-	   text inside both panes. The header is never reordered. */
+	   text inside both panes. The header is never reordered. Kept above the
+	   reveal rules so the file runs layout first, decoration second — which is
+	   also what keeps stylelint's no-descending-specificity happy, since the
+	   reveal selectors are the more specific ones. */
 	&.is-reversed {
 
 		.split-section__media {
@@ -196,6 +208,75 @@
 
 		.split-section__content {
 			order: 1;
+		}
+	}
+
+	/* ─── SCROLL REVEAL ─── */
+
+	/* Opt-in via the "Reveal on scroll" toggle, driven by the shared
+	   assets/js/scroll-reveal.js utility, which adds `.is-revealed` to the
+	   block once it crosses into the viewport. cta-columns drifts its whole
+	   block upward; here the two panes travel in from opposite sides — each
+	   from the edge it sits against — because the split is the point of the
+	   block. The content pane trails by 80ms so the pair reads as one movement.
+	   `overflow-x: clip` (not `hidden`, which would create a scroll container)
+	   keeps the outbound pane from widening the document mid-transition. */
+	&[data-aludra-reveal] {
+		overflow-x: clip;
+
+		/* The stacked case is the default here rather than an override: once
+		   the panes are full width a sideways entrance has nowhere to come
+		   from and reads as a jitter, so both drift up, as cta-columns does at
+		   every width. The sideways travel is then scoped to the two-column
+		   layout below. Written this way round because an override would have
+		   to out-specify the `.is-reversed` swap, and matching that at the
+		   breakpoint is fragile. */
+		.split-section__media,
+		.split-section__content {
+			opacity: 0;
+			transform: translateY(24px);
+			transition:
+				opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+				transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+		}
+
+		.split-section__content {
+			transition-delay: 0.08s;
+		}
+
+		@media (min-width: 861px) {
+
+			.split-section__media {
+				transform: translateX(-24px);
+			}
+
+			.split-section__content {
+				transform: translateX(24px);
+			}
+
+			/* Reversed swaps which edge each pane sits against, so it swaps
+			   the side each travels in from too. */
+			&.is-reversed {
+
+				.split-section__media {
+					transform: translateX(24px);
+				}
+
+				.split-section__content {
+					transform: translateX(-24px);
+				}
+			}
+		}
+
+		/* Equal specificity to the `.is-reversed` swap above and later in the
+		   source, so it wins in every combination. */
+		&.is-revealed {
+
+			.split-section__media,
+			.split-section__content {
+				opacity: 1;
+				transform: none;
+			}
 		}
 	}
 
@@ -222,6 +303,21 @@
 			.split-section__content {
 				order: 2;
 			}
+		}
+	}
+}
+
+/* The reveal is decoration; nobody should have to scroll past an invisible
+   pane waiting for it. Same guard cta-columns carries. */
+@media (prefers-reduced-motion: reduce) {
+
+	.wp-block-aludra-split-section[data-aludra-reveal] {
+
+		.split-section__media,
+		.split-section__content {
+			opacity: 1;
+			transform: none;
+			transition: none;
 		}
 	}
 }
