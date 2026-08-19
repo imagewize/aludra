@@ -7,6 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.27.1] - 2026-08-19
+
+### Fixed
+- **Four blocks painted Aviendha's rose regardless of the active theme's palette.**
+  `aludra/hero-banner`, `aludra/contact-section`, `aludra/pricing-tiers` and
+  `aludra/testimonial-grid` mixed two patterns for colour: most declarations correctly
+  read `var(--wp--preset--color--primary, #9f1239)`, but their decorative touches —
+  eyebrow-badge fills, icon-chip backgrounds, focus rings, radial-gradient glows and
+  hover shadows — wrote the fallback's raw value, `rgba(159, 18, 57, …)`, directly,
+  bypassing the custom property entirely. On Aviendha, whose `primary` *is* `#9f1239`,
+  this was invisible. Surfaced building Ixian's cool graphite-and-indigo palette: its
+  hero-banner eyebrow pill, contact-section icon chips and "available" badge all stayed
+  rose against a blue palette. Any other theme with a non-rose `primary` has the same
+  defect.
+
+  All 19 raw `rgba(159, 18, 57, …)` occurrences across the four blocks now derive from
+  the theme's own primary: `color-mix(in srgb, var(--wp--preset--color--primary,
+  #9f1239) <alpha>%, transparent)`, where `<alpha>` matches the original rgba alpha as
+  a percentage. `color-mix` reproduces the identical rendered colour on Aviendha (a
+  pure colour mixed with transparent at X% is the same as that colour at X% alpha), so
+  this is a no-op there and a genuine fix everywhere else.
+
+  `aludra/pricing-tiers`'s featured-card hover shadow was already flagged as this exact
+  defect in Ixian's `docs/ixian/SETUP.md` §5 "worth doing while you are in there" — it
+  turned out to be one instance of a wider pattern, not the whole of it.
+
+  Block versions bumped for the CSS change: `hero-banner` 1.0.0 → 1.0.1,
+  `contact-section` 1.0.1 → 1.0.2, `pricing-tiers` 1.0.0 → 1.0.1, `testimonial-grid`
+  1.0.0 → 1.0.1.
+
 ## [2.27.0] - 2026-08-18
 
 ### Fixed

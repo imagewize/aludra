@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.27.0
+Stable tag: 2.27.1
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,6 +203,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.27.1 =
+* Fixed: Hero Banner, Contact Section, Pricing Tiers and Testimonial Grid painted Aviendha's rose (rgba(159, 18, 57, ...)) directly in eyebrow badges, icon chips, focus rings, glows and hover shadows instead of deriving from the theme's own Primary colour. Invisible on Aviendha (Primary is that same rose) but visibly wrong on any other palette. All 19 occurrences now use color-mix() against the Primary custom property, reproducing the same result on Aviendha and the correct one everywhere else
 
 = 2.27.0 =
 * Fixed: CTA Banner, Review Profiles and the Pricing Tiers "most popular" flag drew white text on a Primary background. Under a dark style variation Primary is a light colour, so that text fell to 2.7:1 — well below the 4.5:1 WCAG 2.1 AA asks for. They now use Base, which inverts with the palette and reads in both light and dark schemes (6.1-6.3:1 on the dark variations tested)
