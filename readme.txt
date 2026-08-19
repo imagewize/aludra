@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.28.1
+Stable tag: 2.29.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -204,6 +204,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 
 == Changelog ==
 
+= 2.29.0 =
+* Added: Split Section — a layout host pairing a centred eyebrow/heading/lead with two panes, media on one side and content on the other, stacking to one column at 860px. Media width is adjustable 30-70% and the panes can be swapped; the media always leads once stacked. A "how it works" section is now a composition of blocks the library already ships, rather than a block of its own
+* Added: A "Numbered steps" style for Service Detail Cards — circular badge numerals in place of the default's large italic figures, tinted from the active palette's Primary so they hold up under dark style variations. The block's existing look is unchanged and is now the explicit "Default" style
+* Fixed: Spine Section was missing from Settings → Aludra, so it could not be toggled there and did not appear in the block list, despite the plugin's own defaults enabling it
+
 = 2.28.1 =
 * Fixed: Icons bound with aludra/icon rendered as a full-size placeholder in the editor. The binding was registered in PHP only, which resolves URLs on the front end but leaves the editor unable to resolve them, so pattern markup (an empty img plus a binding) fell back to core/image's placeholder — which is not an img, so the 14px cap never applied and it inflated its container, most visibly the hero eyebrow pill. The source is now registered editor-side too
 * Fixed: Hero Banner's editor styles forced a dark preview and near-white text onto the Canvas style, leaving the eyebrow, lead and inner paragraphs unreadable while editing. The dark preview is now scoped to the default style
@@ -222,11 +227,6 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 
 = 2.26.1 =
 * Changed: README logo replaced with the Lucide flower icon (assets/logos/g-flower.svg) from Blade UI Kit (Blade Icons, MIT License), drawn in a single flat ember orange (#D9480F) instead of the sun mark's gradient — a mid-tone that clears 4:1 contrast on both a white and a dark backdrop, so the mark reads in either colour scheme. The Forkawesome sun mark and the "nightflower" colourways remain in assets/logos/ as alternates. Documentation only — no change to any block
-
-= 2.26.0 =
-* Added: `patterns/page-about.php` — an about page pattern assembled from blocks the library already ships: Hero Banner and Trust Bar, then four Spine Section bands wrapping About (who we are), Feature Cards (five capability cards), Feature List Grid (the two client types) and Review Profiles in its avatar style, closing on a CTA Banner. Icons resolve through the `aludra/icon` binding, and the copy is generic placeholder text to replace with your own
-* Fixed: Review Profiles rendered white quote text on a light background when nested in a Spine Section. The spine strips the nested block's band background — the spine is the band — but the white text colour paired with that band survived. The spine now resets it to inherit
-* Changed: planning documents and design mockups moved out of the plugin repository; nothing in the plugin zip is affected
 
 Older entries are trimmed to keep this section within the 5000-character
 limit WordPress.org enforces. The complete history is in CHANGELOG.md:
