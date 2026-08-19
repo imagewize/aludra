@@ -178,3 +178,55 @@
 		}
 	}
 }
+
+/*
+ * ─── STYLE VARIANT: is-style-steps ──────────────────────────────────────────
+ *
+ * Same cards, different numeral: a circular badge instead of the default's
+ * large italic outline figure. Meant for "how it works" sequences, where the
+ * number is a step the reader follows rather than a quiet index — typically
+ * nested in an `aludra/split-section` pane beside a screenshot or mockup.
+ *
+ * Cosmetic only. It deliberately does *not* strip the block's own shell the
+ * way `services-block`'s `is-style-list` does — a layout host suppresses a
+ * nested block's shell from the outside now (see split-section's and
+ * spine-section's stylesheets), so a variant doing it again would double up
+ * and break the block when used standalone.
+ *
+ * The `!important`s mirror the base rules they override, which carry their own
+ * to beat WordPress' layout output; without them the base wins on source order.
+ * The compound `.is-style-steps` selector already wins on specificity, so the
+ * responsive overrides in the base block need no variant counterpart.
+ */
+.wp-block-aludra-service-blocks.is-style-steps {
+	.service-block__num {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		width: 2.25rem !important;
+		height: 2.25rem !important;
+		min-width: 2.25rem !important;
+		border-radius: 50% !important;
+		font-size: 0.9rem !important;
+		font-style: normal !important;
+		font-weight: 600 !important;
+		line-height: 1 !important;
+
+		/* No palette slug means a tinted primary, not a hardcoded pale blue:
+		   mixed from whatever `primary` resolves to, so the badge stays
+		   correct under twilight and any other style variation. */
+		color: var(--wp--preset--color--primary, #9f1239) !important;
+		background: color-mix(
+			in srgb,
+			var(--wp--preset--color--primary, #9f1239) 12%,
+			transparent
+		) !important;
+	}
+
+	/* Realigns the body under the title: the numeral column is now
+	   2.25rem (36px) rather than the default's 40px min-width, against the
+	   same 16px header gap and 28px card padding. */
+	.service-block__body {
+		padding: 0 28px 28px 80px !important;
+	}
+}
