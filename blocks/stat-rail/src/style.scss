@@ -8,29 +8,48 @@
  * aludra/stat-item children exist), even though the default template and
  * mockup both use 3.
  *
- * The hairline dividers use the *mockup's own* base-at-14%-opacity value via
- * color-mix rather than the theme's `border-light` var: border-light is a
- * light-mode hairline and reads wrong on this dark band (see
- * docs/aludra/AVIENDHA-REDESIGN-BLOCKS.md §2).
+ * Every colour the band paints itself with goes through a custom property
+ * (--aludra-stat-*) declared once on the block. The default values are the
+ * dark band's; `is-style-light` re-declares the same four and nothing else,
+ * so a variation is a palette swap rather than a second copy of the layout —
+ * including inside the responsive block, which reads the same properties.
+ *
+ * The dark band's hairline dividers use the *mockup's own* base-at-14%-opacity
+ * value via color-mix rather than the theme's `border-light` var: border-light
+ * is a light-mode hairline and reads wrong on a dark band (see
+ * docs/aludra/AVIENDHA-REDESIGN-BLOCKS.md §2). The light variation is exactly
+ * the case border-light was meant for, so it uses it directly.
  *
  * Type sizes reference Aviendha's named font-size scale
  * (var(--wp--preset--font-size--*)) rather than one-off clamp()/rem literals,
  * so the scale is set once in theme.json and every block draws from it.
+ *
+ * Per-stat colour overrides (aludra/stat-item's Number/Caption colour
+ * controls) land as preset `has-*-color` classes or an inline style on the
+ * number/caption elements themselves — both beat the rules here, so a stat
+ * can depart from the band's palette without touching this file.
  */
 
 /* hero-split's "night" style has a decorative ember-line ::after on its
    bottom edge, meant for the case where a lighter section follows the dark
-   hero. Stat Rail continues the same dark `main` background flush against
-   the hero (see mockup: hero + rail are one continuous dark band), so that
-   line reads as a stray seam when the two sit back to back — suppress it
-   only in that exact adjacency, leaving other hero-split usages untouched. */
-.wp-block-aludra-hero-split.is-style-night:has(+ .wp-block-aludra-stat-rail)::after {
+   hero. A default Stat Rail continues the same dark `main` background flush
+   against the hero (see mockup: hero + rail are one continuous dark band), so
+   that line reads as a stray seam when the two sit back to back — suppress it
+   only in that exact adjacency, leaving other hero-split usages untouched.
+   A light rail *is* the lighter section the line was drawn for, so it keeps
+   it. */
+.wp-block-aludra-hero-split.is-style-night:has(+ .wp-block-aludra-stat-rail:not(.is-style-light))::after {
 	display: none;
 }
 
 .wp-block-aludra-stat-rail {
-	background: var(--wp--preset--color--main, #2b1a20);
-	color: var(--wp--preset--color--base, #faf7f2);
+	--aludra-stat-bg: var(--wp--preset--color--main, #2b1a20);
+	--aludra-stat-text: var(--wp--preset--color--base, #faf7f2);
+	--aludra-stat-rule: color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 14%, transparent);
+	--aludra-stat-caption: color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 60%, transparent);
+
+	background: var(--aludra-stat-bg);
+	color: var(--aludra-stat-text);
 	padding-top: clamp(2.5rem, 6vw, 4rem);
 
 	.stat-rail__shell {
@@ -41,7 +60,7 @@
 		display: grid;
 		grid-auto-flow: column;
 		grid-auto-columns: minmax(0, 1fr);
-		border-top: 1px solid color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 14%, transparent);
+		border-top: 1px solid var(--aludra-stat-rule);
 
 		/* Let the grid pass through the editor's InnerBlocks wrapper divs so
 		   stat-items become direct grid children in both contexts. */
@@ -55,7 +74,7 @@
 		padding: 1.5rem 1.25rem 1.75rem;
 
 		& + & {
-			border-left: 1px solid color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 14%, transparent);
+			border-left: 1px solid var(--aludra-stat-rule);
 		}
 	}
 
@@ -65,6 +84,7 @@
 		font-weight: 800;
 		letter-spacing: -0.04em;
 		line-height: 1;
+		margin: 0;
 	}
 
 	.stat-rail__item.is-good .stat-rail__num {
@@ -76,8 +96,9 @@
 		font-size: var(--wp--preset--font-size--xx-small, 0.7rem);
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
-		color: color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 60%, transparent);
+		color: var(--aludra-stat-caption);
 		margin-top: 0.5rem;
+		margin-bottom: 0;
 	}
 
 	@media (max-width: 700px) {
@@ -88,7 +109,37 @@
 
 		.stat-rail__item + .stat-rail__item {
 			border-left: 0;
-			border-top: 1px solid color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 14%, transparent);
+			border-top: 1px solid var(--aludra-stat-rule);
 		}
+	}
+}
+
+/**
+ * ─── STYLE VARIANT: is-style-light ──────────────────────────────────────────
+ *
+ * The same band on a light ground, for themes whose pages are white and
+ * near-white throughout (Ixian) and carry their contrast in the type rather
+ * than in blocks of dark background. Layout, type scale and responsive
+ * behaviour are the base block's; only the palette and the band's edges differ.
+ *
+ * `white` rather than `base` for the ground: `base` is the page background in
+ * these themes (Ixian's is #F6F8FB), so a band painted with it would be
+ * invisible. White lifts it a shade off the page, and the `#fff` fallback keeps
+ * it correct on a theme with no `white` slug.
+ *
+ * That lift is deliberately slight, so the band is drawn with a hairline below
+ * the stats as well as above — where the dark band is delimited by its own
+ * background against the page, this one is delimited by its rules. The
+ * highlighted stat keeps `accent`: same meaning as on the dark band, and clear
+ * of AA against a white ground on the palettes this ships with.
+ */
+.wp-block-aludra-stat-rail.is-style-light {
+	--aludra-stat-bg: var(--wp--preset--color--white, #fff);
+	--aludra-stat-text: var(--wp--preset--color--contrast, #0f1620);
+	--aludra-stat-rule: var(--wp--preset--color--border-light, #d9e1ee);
+	--aludra-stat-caption: var(--wp--preset--color--secondary, #47536a);
+
+	.stat-rail__shell {
+		border-bottom: 1px solid var(--aludra-stat-rule);
 	}
 }

@@ -2,7 +2,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "aludra/stat-rail",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Stat Rail",
   "category": "aludra",
   "icon": "chart-bar",
@@ -13,6 +13,17 @@
     "numbers",
     "rail",
     "band"
+  ],
+  "styles": [
+    {
+      "name": "default",
+      "label": "Dark band",
+      "isDefault": true
+    },
+    {
+      "name": "light",
+      "label": "Light band"
+    }
   ],
   "textdomain": "aludra",
   "editorScript": "file:./index.js",

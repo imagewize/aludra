@@ -2,7 +2,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "aludra/stat-item",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Stat Item",
   "parent": [
     "aludra/stat-rail"
@@ -34,6 +34,22 @@
     "good": {
       "type": "boolean",
       "default": false
+    },
+    "level": {
+      "type": "number",
+      "default": 0
+    },
+    "numberColor": {
+      "type": "string"
+    },
+    "customNumberColor": {
+      "type": "string"
+    },
+    "captionColor": {
+      "type": "string"
+    },
+    "customCaptionColor": {
+      "type": "string"
     }
   }
 }

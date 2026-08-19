@@ -7,6 +7,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.31.0] - 2026-08-19
+
+### Added
+- **A "Light band" style for Stat Rail.** The same band on a light ground —
+  `white` background, `contrast` type, `border-light` hairlines above *and*
+  below the stats, and a `secondary` caption — for themes whose pages are white
+  and near-white throughout and carry their contrast in the type rather than in
+  blocks of dark background. The ground is `white` rather than `base` because
+  `base` is the page background in those themes, which would leave the band
+  invisible; the second hairline draws the edge that the slight lift off the
+  page doesn't. Layout, type scale and responsive behaviour are the base
+  block's, and the dark band is unchanged and remains the default.
+- **Per-stat colour for Stat Item's number and caption.** A Color panel sets
+  either independently from the theme palette (or a custom value), so a stat can
+  depart from the band's own colours — needed as soon as the rail is light,
+  where the dark band's inherited type colours no longer apply. Palette choices
+  save as core's `has-{slug}-color` class, so they follow the theme and survive
+  a style variation swapping the palette underneath them.
+- **A heading level for Stat Item's number.** The number can now render as
+  `h1`-`h6` where the rail is a real section of the page rather than a
+  decorative band. It stays a `div` by default: three big figures in the
+  document outline and the screen reader heading list is rarely what the page
+  means.
+
+### Changed
+- Stat Rail's colours now route through four custom properties declared once on
+  the block (`--aludra-stat-bg`, `-text`, `-rule`, `-caption`), so the light
+  style is a palette swap rather than a second copy of the layout, including in
+  the responsive block. The rendered dark band is identical to 2.30.0.
+- Stat Rail's number and caption now zero their own margins, so a number
+  promoted to a heading doesn't inherit the theme's heading spacing and break
+  the band's rhythm.
+- The hero-split adjacency that suppresses that block's decorative ember line
+  now applies only to a *dark* Stat Rail. A light rail is exactly the lighter
+  section that line was drawn for, so it keeps it.
+
+Existing Stat Item content is unaffected and needs no deprecation: with no level
+and no colours set, `save()` serializes byte-identically to 2.30.0.
+
 ## [2.30.0] - 2026-08-19
 
 ### Added
