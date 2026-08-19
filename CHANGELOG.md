@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.28.1] - 2026-08-19
+
+### Fixed
+- **Icons bound with `aludra/icon` rendered as a full-size placeholder in the
+  editor.** The binding was registered in PHP only, via `get_value_callback`.
+  That resolves URLs when a block renders on the front end, but the editor needs
+  a JavaScript source of the same name, so bound attributes stayed empty while
+  editing. Pattern markup saves icons as `<img src="" />` plus the binding, so
+  the editor drew core/image's placeholder instead — and because a placeholder
+  is not an `img`, the `width: 14px` cap never applied to it, inflating whatever
+  contained it. Most visible as a hugely oversized hero eyebrow pill, but it
+  affected every pattern using icon bindings, including trust-bar and
+  feature-cards. `assets/js/editor-icon-binding.js` now registers the source
+  editor-side, resolving from the `window.aludraIcons` map already printed on
+  `enqueue_block_editor_assets`. Blocks inserted from the inserter were never
+  affected — their `edit.js` templates seed `url` from that same map.
+
+- **Hero Banner's editor styles forced a dark preview onto the `canvas` style.**
+  `editor.scss` set a dark background and near-white text unconditionally, and
+  those selectors outrank the colour classes inner blocks carry — so on the
+  light canvas surface the eyebrow, lead and inner paragraphs were unreadable
+  while editing, despite rendering correctly on the front end. The dark preview
+  is now scoped to `:not(.is-style-canvas)`. The eyebrow's icon slot is also
+  capped defensively, so an icon that fails to resolve degrades quietly instead
+  of inflating the pill.
+
+### Changed
+- **Trimmed `readme.txt`'s changelog to the seven most recent releases.** At 56
+  entries it had grown to roughly 34,000 characters, well past the 5,000
+  WordPress.org supports, and the section was being truncated on parse
+  (`readme_parser_warnings_trimmed_section_changelog`). The full history is
+  unaffected and remains in this file, which reaches further back than
+  readme.txt did; the trimmed section now points here.
+
 ## [2.28.0] - 2026-08-19
 
 ### Added

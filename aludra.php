@@ -3,7 +3,7 @@
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
  * Description: Shared custom block library for Imagewize block themes (Elayne, Aviendha) — Mega Menu, Carousel, FAQ Tabs, and content blocks (Feature Cards, Pricing Tiers, Testimonial Grid, Contact Section, Hero Banner, and more). Built with React, block.json, and @wordpress/scripts.
- * Version: 2.28.0
+ * Version: 2.28.1
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.28.0' );
+define( 'ALUDRA_VERSION', '2.28.1' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -97,6 +97,18 @@ add_action(
 			'wp-blocks',
 			'window.aludraIcons = ' . wp_json_encode( $icons ) . ';',
 			'before'
+		);
+
+		// Resolves the aludra/icon binding editor-side, so icons saved in
+		// pattern markup (`<img src="" />` plus a binding) render while editing
+		// instead of falling back to core/image's full-size placeholder. Depends
+		// on wp-blocks so it loads after the map printed above.
+		wp_enqueue_script(
+			'aludra-editor-icon-binding',
+			ALUDRA_PLUGIN_URL . 'assets/js/editor-icon-binding.js',
+			array( 'wp-blocks' ),
+			ALUDRA_VERSION,
+			true
 		);
 	}
 );
