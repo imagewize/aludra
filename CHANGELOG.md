@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.30.0] - 2026-08-19
+
+### Added
+- **Load Waterfall's panel length is now editable.** A "Rows" control sets how
+  many stages the waterfall lists, from 1 up to 12, and the block ships six more
+  hand-authored rows continuing the original cascade — each stage starting later
+  and running shorter — so a longer panel still reads as a designed artifact
+  rather than a generated one. Useful wherever the panel sits beside a tall
+  column and looked stranded at its old fixed height.
+
+### Fixed
+- **Load Waterfall silently ignored any `rowLabels` length other than six.**
+  `save()` mapped over the fixed geometry constant and indexed the labels by
+  position, so a shorter array left trailing rows with empty labels and a longer
+  one dropped the surplus. The row count now follows the labels. Existing
+  content is unaffected and needs no deprecation: `rowLabels` defaults to six
+  entries and the editor previously offered no way to add or remove one, so
+  every block saved to date resolves to the same six rows and serializes
+  byte-identically.
+
+### Changed
+- Load Waterfall's `package.json` now declares the `@wordpress/i18n` and
+  `@wordpress/components` it imports; both resolved transitively before.
+
 ## [2.29.0] - 2026-08-19
 
 ### Added

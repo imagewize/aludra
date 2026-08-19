@@ -1,9 +1,16 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-import { ROWS } from './rows';
+import { ROWS, rowCount } from './rows';
 
 export default function save( { attributes } ) {
 	const { siteUrl, badge, rowLabels, lcpLabel } = attributes;
+
+	/* Row count follows the labels rather than the geometry constant. Existing
+	   content is unaffected: `rowLabels` defaults to six entries and the editor
+	   offers no way to add or remove one, so every block saved to date resolves
+	   to the same six rows and serializes byte-identically — which is why this
+	   needs no deprecation. */
+	const rows = ROWS.slice( 0, rowCount( rowLabels ) );
 
 	const blockProps = useBlockProps.save( {
 		className: 'wp-block-aludra-load-waterfall',
@@ -18,7 +25,7 @@ export default function save( { attributes } ) {
 			</figcaption>
 
 			<div className="wf-rows">
-				{ ROWS.map( ( row, index ) => (
+				{ rows.map( ( row, index ) => (
 					<div className="wf-row" key={ index }>
 						<RichText.Content tagName="span" value={ rowLabels[ index ] } />
 						<div className="wf-track">

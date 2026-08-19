@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.29.0
+Stable tag: 2.30.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,6 +203,10 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.30.0 =
+* Added: Load Waterfall's panel length is now editable — a "Rows" control sets how many stages the waterfall lists, from 1 to 12, with six more hand-authored rows continuing the original cascade so a longer panel still reads as designed rather than generated
+* Fixed: Load Waterfall silently ignored any rowLabels length other than six — a shorter array left trailing rows with empty labels, a longer one dropped the surplus. The row count now follows the labels; existing content saves byte-identically and needs no deprecation
 
 = 2.29.0 =
 * Added: Split Section — a layout host pairing a centred eyebrow/heading/lead with two panes, media on one side and content on the other, stacking to one column at 860px. Media width is adjustable 30-70% and the panes can be swapped; the media always leads once stacked. An optional "Reveal on scroll" toggle brings the panes in from opposite sides as the section enters the viewport, and respects reduced-motion. A "how it works" section is now a composition of blocks the library already ships, rather than a block of its own
