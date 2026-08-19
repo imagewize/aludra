@@ -186,4 +186,97 @@
 	@media (max-width: 768px) {
 		padding: 56px 0 52px;
 	}
+
+	/* ─── STYLE: CANVAS ───
+	   Light, centred counterpart to the default dark banner: a near-white
+	   drafting surface ruled with a faint grid, for search-led heroes where a
+	   headline and an input sit centre stage rather than a left-aligned block
+	   of copy. All colours resolve from the active theme's palette, so a theme
+	   that repalettes `base`/`primary`/`contrast` gets a matching hero for
+	   free; the fallbacks are neutral so the block never renders unstyled.
+	   `:not(.has-background)` / `:not(.has-text-color)` keep the editor's own
+	   colour picks in charge when an author overrides them — the same guard
+	   hero-split's `night` style uses. */
+	&.is-style-canvas {
+		--hero-banner-grid: color-mix(in srgb, var(--wp--preset--color--border-light, #d9e1ee) 50%, transparent);
+		--hero-banner-ink: var(--wp--preset--color--contrast, #0f1620);
+		--hero-banner-accent: var(--wp--preset--color--primary, #2b3fb5);
+
+		padding: 96px 0 88px;
+
+		&:not(.has-background) {
+			background:
+				repeating-linear-gradient(to right, var(--hero-banner-grid) 0 1px, transparent 1px 72px),
+				repeating-linear-gradient(to bottom, var(--hero-banner-grid) 0 1px, transparent 1px 72px),
+				var(--wp--preset--color--base, #f6f8fb);
+		}
+
+		/* A soft pool of light behind the headline, replacing the dark
+		   variant's coloured glows and fading the grid out at the edges. */
+		&::before {
+			background: radial-gradient(
+				ellipse 900px 540px at 50% 34%,
+				var(--wp--preset--color--white, #ffffff) 0%,
+				color-mix(in srgb, var(--wp--preset--color--white, #ffffff) 55%, transparent) 45%,
+				transparent 72%
+			);
+		}
+
+		/* Centre the column. The base variant left-aligns and caps each element's
+		   width, so the caps stay — they just need auto side margins to centre. */
+		.hero-banner__content > * {
+			align-items: center;
+		}
+
+		.hero-banner__title,
+		.hero-banner__lead {
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+		}
+
+		&:not(.has-text-color) {
+			.hero-banner__eyebrow {
+				background: color-mix(in srgb, var(--hero-banner-accent) 10%, transparent);
+				border-color: color-mix(in srgb, var(--hero-banner-accent) 22%, transparent);
+				color: var(--hero-banner-accent) !important;
+			}
+
+			.hero-banner__eyebrow p {
+				color: var(--hero-banner-accent) !important;
+			}
+
+			.hero-banner__title {
+				color: var(--hero-banner-ink);
+
+				/* Upright, not italic — on a light surface the colour alone
+				   carries the emphasis, and italics fight the large display size. */
+				em {
+					font-style: normal;
+					color: var(--hero-banner-accent);
+				}
+			}
+
+			.hero-banner__lead {
+				color: var(--wp--preset--color--secondary, #47536a);
+			}
+		}
+
+		/* The outline CTA is drawn for a dark ground by default: white text on a
+		   translucent white border, which disappears here. */
+		.hero-banner__ctas .wp-block-button.is-style-outline .wp-block-button__link {
+			background: var(--wp--preset--color--white, #ffffff);
+			color: var(--hero-banner-ink);
+			border-color: var(--wp--preset--color--border-light, #d9e1ee);
+
+			&:hover {
+				border-color: color-mix(in srgb, var(--hero-banner-accent) 45%, transparent);
+				color: var(--hero-banner-accent);
+			}
+		}
+
+		@media (max-width: 768px) {
+			padding: 64px 0 56px;
+		}
+	}
 }

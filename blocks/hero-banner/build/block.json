@@ -6,7 +6,7 @@
   "title": "Hero Banner",
   "category": "aludra",
   "icon": "cover-image",
-  "description": "Dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons.",
+  "description": "Full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons. Dark by default; the Canvas style gives a light, centred variant.",
   "keywords": [
     "hero",
     "banner",
@@ -26,6 +26,17 @@
       "padding": true
     }
   },
+  "styles": [
+    {
+      "name": "default",
+      "label": "Default",
+      "isDefault": true
+    },
+    {
+      "name": "canvas",
+      "label": "Canvas"
+    }
+  ],
   "textdomain": "aludra",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
