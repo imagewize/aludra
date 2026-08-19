@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.27.1
+Stable tag: 2.28.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,6 +203,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.28.0 =
+* Added: A "Canvas" style variation for Hero Banner — a light, centred counterpart to the block's dark default, on a near-white surface ruled with a faint grid. Suits search-led heroes where a headline and an input sit centre stage rather than a left-aligned block of copy. Colours derive from the active theme's palette, and the block's dark default is unchanged
 
 = 2.27.1 =
 * Fixed: Hero Banner, Contact Section, Pricing Tiers and Testimonial Grid painted Aviendha's rose (rgba(159, 18, 57, ...)) directly in eyebrow badges, icon chips, focus rings, glows and hover shadows instead of deriving from the theme's own Primary colour. Invisible on Aviendha (Primary is that same rose) but visibly wrong on any other palette. All 19 occurrences now use color-mix() against the Primary custom property, reproducing the same result on Aviendha and the correct one everywhere else
