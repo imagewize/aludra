@@ -155,6 +155,7 @@ add_action(
 				'stat-rail'              => true,
 				'stat-item'              => true,
 				'spine-section'          => true,
+				'split-section'          => true,
 			)
 		);
 
@@ -219,6 +220,7 @@ add_action(
 				'stat-rail'              => true,
 				'stat-item'              => true,
 				'spine-section'          => true,
+				'split-section'          => true,
 			)
 		);
 
