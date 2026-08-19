@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.28.0] - 2026-08-19
+
+### Added
+- **A `canvas` style variation for `aludra/hero-banner`.** The block had no style
+  variations at all, and its stylesheet hardcodes a dark `main` background with
+  coloured radial glows — so a light, centred hero was not expressible without a
+  host theme fighting the block's own CSS. `canvas` is the light counterpart: a
+  near-white surface ruled with a faint grid, the content column centred, and the
+  eyebrow, title, lead and outline CTA recoloured for a light ground. Suits
+  search-led heroes where a headline and an input sit centre stage rather than a
+  left-aligned block of copy.
+
+  Follows the convention `hero-split`'s `night` style already established —
+  declared in `block.json`'s `styles` array, implemented as `&.is-style-canvas`
+  in `style.scss`, and guarded with `:not(.has-background)` / `:not(.has-text-color)`
+  so an author's own colour picks in the editor still win. Every colour resolves
+  from the active theme's palette (`base`, `border-light`, `contrast`, `primary`,
+  `secondary`) with neutral fallbacks, so a repaletted theme gets a matching hero
+  without touching this block. The dark default is unchanged.
+
 ## [2.27.1] - 2026-08-19
 
 ### Fixed
