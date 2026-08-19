@@ -238,7 +238,7 @@
 }
 
 .testimonial-grid__slides-wrapper .slick-dots li button:hover {
-	background: rgba(159, 18, 57, 0.5);
+	background: color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 50%, transparent);
 }
 
 .testimonial-grid__slides-wrapper .slick-dots li.slick-active button {

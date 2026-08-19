@@ -20,7 +20,7 @@
 		right: -180px;
 		width: 560px;
 		height: 560px;
-		background: radial-gradient(circle, rgba(159, 18, 57, 0.18) 0%, transparent 70%);
+		background: radial-gradient(circle, color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 18%, transparent) 0%, transparent 70%);
 		pointer-events: none;
 		z-index: 0;
 	}
@@ -32,7 +32,7 @@
 		left: -120px;
 		width: 400px;
 		height: 400px;
-		background: radial-gradient(circle, rgba(159, 18, 57, 0.10) 0%, transparent 70%);
+		background: radial-gradient(circle, color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 10%, transparent) 0%, transparent 70%);
 		pointer-events: none;
 		z-index: 0;
 	}
@@ -152,8 +152,8 @@
 		flex-shrink: 0;
 		flex-grow: 0;
 		border-radius: 8px;
-		background: rgba(159, 18, 57, 0.15);
-		border: 1px solid rgba(159, 18, 57, 0.30);
+		background: color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 15%, transparent);
+		border: 1px solid color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 30%, transparent);
 	}
 
 	/* core/image inside icon box */
@@ -198,8 +198,8 @@
 		margin-top: 36px;
 		padding: 10px 18px;
 		border-radius: 100px;
-		background: rgba(159, 18, 57, 0.12);
-		border: 1px solid rgba(159, 18, 57, 0.30);
+		background: color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 12%, transparent);
+		border: 1px solid color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 30%, transparent);
 		width: fit-content;
 	}
 
@@ -321,8 +321,8 @@
 	.contact-section__card textarea:focus,
 	.contact-section__card select:focus {
 		border-color: var(--wp--preset--color--primary, #9f1239);
-		background: rgba(159, 18, 57, 0.25);
-		box-shadow: 0 0 0 3px rgba(159, 18, 57, 0.15);
+		background: color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 25%, transparent);
+		box-shadow: 0 0 0 3px color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 15%, transparent);
 		outline: none;
 	}
 
@@ -354,7 +354,7 @@
 
 	.contact-section__card input[type='submit']:hover {
 		background-color: var(--wp--preset--color--primary-alt, #7f0f2e);
-		box-shadow: 0 6px 24px rgba(159, 18, 57, 0.35);
+		box-shadow: 0 6px 24px color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 35%, transparent);
 		transform: translateY(-1px);
 	}
 
@@ -369,9 +369,9 @@
 		padding: 12px 16px;
 		border-radius: 6px;
 		font-size: 0.88rem;
-		border: 1px solid rgba(159, 18, 57, 0.40);
+		border: 1px solid color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 40%, transparent);
 		color: var(--wp--preset--color--primary, #9f1239);
-		background: rgba(159, 18, 57, 0.10);
+		background: color-mix(in srgb, var(--wp--preset--color--primary, #9f1239) 10%, transparent);
 		margin-top: 0;
 	}
 
