@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.32.1] - 2026-08-20
+
+### Added
+- **`icon-check-circle.svg`** — matches `icon-x-circle.svg`'s style (stroke-based
+  outline, same viewBox and stroke colour), for "yes"/"included" markers
+  alongside the existing "no"/"excluded" one.
+
 ## [2.32.0] - 2026-08-20
 
 ### Added
