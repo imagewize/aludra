@@ -23,6 +23,7 @@ This plugin was created to align with WordPress.org Theme Review requirements, w
 
 - **About Section Block** (`aludra/about`) - Content section with heading, lead paragraph, offer list, and closing copy
 - **Carousel Block** (`aludra/carousel`) - Responsive image/content carousel with Slick Carousel integration, thumbnails, and arrow customization
+- **Comparison Table Block** (`aludra/comparison-table`) - Filterable spec-sheet comparison: a centred eyebrow/heading/lead, pill filters, and a bordered table with your column highlighted against up to three competitors; composed of Comparison Row and Comparison Cell children
 - **Contact Section Block** (`aludra/contact-section`) - Dark contact section with info column and Contact Form 7 form card
 - **CTA Banner Block** (`aludra/cta-banner`) - Full-width call-to-action band with heading, lead text, and button
 - **CTA Columns Block** (`aludra/cta-columns`) - Dual call-to-action cards with headings, descriptions, and buttons

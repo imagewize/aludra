@@ -81,6 +81,9 @@ function aludra_get_default_settings() {
 		'stat-item'              => true,
 		'spine-section'          => true,
 		'split-section'          => true,
+		'comparison-table'       => true,
+		'comparison-row'         => true,
+		'comparison-cell'        => true,
 	);
 }
 
@@ -241,6 +244,23 @@ function aludra_get_available_blocks() {
 			'label'       => __( 'Split Section', 'aludra' ),
 			'description' => __( 'Layout host: a centred header above two panes, media on one side and content on the other.', 'aludra' ),
 			'category'    => 'marketing',
+		),
+		'comparison-table'       => array(
+			'label'       => __( 'Comparison Table', 'aludra' ),
+			'description' => __( 'A filterable spec-sheet comparison: pill filters above a bordered table with your column highlighted against up to three competitors.', 'aludra' ),
+			'category'    => 'marketing',
+		),
+		'comparison-row'         => array(
+			'label'       => __( 'Comparison Row', 'aludra' ),
+			'description' => __( 'One structural parameter and its four answer cells, used inside Comparison Table.', 'aludra' ),
+			'category'    => 'marketing',
+			'parent'      => 'comparison-table',
+		),
+		'comparison-cell'        => array(
+			'label'       => __( 'Comparison Cell', 'aludra' ),
+			'description' => __( 'One vendor\'s answer for a single comparison row, used inside Comparison Row.', 'aludra' ),
+			'category'    => 'marketing',
+			'parent'      => 'comparison-row',
 		),
 	);
 }

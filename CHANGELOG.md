@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.32.0] - 2026-08-20
+
+### Added
+- **Comparison Table** — a filterable spec-sheet comparison: a centred eyebrow
+  pill/heading/lead, a pill bar that filters the table by category, and a
+  bordered table with your own column highlighted against up to three
+  competitors. Ships as three blocks: `aludra/comparison-table` (the host),
+  `aludra/comparison-row` (one structural parameter, tagged with a filter
+  category), and `aludra/comparison-cell` (one vendor's answer — heading plus
+  a short description). Every row carries a fixed four-cell template (yours,
+  then three competitors), enforced by `templateLock`, so a row can never
+  drift out of alignment with the header it has to line up under. The pill
+  bar is built entirely on the front end from each row's `data-category` —
+  with JavaScript disabled the table simply shows every row, which is already
+  the correct "Full Spectrum" state, so there is no separate no-JS fallback
+  to maintain.
+
 ## [2.31.0] - 2026-08-19
 
 ### Added
