@@ -1,0 +1,20 @@
+.editor-styles-wrapper .wp-block-aludra-comparison-table {
+
+	.comparison-table__eyebrow,
+	.comparison-table__heading,
+	.comparison-table__lead,
+	.comparison-table__head-cell {
+
+		&:empty {
+			display: revert;
+		}
+	}
+
+	.comparison-table__pills-note {
+		margin: 0;
+		font-size: var(--wp--preset--font-size--x-small, 0.8rem);
+		font-style: italic;
+		color: var(--wp--preset--color--secondary, #57534e);
+		text-align: center;
+	}
+}

@@ -1,0 +1,99 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "aludra/comparison-table",
+	"version": "1.0.0",
+	"title": "Comparison Table",
+	"category": "aludra",
+	"icon": "editor-table",
+	"description": "A filterable spec-sheet comparison: a centred header, a row of pills that filter the table by category, and a bordered table with your own column highlighted against up to three competitors.",
+	"keywords": [ "comparison", "table", "pricing", "filter", "spec sheet" ],
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"textdomain": "aludra",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"tint": {
+			"type": "boolean",
+			"default": false
+		},
+		"eyebrow": {
+			"type": "string",
+			"source": "html",
+			"selector": ".comparison-table__eyebrow",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"source": "html",
+			"selector": ".comparison-table__heading",
+			"default": ""
+		},
+		"lead": {
+			"type": "string",
+			"source": "html",
+			"selector": ".comparison-table__lead",
+			"default": ""
+		},
+		"paramColumnLabel": {
+			"type": "string",
+			"source": "html",
+			"selector": ".comparison-table__head-cell--param",
+			"default": "Structural Parameter"
+		},
+		"vendorOurs": {
+			"type": "string",
+			"source": "html",
+			"selector": ".comparison-table__head-cell--ours",
+			"default": "Ours"
+		},
+		"vendorOne": {
+			"type": "string",
+			"source": "html",
+			"selector": ".comparison-table__head-cell--v1",
+			"default": "Competitor"
+		},
+		"vendorTwo": {
+			"type": "string",
+			"source": "html",
+			"selector": ".comparison-table__head-cell--v2",
+			"default": "Competitor"
+		},
+		"vendorThree": {
+			"type": "string",
+			"source": "html",
+			"selector": ".comparison-table__head-cell--v3",
+			"default": "Competitor"
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"margin": {
+						"top": "0",
+						"bottom": "0"
+					}
+				}
+			}
+		}
+	}
+}

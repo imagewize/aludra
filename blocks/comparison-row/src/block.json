@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "aludra/comparison-row",
+	"version": "1.0.0",
+	"title": "Comparison Row",
+	"category": "aludra",
+	"parent": [ "aludra/comparison-table" ],
+	"icon": "list-view",
+	"description": "One structural parameter in a comparison table — a label plus four fixed answer cells (yours, then three competitors). Tag it with a category to control which filter pill reveals it.",
+	"keywords": [ "comparison", "row", "table", "filter" ],
+	"textdomain": "aludra",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"label": {
+			"type": "string",
+			"source": "html",
+			"selector": ".comparison-row__label",
+			"default": ""
+		},
+		"parameterKey": {
+			"type": "string",
+			"source": "html",
+			"selector": ".comparison-row__key",
+			"default": ""
+		},
+		"category": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

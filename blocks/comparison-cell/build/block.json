@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aludra/comparison-cell",
+  "version": "1.0.0",
+  "title": "Comparison Cell",
+  "category": "aludra",
+  "parent": [
+    "aludra/comparison-row"
+  ],
+  "icon": "editor-alignleft",
+  "description": "One vendor's answer for a single row of a comparison table — a short heading plus a description. The first cell in every row is styled as the highlighted column automatically.",
+  "keywords": [
+    "comparison",
+    "cell",
+    "table"
+  ],
+  "textdomain": "aludra",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "source": "html",
+      "selector": ".comparison-cell__heading",
+      "default": ""
+    },
+    "body": {
+      "type": "string",
+      "source": "html",
+      "selector": ".comparison-cell__body",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

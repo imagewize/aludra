@@ -1,0 +1,185 @@
+/**
+ * Frontend + editor styles for aludra/comparison-table.
+ *
+ * A self-contained section band (own header, own vertical padding, own
+ * `is-tinted` toggle) — same convention as spine-section and split-section —
+ * built around a bordered "spec sheet" surface (the same box model as
+ * pricing-tiers' is-style-spec-sheet) that scrolls sideways on narrow
+ * screens rather than stacking, so the header row and every data row stay
+ * aligned. `--comparison-columns` is the one grid definition both the header
+ * row and every aludra/comparison-row share.
+ */
+
+.wp-block-aludra-comparison-table {
+	padding-block: clamp(3.5rem, 8vw, 6.5rem);
+	border-bottom: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+
+	&.is-tinted {
+		background: var(--wp--preset--color--tertiary, #f0e9dd);
+	}
+
+	&:last-of-type {
+		border-bottom: 0;
+	}
+}
+
+.comparison-table__shell {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-inline: auto;
+	padding-inline: var(--wp--preset--spacing--medium, 24px);
+}
+
+/* ─── HEADER ─── */
+
+.comparison-table__header {
+	max-width: 48rem;
+	margin-inline: auto;
+	margin-block-end: clamp(2rem, 4vw, 3rem);
+	text-align: center;
+}
+
+.comparison-table__eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 0;
+	padding: 0.4rem 0.9rem;
+	border: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+	border-radius: 100px;
+	font-family: var(--wp--preset--font-family--mono, ui-monospace, monospace);
+	font-size: var(--wp--preset--font-size--x-small, 0.72rem);
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--primary, #9f1239);
+
+	&::before {
+		content: "";
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: currentcolor;
+	}
+
+	&:empty {
+		display: none;
+	}
+}
+
+.comparison-table__heading {
+	margin: 1rem 0 0;
+	font-family: var(--wp--preset--font-family--display, sans-serif);
+	font-size: var(--wp--preset--font-size--x-large, 1.7rem);
+	letter-spacing: -0.02em;
+	line-height: 1.15;
+
+	em {
+		font-style: normal;
+		color: var(--wp--preset--color--primary, #9f1239);
+	}
+
+	&:empty {
+		display: none;
+	}
+}
+
+.comparison-table__lead {
+	margin: 0.75rem auto 0;
+	max-width: 46ch;
+	color: var(--wp--preset--color--secondary, #57534e);
+	font-size: var(--wp--preset--font-size--base, 0.95rem);
+	line-height: 1.6;
+
+	&:empty {
+		display: none;
+	}
+}
+
+/* ─── PILL BAR ─── */
+
+/* The bar itself is built by view.js from each row's data-category — see
+   that file. Markup only exists once JS runs; nothing here needs an
+   un-enhanced fallback because a row with no matching pill just stays
+   visible (the "Full Spectrum" state is the default). */
+
+.comparison-table__pills {
+	display: flex;
+	justify-content: center;
+	margin-block-end: clamp(1.5rem, 3vw, 2rem);
+}
+
+.comparison-table__pill-bar {
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.25rem;
+	padding: 0.3rem;
+	border: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+	border-radius: 100px;
+	background: var(--wp--preset--color--base, #fff);
+}
+
+.comparison-table__pill {
+	border: 0;
+	border-radius: 100px;
+	padding: 0.5rem 1.1rem;
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--x-small, 0.8rem);
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: var(--wp--preset--color--secondary, #57534e);
+	background: transparent;
+	cursor: pointer;
+
+	&:hover {
+		color: var(--wp--preset--color--contrast, #201a17);
+	}
+
+	&.is-active {
+		color: var(--wp--preset--color--white, #fff);
+		background: var(--wp--preset--color--primary, #9f1239);
+	}
+}
+
+/* ─── SURFACE ─── */
+
+.comparison-table__surface {
+	--comparison-columns: minmax(190px, 1.15fr) repeat(4, minmax(200px, 1fr));
+
+	overflow-x: auto;
+	border: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+	border-radius: 14px;
+	background: var(--wp--preset--color--base, #fff);
+}
+
+.comparison-table__row--head {
+	display: grid;
+	grid-template-columns: var(--comparison-columns);
+	border-bottom: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+}
+
+.comparison-table__head-cell {
+	padding: 0.9rem 1.25rem;
+	font-weight: 700;
+	font-size: var(--wp--preset--font-size--small, 0.9rem);
+	color: var(--wp--preset--color--contrast, #201a17);
+}
+
+.comparison-table__head-cell--param {
+	position: sticky;
+	left: 0;
+	z-index: 2;
+	background: var(--wp--preset--color--base, #fff);
+	border-right: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+	font-family: var(--wp--preset--font-family--mono, ui-monospace, monospace);
+	font-size: var(--wp--preset--font-size--x-small, 0.72rem);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--secondary, #57534e);
+}
+
+.comparison-table__head-cell--ours {
+	background: var(--wp--preset--color--primary-accent, #f7e7e6);
+	color: var(--wp--preset--color--primary, #9f1239);
+}

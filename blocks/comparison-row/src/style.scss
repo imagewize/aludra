@@ -1,0 +1,72 @@
+/**
+ * Frontend + editor styles for aludra/comparison-row.
+ *
+ * `--comparison-columns` is published by the parent aludra/comparison-table
+ * (its header row and this row share one grid definition, so they always
+ * line up); the fallback here only matters if the row is ever previewed
+ * outside that parent.
+ */
+
+.comparison-row {
+	display: grid;
+	grid-template-columns: var(--comparison-columns, minmax(190px, 1.15fr) repeat(4, minmax(200px, 1fr)));
+	border-top: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+
+	&:last-child {
+		border-bottom: 0;
+	}
+}
+
+.comparison-row__param {
+	padding: 1.1rem 1.25rem;
+	background: var(--wp--preset--color--base, #fff);
+
+	/* Pinned while the row track scrolls sideways on narrow screens — see
+	   comparison-table's style.scss for the scrolling surface itself. */
+	position: sticky;
+	left: 0;
+	z-index: 1;
+	border-right: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+
+	> * {
+		margin-block: 0;
+	}
+}
+
+.comparison-row__label {
+	font-family: var(--wp--preset--font-family--display, sans-serif);
+	font-weight: 700;
+	font-size: var(--wp--preset--font-size--x-small, 0.8rem);
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+
+	&:empty {
+		display: none;
+	}
+}
+
+.comparison-row__key {
+	margin-top: 0.3rem;
+	font-family: var(--wp--preset--font-family--mono, ui-monospace, monospace);
+	font-size: var(--wp--preset--font-size--xx-small, 0.72rem);
+	color: var(--wp--preset--color--secondary, #57534e);
+
+	&:empty {
+		display: none;
+	}
+}
+
+.wp-block-aludra-comparison-cell {
+	border-right: 1px solid var(--wp--preset--color--border-light, #e5ded2);
+
+	&:last-child {
+		border-right: 0;
+	}
+}
+
+/* The "ours" column: the first cell that immediately follows the param
+   column, on every row — no attribute needed, position is the signal.
+   Matches pricing-tiers' is-style-spec-sheet featured-column treatment. */
+.comparison-row__param + .wp-block-aludra-comparison-cell {
+	background: var(--wp--preset--color--primary-accent, #f7e7e6);
+}
