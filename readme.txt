@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.31.0
+Stable tag: 2.32.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -206,6 +206,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.32.0 =
+* Added: Comparison Table — a filterable spec-sheet comparison: a centred eyebrow pill/heading/lead, a pill bar that filters the table by category, and a bordered table with your own column highlighted against up to three competitors. Ships as three blocks — Comparison Table (the host), Comparison Row (one structural parameter, tagged with a filter category), and Comparison Cell (one vendor's answer). Every row carries a fixed four-cell template enforced by templateLock, so a row can never drift out of alignment with the header. The pill bar is built entirely on the front end from each row's category — with JavaScript disabled the table simply shows every row, which is already the correct "Full Spectrum" state
 
 = 2.31.0 =
 * Added: A "Light band" style for Stat Rail — the same band on a white ground with Contrast type, Border Light hairlines above and below the stats, and a Secondary caption, for themes whose pages are white and near-white throughout. The dark band is unchanged and remains the default
