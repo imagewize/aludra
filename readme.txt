@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.33.0
+Stable tag: 2.34.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -206,6 +206,10 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.34.0 =
+* Added: A "Light" style for CTA Banner — the same banner on a white ground with Tertiary background and Contrast text, for themes whose pages are light throughout. The button stays keyed to Primary Alt/Main directly in both styles, since it reads as an accent against either ground. The dark banner is unchanged and remains the default
+* Changed: CTA Banner's background/text colours route through custom properties declared once on the block, so a style variation is a palette swap rather than a second copy of the layout. The rendered dark banner is identical to 2.33.0 and existing content needs no deprecation
 
 = 2.33.0 =
 * Added: A "Light" style for Contact Section — the same section on a white ground with Contrast headings, Secondary body/label copy, and a white form card bordered in Border Light, for themes whose pages are white and near-white throughout. The decorative background glows are dropped on this style rather than reused, since they read as atmospheric lighting against a dark ground but as a muddy tint against a light one. The dark section is unchanged and remains the default
