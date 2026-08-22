@@ -4,15 +4,43 @@
  * Theme colour presets are referenced with fallbacks — themes that define these
  * preset slugs (Nynaeve, Elayne, Aviendha) keep their palette; any other theme
  * gets sensible neutral defaults so the block never renders unstyled.
+ *
+ * Every colour the section paints its own surfaces and text with (background,
+ * headings, body copy, labels, the form card and its inputs) goes through a
+ * custom property (--aludra-contact-*). The default values below are the dark
+ * section's; `is-style-light` re-declares the same set and nothing else, so
+ * the variation is a palette swap rather than a second copy of the layout —
+ * same technique as aludra/stat-rail's `is-style-light`.
+ *
+ * Accent colours (the icon chips, the availability badge, focus rings, the
+ * submit button, the CF7 response banner) stay keyed to `primary`/`primary-alt`
+ * directly rather than through a custom property — they read as an accent
+ * against either ground and don't need to change between styles.
  */
 .wp-block-aludra-contact-section {
+	--aludra-contact-bg: var(--wp--preset--color--main, #1a1a1a);
+	--aludra-contact-heading: var(--wp--preset--color--base, #ffffff);
+	--aludra-contact-body: rgba(255, 255, 255, 0.55);
+	--aludra-contact-label: rgba(255, 255, 255, 0.35);
+	--aludra-contact-value: rgba(255, 255, 255, 0.80);
+	--aludra-contact-badge-text: rgba(255, 255, 255, 0.65);
+	--aludra-contact-card-bg: rgba(255, 255, 255, 0.04);
+	--aludra-contact-card-border: rgba(255, 255, 255, 0.10);
+	--aludra-contact-form-label: rgba(255, 255, 255, 0.45);
+	--aludra-contact-input-bg: rgba(255, 255, 255, 0.06);
+	--aludra-contact-input-border: rgba(255, 255, 255, 0.12);
+	--aludra-contact-input-text: #ffffff;
+	--aludra-contact-placeholder: rgba(255, 255, 255, 0.25);
+
 	/* Section wrapper with dark background and decorative glows */
-	background: var(--wp--preset--color--main, #1a1a1a);
+	background: var(--aludra-contact-bg);
 	padding: 90px 24px 100px;
 	position: relative;
 	overflow: hidden;
 
-	/* Decorative radial gradient glows */
+	/* Decorative radial gradient glows — dark-ground only; is-style-light
+	   suppresses these below rather than reusing them, the same call
+	   hero-banner's canvas style makes for its own ::before. */
 	&::before {
 		content: '';
 		position: absolute;
@@ -68,7 +96,7 @@
 	.contact-section__heading {
 		font-size: clamp(2rem, 4vw, 3rem);
 		font-weight: 700;
-		color: var(--wp--preset--color--base, #ffffff);
+		color: var(--aludra-contact-heading);
 		line-height: 1.15;
 		margin-bottom: 20px;
 		text-align: center;
@@ -81,7 +109,7 @@
 
 	.contact-section__sub {
 		font-size: 1.05rem;
-		color: rgba(255, 255, 255, 0.55);
+		color: var(--aludra-contact-body);
 		max-width: 560px;
 		margin-inline: auto;
 		line-height: 1.7;
@@ -117,13 +145,13 @@
 	.contact-section__info-heading {
 		font-size: 1.35rem;
 		font-weight: 700;
-		color: var(--wp--preset--color--base, #ffffff);
+		color: var(--aludra-contact-heading);
 		margin-bottom: 16px;
 	}
 
 	.contact-section__info-text {
 		font-size: 0.97rem;
-		color: rgba(255, 255, 255, 0.55);
+		color: var(--aludra-contact-body);
 		line-height: 1.75;
 		margin-bottom: 40px;
 	}
@@ -181,13 +209,13 @@
 		font-weight: 600;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
-		color: rgba(255, 255, 255, 0.35);
+		color: var(--aludra-contact-label);
 		margin-bottom: 3px;
 	}
 
 	.cs-detail__value {
 		font-size: 0.93rem;
-		color: rgba(255, 255, 255, 0.80);
+		color: var(--aludra-contact-value);
 	}
 
 	/* Available badge — green dot via ::before (safe on div, not contenteditable) */
@@ -223,14 +251,14 @@
 	.cs-badge__text {
 		font-size: 0.82rem;
 		font-weight: 600;
-		color: rgba(255, 255, 255, 0.65);
+		color: var(--aludra-contact-badge-text);
 		margin: 0;
 	}
 
 	/* ─── RIGHT COL: FORM CARD ─── */
 	.contact-section__card {
-		background: rgba(255, 255, 255, 0.04);
-		border: 1px solid rgba(255, 255, 255, 0.10);
+		background: var(--aludra-contact-card-bg);
+		border: 1px solid var(--aludra-contact-card-border);
 		border-radius: 12px;
 		padding: 40px 36px;
 		backdrop-filter: blur(6px);
@@ -276,7 +304,7 @@
 		font-weight: 600;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
-		color: rgba(255, 255, 255, 0.45);
+		color: var(--aludra-contact-form-label);
 		margin: 0;
 	}
 
@@ -299,12 +327,12 @@
 		   gutter and swallowing the card's right padding. */
 		box-sizing: border-box;
 		width: 100%;
-		background: rgba(255, 255, 255, 0.06);
-		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: var(--aludra-contact-input-bg);
+		border: 1px solid var(--aludra-contact-input-border);
 		border-radius: 6px;
 		padding: 13px 16px;
 		font-size: 0.92rem;
-		color: #ffffff;
+		color: var(--aludra-contact-input-text);
 		outline: none;
 		transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
 		-webkit-appearance: none;
@@ -314,7 +342,7 @@
 
 	.contact-section__card input::placeholder,
 	.contact-section__card textarea::placeholder {
-		color: rgba(255, 255, 255, 0.25);
+		color: var(--aludra-contact-placeholder);
 	}
 
 	.contact-section__card input:focus,
@@ -402,6 +430,45 @@
 
 		.contact-section__card {
 			padding: 28px 20px;
+		}
+	}
+
+	/**
+	 * ─── STYLE VARIANT: is-style-light ────────────────────────────────────
+	 *
+	 * The same section on a white ground, for themes whose pages are light
+	 * throughout (Ixian) and carry their contrast in the type rather than in
+	 * blocks of dark background. Layout, form grid and responsive behaviour
+	 * are the base block's; only the palette differs, plus the decorative
+	 * glows — which read as atmospheric lighting against a dark ground but
+	 * as a muddy tint against a light one — are dropped rather than reused,
+	 * the same call hero-banner's canvas style makes for its own ::before.
+	 *
+	 * `base` for the section, `white` for the card: the card is meant to sit
+	 * a shade above the section the way it sits a shade above `main` on the
+	 * dark default, and `base` is the page background in these themes, so a
+	 * card painted with it would be invisible. Inputs step back down to
+	 * `base` so the card/input pair reads as raised-surface/recessed-field,
+	 * mirroring the dark default's card/input relationship.
+	 */
+	&.is-style-light {
+		--aludra-contact-bg: var(--wp--preset--color--base, #f6f8fb);
+		--aludra-contact-heading: var(--wp--preset--color--contrast, #0f1620);
+		--aludra-contact-body: var(--wp--preset--color--secondary, #47536a);
+		--aludra-contact-label: var(--wp--preset--color--secondary, #47536a);
+		--aludra-contact-value: var(--wp--preset--color--contrast, #0f1620);
+		--aludra-contact-badge-text: var(--wp--preset--color--secondary, #47536a);
+		--aludra-contact-card-bg: var(--wp--preset--color--white, #ffffff);
+		--aludra-contact-card-border: var(--wp--preset--color--border-light, #d9e1ee);
+		--aludra-contact-form-label: var(--wp--preset--color--secondary, #47536a);
+		--aludra-contact-input-bg: var(--wp--preset--color--base, #f6f8fb);
+		--aludra-contact-input-border: var(--wp--preset--color--border-light, #d9e1ee);
+		--aludra-contact-input-text: var(--wp--preset--color--contrast, #0f1620);
+		--aludra-contact-placeholder: color-mix(in srgb, var(--wp--preset--color--secondary, #47536a) 70%, transparent);
+
+		&::before,
+		&::after {
+			display: none;
 		}
 	}
 }

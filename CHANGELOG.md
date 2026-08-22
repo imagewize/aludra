@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.33.0] - 2026-08-22
+
+### Added
+- **"Light" style for Contact Section** — the same section on a white ground with
+  Contrast headings, Secondary body/label copy, and a white form card bordered in
+  Border Light, for themes whose pages are white and near-white throughout. The
+  decorative glows behind the dark default are dropped rather than reused, since a
+  low-opacity colour wash reads as atmospheric lighting against a dark ground but
+  as a muddy tint against a light one. The dark section is unchanged and remains
+  the default.
+
+### Changed
+- Contact Section's colours route through custom properties declared once on the
+  block, so the new style is a palette swap rather than a second copy of the
+  layout. The rendered dark section is identical to 2.32.1 and existing content
+  serializes byte-identically and needs no deprecation.
+
 ## [2.32.1] - 2026-08-20
 
 ### Added
