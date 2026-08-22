@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.34.0] - 2026-08-22
+
+### Added
+- **"Light" style for CTA Banner** — the same banner on a white ground with
+  Tertiary background and Contrast text, for themes whose pages are light
+  throughout. The button stays keyed to Primary Alt/Main directly in both
+  styles, since it reads as an accent against either ground. The dark banner
+  is unchanged and remains the default.
+
+### Changed
+- CTA Banner's background/text colours route through custom properties
+  declared once on the block, so a style variation is a palette swap rather
+  than a second copy of the layout. The rendered dark banner is identical to
+  2.33.0 and existing content needs no deprecation.
+
 ## [2.33.0] - 2026-08-22
 
 ### Added
