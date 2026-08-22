@@ -7,14 +7,23 @@
  * look when no colour has been chosen — theme colour presets are referenced
  * with fallbacks so themes that define these slugs (Nynaeve, Elayne, Aviendha)
  * keep their palette, and any other theme still gets a sensible default.
+ *
+ * The section's own background/text go through custom properties
+ * (--aludra-cta-*); `is-style-light` re-declares just those two, same
+ * technique as aludra/contact-section's and aludra/stat-rail's is-style-light.
+ * The button stays keyed to `primary-alt`/`main` directly in both styles —
+ * it's an accent against either ground and doesn't need to change.
  */
 .wp-block-aludra-cta-banner {
-	background: var(--wp--preset--color--primary, #9f1239);
+	--aludra-cta-bg: var(--wp--preset--color--primary, #9f1239);
 	/* `base`, not `white`: the pairing has to survive a dark style variation,
 	   where `primary` is a *light* colour and white-on-primary drops to ~2.7:1.
 	   `base` is the page surface, so it inverts with the palette and stays
 	   readable in both — the same pairing the themes' own button element uses. */
-	color: var(--wp--preset--color--base, #ffffff);
+	--aludra-cta-text: var(--wp--preset--color--base, #ffffff);
+
+	background: var(--aludra-cta-bg);
+	color: var(--aludra-cta-text);
 	padding: 96px 0;
 	text-align: center;
 
@@ -74,5 +83,19 @@
 	/* ─── RESPONSIVE ─── */
 	@media (max-width: 768px) {
 		padding: 64px 0;
+	}
+
+	/**
+	 * ─── STYLE VARIANT: is-style-light ─────────────────────────────────────
+	 *
+	 * The same banner on a white ground, for themes whose pages are light
+	 * throughout (Ixian) and carry their contrast in the type rather than in
+	 * blocks of saturated background. `tertiary`/`contrast` fallbacks mirror
+	 * Ixian's own theme.json values, the same convention aludra/stat-rail's
+	 * and aludra/contact-section's is-style-light use.
+	 */
+	&.is-style-light {
+		--aludra-cta-bg: var(--wp--preset--color--tertiary, #eaeff7);
+		--aludra-cta-text: var(--wp--preset--color--contrast, #0f1620);
 	}
 }
