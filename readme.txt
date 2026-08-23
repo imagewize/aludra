@@ -4,15 +4,17 @@ Tags: patterns, page-builder, blocks, sections, gutenberg
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.35.0
+Stable tag: 2.36.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Everything between the header and the footer: 30 blocks and 35 patterns — heroes, stats, pricing, FAQs, CTAs. Works with any block theme.
+A page builder made of real blocks: 30 blocks and 42 patterns for everything between the header and the footer. Any block theme.
 
 == Description ==
 
-Aludra builds the middle of the page. A theme gives you the palette, the type, the header and the footer; Aludra gives you what goes between them — 30 blocks and 35 patterns for the bands a page is actually made of: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
+Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. 30 native blocks, 21 ready-made sections and 8 whole page layouts, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
+
+A theme gives you the palette, the type, the header and the footer; Aludra gives you everything between them — the bands a page is actually made of: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
 
 That holds whatever the site is for. The same sections build a portfolio, a services site, a one-page launch, or a straightforward online presence for a business — the bands are the same, the copy is not.
 
@@ -20,7 +22,7 @@ You rarely start from an empty block. You pick a section — a hero that already
 
 = What you get =
 
-* **14 section patterns** — one page band each, grouped into Heroes, Proof, Features & Services, Layout and Convert
+* **21 section patterns** — one page band each, grouped into Heroes, Proof, Features & Services, Layout and Convert. Every content block has one
 * **8 page patterns** — homepage, landing, service, services overview, pricing, about, team and contact, offered when you create a new page
 * **30 blocks** — grouped into six inserter categories that follow the order a page gets built in, and individually enable/disable-able under Settings → Aludra
 * **13 more patterns** — five pre-configured carousels and eight mega menu layouts for menu template parts
@@ -224,6 +226,13 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 
 == Changelog ==
 
+= 2.36.0 =
+* Added: Seven more section patterns, closing the gap between blocks and patterns — split with steps, service detail cards, before/after icon grids, comparison table, CTA columns, testimonial grid and service intro. Every content block is now reachable as a finished section rather than an empty block you have to work out how to fill. Twenty-one sections, forty-two patterns in total
+* Changed: README, readme.txt and the plugin header now say "page builder" rather than describing the division of labour without naming it, and distinguish Aludra from the proprietary builders the term usually implies — native blocks in the editor you already have, no shortcodes, no proprietary markup, nothing that breaks when you switch it off
+* Changed: Copy in the sections extracted from live demo pages was rewritten into the same generic service-business voice as the rest of the library
+* Fixed: The comparison section carries the wp-block-aludra-comparison-row and wp-block-aludra-comparison-cell wrapper classes the editor emits. The markup it was extracted from was missing them, having been inserted programmatically rather than typed into the editor, so the pattern would have inherited a block that fails validation. Pages holding such markup show a recovery prompt in the editor; the frontend is unaffected
+* Changed: No block markup, styles, or attributes changed — existing content is untouched
+
 = 2.35.0 =
 * Added: Fourteen section patterns — the single bands a page is built from (split hero, hero banner, stat rail, trust bar, reviews, capability cards, services grid, feature list, about, client carousel, pricing, FAQ, CTA banner, contact), each pre-filled with plausible copy and the right style variation. Previously the smallest unit available was an empty block; these are finished sections, extracted verbatim from the markup already shipping in the four page patterns
 * Added: Section patterns are grouped into pattern categories mirroring the block categories — Heroes, Proof, Features & Services, Layout, Convert — so a section sits under the same heading as the block it is built from, and the inserter renders each as a live preview
@@ -239,16 +248,10 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 * Added: A "Light" style for CTA Banner — the same banner on a white ground with Tertiary background and Contrast text, for themes whose pages are light throughout. The button stays keyed to Primary Alt/Main directly in both styles, since it reads as an accent against either ground. The dark banner is unchanged and remains the default
 * Changed: CTA Banner's background/text colours route through custom properties declared once on the block, so a style variation is a palette swap rather than a second copy of the layout. The rendered dark banner is identical to 2.33.0 and existing content needs no deprecation
 
-= 2.33.0 =
-* Added: A "Light" style for Contact Section — the same section on a white ground with Contrast headings, Secondary body/label copy, and a white form card bordered in Border Light, for themes whose pages are white and near-white throughout. The decorative background glows are dropped on this style rather than reused, since they read as atmospheric lighting against a dark ground but as a muddy tint against a light one. The dark section is unchanged and remains the default
-* Changed: Contact Section's colours route through custom properties declared once on the block, so a style variation is a palette swap rather than a second copy of the layout. The rendered dark section is identical to 2.32.1 and existing content needs no deprecation
-
-= 2.32.1 =
-* Added: A check-circle icon (`icon-check-circle.svg`), matching `icon-x-circle.svg`'s style — a stroke-based outline check mark in a circle, for "yes"/"included" markers alongside the existing "no"/"excluded" one
-
 Older entries are trimmed to keep this section within the 5000-character
 limit WordPress.org enforces. The complete history is in CHANGELOG.md:
 https://github.com/imagewize/aludra/blob/main/CHANGELOG.md
+
 
 == Upgrade Notice ==
 

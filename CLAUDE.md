@@ -337,11 +337,28 @@ npm run validate:file patterns/page-homepage.php   # one pattern
 
 Each pattern takes ~60s (real editor, real login), so a full run is a few minutes.
 
-**Fixing a failure:** don't hand-edit markup to chase the diff — the editor's own
-serialization is authoritative. Each run writes `sentinel-<timestamp>.log.json`
-containing `results[].savedContent`, which is exactly what the editor produced,
-already formatted the way WordPress formats patterns. Replace the pattern body
-(everything after the closing `?>`) with it:
+**Two kinds of failure, and only one of them takes the `savedContent` fix.**
+Read the log's error entries before reaching for it:
+
+- **A content mismatch** (no `block_validation` errors) — what went in and what
+  came back differ, but every block parsed cleanly. Take `savedContent`.
+- **A `block_validation` error** — the editor could not match the markup to the
+  block's `save()` output. **`savedContent` is useless here, and actively
+  dangerous.** WordPress preserves an invalid block's original HTML verbatim, so
+  `savedContent` hands back the *same broken markup* you fed it. Applying it
+  produces a pattern that round-trips green on the next run while still being
+  broken for every editor that opens it — the exact failure the validator exists
+  to catch. Fix these against the block's real `save()` output instead: the error
+  message spells out the expected value, in the form `Expected attribute
+  <name> of value <expected>, saw <actual>` (the log renders these as `%s`
+  placeholders followed by the three values). Correct the markup to match, then
+  re-validate.
+
+**Fixing a content mismatch:** don't hand-edit markup to chase the diff — the
+editor's own serialization is authoritative. Each run writes
+`sentinel-<timestamp>.log.json` containing `results[].savedContent`, which is
+exactly what the editor produced, already formatted the way WordPress formats
+patterns. Replace the pattern body (everything after the closing `?>`) with it:
 
 ```python
 import json, glob
@@ -355,7 +372,7 @@ open(p, 'w').write(header + '\n' + saved.rstrip('\n') + '\n')
 Check `savedContent` for baked-in absolute URLs or attachment IDs before using it —
 it comes from a live site. Then re-run the validator to confirm.
 
-Common causes of a mismatch, all of which this fixes at once:
+Common causes of a *mismatch*, all of which this fixes at once:
 
 - **Attributes with `"source": "html"`** (typical for `RichText`) must **not** also
   appear in the block comment — they're parsed back out of the markup, so the editor
@@ -365,6 +382,25 @@ Common causes of a mismatch, all of which this fixes at once:
 - **Deprecated attribute forms** get migrated (e.g. a paragraph's `"align":"center"`
   becomes `"style":{"typography":{"textAlign":"center"}}`; `"width":26` becomes
   `"width":"26px"`).
+
+Common causes of a *`block_validation` error*, which the above will not fix:
+
+- **A missing `wp-block-<namespace>-<block>` wrapper class.** `useBlockProps.save()`
+  adds it automatically from the block name, so markup that was hand-authored (or
+  copied from a page whose content was inserted programmatically rather than
+  through the editor) will be missing it while the block's own `save()` emits it.
+  The class sits *before* any `className` the save function passes, e.g.
+  `class="wp-block-aludra-comparison-cell comparison-cell"`.
+- **A missing support-generated class**, most often `has-custom-font-size` on a
+  `core/button` whose `style.typography.fontSize` is set (as opposed to a preset
+  `fontSize` slug).
+
+**Extracting markup from a live page is not proof it is valid.** Content that was
+inserted with `wp post create`, WP-CLI, or an import has never been through the
+editor's `save()`, so it can be invalid from the day it was written and stay that
+way — the frontend renders an invalid block's stored HTML unchanged, so nothing
+looks wrong until someone opens the page in the editor. Run any extracted markup
+through the validator before assuming it is a safe starting point.
 
 ### Direct-File-Access Guard
 

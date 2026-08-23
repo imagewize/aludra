@@ -7,6 +7,50 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.36.0] - 2026-08-23
+
+### Added
+- **Seven more section patterns**, closing the block/pattern coverage gap: every
+  content block is now reachable as a finished section rather than as an empty
+  block you have to work out how to fill. `section-split.php` (a two-pane band —
+  load waterfall on one side, a numbered three-step process on the other),
+  `section-service-details.php` (numbered service cards with per-card
+  checklists), `section-icon-grid.php` (paired before/after icon grids, crosses
+  on the left and checks on the right), `section-comparison.php` (the
+  spec-sheet comparison table, three rows against three alternatives),
+  `section-cta-columns.php` (two call-to-action cards under a shared heading),
+  `section-testimonials.php` (three testimonial cards with result metrics), and
+  `section-service-intro.php` (a constrained-width two-paragraph intro).
+- Section patterns now total twenty-one, and patterns overall forty-two. The
+  only blocks without one are `mega-menu` and `search-overlay-trigger`, which
+  belong to a navigation template part rather than to a page — mega-menu already
+  has its own eight template-part patterns.
+
+### Changed
+- **README, readme.txt and the plugin header now say "page builder".** The
+  previous framing ("everything between the header and the footer") described
+  the division of labour accurately but never named the category, so a reader
+  scanning Packagist or the plugin directory had to infer what Aludra is for.
+  It now claims the term and immediately distinguishes itself from the
+  proprietary builders the term usually implies: native blocks edited in the
+  editor you already have, no separate editing app, no shortcodes, no
+  proprietary markup, and nothing that breaks when the plugin is switched off.
+- Copy in the four patterns extracted from live demo pages was rewritten from
+  the developer-platform voice those pages carry into the same generic
+  service-business voice as the rest of the library. Shipping a specific
+  client's positioning in a GPL plugin was never the intent, and two
+  incompatible voices in one pattern library reads as an accident.
+- No block markup, styles, or attributes changed — existing content is
+  untouched.
+
+### Fixed
+- `aludra/comparison-row` and `aludra/comparison-cell` markup captured from
+  pages saved before those blocks gained their `wp-block-aludra-*` wrapper
+  classes fails block validation in the editor. The new comparison section
+  carries the current classes. Any page still holding the older markup — the
+  demo site's own comparison sections included — will show a block recovery
+  prompt until it is re-saved.
+
 ## [2.35.0] - 2026-08-23
 
 ### Added
