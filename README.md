@@ -8,14 +8,28 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
 [![License](https://img.shields.io/packagist/l/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
 
-Custom WordPress blocks that work with any theme.
+A page section library for WordPress block themes.
 </div>
 
 ## Description
 
-Aludra is a WordPress plugin that provides custom Gutenberg blocks. It is a theme-neutral shared block library used across the Imagewize block themes — **Elayne** and the **Aviendha** e-commerce theme — but **the blocks work with any WordPress theme**: FSE (Full Site Editing) themes, block themes, or classic themes. (Many blocks were originally ported from the **Nynaeve** theme's native block library, but Nynaeve itself doesn't install Aludra.)
+Aludra is the parts bin for building marketing pages in the block editor: **30 blocks and 35 patterns** covering the bands a real page is made of — heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
 
-This plugin was created to align with WordPress.org Theme Review requirements, which prohibit custom block registration in themes. The blocks are theme-agnostic and can be used in any WordPress site.
+You rarely start from an empty block. You pick a **section** — a hero that already has its eyebrow, heading, lead and buttons, in the right style variation — drop it in, and replace the copy. Or you pick a whole **page pattern** and delete the parts you don't need. Everything is grouped into six categories (Heroes, Proof, Features & Services, Layout, Convert, Navigation) that follow the order a page gets built in, so both the block inserter and the Patterns tab read as a sequence rather than an inventory.
+
+### Building a site with Aludra
+
+Aludra supplies the sections; a theme supplies the palette, type and templates. The intended pairing is **[Aviendha](https://github.com/imagewize/aviendha)** — a starter FSE theme built alongside this plugin, which ships no blocks or patterns of its own and composes its pages entirely from `aludra/*`:
+
+```bash
+composer require imagewize/aviendha imagewize/aludra
+```
+
+Then activate Aviendha, activate Aludra, and create a page — the eight page patterns are offered in the Site Editor's pattern picker, and the fourteen section patterns are in the inserter's Patterns tab.
+
+**None of this is required.** Aludra is theme-neutral: blocks resolve colours from the active theme's palette with fallbacks, so they render correctly on **Elayne**, on **Ixian**, or on any other FSE, block, or classic theme. Blocks are individually enable/disable-able under Settings → Aludra.
+
+> The plugin exists in the first place because WordPress.org Theme Review prohibits themes from registering custom blocks. Many blocks were originally ported from the **Nynaeve** theme's native block library, generalised for theme neutrality.
 
 > **Lineage:** Aludra is the direct continuation of the [**Elayne Blocks**](https://github.com/imagewize/elayne-blocks) plugin (versions ≤ 2.7.1). It was renamed to a builder-themed name (Aludra — the inventor/engineer of the *dragons* in *The Wheel of Time*) and generalised into a shared library, since it now serves multiple themes rather than Elayne alone. See `CHANGELOG.md` for the migration notes.
 
@@ -64,7 +78,18 @@ Blocks are the raw components; **patterns** are what you actually build a page f
 | Layout | About, Client Carousel |
 | Convert | Pricing Tiers, FAQ, CTA Banner, Contact |
 
-**Page patterns** (`patterns/page-*.php`) — four full layouts assembled from those sections, offered when you create a new page: a **homepage** (agency/service-business), a **service page** (hero + trust bar + capabilities + pricing + FAQ + CTA), an **about page** (hero + trust bar + studio story + capabilities + client types + reviews + CTA), and a **contact page** (contact details + Contact Form 7 card).
+**Page patterns** (`patterns/page-*.php`) — eight full layouts assembled from those sections, offered when you create a new page:
+
+| Page | Composition |
+| --- | --- |
+| Homepage | Split hero, about, client carousel, CTA, pricing, services, reviews, FAQ |
+| Landing | Split hero, stat rail, capabilities, pricing, reviews, FAQ, CTA |
+| Service | Hero, trust bar, capabilities, why-us, pricing, FAQ, CTA |
+| Services Overview | Hero, trust bar, intro, services grid, capabilities, FAQ, CTA |
+| Pricing | Hero, pricing tiers, what's included, FAQ, CTA |
+| About | Hero, trust bar, studio story, capabilities, client types, reviews, CTA |
+| Team | Hero, trust bar, studio story, the people, how we work, CTA |
+| Contact | Contact details + Contact Form 7 card |
 
 **Carousel patterns** — five pre-configured carousel setups (hero, testimonials, product gallery, portfolio, team), plus eight **mega menu patterns** for building menu template parts.
 

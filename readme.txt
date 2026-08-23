@@ -1,6 +1,6 @@
 === Aludra ===
 Contributors: Rhand
-Tags: blocks, gutenberg, carousel, mega-menu, slider
+Tags: patterns, page-builder, blocks, sections, gutenberg
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -8,11 +8,26 @@ Stable tag: 2.35.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-A theme-neutral shared library of custom Gutenberg blocks for the Imagewize block themes (Elayne, Aviendha) — and any other WordPress theme.
+Build pages from ready-made sections: 30 blocks and 35 patterns — heroes, stats, pricing, FAQs, CTAs. Works with any block theme.
 
 == Description ==
 
-Aludra is a theme-neutral shared block library for the Imagewize block themes (Elayne and the Aviendha e-commerce theme). The blocks work with any WordPress theme — FSE, block, or classic — and are individually enable/disable-able under Settings → Aludra. It provides the following custom Gutenberg blocks:
+Aludra is the parts bin for building marketing pages in the block editor: 30 blocks and 35 patterns covering the bands a real page is made of — heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
+
+You rarely start from an empty block. You pick a section — a hero that already has its eyebrow, heading, lead and buttons, in the right style variation — drop it in and replace the copy. Or you pick a whole page pattern and delete the parts you do not need.
+
+= What you get =
+
+* **14 section patterns** — one page band each, grouped into Heroes, Proof, Features & Services, Layout and Convert
+* **8 page patterns** — homepage, landing, service, services overview, pricing, about, team and contact, offered when you create a new page
+* **30 blocks** — grouped into six inserter categories that follow the order a page gets built in, and individually enable/disable-able under Settings → Aludra
+* **13 more patterns** — five pre-configured carousels and eight mega menu layouts for menu template parts
+
+= Building a site with Aludra =
+
+Aludra supplies the sections; a theme supplies the palette, type and templates. The intended pairing is **Aviendha** (https://github.com/imagewize/aviendha), a starter FSE theme built alongside this plugin that ships no blocks or patterns of its own and composes its pages entirely from Aludra sections.
+
+None of that is required. Aludra is theme-neutral — blocks resolve colours from the active theme's palette with fallbacks, so they render correctly on any FSE, block, or classic theme.
 
 = Blocks Included =
 
@@ -212,6 +227,8 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 * Added: Section patterns are grouped into pattern categories mirroring the block categories — Heroes, Proof, Features & Services, Layout, Convert — so a section sits under the same heading as the block it is built from, and the inserter renders each as a live preview
 * Changed: The "aludra" pattern category, which held carousel demos and whole page layouts together, is split into "Aludra: Full Pages" and "Aludra: Carousels"
 * Changed: Page and section patterns are registered by one loader reading Categories and Block Types from each file's own header. Only page patterns declare core/post-content, so section patterns no longer risk crowding the new-page pattern picker
+* Added: Four more page patterns — landing, services overview, pricing and team. Eight full pages now cover the layouts a service business actually needs, each assembled from the section patterns rather than authored fresh
+* Changed: README, readme.txt and the plugin header now describe Aludra as a page section library rather than "a shared custom block library", and name Aviendha as the companion starter theme it is built against. Tags updated to match how people search for this
 * Changed: The single "Aludra" block category is split into six — Heroes, Proof, Features & Services, Layout, Convert, and Navigation. At thirty blocks one category had become its own haystack. They are registered in the order a page gets built rather than alphabetically, so the inserter panel reads as a sequence rather than an inventory
 * Changed: Settings → Aludra groups its block cards by those same six categories, replacing a second unrelated taxonomy that put 21 of the 30 blocks in one bucket and matched nothing shown in the editor
 * Changed: No block markup, styles, or attributes changed — existing content is untouched

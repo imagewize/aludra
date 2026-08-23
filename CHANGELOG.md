@@ -24,6 +24,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Convert — so a section sits under the same heading as the block it is built
   from. The inserter's Patterns tab renders each as a live preview of the real
   blocks, which is what makes a section browsable rather than merely listed.
+- **Four more page patterns** — a **landing page** (split hero, stat rail,
+  capabilities, pricing, reviews, FAQ, CTA), a **services overview page** (hero,
+  trust bar, intro, services grid, capabilities, FAQ, CTA), a **pricing page**
+  (hero, fixed-price tiers, what every price includes, FAQ, CTA), and a **team
+  page** (hero, trust bar, studio story, the people, how we work, CTA). Eight
+  full pages now cover the layouts a service business actually needs. Each is
+  assembled from the section patterns above rather than authored fresh, so the
+  markup is the same markup the editor has already round-tripped.
+- Pattern coverage for Service Intro, which had no pattern of any kind.
 
 ### Changed
 - **The single "Aludra" block category is split into six.** At thirty blocks one
@@ -52,6 +61,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   deliberately declare none — a `blockTypes` entry would hijack the Site
   Editor's "choose a pattern" picker for a new page and bury the four real page
   layouts among fourteen fragments.
+- **README.md, readme.txt and the plugin header now describe what Aludra is.**
+  All three called it "a shared custom block library", which was accurate when
+  it held three blocks and no patterns. It is a page section library: you pick a
+  finished band, not an empty block. The readme's tags change from
+  `blocks, gutenberg, carousel, mega-menu, slider` to
+  `patterns, page-builder, blocks, sections, gutenberg` to match how someone
+  actually searches for this.
+- **Aviendha is named as the companion theme.** The intended pairing — Aviendha
+  for palette, type and templates, Aludra for the sections — appeared nowhere in
+  the README despite being the setup the plugin is built against. It now has its
+  own section, with the `composer require` line for both packages, and the
+  theme-neutrality promise is kept explicit alongside it.
 
 ## [2.34.0] - 2026-08-22
 
