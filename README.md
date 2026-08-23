@@ -8,12 +8,14 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
 [![License](https://img.shields.io/packagist/l/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
 
-Everything between the header and the footer.
+A page builder made of real blocks.
 </div>
 
 ## Description
 
-Aludra builds the middle of the page. A theme gives you the palette, the type, the header and the footer; Aludra gives you what goes between them — **30 blocks and 35 patterns** for the bands a page is actually made of: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
+Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. **30 native blocks, 21 ready-made sections and 8 whole page layouts**, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
+
+A theme gives you the palette, the type, the header and the footer; Aludra gives you everything between them — the bands a page is actually made of: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
 
 That holds whatever the site is for. The same sections build a portfolio, a services site, a one-page launch, or a straightforward online presence for a business — the bands are the same, the copy is not.
 
@@ -27,7 +29,7 @@ The division above is the whole idea, and **[Aviendha](https://github.com/imagew
 composer require imagewize/aviendha imagewize/aludra
 ```
 
-Then activate Aviendha, activate Aludra, and create a page — the eight page patterns are offered in the Site Editor's pattern picker, and the fourteen section patterns are in the inserter's Patterns tab.
+Then activate Aviendha, activate Aludra, and create a page — the eight page patterns are offered in the Site Editor's pattern picker, and the twenty-one section patterns are in the inserter's Patterns tab.
 
 **None of this is required.** Aludra is theme-neutral: blocks resolve colours from the active theme's palette with fallbacks, so they render correctly on **Elayne**, on **Ixian**, or on any other FSE, block, or classic theme. Blocks are individually enable/disable-able under Settings → Aludra.
 
@@ -75,10 +77,12 @@ Blocks are the raw components; **patterns** are what you actually build a page f
 | Category | Sections |
 | --- | --- |
 | Heroes | Split Hero, Hero Banner |
-| Proof | Stat Rail, Trust Bar, Client Reviews |
-| Features & Services | Capability Cards, Services Grid, Feature List |
-| Layout | About, Client Carousel |
-| Convert | Pricing Tiers, FAQ, CTA Banner, Contact |
+| Proof | Stat Rail, Trust Bar, Client Reviews, Comparison Table, Testimonial Grid |
+| Features & Services | Capability Cards, Services Grid, Feature List, Service Detail Cards, Before and After Icon Grids |
+| Layout | About, Client Carousel, Split with Steps, Service Intro |
+| Convert | Pricing Tiers, FAQ, CTA Banner, Contact, CTA Columns |
+
+Every content block is reachable as one of these. The two that are not — Mega Menu and Search Overlay Trigger — belong to a navigation template part rather than to a page; Mega Menu has its own eight template-part patterns below.
 
 **Page patterns** (`patterns/page-*.php`) — eight full layouts assembled from those sections, offered when you create a new page:
 

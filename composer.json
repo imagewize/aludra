@@ -1,12 +1,17 @@
 {
     "name": "imagewize/aludra",
     "type": "wordpress-plugin",
-    "description": "Theme-neutral shared library of custom Gutenberg blocks for Imagewize block themes (Nynaeve, Elayne, Aviendha) and any WordPress theme, including Mega Menu, Carousel, and Slide blocks",
+    "description": "A page builder made of real blocks \u2014 30 WordPress blocks, 21 section patterns and 8 page layouts for everything between the header and the footer. Native block editor, no shortcodes, theme-neutral.",
     "keywords": [
         "wordpress",
         "plugin",
+        "page-builder",
         "blocks",
+        "patterns",
+        "block-patterns",
+        "sections",
         "gutenberg",
+        "full-site-editing",
         "carousel",
         "mega-menu",
         "aludra"
