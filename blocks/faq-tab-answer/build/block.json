@@ -4,7 +4,7 @@
   "name": "aludra/faq-tab-answer",
   "version": "1.0.0",
   "title": "FAQ Tab Answer",
-  "category": "aludra",
+  "category": "aludra-convert",
   "parent": [
     "aludra/faq-tabs"
   ],

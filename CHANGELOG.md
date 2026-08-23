@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.35.0] - 2026-08-23
+
+### Changed
+- **The single "Aludra" block category is split into six.** At thirty blocks one
+  plugin-owned category had become its own haystack — the inserter listed every
+  block in one undifferentiated panel. Blocks now sit under Aludra: Heroes,
+  Proof, Features & Services, Layout, Convert, and Navigation. The categories
+  are registered in the order a page gets built rather than alphabetically, so
+  the inserter panel reads as a sequence: hero, proof, what you do, layout
+  scaffolding, the ask — with Navigation last, since those two blocks belong to
+  a header rather than to a page.
+- Settings → Aludra now groups its block cards by the same six categories. It
+  previously carried a second, unrelated taxonomy (Carousel / Interactive /
+  Marketing & Content) that put 21 of the 30 blocks in one bucket and matched
+  nothing the user saw in the editor.
+- No block markup, styles, or attributes changed, so no block `version` is
+  bumped and existing content is untouched — a category lives in the editor's
+  block registry and is not a cache-busted asset.
+
 ## [2.34.0] - 2026-08-22
 
 ### Added

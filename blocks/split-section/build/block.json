@@ -4,7 +4,7 @@
   "name": "aludra/split-section",
   "version": "1.0.0",
   "title": "Split Section",
-  "category": "aludra",
+  "category": "aludra-layout",
   "icon": "columns",
   "description": "A page section with a centred header and two panes — media on one side, content on the other. Collapses to a single stacked column on narrow screens.",
   "keywords": [

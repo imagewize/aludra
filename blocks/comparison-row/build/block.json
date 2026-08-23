@@ -4,7 +4,7 @@
   "name": "aludra/comparison-row",
   "version": "1.0.0",
   "title": "Comparison Row",
-  "category": "aludra",
+  "category": "aludra-proof",
   "parent": [
     "aludra/comparison-table"
   ],

@@ -4,7 +4,7 @@
 	"name": "aludra/comparison-cell",
 	"version": "1.0.0",
 	"title": "Comparison Cell",
-	"category": "aludra",
+	"category": "aludra-proof",
 	"parent": [ "aludra/comparison-row" ],
 	"icon": "editor-alignleft",
 	"description": "One vendor's answer for a single row of a comparison table — a short heading plus a description. The first cell in every row is styled as the highlighted column automatically.",

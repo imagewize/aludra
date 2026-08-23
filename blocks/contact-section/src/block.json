@@ -4,7 +4,7 @@
 	"name": "aludra/contact-section",
 	"version": "1.1.0",
 	"title": "Contact Section",
-	"category": "aludra",
+	"category": "aludra-convert",
 	"icon": "email",
 	"description": "Contact section with info column and Contact Form 7 form card. Dark by default; the Light style gives a white-ground variant.",
 	"keywords": ["contact", "form", "cf7", "section"],

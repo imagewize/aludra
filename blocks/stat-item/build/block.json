@@ -7,7 +7,7 @@
   "parent": [
     "aludra/stat-rail"
   ],
-  "category": "aludra",
+  "category": "aludra-proof",
   "icon": "chart-bar",
   "description": "A single big-number stat with a caption, used inside Stat Rail.",
   "keywords": [

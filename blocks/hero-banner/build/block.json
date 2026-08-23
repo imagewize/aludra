@@ -4,7 +4,7 @@
   "name": "aludra/hero-banner",
   "version": "1.0.1",
   "title": "Hero Banner",
-  "category": "aludra",
+  "category": "aludra-hero",
   "icon": "cover-image",
   "description": "Full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons. Dark by default; the Canvas style gives a light, centred variant.",
   "keywords": [

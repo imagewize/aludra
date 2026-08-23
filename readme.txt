@@ -4,7 +4,7 @@ Tags: blocks, gutenberg, carousel, mega-menu, slider
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.34.0
+Stable tag: 2.35.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -206,6 +206,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.35.0 =
+* Changed: The single "Aludra" block category is split into six — Heroes, Proof, Features & Services, Layout, Convert, and Navigation. At thirty blocks one category had become its own haystack. They are registered in the order a page gets built rather than alphabetically, so the inserter panel reads as a sequence rather than an inventory
+* Changed: Settings → Aludra groups its block cards by those same six categories, replacing a second unrelated taxonomy that put 21 of the 30 blocks in one bucket and matched nothing shown in the editor
+* Changed: No block markup, styles, or attributes changed — existing content is untouched
 
 = 2.34.0 =
 * Added: A "Light" style for CTA Banner — the same banner on a white ground with Tertiary background and Contrast text, for themes whose pages are light throughout. The button stays keyed to Primary Alt/Main directly in both styles, since it reads as an accent against either ground. The dark banner is unchanged and remains the default

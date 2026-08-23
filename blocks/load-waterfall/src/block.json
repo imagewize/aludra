@@ -4,7 +4,7 @@
 	"name": "aludra/load-waterfall",
 	"version": "1.1.0",
 	"title": "Load Waterfall",
-	"category": "aludra",
+	"category": "aludra-hero",
 	"icon": "chart-bar",
 	"description": "A network load-time waterfall panel with an animated LCP marker, for hero sections that need to show off site speed.",
 	"keywords": [ "waterfall", "performance", "lcp", "speed", "hero" ],

@@ -3,7 +3,7 @@
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
  * Description: Shared custom block library for Imagewize block themes (Elayne, Aviendha) — Mega Menu, Carousel, FAQ Tabs, and content blocks (Feature Cards, Pricing Tiers, Testimonial Grid, Contact Section, Hero Banner, and more). Built with React, block.json, and @wordpress/scripts.
- * Version: 2.34.0
+ * Version: 2.35.0
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.34.0' );
+define( 'ALUDRA_VERSION', '2.35.0' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -376,11 +376,18 @@ function aludra_blocks_have_slick_carousel( array $blocks ) {
 }
 
 /**
- * Register a dedicated "Aludra" block category.
+ * Register the Aludra block categories.
  *
- * All aludra/* blocks previously shared the built-in "design"/"widgets"
- * categories alongside core blocks, which buried them in the inserter.
- * Grouping them under one plugin-owned category makes them easy to find.
+ * All aludra/* blocks originally shared the built-in "design"/"widgets"
+ * categories alongside core blocks, then a single plugin-owned "aludra"
+ * category. At thirty blocks that one category is its own haystack, so they
+ * are split into six sections instead.
+ *
+ * The order below is the order the inserter renders them in, and it is
+ * deliberately the order a page gets built in — hero, proof, what you do,
+ * layout scaffolding, the ask — so the panel reads as a sequence rather than
+ * an alphabetised inventory. Navigation sits last because those two blocks
+ * belong to a header, not to a page.
  */
 add_filter(
 	'block_categories_all',
@@ -388,9 +395,34 @@ add_filter(
 		return array_merge(
 			array(
 				array(
-					'slug'  => 'aludra',
-					'title' => __( 'Aludra', 'aludra' ),
+					'slug'  => 'aludra-hero',
+					'title' => __( 'Aludra: Heroes', 'aludra' ),
+					'icon'  => 'cover-image',
+				),
+				array(
+					'slug'  => 'aludra-proof',
+					'title' => __( 'Aludra: Proof', 'aludra' ),
+					'icon'  => 'chart-bar',
+				),
+				array(
+					'slug'  => 'aludra-features',
+					'title' => __( 'Aludra: Features & Services', 'aludra' ),
+					'icon'  => 'screenoptions',
+				),
+				array(
+					'slug'  => 'aludra-layout',
+					'title' => __( 'Aludra: Layout', 'aludra' ),
 					'icon'  => 'layout',
+				),
+				array(
+					'slug'  => 'aludra-convert',
+					'title' => __( 'Aludra: Convert', 'aludra' ),
+					'icon'  => 'megaphone',
+				),
+				array(
+					'slug'  => 'aludra-navigation',
+					'title' => __( 'Aludra: Navigation', 'aludra' ),
+					'icon'  => 'menu',
 				),
 			),
 			$categories

@@ -4,7 +4,7 @@
 	"name": "aludra/spine-section",
 	"version": "1.0.2",
 	"title": "Spine Section",
-	"category": "aludra",
+	"category": "aludra-layout",
 	"icon": "align-pull-left",
 	"description": "A page section with a sticky label/heading column on the left and its content on the right. Collapses to a single stacked column on narrow screens.",
 	"keywords": [ "section", "spine", "editorial", "sticky", "two column" ],
