@@ -8,18 +8,20 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
 [![License](https://img.shields.io/packagist/l/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
 
-A page section library for WordPress block themes.
+Everything between the header and the footer.
 </div>
 
 ## Description
 
-Aludra is the parts bin for building marketing pages in the block editor: **30 blocks and 35 patterns** covering the bands a real page is made of — heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
+Aludra builds the middle of the page. A theme gives you the palette, the type, the header and the footer; Aludra gives you what goes between them — **30 blocks and 35 patterns** for the bands a page is actually made of: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
+
+That holds whatever the site is for. The same sections build a portfolio, a services site, a one-page launch, or a straightforward online presence for a business — the bands are the same, the copy is not.
 
 You rarely start from an empty block. You pick a **section** — a hero that already has its eyebrow, heading, lead and buttons, in the right style variation — drop it in, and replace the copy. Or you pick a whole **page pattern** and delete the parts you don't need. Everything is grouped into six categories (Heroes, Proof, Features & Services, Layout, Convert, Navigation) that follow the order a page gets built in, so both the block inserter and the Patterns tab read as a sequence rather than an inventory.
 
 ### Building a site with Aludra
 
-Aludra supplies the sections; a theme supplies the palette, type and templates. The intended pairing is **[Aviendha](https://github.com/imagewize/aviendha)** — a starter FSE theme built alongside this plugin, which ships no blocks or patterns of its own and composes its pages entirely from `aludra/*`:
+The division above is the whole idea, and **[Aviendha](https://github.com/imagewize/aviendha)** is the theme built to that division — a starter FSE theme developed alongside this plugin, which ships no blocks or patterns of its own and composes its pages entirely from `aludra/*`:
 
 ```bash
 composer require imagewize/aviendha imagewize/aludra

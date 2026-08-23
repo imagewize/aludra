@@ -63,8 +63,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   layouts among fourteen fragments.
 - **README.md, readme.txt and the plugin header now describe what Aludra is.**
   All three called it "a shared custom block library", which was accurate when
-  it held three blocks and no patterns. It is a page section library: you pick a
-  finished band, not an empty block. The readme's tags change from
+  it held three blocks and no patterns. They now lead with the division of
+  labour instead: a theme gives you the palette, the type, the header and the
+  footer, and Aludra gives you everything between them. Deliberately silent on
+  what kind of site that is — the same bands build a portfolio, a services site
+  or a plain business presence — and defined as "blocks and patterns" rather
+  than as sections, so blocks that are not page sections still fit the
+  description. The readme's tags change from
   `blocks, gutenberg, carousel, mega-menu, slider` to
   `patterns, page-builder, blocks, sections, gutenberg` to match how someone
   actually searches for this.
