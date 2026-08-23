@@ -208,6 +208,10 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 == Changelog ==
 
 = 2.35.0 =
+* Added: Fourteen section patterns — the single bands a page is built from (split hero, hero banner, stat rail, trust bar, reviews, capability cards, services grid, feature list, about, client carousel, pricing, FAQ, CTA banner, contact), each pre-filled with plausible copy and the right style variation. Previously the smallest unit available was an empty block; these are finished sections, extracted verbatim from the markup already shipping in the four page patterns
+* Added: Section patterns are grouped into pattern categories mirroring the block categories — Heroes, Proof, Features & Services, Layout, Convert — so a section sits under the same heading as the block it is built from, and the inserter renders each as a live preview
+* Changed: The "aludra" pattern category, which held carousel demos and whole page layouts together, is split into "Aludra: Full Pages" and "Aludra: Carousels"
+* Changed: Page and section patterns are registered by one loader reading Categories and Block Types from each file's own header. Only page patterns declare core/post-content, so section patterns no longer risk crowding the new-page pattern picker
 * Changed: The single "Aludra" block category is split into six — Heroes, Proof, Features & Services, Layout, Convert, and Navigation. At thirty blocks one category had become its own haystack. They are registered in the order a page gets built rather than alphabetically, so the inserter panel reads as a sequence rather than an inventory
 * Changed: Settings → Aludra groups its block cards by those same six categories, replacing a second unrelated taxonomy that put 21 of the 30 blocks in one bucket and matched nothing shown in the editor
 * Changed: No block markup, styles, or attributes changed — existing content is untouched
@@ -225,41 +229,6 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 
 = 2.32.0 =
 * Added: Comparison Table — a filterable spec-sheet comparison: a centred eyebrow pill/heading/lead, a pill bar that filters the table by category, and a bordered table with your own column highlighted against up to three competitors. Ships as three blocks — Comparison Table (the host), Comparison Row (one structural parameter, tagged with a filter category), and Comparison Cell (one vendor's answer). Every row carries a fixed four-cell template enforced by templateLock, so a row can never drift out of alignment with the header. The pill bar is built entirely on the front end from each row's category — with JavaScript disabled the table simply shows every row, which is already the correct "Full Spectrum" state
-
-= 2.31.0 =
-* Added: A "Light band" style for Stat Rail — the same band on a white ground with Contrast type, Border Light hairlines above and below the stats, and a Secondary caption, for themes whose pages are white and near-white throughout. The dark band is unchanged and remains the default
-* Added: Per-stat colour for Stat Item's number and caption, set independently from the theme palette or a custom value. Palette choices save as a preset class, so they follow the theme and survive a style variation swapping the palette underneath them
-* Added: A heading level for Stat Item's number — H1-H6 where the rail is a real section of the page. It stays plain text by default, so a decorative band does not put three big figures in the document outline and the screen reader heading list
-* Changed: Stat Rail's colours route through custom properties declared once on the block, so a style variation is a palette swap rather than a second copy of the layout. The rendered dark band is identical to 2.30.0, and existing Stat Item content serializes byte-identically and needs no deprecation
-
-= 2.30.0 =
-* Added: Load Waterfall's panel length is now editable — a "Rows" control sets how many stages the waterfall lists, from 1 to 12, with six more hand-authored rows continuing the original cascade so a longer panel still reads as designed rather than generated
-* Fixed: Load Waterfall silently ignored any rowLabels length other than six — a shorter array left trailing rows with empty labels, a longer one dropped the surplus. The row count now follows the labels; existing content saves byte-identically and needs no deprecation
-
-= 2.29.0 =
-* Added: Split Section — a layout host pairing a centred eyebrow/heading/lead with two panes, media on one side and content on the other, stacking to one column at 860px. Media width is adjustable 30-70% and the panes can be swapped; the media always leads once stacked. An optional "Reveal on scroll" toggle brings the panes in from opposite sides as the section enters the viewport, and respects reduced-motion. A "how it works" section is now a composition of blocks the library already ships, rather than a block of its own
-* Added: A "Numbered steps" style for Service Detail Cards — circular badge numerals in place of the default's large italic figures, tinted from the active palette's Primary so they hold up under dark style variations. The block's existing look is unchanged and is now the explicit "Default" style
-* Fixed: Spine Section was missing from Settings → Aludra, so it could not be toggled there and did not appear in the block list, despite the plugin's own defaults enabling it
-
-= 2.28.1 =
-* Fixed: Icons bound with aludra/icon rendered as a full-size placeholder in the editor. The binding was registered in PHP only, which resolves URLs on the front end but leaves the editor unable to resolve them, so pattern markup (an empty img plus a binding) fell back to core/image's placeholder — which is not an img, so the 14px cap never applied and it inflated its container, most visibly the hero eyebrow pill. The source is now registered editor-side too
-* Fixed: Hero Banner's editor styles forced a dark preview and near-white text onto the Canvas style, leaving the eyebrow, lead and inner paragraphs unreadable while editing. The dark preview is now scoped to the default style
-* Changed: Trimmed this changelog to the seven most recent releases — at 56 entries it exceeded the 5000 characters WordPress.org supports and was being truncated on parse
-
-= 2.28.0 =
-* Added: A "Canvas" style variation for Hero Banner — a light, centred counterpart to the block's dark default, on a near-white surface ruled with a faint grid. Suits search-led heroes where a headline and an input sit centre stage rather than a left-aligned block of copy. Colours derive from the active theme's palette, and the block's dark default is unchanged
-
-= 2.27.1 =
-* Fixed: Hero Banner, Contact Section, Pricing Tiers and Testimonial Grid painted Aviendha's rose (rgba(159, 18, 57, ...)) directly in eyebrow badges, icon chips, focus rings, glows and hover shadows instead of deriving from the theme's own Primary colour. Invisible on Aviendha (Primary is that same rose) but visibly wrong on any other palette. All 19 occurrences now use color-mix() against the Primary custom property, reproducing the same result on Aviendha and the correct one everywhere else
-
-= 2.27.0 =
-* Fixed: CTA Banner, Review Profiles and the Pricing Tiers "most popular" flag drew white text on a Primary background. Under a dark style variation Primary is a light colour, so that text fell to 2.7:1 — well below the 4.5:1 WCAG 2.1 AA asks for. They now use Base, which inverts with the palette and reads in both light and dark schemes (6.1-6.3:1 on the dark variations tested)
-* Fixed: the Pricing Tiers spec-sheet surface and the card background Spine Section publishes to its children were hardcoded white. Text on them inherits the page text colour, which under a dark variation is near-white — white on white. Both now use Base
-* Changed: on light themes where Base and White differ the change is imperceptible (on Aviendha, 8.0:1 becomes 7.5:1); themes whose Base is pure white are unaffected
-
-= 2.26.1 =
-* Changed: README logo replaced with the Lucide flower icon (assets/logos/g-flower.svg) from Blade UI Kit (Blade Icons, MIT License), drawn in a single flat ember orange (#D9480F) instead of the sun mark's gradient — a mid-tone that clears 4:1 contrast on both a white and a dark backdrop, so the mark reads in either colour scheme. The Forkawesome sun mark and the "nightflower" colourways remain in assets/logos/ as alternates. Documentation only — no change to any block
-
 Older entries are trimmed to keep this section within the 5000-character
 limit WordPress.org enforces. The complete history is in CHANGELOG.md:
 https://github.com/imagewize/aludra/blob/main/CHANGELOG.md

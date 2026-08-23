@@ -50,7 +50,23 @@ This plugin was created to align with WordPress.org Theme Review requirements, w
 - **Testimonial Grid Block** (`aludra/testimonial-grid`) - Customer testimonial grid with metrics, using Slick Carousel on larger sets
 - **Trust Bar Block** (`aludra/trust-bar`) - Inline bar of trust-signal items that wraps on mobile
 
-Also included: four full **page patterns** that assemble these blocks into ready-made layouts, all available when creating a new page — a **homepage** (`patterns/page-homepage.php`, agency/service-business), a **service page** (`patterns/page-service.php`, hero + trust bar + capabilities + pricing + FAQ + CTA), an **about page** (`patterns/page-about.php`, hero + trust bar + studio story + capabilities + client types + reviews + CTA), and a **contact page** (`patterns/page-contact.php`, contact details + Contact Form 7 card).
+## Patterns
+
+Blocks are the raw components; **patterns** are what you actually build a page from. Both appear in the editor's Patterns tab as live previews of the real blocks.
+
+**Section patterns** (`patterns/section-*.php`) — the single bands a page is made of, each pre-filled with plausible copy, the right style variation, and its layout host already in place. Grouped into the same categories as the blocks:
+
+| Category | Sections |
+| --- | --- |
+| Heroes | Split Hero, Hero Banner |
+| Proof | Stat Rail, Trust Bar, Client Reviews |
+| Features & Services | Capability Cards, Services Grid, Feature List |
+| Layout | About, Client Carousel |
+| Convert | Pricing Tiers, FAQ, CTA Banner, Contact |
+
+**Page patterns** (`patterns/page-*.php`) — four full layouts assembled from those sections, offered when you create a new page: a **homepage** (agency/service-business), a **service page** (hero + trust bar + capabilities + pricing + FAQ + CTA), an **about page** (hero + trust bar + studio story + capabilities + client types + reviews + CTA), and a **contact page** (contact details + Contact Form 7 card).
+
+**Carousel patterns** — five pre-configured carousel setups (hero, testimonials, product gallery, portfolio, team), plus eight **mega menu patterns** for building menu template parts.
 
 ## Requirements
 

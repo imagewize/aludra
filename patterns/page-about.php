@@ -2,7 +2,7 @@
 /**
  * Title: About Page
  * Slug: aludra/page-about
- * Categories: aludra
+ * Categories: aludra-pages
  * Block Types: core/post-content
  * Description: A full about page — hero with dual CTAs, trust bar, studio story, capability cards, the two client types we work with, client quotes, and a closing CTA band.
  */

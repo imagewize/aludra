@@ -1,10 +1,9 @@
 <?php
 /**
- * Title: Contact Page
- * Slug: aludra/page-contact
- * Categories: aludra-pages
- * Block Types: core/post-content
- * Description: A contact page — dark contact section with an intro, contact details with icons, an availability badge, and a Contact Form 7 form card.
+ * Title: Section: Contact
+ * Slug: aludra/section-contact
+ * Categories: aludra-convert
+ * Description: A contact section with an intro, contact details with icons, an availability badge and a Contact Form 7 card.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

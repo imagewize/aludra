@@ -9,6 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.35.0] - 2026-08-23
 
+### Added
+- **Fourteen section patterns** (`patterns/section-*.php`) — the single bands a
+  page is built from, each pre-filled with plausible copy, the right style
+  variation, and the surrounding layout host already in place: split hero, hero
+  banner, stat rail, trust bar, client reviews, capability cards, services grid,
+  feature list, about, client carousel, pricing tiers, FAQ, CTA banner, and
+  contact. Until now the smallest thing a user could pick up was an empty block;
+  the unit they actually shop for is a finished section. Every one is extracted
+  verbatim from the markup already shipping in the four page patterns, so they
+  round-trip through the editor unchanged.
+- Section patterns are grouped into pattern categories mirroring the block
+  categories in this same release — Heroes, Proof, Features & Services, Layout, and
+  Convert — so a section sits under the same heading as the block it is built
+  from. The inserter's Patterns tab renders each as a live preview of the real
+  blocks, which is what makes a section browsable rather than merely listed.
+
 ### Changed
 - **The single "Aludra" block category is split into six.** At thirty blocks one
   plugin-owned category had become its own haystack — the inserter listed every
@@ -25,6 +41,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - No block markup, styles, or attributes changed, so no block `version` is
   bumped and existing content is untouched — a category lives in the editor's
   block registry and is not a cache-busted asset.
+- The `aludra` pattern category held carousel demos and whole page layouts in
+  one bucket. It is split into **Aludra: Full Pages** (the four page patterns)
+  and **Aludra: Carousels** (the five pre-configured carousel setups).
+- Page and section patterns are now registered by one loader that reads
+  `Categories` and `Block Types` from each file's own header, rather than having
+  them hardcoded per loader. A new pattern file lands in the right place without
+  touching `aludra.php`.
+- Only page patterns declare `Block Types: core/post-content`. Section patterns
+  deliberately declare none — a `blockTypes` entry would hijack the Site
+  Editor's "choose a pattern" picker for a new page and bury the four real page
+  layouts among fourteen fragments.
 
 ## [2.34.0] - 2026-08-22
 
