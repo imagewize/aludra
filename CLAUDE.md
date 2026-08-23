@@ -299,6 +299,29 @@ carry `docs/` and `designs/` entries as a guard, so a stray file never reaches a
 
 ## Pattern Development Guidelines
 
+### The three kinds of pattern file
+
+`patterns/` holds three families, all registered by `aludra.php` from their own
+file headers — `Title`, `Slug`, `Categories`, `Description`, and optionally
+`Block Types`. A new file needs no change to `aludra.php` to land in the right
+place; get the header right and the loader does the rest.
+
+- **`section-*.php`** — one page band each (hero, stat rail, pricing, FAQ …),
+  pre-filled with plausible copy and the right style variation. `Categories` is
+  one of `aludra-hero`, `aludra-proof`, `aludra-features`, `aludra-layout`,
+  `aludra-convert`, mirroring the block categories. **Never give a section
+  pattern a `Block Types` header** — `core/post-content` would put it in the
+  Site Editor's "choose a pattern" picker for a new page, which is reserved for
+  whole-page layouts.
+- **`page-*.php`** — a complete page. `Categories: aludra-pages` plus
+  `Block Types: core/post-content`.
+- **`mega-menu-*.php`** — menu template-part content, registered by a separate
+  loader against `core/template-part/menu`.
+
+New section patterns are cheapest to author by extracting a top-level block
+from an existing page pattern verbatim — that markup has already passed the
+validator, so it round-trips unchanged.
+
 ### Validate Patterns Before Opening a PR (Required)
 
 **Any PR that touches `patterns/` must pass the pattern validator.** It round-trips

@@ -4,7 +4,7 @@
     "name": "aludra/pricing-tiers",
     "version": "1.0.1",
     "title": "Pricing Tiers",
-    "category": "aludra",
+    "category": "aludra-convert",
     "icon": "money-alt",
     "description": "Display pricing options in a multi-column comparison layout (default: 3 columns) with featured tier highlighting — as separate cards (default) or as one bordered spec sheet split by internal hairlines.",
     "keywords": ["pricing", "tiers", "plans", "comparison", "table"],

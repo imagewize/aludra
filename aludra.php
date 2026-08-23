@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
- * Description: Shared custom block library for Imagewize block themes (Elayne, Aviendha) — Mega Menu, Carousel, FAQ Tabs, and content blocks (Feature Cards, Pricing Tiers, Testimonial Grid, Contact Section, Hero Banner, and more). Built with React, block.json, and @wordpress/scripts.
- * Version: 2.34.0
+ * Description: Blocks and patterns for building site pages — heroes, stat rails, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands. Built alongside the Aviendha starter theme; works with any theme.
+ * Version: 2.35.0
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.34.0' );
+define( 'ALUDRA_VERSION', '2.35.0' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -376,11 +376,18 @@ function aludra_blocks_have_slick_carousel( array $blocks ) {
 }
 
 /**
- * Register a dedicated "Aludra" block category.
+ * Register the Aludra block categories.
  *
- * All aludra/* blocks previously shared the built-in "design"/"widgets"
- * categories alongside core blocks, which buried them in the inserter.
- * Grouping them under one plugin-owned category makes them easy to find.
+ * All aludra/* blocks originally shared the built-in "design"/"widgets"
+ * categories alongside core blocks, then a single plugin-owned "aludra"
+ * category. At thirty blocks that one category is its own haystack, so they
+ * are split into six sections instead.
+ *
+ * The order below is the order the inserter renders them in, and it is
+ * deliberately the order a page gets built in — hero, proof, what you do,
+ * layout scaffolding, the ask — so the panel reads as a sequence rather than
+ * an alphabetised inventory. Navigation sits last because those two blocks
+ * belong to a header, not to a page.
  */
 add_filter(
 	'block_categories_all',
@@ -388,9 +395,34 @@ add_filter(
 		return array_merge(
 			array(
 				array(
-					'slug'  => 'aludra',
-					'title' => __( 'Aludra', 'aludra' ),
+					'slug'  => 'aludra-hero',
+					'title' => __( 'Aludra: Heroes', 'aludra' ),
+					'icon'  => 'cover-image',
+				),
+				array(
+					'slug'  => 'aludra-proof',
+					'title' => __( 'Aludra: Proof', 'aludra' ),
+					'icon'  => 'chart-bar',
+				),
+				array(
+					'slug'  => 'aludra-features',
+					'title' => __( 'Aludra: Features & Services', 'aludra' ),
+					'icon'  => 'screenoptions',
+				),
+				array(
+					'slug'  => 'aludra-layout',
+					'title' => __( 'Aludra: Layout', 'aludra' ),
 					'icon'  => 'layout',
+				),
+				array(
+					'slug'  => 'aludra-convert',
+					'title' => __( 'Aludra: Convert', 'aludra' ),
+					'icon'  => 'megaphone',
+				),
+				array(
+					'slug'  => 'aludra-navigation',
+					'title' => __( 'Aludra: Navigation', 'aludra' ),
+					'icon'  => 'menu',
 				),
 			),
 			$categories
@@ -467,51 +499,92 @@ add_action(
 );
 
 /**
- * Register full-page patterns (patterns/page-*.php).
+ * Register file-based patterns matching a glob, honouring their own headers.
  *
- * These appear in the Site Editor's "choose a pattern" picker when creating a
- * new page (blockTypes: core/post-content), in addition to the inserter.
+ * Shared by the full-page patterns (patterns/page-*.php) and the section
+ * patterns (patterns/section-*.php). Both read Categories and Block Types out
+ * of the file's own header rather than having them hardcoded per loader, so a
+ * new pattern file needs no change here to land in the right place.
+ *
+ * @param string $pattern_glob Glob relative to the patterns directory.
+ * @return void
+ */
+function aludra_register_pattern_files( $pattern_glob ) {
+	if ( ! function_exists( 'register_block_pattern' ) ) {
+		return;
+	}
+
+	$patterns_dir = ALUDRA_PLUGIN_DIR . 'patterns';
+
+	if ( ! is_dir( $patterns_dir ) ) {
+		return;
+	}
+
+	$pattern_files = glob( $patterns_dir . '/' . $pattern_glob );
+
+	if ( ! $pattern_files ) {
+		return;
+	}
+
+	foreach ( $pattern_files as $pattern_file ) {
+		$headers = get_file_data(
+			$pattern_file,
+			array(
+				'title'       => 'Title',
+				'slug'        => 'Slug',
+				'description' => 'Description',
+				'categories'  => 'Categories',
+				'block_types' => 'Block Types',
+			)
+		);
+
+		ob_start();
+		include $pattern_file;
+		$content = ob_get_clean();
+
+		$slug = ! empty( $headers['slug'] )
+			? $headers['slug']
+			: 'aludra/' . basename( $pattern_file, '.php' );
+
+		$args = array(
+			'title'       => ! empty( $headers['title'] ) ? $headers['title'] : basename( $pattern_file, '.php' ),
+			'description' => ! empty( $headers['description'] ) ? $headers['description'] : '',
+			'content'     => $content,
+			'categories'  => ! empty( $headers['categories'] )
+				? array_map( 'trim', explode( ',', $headers['categories'] ) )
+				: array( 'aludra-pages' ),
+		);
+
+		/*
+		 * Only the page patterns declare Block Types (core/post-content), which
+		 * is what puts them in the Site Editor's "choose a pattern" picker for
+		 * a new page. Section patterns must NOT declare it — a blockTypes entry
+		 * would hijack that same picker and bury the four real page layouts
+		 * among fourteen fragments.
+		 */
+		if ( ! empty( $headers['block_types'] ) ) {
+			$args['blockTypes'] = array_map( 'trim', explode( ',', $headers['block_types'] ) );
+		}
+
+		register_block_pattern( $slug, $args );
+	}
+}
+
+/**
+ * Register full-page patterns (patterns/page-*.php) and section patterns
+ * (patterns/section-*.php).
+ *
+ * Page patterns assemble a whole page and appear in the Site Editor's "choose
+ * a pattern" picker when creating one. Section patterns are the single bands a
+ * page is built from — a hero, a stat rail, a pricing table — each pre-filled
+ * with plausible copy and the right style variation, so the unit a user picks
+ * up from the inserter is a finished section rather than an empty block.
  */
 add_action(
 	'init',
 	function () {
-		if ( function_exists( 'register_block_pattern' ) ) {
-			$patterns_dir = ALUDRA_PLUGIN_DIR . 'patterns';
-
-			if ( is_dir( $patterns_dir ) ) {
-				$page_pattern_files = glob( $patterns_dir . '/page-*.php' );
-
-				foreach ( $page_pattern_files as $pattern_file ) {
-					$headers = get_file_data(
-						$pattern_file,
-						array(
-							'title'       => 'Title',
-							'slug'        => 'Slug',
-							'description' => 'Description',
-						)
-					);
-
-					ob_start();
-					include $pattern_file;
-					$content = ob_get_clean();
-
-					$slug = ! empty( $headers['slug'] )
-						? $headers['slug']
-						: 'aludra/' . basename( $pattern_file, '.php' );
-
-					register_block_pattern(
-						$slug,
-						array(
-							'title'       => ! empty( $headers['title'] ) ? $headers['title'] : basename( $pattern_file, '.php' ),
-							'description' => ! empty( $headers['description'] ) ? $headers['description'] : '',
-							'content'     => $content,
-							'categories'  => array( 'aludra' ),
-							'blockTypes'  => array( 'core/post-content' ),
-						)
-					);
-				}
-			}
-		}
+		aludra_register_pattern_files( 'page-*.php' );
+		aludra_register_pattern_files( 'section-*.php' );
 	},
 	10
 );
@@ -522,25 +595,60 @@ add_action(
 add_action(
 	'init',
 	function () {
-		// Register pattern categories.
+		/*
+		 * Register pattern categories.
+		 *
+		 * These mirror the block categories registered above, so a section a
+		 * user finds in the inserter's Patterns tab sits under the same heading
+		 * as the block it is built from. The single "aludra" category that
+		 * previously held carousel demos and whole page layouts together is
+		 * split into "Full Pages" and "Carousels".
+		 */
 		if ( function_exists( 'register_block_pattern_category' ) ) {
-			// Aludra category for carousel patterns.
-			register_block_pattern_category(
-				'aludra',
-				array(
-					'label'       => __( 'Aludra', 'aludra' ),
-					'description' => __( 'Pre-configured patterns for Aludra carousel.', 'aludra' ),
-				)
+			$pattern_categories = array(
+				'aludra-pages'    => array(
+					__( 'Aludra: Full Pages', 'aludra' ),
+					__( 'Complete page layouts assembled from Aludra sections.', 'aludra' ),
+				),
+				'aludra-hero'     => array(
+					__( 'Aludra: Heroes', 'aludra' ),
+					__( 'Opening sections for a page.', 'aludra' ),
+				),
+				'aludra-proof'    => array(
+					__( 'Aludra: Proof', 'aludra' ),
+					__( 'Stats, trust signals, reviews and comparisons.', 'aludra' ),
+				),
+				'aludra-features' => array(
+					__( 'Aludra: Features & Services', 'aludra' ),
+					__( 'Sections describing what you do.', 'aludra' ),
+				),
+				'aludra-layout'   => array(
+					__( 'Aludra: Layout', 'aludra' ),
+					__( 'Structural sections and content bands.', 'aludra' ),
+				),
+				'aludra-convert'  => array(
+					__( 'Aludra: Convert', 'aludra' ),
+					__( 'Pricing, FAQ, contact and call-to-action sections.', 'aludra' ),
+				),
+				'aludra-carousel' => array(
+					__( 'Aludra: Carousels', 'aludra' ),
+					__( 'Pre-configured Aludra carousel setups.', 'aludra' ),
+				),
+				'menus'           => array(
+					__( 'Menus', 'aludra' ),
+					__( 'Mega menu patterns for navigation template parts.', 'aludra' ),
+				),
 			);
 
-			// Menus category for mega menu patterns.
-			register_block_pattern_category(
-				'menus',
-				array(
-					'label'       => __( 'Menus', 'aludra' ),
-					'description' => __( 'Mega menu patterns for navigation template parts.', 'aludra' ),
-				)
-			);
+			foreach ( $pattern_categories as $category_slug => $category ) {
+				register_block_pattern_category(
+					$category_slug,
+					array(
+						'label'       => $category[0],
+						'description' => $category[1],
+					)
+				);
+			}
 		}
 
 		// Note: Mega menu patterns (mega-menu-*.php) are registered separately with 'menus' category.
@@ -553,7 +661,7 @@ add_action(
 				array(
 					'title'       => __( 'Hero Carousel', 'aludra' ),
 					'description' => __( 'Full-width hero carousel with autoplay and fade transition.', 'aludra' ),
-					'categories'  => array( 'aludra' ),
+					'categories'  => array( 'aludra-carousel' ),
 					'content'     => '<!-- wp:aludra/carousel {"slidesToShow":1,"slidesToScroll":1,"infinite":true,"autoplay":true,"autoplaySpeed":5000,"speed":1000,"arrows":true,"dots":true} -->
 <div class="wp-block-aludra-carousel slick-slider cb-single-slide cb-padding cb-arrow-style-arrow cb-arrow-bg-none" data-slick="{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;arrows&quot;:true,&quot;dots&quot;:true,&quot;infinite&quot;:true,&quot;autoplay&quot;:true,&quot;autoplaySpeed&quot;:5000,&quot;speed&quot;:1000,&quot;rtl&quot;:false,&quot;adaptiveHeight&quot;:false,&quot;centerMode&quot;:false,&quot;centerPadding&quot;:&quot;50px&quot;,&quot;variableWidth&quot;:false,&quot;lazyLoad&quot;:&quot;ondemand&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:769,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;centerMode&quot;:false,&quot;variableWidth&quot;:false}}]}" data-dots-top="0px" data-dots-bottom="0px" data-arrow-color="#000000" data-arrow-background="transparent" data-arrow-hover-color="#000000" data-arrow-hover-background="transparent" data-arrow-style="arrow" data-arrow-background-style="none" data-arrow-size="40"><!-- wp:aludra/slide -->
 <div class="wp-block-aludra-slide"><!-- wp:cover {"url":"https://images.unsplash.com/photo-1557683316-973673baf926","dimRatio":50,"minHeight":500,"minHeightUnit":"px","contentPosition":"center center"} -->
@@ -600,7 +708,7 @@ add_action(
 				array(
 					'title'       => __( 'Testimonial Carousel', 'aludra' ),
 					'description' => __( 'Center mode carousel with 3 slides visible, perfect for testimonials.', 'aludra' ),
-					'categories'  => array( 'aludra' ),
+					'categories'  => array( 'aludra-carousel' ),
 					'content'     => '<!-- wp:aludra/carousel {"slidesToShow":1,"slidesToScroll":1,"infinite":true,"centerMode":true,"centerPadding":"100px","arrows":true,"dots":true} -->
 <div class="wp-block-aludra-carousel slick-slider cb-single-slide cb-padding cb-center-mode cb-arrow-style-arrow cb-arrow-bg-none" data-slick="{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;arrows&quot;:true,&quot;dots&quot;:true,&quot;infinite&quot;:true,&quot;autoplay&quot;:false,&quot;autoplaySpeed&quot;:3000,&quot;speed&quot;:300,&quot;rtl&quot;:false,&quot;adaptiveHeight&quot;:false,&quot;centerMode&quot;:true,&quot;centerPadding&quot;:&quot;100px&quot;,&quot;variableWidth&quot;:false,&quot;lazyLoad&quot;:&quot;ondemand&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:769,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;centerMode&quot;:false,&quot;variableWidth&quot;:false}}]}" data-dots-top="0px" data-dots-bottom="0px" data-arrow-color="#000000" data-arrow-background="transparent" data-arrow-hover-color="#000000" data-arrow-hover-background="transparent" data-arrow-style="arrow" data-arrow-background-style="none" data-arrow-size="40"><!-- wp:aludra/slide -->
 <div class="wp-block-aludra-slide"><!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"8px"}},"backgroundColor":"base"} -->
@@ -647,7 +755,7 @@ add_action(
 				array(
 					'title'       => __( 'Product Gallery with Thumbnails', 'aludra' ),
 					'description' => __( 'Image carousel with thumbnail navigation below, perfect for product galleries.', 'aludra' ),
-					'categories'  => array( 'aludra' ),
+					'categories'  => array( 'aludra-carousel' ),
 					'content'     => '<!-- wp:aludra/carousel {"slidesToShow":1,"slidesToScroll":1,"infinite":true,"enableThumbnails":true,"thumbnailsToShow":4,"thumbnailPosition":"below","arrows":true,"dots":false} -->
 <div class="wp-block-aludra-carousel slick-slider cb-single-slide cb-padding cb-thumbnails cb-arrow-style-arrow cb-arrow-bg-none" data-slick="{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;arrows&quot;:true,&quot;dots&quot;:false,&quot;infinite&quot;:true,&quot;autoplay&quot;:false,&quot;autoplaySpeed&quot;:3000,&quot;speed&quot;:300,&quot;rtl&quot;:false,&quot;adaptiveHeight&quot;:false,&quot;centerMode&quot;:false,&quot;centerPadding&quot;:&quot;50px&quot;,&quot;variableWidth&quot;:false,&quot;lazyLoad&quot;:&quot;ondemand&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:769,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;centerMode&quot;:false,&quot;variableWidth&quot;:false}}]}" data-dots-top="0px" data-dots-bottom="0px" data-arrow-color="#000000" data-arrow-background="transparent" data-arrow-hover-color="#000000" data-arrow-hover-background="transparent" data-thumbnails="true" data-thumbnails-to-show="4" data-thumbnail-position="below" data-thumbnail-spacing="30px" data-arrow-style="arrow" data-arrow-background-style="none" data-arrow-size="40"><!-- wp:aludra/slide -->
 <div class="wp-block-aludra-slide"><!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
@@ -682,7 +790,7 @@ add_action(
 				array(
 					'title'       => __( 'Portfolio Showcase', 'aludra' ),
 					'description' => __( 'Variable width carousel for displaying portfolio items with different sizes.', 'aludra' ),
-					'categories'  => array( 'aludra' ),
+					'categories'  => array( 'aludra-carousel' ),
 					'content'     => '<!-- wp:aludra/carousel {"slidesToShow":3,"slidesToScroll":1,"infinite":true,"variableWidth":true,"arrows":true,"dots":true} -->
 <div class="wp-block-aludra-carousel slick-slider cb-padding cb-variable-width cb-arrow-style-arrow cb-arrow-bg-none" data-slick="{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:1,&quot;arrows&quot;:true,&quot;dots&quot;:true,&quot;infinite&quot;:true,&quot;autoplay&quot;:false,&quot;autoplaySpeed&quot;:3000,&quot;speed&quot;:300,&quot;rtl&quot;:false,&quot;adaptiveHeight&quot;:false,&quot;centerMode&quot;:false,&quot;centerPadding&quot;:&quot;50px&quot;,&quot;variableWidth&quot;:true,&quot;lazyLoad&quot;:&quot;ondemand&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:769,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;centerMode&quot;:false,&quot;variableWidth&quot;:false}}]}" data-dots-top="0px" data-dots-bottom="0px" data-arrow-color="#000000" data-arrow-background="transparent" data-arrow-hover-color="#000000" data-arrow-hover-background="transparent" data-arrow-style="arrow" data-arrow-background-style="none" data-arrow-size="40"><!-- wp:aludra/slide -->
 <div class="wp-block-aludra-slide"><!-- wp:image {"width":"300px","sizeSlug":"large"} -->
@@ -723,7 +831,7 @@ add_action(
 				array(
 					'title'       => __( 'Team Members Carousel', 'aludra' ),
 					'description' => __( 'Multi-slide carousel with adaptive height for team member profiles.', 'aludra' ),
-					'categories'  => array( 'aludra' ),
+					'categories'  => array( 'aludra-carousel' ),
 					'content'     => '<!-- wp:aludra/carousel {"slidesToShow":3,"slidesToScroll":1,"infinite":true,"adaptiveHeight":true,"arrows":true,"dots":true,"responsiveSlides":1} -->
 <div class="wp-block-aludra-carousel slick-slider cb-padding cb-arrow-style-arrow cb-arrow-bg-none" data-slick="{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:1,&quot;arrows&quot;:true,&quot;dots&quot;:true,&quot;infinite&quot;:true,&quot;autoplay&quot;:false,&quot;autoplaySpeed&quot;:3000,&quot;speed&quot;:300,&quot;rtl&quot;:false,&quot;adaptiveHeight&quot;:true,&quot;centerMode&quot;:false,&quot;centerPadding&quot;:&quot;50px&quot;,&quot;variableWidth&quot;:false,&quot;lazyLoad&quot;:&quot;ondemand&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:769,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;centerMode&quot;:false,&quot;variableWidth&quot;:false}}]}" data-dots-top="0px" data-dots-bottom="0px" data-arrow-color="#000000" data-arrow-background="transparent" data-arrow-hover-color="#000000" data-arrow-hover-background="transparent" data-arrow-style="arrow" data-arrow-background-style="none" data-arrow-size="40"><!-- wp:aludra/slide -->
 <div class="wp-block-aludra-slide"><!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->

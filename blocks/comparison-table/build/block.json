@@ -4,7 +4,7 @@
   "name": "aludra/comparison-table",
   "version": "1.0.0",
   "title": "Comparison Table",
-  "category": "aludra",
+  "category": "aludra-proof",
   "icon": "editor-table",
   "description": "A filterable spec-sheet comparison: a centred header, a row of pills that filter the table by category, and a bordered table with your own column highlighted against up to three competitors.",
   "keywords": [

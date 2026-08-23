@@ -4,7 +4,7 @@
   "name": "aludra/service-blocks",
   "version": "1.1.0",
   "title": "Service Detail Cards",
-  "category": "aludra",
+  "category": "aludra-features",
   "icon": "list-view",
   "description": "Stacked, numbered service cards with a heading, description, and checklist — colours adapt to the active theme's palette.",
   "keywords": [

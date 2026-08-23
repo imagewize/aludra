@@ -4,7 +4,7 @@
 	"name": "aludra/comparison-row",
 	"version": "1.0.0",
 	"title": "Comparison Row",
-	"category": "aludra",
+	"category": "aludra-proof",
 	"parent": [ "aludra/comparison-table" ],
 	"icon": "list-view",
 	"description": "One structural parameter in a comparison table — a label plus four fixed answer cells (yours, then three competitors). Tag it with a category to control which filter pill reveals it.",

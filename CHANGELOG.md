@@ -7,6 +7,78 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.35.0] - 2026-08-23
+
+### Added
+- **Fourteen section patterns** (`patterns/section-*.php`) — the single bands a
+  page is built from, each pre-filled with plausible copy, the right style
+  variation, and the surrounding layout host already in place: split hero, hero
+  banner, stat rail, trust bar, client reviews, capability cards, services grid,
+  feature list, about, client carousel, pricing tiers, FAQ, CTA banner, and
+  contact. Until now the smallest thing a user could pick up was an empty block;
+  the unit they actually shop for is a finished section. Every one is extracted
+  verbatim from the markup already shipping in the four page patterns, so they
+  round-trip through the editor unchanged.
+- Section patterns are grouped into pattern categories mirroring the block
+  categories in this same release — Heroes, Proof, Features & Services, Layout, and
+  Convert — so a section sits under the same heading as the block it is built
+  from. The inserter's Patterns tab renders each as a live preview of the real
+  blocks, which is what makes a section browsable rather than merely listed.
+- **Four more page patterns** — a **landing page** (split hero, stat rail,
+  capabilities, pricing, reviews, FAQ, CTA), a **services overview page** (hero,
+  trust bar, intro, services grid, capabilities, FAQ, CTA), a **pricing page**
+  (hero, fixed-price tiers, what every price includes, FAQ, CTA), and a **team
+  page** (hero, trust bar, studio story, the people, how we work, CTA). Eight
+  full pages now cover the layouts a service business actually needs. Each is
+  assembled from the section patterns above rather than authored fresh, so the
+  markup is the same markup the editor has already round-tripped.
+- Pattern coverage for Service Intro, which had no pattern of any kind.
+
+### Changed
+- **The single "Aludra" block category is split into six.** At thirty blocks one
+  plugin-owned category had become its own haystack — the inserter listed every
+  block in one undifferentiated panel. Blocks now sit under Aludra: Heroes,
+  Proof, Features & Services, Layout, Convert, and Navigation. The categories
+  are registered in the order a page gets built rather than alphabetically, so
+  the inserter panel reads as a sequence: hero, proof, what you do, layout
+  scaffolding, the ask — with Navigation last, since those two blocks belong to
+  a header rather than to a page.
+- Settings → Aludra now groups its block cards by the same six categories. It
+  previously carried a second, unrelated taxonomy (Carousel / Interactive /
+  Marketing & Content) that put 21 of the 30 blocks in one bucket and matched
+  nothing the user saw in the editor.
+- No block markup, styles, or attributes changed, so no block `version` is
+  bumped and existing content is untouched — a category lives in the editor's
+  block registry and is not a cache-busted asset.
+- The `aludra` pattern category held carousel demos and whole page layouts in
+  one bucket. It is split into **Aludra: Full Pages** (the four page patterns)
+  and **Aludra: Carousels** (the five pre-configured carousel setups).
+- Page and section patterns are now registered by one loader that reads
+  `Categories` and `Block Types` from each file's own header, rather than having
+  them hardcoded per loader. A new pattern file lands in the right place without
+  touching `aludra.php`.
+- Only page patterns declare `Block Types: core/post-content`. Section patterns
+  deliberately declare none — a `blockTypes` entry would hijack the Site
+  Editor's "choose a pattern" picker for a new page and bury the four real page
+  layouts among fourteen fragments.
+- **README.md, readme.txt and the plugin header now describe what Aludra is.**
+  All three called it "a shared custom block library", which was accurate when
+  it held three blocks and no patterns. They now lead with the division of
+  labour instead: a theme gives you the palette, the type, the header and the
+  footer, and Aludra gives you everything between them. Deliberately silent on
+  what kind of site that is — the same bands build a portfolio, a services site
+  or a plain business presence — and defined as "blocks and patterns" rather
+  than as sections, so blocks that are not page sections still fit the
+  description. The readme's tags change from
+  `blocks, gutenberg, carousel, mega-menu, slider` to
+  `patterns, page-builder, blocks, sections, gutenberg` to match how someone
+  actually searches for this.
+- **Aviendha is named as the companion theme.** The intended pairing — Aviendha
+  for palette, type and templates, Aludra for the sections — appeared nowhere in
+  the README despite being the setup the plugin is built against. It now has its
+  own section, with the `composer require` line for both packages, and the
+  theme-neutrality promise is kept explicit alongside it.
+
 ## [2.34.0] - 2026-08-22
 
 ### Added

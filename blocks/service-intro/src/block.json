@@ -4,7 +4,7 @@
 	"name": "aludra/service-intro",
 	"version": "1.0.0",
 	"title": "Service Intro",
-	"category": "aludra",
+	"category": "aludra-layout",
 	"icon": "text",
 	"description": "Introductory text section for service pages — constrained width, colours adapt to the active theme's palette.",
 	"keywords": ["intro", "text", "paragraphs", "service"],

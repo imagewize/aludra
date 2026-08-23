@@ -2,7 +2,7 @@
 /**
  * Title: Homepage
  * Slug: aludra/page-homepage
- * Categories: aludra
+ * Categories: aludra-pages
  * Block Types: core/post-content
  * Description: A full agency/service-business homepage — split hero, about section, client website carousel, CTA band, pricing tiers, services grid, client reviews, and an FAQ accordion.
  */

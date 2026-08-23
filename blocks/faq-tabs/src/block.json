@@ -4,7 +4,7 @@
 	"name": "aludra/faq-tabs",
 	"version": "1.0.0",
 	"title": "FAQ Tabs",
-	"category": "aludra",
+	"category": "aludra-convert",
 	"icon": "list-view",
 	"description": "FAQ list with vertical tab navigation, a stacked accordion, or native <details> elements that need no JavaScript.",
 	"keywords": ["faq", "tabs", "accordion", "questions", "interactive"],

@@ -2,7 +2,7 @@
 /**
  * Title: Service Page
  * Slug: aludra/page-service
- * Categories: aludra
+ * Categories: aludra-pages
  * Block Types: core/post-content
  * Description: A full service/landing page — hero with dual CTAs, trust bar, capability cards, why-us cards, fixed-price tiers, an FAQ accordion, and a closing CTA band.
  */
