@@ -37,7 +37,7 @@ jobs:
           ls -la dist/aludra/
 
       - name: Run WordPress Plugin Check
-        uses: wordpress/plugin-check-action@v1.1.5
+        uses: wordpress/plugin-check-action@v1.1.9
         with:
           build-dir: './dist/aludra'
           categories: 'plugin_repo'
