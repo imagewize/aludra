@@ -227,7 +227,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 == Changelog ==
 
 = 2.36.1 =
-* Changed: The distributed zip now ships each block's readable source (`blocks/*/src/`) alongside the webpack output in `blocks/*/build/`, as WordPress.org guideline 4 requires for compiled JavaScript and CSS. readme.txt gains a "Building From Source" section documenting the per-block build
+* Changed: The distributed zip now ships each block's readable source (`blocks/*/src/`) and its `package.json` alongside the webpack output in `blocks/*/build/`, as WordPress.org guideline 4 requires for compiled JavaScript and CSS
+* Added: `slick.js`, the uncompressed Slick Carousel 1.8.1 build, ships beside the `slick.min.js` the carousel enqueues, so the one third-party compiled asset has its source in the download too. The vendored files are byte-identical to the official 1.8.1 release apart from one documented line of `slick-theme.css`
+* Changed: A `== Source Code ==` section in readme.txt documents the per-block build and where every compiled file's source lives, grouped with Third-Party Libraries and Credits at the end
 * Changed: Readme tags swapped `gutenberg` for `landing-page` — the directory discourages project names as tags, and the five-tag cap left no room to simply add one
 * Changed: The theme section names Ixian alongside Aviendha
 
@@ -281,6 +283,20 @@ Adds WordPress.org distribution infrastructure. No functional changes to blocks.
 = 2.2.0 =
 Initial public release with three custom blocks optimized for the Aludra theme.
 
+== Source Code ==
+
+This plugin ships no obfuscated or minified-only code.
+
+Every block ships its human-readable source in `blocks/<block>/src/` next to the compiled output the plugin actually loads in `blocks/<block>/build/`, along with the `package.json` carrying its exact scripts and dependency versions. The build is standard `@wordpress/scripts`; each block has isolated dependencies and is built from its own directory:
+
+`cd blocks/<block-name> && npm install && npm run build`
+
+The mega-menu block additionally passes `--experimental-modules` to `wp-scripts`.
+
+The one third-party compiled asset is Slick Carousel, vendored under `blocks/carousel/slick/`. Its uncompressed source (`slick.js`) ships beside the `slick.min.js` the plugin enqueues — see == Third-Party Libraries == below for version, license and the one local modification.
+
+The full development repository is public: https://github.com/imagewize/aludra
+
 == Third-Party Libraries ==
 
 = Slick Carousel =
@@ -290,6 +306,8 @@ Initial public release with three custom blocks optimized for the Aludra theme.
 * Used in: Carousel block
 * Files: blocks/carousel/slick/
 * Purpose: Powers the carousel/slider functionality
+* Source included: `slick.js`, the uncompressed 1.8.1 build, ships beside the `slick.min.js` that is enqueued. `slick.css` is upstream's uncompressed stylesheet
+* Local modification: one line of `slick-theme.css` — the `.slick-loading .slick-list` rule drops upstream's `url('./ajax-loader.gif')` background, as that image is not vendored. Every other file is byte-identical to the official 1.8.1 release
 
 The MIT License is GPL-compatible.
 
@@ -338,16 +356,6 @@ The plugin uses dynamic block discovery. At runtime:
 3. Auto-registers all discovered blocks via `register_block_type()`
 
 This means blocks are auto-discovered - no manual registration needed when adding new blocks.
-
-= Building From Source =
-
-Every block ships both its readable source (`blocks/<block>/src/`) and the compiled output the plugin actually loads (`blocks/<block>/build/`). The build is standard `@wordpress/scripts`; each block has isolated dependencies and is built from its own directory:
-
-`cd blocks/<block-name> && npm install && npm run build`
-
-The mega-menu block additionally passes `--experimental-modules` to `wp-scripts`. Per-block `package.json` files, which carry the exact scripts and dependency versions, are in the GitHub repository below.
-
-The one compiled file with no source in this tree is the vendored Slick Carousel build; see == Third-Party Libraries == above for its upstream location and license.
 
 = GitHub Repository =
 

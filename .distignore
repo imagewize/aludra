@@ -15,8 +15,8 @@ phpcs.xml
 phpcs.xml.dist
 composer.json
 composer.lock
-package.json
-package-lock.json
+/package.json
+/package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
@@ -36,20 +36,22 @@ README.md
 *.sh
 create-pr.sh
 
-# Block tooling. blocks/*/src/* is deliberately NOT excluded: every file under
-# blocks/*/build/ is webpack output, and WordPress.org guideline 4 requires the
-# human-readable source of compiled JS/CSS to ship alongside it. The src trees
-# are ~18k lines / ~1MB, negligible in a zip. The build tooling itself stays
-# out — readme.txt's "Building From Source" section documents the commands.
+# Block tooling. blocks/*/src/* and blocks/*/package.json deliberately DO ship:
+# every file under blocks/*/build/ is webpack output, and WordPress.org
+# guideline 4 requires the human-readable source of compiled JS/CSS to ship
+# alongside it. The src trees are ~18k lines / ~1MB and the package.json files
+# ~120KB, negligible in a 3MB dist; the per-block lockfiles are 14MB, so those
+# stay out.
 #
-# Note the two exclude dialects: create-release.yml uses `zip -x@`, which
-# matches whole paths, while plugin-check.yml (and wp-ops rsync-package-to-site)
-# use rsync's --exclude-from, where a pattern without a slash matches a basename
-# at any depth. That is why the bare `package.json` above also keeps
-# blocks/*/package.json out under rsync. Patterns containing a slash, like the
-# ones below, are path-anchored in both.
+# Why the root entries above are written `/package.json` and not `package.json`:
+# the two release paths use different exclude dialects. create-release.yml runs
+# `zip -x@`, which matches whole paths, but plugin-check.yml and wp-ops
+# rsync-package-to-site run rsync's --exclude-from, where a pattern with no
+# slash matches a *basename at any depth* — so a bare `package.json` silently
+# took all 30 blocks/*/package.json with it. A leading slash anchors to the
+# transfer root in rsync and is still matched by zip, so it is correct in both.
+# Verified empirically against both tools; keep any new root-only entry anchored.
 blocks/*/node_modules/*
-blocks/*/package.json
 blocks/*/package-lock.json
 blocks/*/.gitignore
 blocks/*/.npmrc
