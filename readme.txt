@@ -1,10 +1,10 @@
 === Aludra ===
 Contributors: Rhand
-Tags: patterns, page-builder, blocks, sections, gutenberg
+Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.36.0
+Stable tag: 2.36.1
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -29,7 +29,7 @@ You rarely start from an empty block. You pick a section — a hero that already
 
 = Building a site with Aludra =
 
-That division is the whole idea, and **Aviendha** (https://github.com/imagewize/aviendha) is the theme built to it — a starter FSE theme developed alongside this plugin that ships no blocks or patterns of its own and composes its pages entirely from Aludra sections.
+That division is the whole idea, and **Aviendha** (https://github.com/imagewize/aviendha) is the theme built to it — a starter FSE theme developed alongside this plugin that ships no blocks or patterns of its own and composes its pages entirely from Aludra sections. **Ixian** (https://github.com/imagewize/ixian) is the opinionated sibling: forked from Aviendha, with finished page patterns for service businesses and SaaS, every one of them built from Aludra blocks.
 
 None of that is required. Aludra is theme-neutral — blocks resolve colours from the active theme's palette with fallbacks, so they render correctly on any FSE, block, or classic theme.
 
@@ -226,6 +226,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 
 == Changelog ==
 
+= 2.36.1 =
+* Changed: The distributed zip now ships each block's readable source (`blocks/*/src/`) alongside the webpack output in `blocks/*/build/`, as WordPress.org guideline 4 requires for compiled JavaScript and CSS. readme.txt gains a "Building From Source" section documenting the per-block build
+* Changed: Readme tags swapped `gutenberg` for `landing-page` — the directory discourages project names as tags, and the five-tag cap left no room to simply add one
+* Changed: The theme section names Ixian alongside Aviendha
+
 = 2.36.0 =
 * Added: Seven more section patterns, closing the gap between blocks and patterns — split with steps, service detail cards, before/after icon grids, comparison table, CTA columns, testimonial grid and service intro. Every content block is now reachable as a finished section rather than an empty block you have to work out how to fill. Twenty-one sections, forty-two patterns in total
 * Changed: README, readme.txt and the plugin header now say "page builder" rather than describing the division of labour without naming it, and distinguish Aludra from the proprietary builders the term usually implies — native blocks in the editor you already have, no shortcodes, no proprietary markup, nothing that breaks when you switch it off
@@ -333,6 +338,16 @@ The plugin uses dynamic block discovery. At runtime:
 3. Auto-registers all discovered blocks via `register_block_type()`
 
 This means blocks are auto-discovered - no manual registration needed when adding new blocks.
+
+= Building From Source =
+
+Every block ships both its readable source (`blocks/<block>/src/`) and the compiled output the plugin actually loads (`blocks/<block>/build/`). The build is standard `@wordpress/scripts`; each block has isolated dependencies and is built from its own directory:
+
+`cd blocks/<block-name> && npm install && npm run build`
+
+The mega-menu block additionally passes `--experimental-modules` to `wp-scripts`. Per-block `package.json` files, which carry the exact scripts and dependency versions, are in the GitHub repository below.
+
+The one compiled file with no source in this tree is the vendored Slick Carousel build; see == Third-Party Libraries == above for its upstream location and license.
 
 = GitHub Repository =
 
