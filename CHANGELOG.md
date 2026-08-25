@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.36.1] - 2026-08-25
+
+### Changed
+- **The distributed zip ships block source again.** `.distignore` excluded
+  `blocks/*/src/*`, so the zip carried only webpack output — `blocks/hero-banner/build/index.js`
+  is a single 2,498-byte line. WordPress.org guideline 4 requires the
+  human-readable source of compiled JS/CSS to ship with it or live at a
+  documented public location; the readme's GitHub link arguably qualifies, but
+  reviewers ask often enough that it is not worth the round-trip. The src trees
+  are ~18k lines / ~1MB, negligible next to the 2.9MB dist. Build tooling stays
+  out — `readme.txt` now documents the commands instead, and the exclude file
+  records why the bare `package.json` entry also covers `blocks/*/package.json`
+  (rsync matches slashless patterns by basename at any depth; `zip -x@` does
+  not).
+- **Readme tags:** `gutenberg` → `landing-page`. The directory discourages
+  project names as tags, and the five-tag cap meant swapping rather than adding.
+- **Ixian is named alongside Aviendha** in the theme section — it is the theme
+  whose patterns depend on this plugin most heavily.
+
+### Notes
+- Groundwork for submitting Aludra to the WordPress.org plugin directory. No
+  runtime behaviour changes; blocks, patterns and PHP are untouched.
+
 ## [2.36.0] - 2026-08-23
 
 ### Added
