@@ -15,8 +15,8 @@ phpcs.xml
 phpcs.xml.dist
 composer.json
 composer.lock
-package.json
-package-lock.json
+/package.json
+/package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
@@ -36,10 +36,22 @@ README.md
 *.sh
 create-pr.sh
 
-# Source files (keep only build/)
-blocks/*/src/*
+# Block tooling. blocks/*/src/* and blocks/*/package.json deliberately DO ship:
+# every file under blocks/*/build/ is webpack output, and WordPress.org
+# guideline 4 requires the human-readable source of compiled JS/CSS to ship
+# alongside it. The src trees are ~18k lines / ~1MB and the package.json files
+# ~120KB, negligible in a 3MB dist; the per-block lockfiles are 14MB, so those
+# stay out.
+#
+# Why the root entries above are written `/package.json` and not `package.json`:
+# the two release paths use different exclude dialects. create-release.yml runs
+# `zip -x@`, which matches whole paths, but plugin-check.yml and wp-ops
+# rsync-package-to-site run rsync's --exclude-from, where a pattern with no
+# slash matches a *basename at any depth* — so a bare `package.json` silently
+# took all 30 blocks/*/package.json with it. A leading slash anchors to the
+# transfer root in rsync and is still matched by zip, so it is correct in both.
+# Verified empirically against both tools; keep any new root-only entry anchored.
 blocks/*/node_modules/*
-blocks/*/package.json
 blocks/*/package-lock.json
 blocks/*/.gitignore
 blocks/*/.npmrc
@@ -66,6 +78,9 @@ ziDHI0kh
 
 # Logs
 *.log
+# Pattern validator run logs (@imwz/wp-pattern-sentinel). Gitignored, so a
+# CI zip never sees one, but a working-copy rsync to a test site would.
+sentinel-*.log.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

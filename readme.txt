@@ -1,10 +1,10 @@
 === Aludra ===
 Contributors: Rhand
-Tags: patterns, page-builder, blocks, sections, gutenberg
+Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.36.0
+Stable tag: 2.36.1
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -29,7 +29,7 @@ You rarely start from an empty block. You pick a section — a hero that already
 
 = Building a site with Aludra =
 
-That division is the whole idea, and **Aviendha** (https://github.com/imagewize/aviendha) is the theme built to it — a starter FSE theme developed alongside this plugin that ships no blocks or patterns of its own and composes its pages entirely from Aludra sections.
+That division is the whole idea, and **Aviendha** (https://github.com/imagewize/aviendha) is the theme built to it — a starter FSE theme developed alongside this plugin that ships no blocks or patterns of its own and composes its pages entirely from Aludra sections. **Ixian** (https://github.com/imagewize/ixian) is the opinionated sibling: forked from Aviendha, with finished page patterns for service businesses and SaaS, every one of them built from Aludra blocks.
 
 None of that is required. Aludra is theme-neutral — blocks resolve colours from the active theme's palette with fallbacks, so they render correctly on any FSE, block, or classic theme.
 
@@ -226,6 +226,13 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 
 == Changelog ==
 
+= 2.36.1 =
+* Changed: The distributed zip now ships each block's readable source (`blocks/*/src/`) and its `package.json` alongside the webpack output in `blocks/*/build/`, as WordPress.org guideline 4 requires for compiled JavaScript and CSS
+* Added: `slick.js`, the uncompressed Slick Carousel 1.8.1 build, ships beside the `slick.min.js` the carousel enqueues, so the one third-party compiled asset has its source in the download too. The vendored files are byte-identical to the official 1.8.1 release apart from one documented line of `slick-theme.css`
+* Changed: A `== Source Code ==` section in readme.txt documents the per-block build and where every compiled file's source lives, grouped with Third-Party Libraries and Credits at the end
+* Changed: Readme tags swapped `gutenberg` for `landing-page` — the directory discourages project names as tags, and the five-tag cap left no room to simply add one
+* Changed: The theme section names Ixian alongside Aviendha
+
 = 2.36.0 =
 * Added: Seven more section patterns, closing the gap between blocks and patterns — split with steps, service detail cards, before/after icon grids, comparison table, CTA columns, testimonial grid and service intro. Every content block is now reachable as a finished section rather than an empty block you have to work out how to fill. Twenty-one sections, forty-two patterns in total
 * Changed: README, readme.txt and the plugin header now say "page builder" rather than describing the division of labour without naming it, and distinguish Aludra from the proprietary builders the term usually implies — native blocks in the editor you already have, no shortcodes, no proprietary markup, nothing that breaks when you switch it off
@@ -276,6 +283,20 @@ Adds WordPress.org distribution infrastructure. No functional changes to blocks.
 = 2.2.0 =
 Initial public release with three custom blocks optimized for the Aludra theme.
 
+== Source Code ==
+
+This plugin ships no obfuscated or minified-only code.
+
+Every block ships its human-readable source in `blocks/<block>/src/` next to the compiled output the plugin actually loads in `blocks/<block>/build/`, along with the `package.json` carrying its exact scripts and dependency versions. The build is standard `@wordpress/scripts`; each block has isolated dependencies and is built from its own directory:
+
+`cd blocks/<block-name> && npm install && npm run build`
+
+The mega-menu block additionally passes `--experimental-modules` to `wp-scripts`.
+
+The one third-party compiled asset is Slick Carousel, vendored under `blocks/carousel/slick/`. Its uncompressed source (`slick.js`) ships beside the `slick.min.js` the plugin enqueues — see == Third-Party Libraries == below for version, license and the one local modification.
+
+The full development repository is public: https://github.com/imagewize/aludra
+
 == Third-Party Libraries ==
 
 = Slick Carousel =
@@ -285,6 +306,8 @@ Initial public release with three custom blocks optimized for the Aludra theme.
 * Used in: Carousel block
 * Files: blocks/carousel/slick/
 * Purpose: Powers the carousel/slider functionality
+* Source included: `slick.js`, the uncompressed 1.8.1 build, ships beside the `slick.min.js` that is enqueued. `slick.css` is upstream's uncompressed stylesheet
+* Local modification: one line of `slick-theme.css` — the `.slick-loading .slick-list` rule drops upstream's `url('./ajax-loader.gif')` background, as that image is not vendored. Every other file is byte-identical to the official 1.8.1 release
 
 The MIT License is GPL-compatible.
 

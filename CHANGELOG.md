@@ -7,6 +7,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.36.1] - 2026-08-25
+
+### Changed
+- **The distributed zip ships block source again.** `.distignore` excluded
+  `blocks/*/src/*`, so the zip carried only webpack output — `blocks/hero-banner/build/index.js`
+  is a single 2,498-byte line. WordPress.org guideline 4 requires the
+  human-readable source of compiled JS/CSS to ship with it or live at a
+  documented public location; the readme's GitHub link arguably qualifies, but
+  reviewers ask often enough that it is not worth the round-trip. The src trees
+  are ~18k lines / ~1MB and the per-block `package.json` files ~120KB, both
+  negligible next to the 3MB dist; the 14MB of lockfiles stay out.
+- **Root-only excludes are now anchored** (`/package.json`, not
+  `package.json`). The two release paths use different dialects: `zip -x@`
+  matches whole paths, while rsync's `--exclude-from` — used by
+  `plugin-check.yml` and by wp-ops `rsync-package-to-site` — matches a
+  slashless pattern against a *basename at any depth*, so the root entry was
+  silently taking all 30 `blocks/*/package.json` with it. A leading slash
+  anchors in rsync and is still matched by zip. Verified against both tools.
+- **Readme tags:** `gutenberg` → `landing-page`. The directory discourages
+  project names as tags, and the five-tag cap meant swapping rather than adding.
+- **Ixian is named alongside Aviendha** in the theme section — it is the theme
+  whose patterns depend on this plugin most heavily.
+
+### Added
+- **The uncompressed Slick Carousel source ships too.** `blocks/carousel/slick/`
+  carried only `slick.min.js`, 42KB of minified third-party JavaScript with no
+  source in the tree — guideline 4 covers vendored libraries as well as our own
+  compiled output. `slick.js`, the uncompressed 1.8.1 build, now sits beside it;
+  the enqueue still uses the minified file. Checked against the official
+  `slick-carousel@1.8.1` package: `slick.min.js`, `slick.css` and all four font
+  files are byte-identical, and `slick-theme.css` differs by exactly one line —
+  the `.slick-loading .slick-list` rule drops upstream's
+  `url('./ajax-loader.gif')` because that image is not vendored. That
+  modification is now recorded in readme.txt rather than left for a reviewer to
+  find.
+- **A `== Source Code ==` section** in readme.txt, stating where every compiled
+  file's source lives and how to build each block. Placed with Third-Party
+  Libraries and Credits at the end rather than ahead of Installation: the
+  directory renders unrecognised sections inline in the Details tab in file
+  order (only Installation, FAQ, Screenshots, Changelog and Upgrade Notice get
+  their own tabs), so hoisting it would have put build instructions directly
+  under the pitch for every visitor. Of ~29 plugins sampled — Kadence, Otter,
+  Stackable, Spectra, Getwid, Genesis Blocks among them — none carries such a
+  section at all; the ones that disclose vendored code do it in trailing
+  Credits/Copyright sections, which is the shape followed here. Reviewers read
+  the raw readme and the zip, so placement costs nothing there.
+
+### Notes
+- Groundwork for submitting Aludra to the WordPress.org plugin directory. No
+  runtime behaviour changes; blocks, patterns and PHP are untouched.
+
 ## [2.36.0] - 2026-08-23
 
 ### Added
