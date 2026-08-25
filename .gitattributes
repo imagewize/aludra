@@ -12,3 +12,12 @@
 /.github export-ignore
 /.gitattributes export-ignore
 /.gitignore export-ignore
+
+# Vendored third-party library, unmodified apart from one documented line of
+# slick-theme.css. linguist-vendored keeps 3k lines of Slick out of the repo's
+# language stats; -diff on the font stops GitHub's rich diff trying to render
+# fonts/slick.svg as an image. It is an SVG *font* — <defs><font> with no
+# viewBox and nothing drawable — so the image renderer reports "Invalid image
+# source" instead of showing the diff.
+/blocks/carousel/slick/** linguist-vendored
+/blocks/carousel/slick/fonts/*.svg -diff
