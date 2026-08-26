@@ -277,6 +277,32 @@
 
 		@media (max-width: 768px) {
 			padding: 64px 0 56px;
+
+			/* Allow themes to stack search-style groups on mobile.
+			   Targets Ixian's page-homepage.php pattern and similar usage.
+			   !important needed to override inline flex-wrap:nowrap from
+			   block layout attributes. */
+			.hero-banner__search {
+				flex-wrap: wrap !important;
+				flex-direction: column !important;
+				justify-content: flex-start !important;
+				align-items: stretch !important;
+				border-radius: 20px !important;
+				gap: var(--wp--preset--spacing--x-small, 0.5rem);
+				padding: var(--wp--preset--spacing--x-small, 0.5rem) !important;
+
+				.wp-block-buttons,
+				.wp-block-button,
+				.wp-block-button__link {
+					width: 100%;
+				}
+
+				.wp-block-button__link {
+					display: flex;
+					justify-content: center;
+					text-align: center;
+				}
+			}
 		}
 	}
 }
