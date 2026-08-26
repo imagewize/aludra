@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.36.1
+Stable tag: 2.36.2
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -225,6 +225,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.36.2 =
+* Fixed: The Ixian homepage hero's search-style button group no longer squeezes into a near-square blob on mobile, wrapping the "Browse Templates" label. Nested `.hero-banner__search` groups in the Canvas style now stack vertically at 768px and below with full-width buttons, matching the block's actual selector specificity rather than reaching for `!important` across the board
 
 = 2.36.1 =
 * Changed: The distributed zip now ships each block's readable source (`blocks/*/src/`) and its `package.json` alongside the webpack output in `blocks/*/build/`, as WordPress.org guideline 4 requires for compiled JavaScript and CSS

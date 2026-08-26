@@ -7,8 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
-- **`aludra/hero-banner`:** Add mobile stack support for search-style nested groups in the Canvas style. A `.hero-banner__search` class on groups inside `is-style-canvas` now stacks vertically on mobile (<= 768px) with full-width buttons. Required `!important` to override inline `flex-wrap: nowrap` from block layout attributes. Addresses button squeeze issue in Ixian theme patterns.
+## [2.36.2] - 2026-08-26
+
+### Fixed
+- **`aludra/hero-banner`:** The Ixian homepage hero's search-style button group squeezed into an ~88×116px blob on mobile, wrapping its "Browse Templates" label across multiple lines. A `.hero-banner__search` group nested inside `is-style-canvas` now stacks vertically at <= 768px with full-width buttons. The three-class selector already outranks the group's generated layout utility classes, so only `border-radius` and `padding` need `!important` — those two are set by the block's own border/spacing support as inline style on the element, which nothing but `!important` can override.
 
 ## [2.36.1] - 2026-08-25
 
