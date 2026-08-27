@@ -31,9 +31,9 @@ composer require imagewize/aviendha imagewize/aludra
 
 Then activate Aviendha, activate Aludra, and create a page — the eight page patterns are offered in the Site Editor's pattern picker, and the twenty-one section patterns are in the inserter's Patterns tab.
 
-**None of this is required.** Aludra is theme-neutral: blocks resolve colours from the active theme's palette with fallbacks, so they render correctly on **Elayne**, on **Ixian**, or on any other FSE, block, or classic theme. Blocks are individually enable/disable-able under Settings → Aludra.
+**None of this is required.** Aludra is theme-neutral: blocks resolve colours from the active theme's palette with fallbacks, so they render correctly on **[Elayne](https://github.com/imagewize/elayne)**, on **[Ixian](https://github.com/imagewize/ixian)**, or on any other FSE, block, or classic theme. Blocks are individually enable/disable-able under Settings → Aludra.
 
-> The plugin exists in the first place because WordPress.org Theme Review prohibits themes from registering custom blocks. Many blocks were originally ported from the **Nynaeve** theme's native block library, generalised for theme neutrality.
+> The plugin exists in the first place because WordPress.org Theme Review prohibits themes from registering custom blocks. Many blocks were originally ported from the **[Nynaeve](https://github.com/imagewize/nynaeve)** theme's native block library, generalised for theme neutrality.
 
 > **Lineage:** Aludra is the direct continuation of the [**Elayne Blocks**](https://github.com/imagewize/elayne-blocks) plugin (versions ≤ 2.7.1). It was renamed to a builder-themed name (Aludra — the inventor/engineer of the *dragons* in *The Wheel of Time*) and generalised into a shared library, since it now serves multiple themes rather than Elayne alone. See `CHANGELOG.md` for the migration notes.
 
