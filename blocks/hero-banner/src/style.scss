@@ -277,6 +277,38 @@
 
 		@media (max-width: 768px) {
 			padding: 64px 0 56px;
+
+			/* Allow themes to stack search-style groups on mobile.
+			   Targets Ixian's page-homepage.php pattern and similar usage.
+			   The three-class selector above already outranks the group's
+			   generated is-nowrap/is-content-justification-* utility classes
+			   and its per-instance .wp-container-core-group-is-layout-*
+			   rule, so flex-wrap/flex-direction/justify-content/align-items
+			   need no !important. border-radius and padding do: the block's
+			   own border/spacing support renders those two as inline style
+			   on the element (specificity 1,0,0,0), which only !important
+			   can beat. */
+			.hero-banner__search {
+				flex-wrap: wrap;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: stretch;
+				border-radius: 20px !important;
+				gap: var(--wp--preset--spacing--x-small, 0.5rem);
+				padding: var(--wp--preset--spacing--x-small, 0.5rem) !important;
+
+				.wp-block-buttons,
+				.wp-block-button,
+				.wp-block-button__link {
+					width: 100%;
+				}
+
+				.wp-block-button__link {
+					display: flex;
+					justify-content: center;
+					text-align: center;
+				}
+			}
 		}
 	}
 }
