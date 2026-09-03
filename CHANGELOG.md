@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.36.3] - 2026-09-03
+
+### Security
+- **`@imwz/wp-pattern-sentinel` bumped `^1.0.4` → `^1.1.1`.** Pulls in sentinel's own fix for
+  [GHSA-5p4m-2wfm-xmqj](https://github.com/imagewize/wp-pattern-sentinel/security/dependabot/3), a
+  high-severity quadratic CPU consumption (DoS) bug in `js-yaml` 4.0.0–4.3.0's `!!omap` resolution.
+  Sentinel uses `js-yaml` to parse Trellis's `wordpress_sites.yml` during `--trellis`
+  auto-discovery, so a crafted YAML file could stall the validation process for seconds on a small
+  input. Dev-only dependency — this does not touch anything a production site runs.
+
 ## [2.36.2] - 2026-08-26
 
 ### Fixed
