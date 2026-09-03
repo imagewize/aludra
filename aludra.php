@@ -3,7 +3,7 @@
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
  * Description: A page builder made of real blocks — 30 blocks, 21 section patterns and 8 page layouts for everything between the header and the footer. Native block editor, no shortcodes, no proprietary markup. Built alongside the Aviendha starter theme; works with any theme.
- * Version: 2.36.2
+ * Version: 2.36.3
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.36.2' );
+define( 'ALUDRA_VERSION', '2.36.3' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
