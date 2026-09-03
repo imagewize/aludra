@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.36.2
+Stable tag: 2.36.3
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -225,6 +225,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.36.3 =
+* Security: Bumped the `@imwz/wp-pattern-sentinel` dev dependency to 1.1.1, which pulls in a `js-yaml` fix for GHSA-5p4m-2wfm-xmqj, a quadratic CPU consumption (DoS) bug in `!!omap` YAML resolution. `js-yaml` is only used by sentinel's `--trellis` auto-discovery of `wordpress_sites.yml`; nothing in this plugin's own runtime is affected.
 
 = 2.36.2 =
 * Fixed: The Ixian homepage hero's search-style button group no longer squeezes into a near-square blob on mobile, wrapping the "Browse Templates" label. Nested `.hero-banner__search` groups in the Canvas style now stack vertically at 768px and below with full-width buttons, matching the block's actual selector specificity rather than reaching for `!important` across the board
