@@ -1,19 +1,32 @@
 ---
 name: code-review
-description: Review the current branch against its base for correctness, WordPress security/escaping, and the repo's block/pattern/version rules
+description: Review a branch diff, or audit a block or path in place, for correctness, WordPress security/escaping, and the repo's block/pattern/version rules
 user-invocable: true
 ---
 
 # Code Review
 
-Reviews a branch of this repository — a WordPress block plugin. The generic half of
-the review (correctness, architecture) is ordinary; the half that actually catches
+Reviews this repository — a WordPress block plugin — either as a branch diff or as
+an in-place audit of one block or path. The generic half of the review
+(correctness, architecture) is ordinary; the half that actually catches
 things here is the Aludra Checklist below, because most regressions in this repo are
 rule violations, not logic bugs: a block style fixed without a `version` bump serves
 stale CSS, a pattern without a direct-access guard fails Plugin Check, a new block
 missing from one of the three enumerations silently never registers.
 
 No tool may write to the working tree during a review. Report; do not fix.
+
+## Modes
+
+The skill runs in one of two modes, chosen from the first argument.
+
+- **Branch mode** (default) — review what this branch changed against a base.
+  Works from the diff; the unit of review is the added line.
+- **Audit mode** — review a block, directory or file **as it stands**, with no
+  base and no diff. This is the mode for "review the carousel block" while
+  sitting on `main`. The unit of review is the whole file, and the checks that
+  ask "did this change bump/update X" become "are X and Y consistent with each
+  other right now".
 
 ## Instructions
 
@@ -25,28 +38,62 @@ No tool may write to the working tree during a review. Report; do not fix.
 git fetch origin
 ```
 
-2. **Arguments**:
-   - Default base branch: `origin/main` when none is given.
-   - Optional base branch: the first token after the command (e.g. `origin/develop`).
-   - PR description/context: any further text (or anything after `--`) is review
-     context — use it to judge intent and scope.
-   - When passing both, put the branch first or separate the description with `--`.
+2. **Parse the argument and pick a mode.** Let `TOKEN` be the first argument.
+
+   - No argument at all → **branch mode** against `origin/main`.
+   - `TOKEN` is an existing path (`test -e "$TOKEN"`) → **audit mode** on that path.
+   - `TOKEN` is a bare block name and `blocks/$TOKEN` exists → **audit mode** on
+     `blocks/$TOKEN`. `/code-review carousel` audits `blocks/carousel/`.
+   - `TOKEN` resolves as a git ref (`git rev-parse --verify --quiet "$TOKEN^{commit}"`)
+     → **branch mode** against it.
+   - `TOKEN` is **both** a path and a ref → ask which was meant. Do not guess.
+   - `TOKEN` is neither → say so and stop; do not silently fall back to `origin/main`.
+
+   Everything after the first token (or after `--`) is PR/review context: use it to
+   judge intent and scope. When passing both a target and a description, put the
+   target first or separate the description with `--`.
 
    ```
-   /code-review
-   /code-review origin/develop
+   /code-review                                   # branch mode vs origin/main
+   /code-review origin/develop                    # branch mode vs origin/develop
+   /code-review carousel                          # audit blocks/carousel/
+   /code-review blocks/photo-grid                 # audit that directory
+   /code-review patterns/page-homepage.php        # audit one file
+   /code-review aludra.php -- why is slick still loading on rail pages
    /code-review Add Photo Grid and Instagram Embed blocks
-   /code-review origin/main -- Add Photo Grid and Instagram Embed blocks
    ```
 
-### Phase 1: Discover Changed Files
+   Only branch mode needs `git fetch origin` — skip step 1 in audit mode.
 
-3. **List changed files** (names only — do not pull full diffs yet):
+### Phase 1: Discover Files
+
+3. **Branch mode — list changed files** (names only; do not pull full diffs yet):
 
 ```bash
 git diff --name-status origin/main...HEAD     # or <branch>...HEAD
 git diff --name-status                        # unstaged
 git diff --cached --name-status               # staged
+```
+
+   If this yields nothing, the branch is identical to its base. Say so and stop —
+   and point out that auditing a block in place is `/code-review <block-name>`.
+
+3b. **Audit mode — enumerate tracked files under the target**:
+
+```bash
+git ls-files -- <target>
+```
+
+   Use `git ls-files`, not `find` or `ls -R`: it skips `node_modules/` and anything
+   else untracked, which is most of the bytes under a block directory.
+
+   Then gather the context a block cannot be judged without — in audit mode these
+   files are part of the review even when they sit outside the target:
+
+```bash
+git grep -n "<block-name>" -- aludra.php includes/ tests/php/   # enumerations
+git grep -ln "aludra/<block-name>" -- patterns/                 # patterns using it
+git log --oneline -10 -- <target>                               # recent history
 ```
 
 ### Phase 2: Filter and Prioritize
@@ -87,24 +134,37 @@ FILES SKIPPED (Y):
 
 ### Phase 3: Correctness Review
 
-6. **Diff each REVIEW file**:
+6. **Branch mode — diff each REVIEW file**:
 
 ```bash
 git diff origin/main...HEAD -- <file_path>
 ```
 
-7. **Focus on added lines** (`+`). Review removed lines only for context. Open the
+   **Focus on added lines** (`+`). Review removed lines only for context. Open the
    full file only when the surrounding code is needed to judge the change.
+
+7. **Audit mode — read each REVIEW file in full.** There is no diff to narrow the
+   scope, so read `block.json`, `edit.js`, `save.jsx`, `view.js`, `render.php` and
+   the stylesheets as a set and judge whether they agree with each other. Apply the
+   **Audit Checklist** below in addition to the shared ones. Age is not a defect:
+   do not report a deliberate old decision as a finding just because the code is
+   not how you would write it today.
 
 8. **Apply the Aludra Checklist and the General Checklist.** Surface only failing
    or attention-required items. If everything passes: "Checklist: no issues found."
 
 ### Phase 4: Architecture Review
 
-9. Assess the change as a whole: does it cohere as one feature/fix; does it duplicate
-   an existing block, pattern or helper; does it respect the boundaries below
-   (plugin bootstrap vs. block source vs. pattern markup); does it make the next
-   change harder.
+9. **Branch mode** — assess the change as a whole: does it cohere as one feature/fix;
+   does it duplicate an existing block, pattern or helper; does it respect the
+   boundaries below (plugin bootstrap vs. block source vs. pattern markup); does it
+   make the next change harder.
+
+   **Audit mode** — assess the target's place in the plugin: is it reachable at all
+   (registered, enabled, discoverable); does it duplicate another block's job; do the
+   patterns that use it still match its `save()` output; is anything in it dead —
+   an attribute nothing reads, a style variation no markup emits, a stylesheet rule
+   for a class the block no longer renders.
 
 ### Phase 5: Summary Report
 
@@ -127,6 +187,11 @@ ARCHITECTURE OBSERVATIONS:
 
 OVERALL ASSESSMENT: Approve | Request Changes | Comment
 ```
+
+In audit mode the header names the target rather than a branch pair
+(`# Code Review: blocks/carousel (audit)`), "Files skipped" counts what was
+enumerated and excluded, and the assessment reads `Healthy | Needs Work | Comment`
+rather than the PR verbs.
 
 Every action item names a file and, where it exists, a line. An item with no
 concrete failure behind it is noise — drop it.
@@ -252,6 +317,70 @@ enabled without its parent.
 
 ---
 
+## Audit Checklist (audit mode only)
+
+In audit mode nothing "changed", so the version rules turn into consistency rules.
+Check these against the block as it stands.
+
+### Is it reachable
+
+- `blocks/<block>/build/block.json` **exists**. Discovery scans for exactly that
+  file; a block with only `src/` is never registered, no matter how good it is.
+- The block appears in `aludra_get_default_settings()`, in
+  `aludra_get_available_blocks()`, and in `includes/admin/settings-page.php`.
+  Missing from any one of them is a finding, and `composer run test` should be
+  failing on it already.
+- A child block (`parent` in `block.json`) has its parent present and enabled, and
+  the dependency rule is expressed in the settings logic.
+
+### Is `src` and `build` in step
+
+- `src/block.json` and `build/block.json` agree on `version`, `attributes`,
+  `supports`, and the asset handles. Diff them directly:
+
+```bash
+diff <(python3 -m json.tool blocks/<block>/src/block.json) \
+     <(python3 -m json.tool blocks/<block>/build/block.json)
+```
+
+- The committed `build/` output is not older than `src/`. If `git log -1` on `src/`
+  is newer than on `build/`, the shipped plugin does not contain the newest source
+  — a critical finding, since `build/` is what users get from Packagist.
+
+### Does it agree with itself
+
+- Every attribute declared in `block.json` is read somewhere (`edit.js`, `save.jsx`,
+  `render.php`, `view.js`). An attribute nothing reads is dead weight or a missing
+  feature — say which.
+- Everything `save()` renders has a matching style rule, and every rule in
+  `style.scss` targets a class the block can actually emit. Orphan CSS is the usual
+  residue of a half-finished rename.
+- Style variations registered in `block.json` have corresponding `is-style-*` rules.
+- `editor.scss` carries only editor-specific overrides; anything the frontend also
+  needs belongs in `style.scss`.
+
+### Does it agree with the rest of the plugin
+
+- Patterns that use the block (`git grep -l "aludra/<block>" patterns/`) emit
+  markup matching the current `save()` output — wrapper class included. A mismatch
+  invalidates the block for every editor that opens a page built from that pattern,
+  while the frontend keeps rendering it fine, so nothing looks wrong until someone
+  edits.
+- Attributes the block has since gained or renamed have a `deprecated` entry
+  covering content already saved on live sites.
+- The block's frontend script is a `viewScript` only if it is needed for *every*
+  configuration of the block; otherwise it belongs behind a gate in `aludra.php`.
+
+Run the cheap mechanical checks rather than eyeballing them:
+
+```bash
+git grep -c "" blocks/<block>/src/block.json >/dev/null   # exists
+git grep -n "<block>" aludra.php includes/admin/settings-page.php
+git grep -n "viewScript\|script\|style" blocks/<block>/src/block.json
+```
+
+---
+
 ## General Checklist
 
 **Correctness**
@@ -331,7 +460,10 @@ enabled without its parent.
 
 ## Tips
 
-- Run from the branch under review.
+- Branch mode: run from the branch under review.
+- Audit mode: `/code-review <block-name>` is the short form —
+  `/code-review carousel`, `/code-review mega-menu`. It works from any branch,
+  including a clean `main`.
 - Keep PRs under ~20 files for a useful review.
 - Pass the PR description as context — intent changes what counts as a defect.
 - Re-run after addressing action items.
