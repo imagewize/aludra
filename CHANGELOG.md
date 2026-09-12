@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.37.2] - 2026-09-12
+
+### Fixed
+- **`aludra/spine-section`, `aludra/split-section`, `aludra/comparison-table`:** the shared
+  `__shell` inline padding was capped at the `medium` spacing preset (2rem/32px max), reading as
+  edge-to-edge content on common desktop widths. Bumped it to the `large` preset (3rem/48px max).
+  Left untouched: the shared `wide-size` custom property these blocks also read for their
+  max-width — `hero-split` and other section blocks read the same variable for their own
+  max-width, so widening it to fix these three would have narrowed the hero and header too.
+  Bumped block versions: `spine-section` to 1.0.3, `split-section` to 1.0.1,
+  `comparison-table` to 1.0.1.
+
 ## [2.37.1] - 2026-09-12
 
 ### Fixed
