@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.37.1
+Stable tag: 2.37.2
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -225,6 +225,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.37.2 =
+* Fixed: Spine Section, Split Section, and Comparison Table used a different gutter token than the rest of the section blocks, leaving their content edges misaligned with neighbouring sections between roughly 768px and 1366px.
 
 = 2.37.1 =
 * Fixed: CTA Columns block (`aludra/cta-columns`) — the "Light Gray" background option had no matching CSS rule, so selecting it had no visible effect on the frontend.
