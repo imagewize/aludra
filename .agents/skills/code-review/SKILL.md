@@ -38,16 +38,34 @@ The skill runs in one of two modes, chosen from the first argument.
 git fetch origin
 ```
 
-2. **Parse the argument and pick a mode.** Let `TOKEN` be the first argument.
+2. **Resolve the argument mechanically, then pick a mode.** Let `TOKEN` be the
+   first argument.
+
+   **Do not interpret `TOKEN` as English. Run these commands and let them decide.**
+   Block directory names are ordinary words — `about`, `slide`, `carousel`,
+   `trust-bar`, `load-waterfall` — so a token that reads like a request for
+   information is far more likely to be a block name. `/code-review about` audits
+   `blocks/about/`; it is **not** a request to explain the skill.
+
+```bash
+test -e "$TOKEN"                                    # a path?
+test -d "blocks/$TOKEN"                             # a block name?
+git rev-parse --verify --quiet "$TOKEN^{commit}"    # a git ref?
+```
+
+   Then, in this order:
 
    - No argument at all → **branch mode** against `origin/main`.
-   - `TOKEN` is an existing path (`test -e "$TOKEN"`) → **audit mode** on that path.
-   - `TOKEN` is a bare block name and `blocks/$TOKEN` exists → **audit mode** on
-     `blocks/$TOKEN`. `/code-review carousel` audits `blocks/carousel/`.
-   - `TOKEN` resolves as a git ref (`git rev-parse --verify --quiet "$TOKEN^{commit}"`)
-     → **branch mode** against it.
-   - `TOKEN` is **both** a path and a ref → ask which was meant. Do not guess.
-   - `TOKEN` is neither → say so and stop; do not silently fall back to `origin/main`.
+   - `TOKEN` is `--help`, `-h` or `help` → print the Modes table, the usage
+     examples, and the list of block names (`ls blocks/`). Review nothing. This is
+     the **only** way to ask for usage; every other token is a review target.
+   - `blocks/$TOKEN` is a directory → **audit mode** on `blocks/$TOKEN`.
+   - `TOKEN` is an existing path → **audit mode** on that path.
+   - `TOKEN` resolves as a git ref → **branch mode** against it.
+   - `TOKEN` is **both** a block/path and a ref → ask which was meant. Do not guess.
+   - `TOKEN` is none of them → say so, show `ls blocks/` so the user can see the
+     valid names, and stop. Do not fall back to `origin/main`, and do not answer
+     the token as if it were a question.
 
    Everything after the first token (or after `--`) is PR/review context: use it to
    judge intent and scope. When passing both a target and a description, put the
@@ -55,8 +73,10 @@ git fetch origin
 
    ```
    /code-review                                   # branch mode vs origin/main
+   /code-review --help                            # usage; reviews nothing
    /code-review origin/develop                    # branch mode vs origin/develop
    /code-review carousel                          # audit blocks/carousel/
+   /code-review about                             # audit blocks/about/ — a block!
    /code-review blocks/photo-grid                 # audit that directory
    /code-review patterns/page-homepage.php        # audit one file
    /code-review aludra.php -- why is slick still loading on rail pages
@@ -464,6 +484,8 @@ git grep -n "viewScript\|script\|style" blocks/<block>/src/block.json
 - Audit mode: `/code-review <block-name>` is the short form —
   `/code-review carousel`, `/code-review mega-menu`. It works from any branch,
   including a clean `main`.
+- `ls blocks/` lists every valid audit target. Some are words that read like
+  instructions (`about`, `slide`); they are still block names.
 - Keep PRs under ~20 files for a useful review.
 - Pass the PR description as context — intent changes what counts as a defect.
 - Re-run after addressing action items.
