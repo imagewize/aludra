@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.37.1] - 2026-09-12
+
+### Fixed
+- **`aludra/cta-columns`:** the "Light Gray" background option (`has-tertiary-background-color`)
+  had no matching CSS rule, so selecting it had no visible effect on the frontend. Bumped the
+  block's own version to 1.1.0 — it was left at 1.0.0 when the `revealOnScroll` attribute was
+  added, missing the cache-bust for that change.
+
 ## [2.37.0] - 2026-09-12
 
 ### Added
