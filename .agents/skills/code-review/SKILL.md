@@ -59,6 +59,9 @@ git rev-parse --verify --quiet "$TOKEN^{commit}"    # a git ref?
    - `TOKEN` is `--help`, `-h` or `help` → print the Modes table, the usage
      examples, and the list of block names (`ls blocks/`). Review nothing. This is
      the **only** way to ask for usage; every other token is a review target.
+   - `TOKEN` is all digits → **branch mode** on that GitHub PR:
+     `gh pr diff <TOKEN>` for the diff and `gh pr view <TOKEN>` for the title,
+     body and base branch. Use the PR body as review context automatically.
    - `blocks/$TOKEN` is a directory → **audit mode** on `blocks/$TOKEN`.
    - `TOKEN` is an existing path → **audit mode** on that path.
    - `TOKEN` resolves as a git ref → **branch mode** against it.
@@ -75,6 +78,7 @@ git rev-parse --verify --quiet "$TOKEN^{commit}"    # a git ref?
    /code-review                                   # branch mode vs origin/main
    /code-review --help                            # usage; reviews nothing
    /code-review origin/develop                    # branch mode vs origin/develop
+   /code-review 51                                # review GitHub PR #51
    /code-review carousel                          # audit blocks/carousel/
    /code-review about                             # audit blocks/about/ — a block!
    /code-review blocks/photo-grid                 # audit that directory
@@ -186,9 +190,32 @@ git diff origin/main...HEAD -- <file_path>
    an attribute nothing reads, a style variation no markup emits, a stylesheet rule
    for a class the block no longer renders.
 
+### Phase 4b: Verify Findings
+
+10. **Try to disprove every candidate finding before reporting it.** A review's
+    value is set by its false-positive rate: one confident wrong finding costs more
+    trust than three missed nits.
+
+    For each candidate, write the **failure scenario** — concrete inputs or state
+    leading to a concrete wrong result: "a page saved before 2.31 has no
+    `photo-grid` wrapper class, so opening it in the editor invalidates the block."
+    If you cannot write one, the finding is a preference, not a defect. Drop it or
+    demote it to an observation.
+
+    Then go looking for the thing that makes it wrong — the guard clause further up
+    the file, the default in `block.json`, the deprecation entry, the caller that
+    already sanitizes. Label what survives:
+
+    - **CONFIRMED** — verified in the code; the failure scenario holds.
+    - **PLAUSIBLE** — depends on a caller, a saved-content state or a runtime
+      condition not visible here. Say what would settle it.
+
+    Never report a finding whose failure scenario you could not write, and never
+    upgrade PLAUSIBLE to CONFIRMED to sound more certain.
+
 ### Phase 5: Summary Report
 
-10. **Report** in this shape. No per-file narration unless asked.
+11. **Report** in this shape. No per-file narration unless asked.
 
 ```
 REVIEW SUMMARY
@@ -197,16 +224,19 @@ Files reviewed: X
 Files skipped: Y
 
 CRITICAL ACTION ITEMS:
-- file:line — what is wrong, and what breaks because of it
+- [CONFIRMED] file:line — what is wrong, and what breaks because of it
 
 IMPORTANT:
-- ...
+- [PLAUSIBLE] file:line — ... (and what would settle it)
 
 ARCHITECTURE OBSERVATIONS:
 - ...
 
 OVERALL ASSESSMENT: Approve | Request Changes | Comment
 ```
+
+Order findings most-severe first, and carry each one's CONFIRMED/PLAUSIBLE label
+into the report. A section with nothing in it is omitted, not filled.
 
 In audit mode the header names the target rather than a branch pair
 (`# Code Review: blocks/carousel (audit)`), "Files skipped" counts what was
@@ -326,9 +356,17 @@ enabled without its parent.
   variables or concatenations.
 - PHP 7.4 compatible: no arrow-function-only-in-8 syntax, no named arguments, no
   `match`, no constructor property promotion, no nullsafe operator.
-- `composer run lint` and `composer run wpcs:scan` should pass; flag obvious WPCS
-  violations (Yoda conditions, spacing, missing translators comments) rather than
-  re-running the linter mentally.
+- **Run the linters; do not simulate them.** They are fast, they are ground truth,
+  and a reviewer guessing at WPCS output is strictly worse than the tool:
+
+```bash
+composer run lint                              # php-parallel-lint, whole repo
+vendor/bin/phpcs --standard=phpcs.xml.dist <changed php files>
+composer run test                              # PHPUnit; enumeration drift
+```
+
+  Report what they actually output. If a linter cannot run (no `vendor/`), say so
+  rather than substituting an opinion about what it would have said.
 
 ### Block editor (JS)
 
