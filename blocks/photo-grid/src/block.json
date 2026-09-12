@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "aludra/photo-grid",
+	"version": "1.0.0",
+	"title": "Photo Grid",
+	"category": "aludra-proof",
+	"icon": "grid-view",
+	"description": "Full-width band with a heading, a follow link, and a tight square photo grid — for an Instagram-style feed section. Fully static: drop in your own photos, no API key or live connection to maintain. Colours adapt to the active theme's palette.",
+	"keywords": ["instagram", "social", "photos", "gallery", "feed"],
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"],
+		"anchor": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"textdomain": "aludra",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"margin": { "top": "0", "bottom": "0" }
+				}
+			}
+		}
+	}
+}

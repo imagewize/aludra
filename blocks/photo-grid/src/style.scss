@@ -1,0 +1,80 @@
+/**
+ * Frontend + editor styles for aludra/photo-grid.
+ *
+ * `supports.color.background`/`text` (block.json) expose the block's colours to
+ * the editor's native colour picker, so authors can pick any colour from the
+ * *active* theme's theme.json palette. These rules only supply the default
+ * look when no colour has been chosen — theme colour presets are referenced
+ * with fallbacks so themes that define these slugs (Nynaeve, Elayne, Aviendha)
+ * keep their palette, and any other theme still gets a sensible default.
+ */
+.wp-block-aludra-photo-grid {
+	background: var(--wp--preset--color--base, #fff);
+	color: var(--wp--preset--color--contrast, #1c1917);
+	padding: 80px 0;
+
+	.photo-grid__content {
+		max-width: var(--wp--style--global--wide-size, 64rem);
+		margin: 0 auto;
+		padding-left: var(--wp--preset--spacing--50, 24px);
+		padding-right: var(--wp--preset--spacing--50, 24px);
+	}
+
+	.photo-grid__content > * {
+		margin-top: 0 !important;
+	}
+
+	/* ─── TITLE + LEAD ─── */
+	.photo-grid__title {
+		color: inherit;
+		font-size: clamp(1.5rem, 3.5vw, 2rem);
+		margin-bottom: 8px !important;
+	}
+
+	.photo-grid__lead {
+		color: var(--wp--preset--color--secondary, #57534e);
+		margin-bottom: 32px !important;
+	}
+
+	/*
+	 * ─── GRID ───
+	 * Three columns, kept at every width — the real Instagram grid never
+	 * reflows to fewer columns either, it just shrinks the squares. A thin
+	 * 4px gutter (Instagram's own spacing) reads as a single connected sheet
+	 * of photos rather than a set of separate cards.
+	 */
+	.photo-grid__grid {
+		display: grid !important;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 4px;
+	}
+
+	.photo-grid__grid > * {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+	}
+
+	/* ─── PHOTO ───
+	 * `aspect-ratio` forces the square regardless of the uploaded image's own
+	 * proportions; `object-fit: cover` crops rather than distorts. */
+	.photo-grid__photo {
+		margin: 0 !important;
+	}
+
+	.photo-grid__photo img {
+		aspect-ratio: 1 / 1;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	/* ─── RESPONSIVE ─── */
+	@media (max-width: 781px) {
+		padding: 56px 0;
+
+		.photo-grid__grid {
+			gap: 2px;
+		}
+	}
+}

@@ -1,0 +1,69 @@
+/**
+ * Frontend + editor styles for aludra/instagram-embed.
+ */
+.wp-block-aludra-instagram-embed {
+	background: var(--wp--preset--color--base, #fff);
+	color: var(--wp--preset--color--contrast, #1c1917);
+	padding: 40px 0;
+	display: flex;
+	justify-content: center;
+
+	.instagram-embed__frame {
+		width: 100%;
+
+		/* Instagram's embed page isn't a fluid layout — it renders at a fixed
+		   internal width, so a wide container just adds empty space around it.
+		   612px mirrors Instagram's own default embed width. */
+		max-width: 612px;
+		margin: 0 auto;
+	}
+
+	.instagram-embed__placeholder {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+		padding: 48px 24px;
+		border: 1px dashed var(--wp--preset--color--border-light, #d6d3d1);
+		border-radius: 8px;
+		text-align: center;
+	}
+
+	.instagram-embed__load-btn {
+		appearance: none;
+		cursor: pointer;
+		border: 1px solid var(--wp--preset--color--primary, #f97316);
+		background: var(--wp--preset--color--primary, #f97316);
+		color: var(--wp--preset--color--base, #fff);
+		font-size: var(--wp--preset--font-size--base, 0.95rem);
+		font-weight: 600;
+		padding: 10px 20px;
+		border-radius: 6px;
+	}
+
+	.instagram-embed__load-btn:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+
+	.instagram-embed__hint {
+		color: var(--wp--preset--color--secondary, #78716c);
+		font-size: var(--wp--preset--font-size--x-small, 0.8rem);
+		margin: 0 !important;
+	}
+
+	/* Revealed by view.js once the iframe is in, so a refused embed still
+	   leaves the visitor a way through to the profile. */
+	.instagram-embed__fallback {
+		color: var(--wp--preset--color--secondary, #78716c);
+		font-size: var(--wp--preset--font-size--x-small, 0.8rem);
+		text-align: center;
+		margin: 12px 0 0 !important;
+	}
+
+	iframe {
+		display: block;
+		border: 0;
+		width: 100%;
+	}
+}

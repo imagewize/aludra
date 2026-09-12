@@ -13,7 +13,7 @@ A page builder made of real blocks.
 
 ## Description
 
-Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. **30 native blocks, 21 ready-made sections and 8 whole page layouts**, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
+Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. **32 native blocks, 21 ready-made sections and 8 whole page layouts**, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
 
 A theme gives you the palette, the type, the header and the footer; Aludra gives you everything between them — the bands a page is actually made of: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
 
@@ -52,8 +52,10 @@ Then activate Aviendha, activate Aludra, and create a page — the eight page pa
 - **Hero Banner Block** (`aludra/hero-banner`) - Dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons
 - **Hero Split Block** (`aludra/hero-split`) - Split-pane hero with heading, lead text, CTA button, and a desktop/mobile image pair
 - **Icon Grid Block** (`aludra/icon-grid`) - Auto-fit grid of icon + text items with a section header
+- **Instagram Embed Block** (`aludra/instagram-embed`) - Live Instagram profile feed via Instagram's public embed iframe, gated behind a click-to-load button for consent-friendly loading; unofficial/undocumented endpoint
 - **Load Waterfall Block** (`aludra/load-waterfall`) - Animated network load-time waterfall panel with an LCP marker, for hero sections
 - **Mega Menu Block** (`aludra/mega-menu`) - Advanced navigation menu with mega menu functionality (works best with FSE/block themes)
+- **Photo Grid Block** (`aludra/photo-grid`) - Heading, follow line, and a tight square photo grid for an Instagram-style feed section; fully static, no API key or live connection
 - **Pricing Tiers Block** (`aludra/pricing-tiers`) - Three-column pricing comparison table with featured tier highlighting
 - **Review Profiles Block** (`aludra/review-profiles`) - Heading plus a row of round avatar photos with client quotes
 - **Search Overlay Trigger Block** (`aludra/search-overlay-trigger`) - Search icon that opens a full-screen search overlay

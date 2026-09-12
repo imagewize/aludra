@@ -7,6 +7,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.37.0] - 2026-09-12
+
+### Added
+- **`aludra/photo-grid`:** heading, follow line, and a tight three-column square photo grid — for
+  an Instagram-style feed section. Fully static (a `core/group` grid of `core/image` items, same
+  InnerBlocks-template pattern as `review-profiles`), theme-neutral, no API key or live connection
+  to maintain.
+- **`aludra/instagram-embed`:** a live feed of a public Instagram profile, via Instagram's own
+  public profile embed iframe (`instagram.com/username/embed`) rather than the official oEmbed API
+  — which needs a Meta developer app and access token, and only embeds single posts, since Meta
+  locked down the old no-auth oEmbed route in October 2020. Consent-friendly by construction: the
+  rendered markup is only a "Load Instagram feed" button and a profile-link fallback; `view.js`
+  injects the real iframe client-side only after a visitor clicks it, so nothing from
+  instagram.com loads — and no consent question is raised — before they opt in. Rendered in PHP
+  (`render.php`) so the button and hint a visitor reads are translatable, and the profile link
+  stays on the page once the iframe is in — a refused embed (private or mistyped handle) leaves a
+  way through rather than an empty box. This is an unofficial, undocumented endpoint, the same
+  kind Meta broke without notice in 2020: it could change or stop working at any time, so treat
+  it as best-effort and keep a plain profile link as a fallback.
+- Both blocks registered under the `aludra-proof` category (`Settings → Aludra`), same grouping as
+  Review Profiles, Testimonial Grid, Trust Bar and the comparison blocks.
+- A PHPUnit config and unit suite (`phpunit.xml`, `tests/php/`), so `composer run test` runs
+  something — it previously failed outright, as no config existed. Plain unit tests with small
+  WordPress stubs rather than an integration suite: they guard the three block enumerations that
+  have to stay in step when a block is added (`blocks/`, `aludra_get_default_settings()`,
+  `aludra_get_available_blocks()`) plus the sanitize and parent/child dependency rules. Dev-only —
+  `.distignore` already keeps `tests/` and `phpunit.xml` out of the release zip.
+
+### Fixed
+- **Settings → Aludra no longer silently disables blocks added by an update.** The screen read
+  `aludra_enabled` without merging the defaults, so any block introduced after the option was last
+  saved rendered unchecked (and was missing from the "N / 32 enabled" count). Because saving
+  writes `false` for every block absent from the submitted form, toggling one unrelated block
+  would then disable those blocks for real — they disappeared from the inserter without anyone
+  touching them. Block registration always treated a missing key as enabled, so this only ever
+  affected the admin screen and what it wrote back. Sites that hit this can re-enable the blocks
+  from the same screen.
+
 ## [2.36.3] - 2026-09-03
 
 ### Security

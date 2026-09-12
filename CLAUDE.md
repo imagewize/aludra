@@ -45,8 +45,15 @@ composer install
 composer run lint       # php-parallel-lint syntax check
 composer run wpcs:scan  # PHPCS against phpcs.xml.dist (WordPress + PHPCompatibility)
 composer run wpcs:fix   # PHPCBF auto-fix
-composer run test       # PHPUnit
+composer run test       # PHPUnit (unit tests in tests/php/, config in phpunit.xml)
 ```
+
+`composer run test` is a plain PHPUnit suite — no WordPress bootstrap. `tests/php/stubs.php`
+defines the handful of WP functions the settings code touches, so the tests stay on pure-PHP
+logic: the block enumerations (a new block must appear in `blocks/`, `aludra_get_default_settings()`
+and `aludra_get_available_blocks()` alike, and the suite fails if they drift), settings
+sanitization, and the parent/child dependency rules. Anything needing a database or the block
+registry would need a real integration suite, which this repo does not have.
 
 ### End-to-end / diagnostics
 
