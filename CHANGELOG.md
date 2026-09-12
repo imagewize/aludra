@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- A PHPUnit config and unit suite (`phpunit.xml`, `tests/php/`), so `composer run test` runs
+  something — it previously failed outright, as no config existed. Plain unit tests with small
+  WordPress stubs rather than an integration suite: they guard the three block enumerations that
+  have to stay in step when a block is added (`blocks/`, `aludra_get_default_settings()`,
+  `aludra_get_available_blocks()`) plus the sanitize and parent/child dependency rules. Dev-only —
+  `.distignore` already keeps `tests/` and `phpunit.xml` out of the release zip.
+
 ## [2.37.0] - 2026-09-12
 
 ### Added
