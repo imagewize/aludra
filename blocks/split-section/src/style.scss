@@ -46,7 +46,11 @@
 	.split-section__shell {
 		max-width: var(--wp--style--global--wide-size, 1200px);
 		margin-inline: auto;
-		padding-inline: var(--wp--preset--spacing--medium, 24px);
+		/* Shared section gutter. Matches hero-split, stat-rail, services-block et al.,
+		   which all use the flat `50` step: the named `medium`/`large` presets are
+		   clamps, so they drift away from the rest of the library between 768px and
+		   1366px. */
+		padding-inline: var(--wp--preset--spacing--50, 24px);
 	}
 
 	/* ─── CENTRED HEADER ─── */

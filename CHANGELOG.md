@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.37.2] - 2026-09-12
+
+### Fixed
+- **`aludra/spine-section`, `aludra/split-section`, `aludra/comparison-table`:** the shared
+  `__shell` inline padding used the `medium` spacing preset, a clamp, while every other section
+  block (`hero-split`, `stat-rail`, `services-block`, `icon-grid`, `trust-bar`, ...) uses the flat
+  `50` step. The two agree at the clamp's floor (mobile) and are both hidden by the `wide-size`
+  cap on wide screens, but between roughly 768px and 1366px the clamp pulled these three blocks
+  7-8px further in than their neighbours, so a spine section stacked above a stat rail had visibly
+  misaligned content edges. Switched all three to `--wp--preset--spacing--50` to match the rest of
+  the library. Bumped block versions: `spine-section` to 1.0.3, `split-section` to 1.0.1,
+  `comparison-table` to 1.0.1.
+
 ## [2.37.1] - 2026-09-12
 
 ### Fixed
