@@ -8,6 +8,11 @@
 	padding: 5rem 0; /* Vertical only - horizontal handled by WordPress */
 }
 
+/* Light Gray Background Variant */
+.wp-block-aludra-cta-columns.has-tertiary-background-color {
+	background-color: var(--wp--preset--color--tertiary, #f0e9dd);
+}
+
 /* Light Blue Background Variant */
 .wp-block-aludra-cta-columns.has-primary-accent-background-color {
 	background-color: var(--wp--preset--color--primary-accent, #fde8ec);
