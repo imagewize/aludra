@@ -216,6 +216,27 @@ rather than the PR verbs.
 Every action item names a file and, where it exists, a line. An item with no
 concrete failure behind it is noise — drop it.
 
+**Assertion discipline.** State a check as done only if a command in this session
+actually ran it. Listing a file under "Files Reviewed" means it was read or diffed,
+not that it was grepped for a line number. A summary sentence like "all patterns
+that use it emit matching markup" is a claim about every one of those files — either
+verify it across all of them with one command, or name the ones you checked.
+
+Most of these checks collapse into a single command across every file at once, so
+there is no reason to extrapolate from a sample:
+
+```bash
+# guard present in every pattern using the block
+for f in $(git grep -ln "aludra/<block>" -- patterns/); do \
+  printf '%s %s\n' "$(grep -c "defined( 'ABSPATH' )" "$f")" "$f"; done
+
+# wrapper markup identical everywhere the block appears
+git grep -A1 "^<!-- wp:aludra/<block>" -- patterns/ | grep 'wp-block-aludra-<block>'
+```
+
+When something could not be verified, say so in one line under the assessment
+("not checked: X") rather than leaving the reader to assume it passed.
+
 ---
 
 ## Aludra Checklist
