@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "aludra/instagram-embed",
+	"version": "1.0.0",
+	"title": "Instagram Embed",
+	"category": "aludra-proof",
+	"icon": "instagram",
+	"description": "Live Instagram profile feed via Instagram's own public embed iframe — no developer app or API key. Loads only after a visitor clicks 'Load feed', so nothing from instagram.com fires before consent. Unofficial and undocumented by Meta: this is the same kind of endpoint that broke without notice in 2020 (Meta's old oEmbed shutdown) — verify it still works before relying on it, and always give the client a plain profile link as a fallback.",
+	"keywords": ["instagram", "social", "feed", "embed"],
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"],
+		"anchor": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"textdomain": "aludra",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"username": {
+			"type": "string",
+			"default": ""
+		},
+		"height": {
+			"type": "number",
+			"default": 600
+		},
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"margin": { "top": "0", "bottom": "0" }
+				}
+			}
+		}
+	}
+}

@@ -4,15 +4,15 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.36.3
+Stable tag: 2.37.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-A page builder made of real blocks: 30 blocks and 42 patterns for everything between the header and the footer. Any block theme.
+A page builder made of real blocks: 32 blocks and 42 patterns for everything between the header and the footer. Any block theme.
 
 == Description ==
 
-Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. 30 native blocks, 21 ready-made sections and 8 whole page layouts, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
+Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. 32 native blocks, 21 ready-made sections and 8 whole page layouts, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
 
 A theme gives you the palette, the type, the header and the footer; Aludra gives you everything between them — the bands a page is actually made of: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
 
@@ -24,7 +24,7 @@ You rarely start from an empty block. You pick a section — a hero that already
 
 * **21 section patterns** — one page band each, grouped into Heroes, Proof, Features & Services, Layout and Convert. Every content block has one
 * **8 page patterns** — homepage, landing, service, services overview, pricing, about, team and contact, offered when you create a new page
-* **30 blocks** — grouped into six inserter categories that follow the order a page gets built in, and individually enable/disable-able under Settings → Aludra
+* **32 blocks** — grouped into six inserter categories that follow the order a page gets built in, and individually enable/disable-able under Settings → Aludra
 * **13 more patterns** — five pre-configured carousels and eight mega menu layouts for menu template parts
 
 = Building a site with Aludra =
@@ -225,6 +225,10 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.37.0 =
+* Added: Photo Grid block (`aludra/photo-grid`) — heading, follow line, and a tight square photo grid for an Instagram-style feed section. Fully static and theme-neutral: authors drop in their own photos via `core/image`, no API key or live connection to maintain.
+* Added: Instagram Embed block (`aludra/instagram-embed`) — a live feed of a public Instagram profile via Instagram's own public embed iframe (`instagram.com/username/embed`). No developer app or API key needed, unlike the official oEmbed route Meta locked down in October 2020. The saved markup ships only a "Load Instagram feed" button; the iframe itself is only injected client-side after a visitor clicks it, so nothing loads from instagram.com — and no consent question is raised — until they opt in. This is an unofficial, undocumented endpoint: it could change or stop working without notice, so keep a plain profile link as a fallback.
 
 = 2.36.3 =
 * Security: Bumped the `@imwz/wp-pattern-sentinel` dev dependency to 1.1.1, which pulls in a `js-yaml` fix for GHSA-5p4m-2wfm-xmqj, a quadratic CPU consumption (DoS) bug in `!!omap` YAML resolution. `js-yaml` is only used by sentinel's `--trellis` auto-discovery of `wordpress_sites.yml`; nothing in this plugin's own runtime is affected.

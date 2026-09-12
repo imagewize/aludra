@@ -84,6 +84,8 @@ function aludra_get_default_settings() {
 		'comparison-table'       => true,
 		'comparison-row'         => true,
 		'comparison-cell'        => true,
+		'photo-grid'             => true,
+		'instagram-embed'        => true,
 	);
 }
 
@@ -265,6 +267,16 @@ function aludra_get_available_blocks() {
 			'category'    => 'aludra-proof',
 			'parent'      => 'comparison-row',
 		),
+		'photo-grid'             => array(
+			'label'       => __( 'Photo Grid', 'aludra' ),
+			'description' => __( 'Full-width band with a heading, a follow line, and a tight square photo grid, for an Instagram-style feed section. Fully static — no API key or live connection.', 'aludra' ),
+			'category'    => 'aludra-proof',
+		),
+		'instagram-embed'        => array(
+			'label'       => __( 'Instagram Embed', 'aludra' ),
+			'description' => __( 'Live Instagram profile feed via Instagram\'s public embed iframe, gated behind a click-to-load button. Unofficial and undocumented by Meta — could change without notice.', 'aludra' ),
+			'category'    => 'aludra-proof',
+		),
 	);
 }
 
@@ -341,6 +353,8 @@ function aludra_get_block_glyph( $slug ) {
 		'hero-split'             => '<rect x="3" y="4" width="8" height="16" rx="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5"/><path d="M6 9h2M6 12h3" stroke-linecap="round"/>',
 		'service-intro'          => '<rect x="4" y="6" width="16" height="12" rx="1.5"/><path d="M7 10h10M7 13h6" stroke-linecap="round"/>',
 		'service-blocks'         => '<rect x="3" y="4" width="18" height="5" rx="1.5"/><rect x="3" y="10.5" width="18" height="5" rx="1.5"/><rect x="3" y="17" width="18" height="5" rx="1.5"/>',
+		'photo-grid'             => '<rect x="3" y="3" width="6" height="6" rx="1"/><rect x="9.5" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="5" height="6" rx="1"/><rect x="3" y="9.5" width="6" height="6" rx="1"/><rect x="9.5" y="9.5" width="6" height="6" rx="1"/><rect x="16" y="9.5" width="5" height="6" rx="1"/>',
+		'instagram-embed'        => '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/>',
 	);
 
 	$path = isset( $glyphs[ $slug ] ) ? $glyphs[ $slug ] : '<rect x="5" y="5" width="14" height="14" rx="2"/>';
