@@ -24,8 +24,10 @@ const TEMPLATE = [
 			level: 2,
 			className: 'photo-grid__title',
 			content: 'Follow the Studio',
-			textAlign: 'center',
-			style: { typography: { fontWeight: '600' } },
+			// Text alignment is a typography support, not an attribute — core
+			// dropped `textAlign`/`align` from heading and paragraph, so the old
+			// form is silently discarded by createBlock.
+			style: { typography: { textAlign: 'center', fontWeight: '600' } },
 		},
 	],
 	[
@@ -33,7 +35,7 @@ const TEMPLATE = [
 		{
 			className: 'photo-grid__lead',
 			content: 'Recent work and behind-the-scenes shots — @yourhandle',
-			align: 'center',
+			style: { typography: { textAlign: 'center' } },
 		},
 	],
 	[

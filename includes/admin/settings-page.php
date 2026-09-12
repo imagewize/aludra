@@ -442,9 +442,17 @@ function aludra_settings_page_html() {
 	// queues one, and adding a second causes a duplicate notice.
 	settings_errors();
 
-	$blocks         = aludra_get_available_blocks();
-	$categories     = aludra_get_block_categories();
-	$enabled_blocks = get_option( 'aludra_enabled', aludra_get_default_settings() );
+	$blocks     = aludra_get_available_blocks();
+	$categories = aludra_get_block_categories();
+	// Merge stored values over the defaults: a site that saved this screen
+	// before a block existed has no key for it, and a missing key means
+	// "enabled" everywhere else (see the registration gate in aludra.php).
+	// Without this merge the new block would render unchecked here and get
+	// written as disabled the next time any unrelated toggle is saved.
+	$enabled_blocks = wp_parse_args(
+		(array) get_option( 'aludra_enabled', array() ),
+		aludra_get_default_settings()
+	);
 
 	$total_count   = count( $blocks );
 	$enabled_count = 0;

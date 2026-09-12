@@ -18,9 +18,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   public profile embed iframe (`instagram.com/username/embed`) rather than the official oEmbed API
   — which needs a Meta developer app and access token, and only embeds single posts, since Meta
   locked down the old no-auth oEmbed route in October 2020. Consent-friendly by construction: the
-  saved markup is only a "Load Instagram feed" button and a `<noscript>` profile link; `view.js`
+  rendered markup is only a "Load Instagram feed" button and a profile-link fallback; `view.js`
   injects the real iframe client-side only after a visitor clicks it, so nothing from
-  instagram.com loads — and no consent question is raised — before they opt in. This is an
+  instagram.com loads — and no consent question is raised — before they opt in. Rendered in PHP
+  (`render.php`) so the button and hint a visitor reads are translatable, and the profile link
+  stays on the page once the iframe is in — a refused embed (private or mistyped handle) leaves a
+  way through rather than an empty box. This is an
   unofficial, undocumented endpoint, the same kind Meta broke without notice in 2020: it could
   change or stop working at any time, so treat it as best-effort and keep a plain profile link as
   a fallback.
