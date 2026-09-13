@@ -536,8 +536,13 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding-bottom: 1.25rem;
-    margin-inline: calc(var(--wp--custom--spacing--content-padding, 0) * -1);
-    padding-inline: var(--wp--custom--spacing--content-padding, 0);
+    /* Bleed past the parent's gutter so cards scroll edge to edge. The bleed
+       must never exceed the gutter it cancels, or the rail pokes past the
+       viewport and the whole page scrolls sideways. A host section that owns
+       its own gutter (spine-section, split-section) publishes it as
+       --aludra-rail-bleed; elsewhere the theme's content padding is the gutter. */
+    margin-inline: calc(var(--aludra-rail-bleed, var(--wp--custom--spacing--content-padding, 0)) * -1);
+    padding-inline: var(--aludra-rail-bleed, var(--wp--custom--spacing--content-padding, 0));
     -webkit-overflow-scrolling: touch;
 
     /* Smooth scrolling on non-mobile */

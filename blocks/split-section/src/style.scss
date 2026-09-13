@@ -51,6 +51,9 @@
 		   clamps, so they drift away from the rest of the library between 768px and
 		   1366px. */
 		padding-inline: var(--wp--preset--spacing--50, 24px);
+		/* See spine-section: lets a nested work rail bleed by this gutter, not
+		   by the theme's (possibly wider) content padding. */
+		--aludra-rail-bleed: var(--wp--preset--spacing--50, 24px);
 	}
 
 	/* ─── CENTRED HEADER ─── */

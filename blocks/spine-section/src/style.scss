@@ -54,6 +54,11 @@
 		   clamps, so they drift away from the rest of the library between 768px and
 		   1366px. */
 		padding-inline: var(--wp--preset--spacing--50, 24px);
+		/* A full-bleed child (the carousel's work rail) cancels this gutter with
+		   a negative margin; publish it so the bleed matches exactly instead of
+		   using the theme's content padding, which can be wider and push the
+		   rail past the viewport. */
+		--aludra-rail-bleed: var(--wp--preset--spacing--50, 24px);
 
 		display: grid;
 		gap: var(--aludra-spine-gutter);
