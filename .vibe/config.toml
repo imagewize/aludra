@@ -1,6 +1,7 @@
 applied_migrations = [
     "bash_read_only_defaults_v1",
 ]
+include_commit_signature = false
 
 [tools.bash]
 allowlist = [
