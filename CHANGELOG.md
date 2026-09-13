@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.37.3] - 2026-09-13
+
+### Fixed
+- **`aludra/carousel` (rail engine), `aludra/spine-section`, `aludra/split-section`:** 2.37.2
+  narrowed the section shell gutter to the flat `50` step (24px), but the work rail still bled
+  out by the theme's `content-padding` (`clamp(1rem, 4vw, 2rem)`, up to 32px). Between roughly
+  600px and the wide-size cap the rail poked up to 8px past the viewport, giving the whole page a
+  horizontal scrollbar. Both section shells now publish their gutter as `--aludra-rail-bleed`,
+  and the rail bleeds by that value, falling back to `content-padding` when it is used outside
+  a section. Bumped block versions: `carousel` to 1.1.1, `spine-section` to 1.0.4,
+  `split-section` to 1.0.2.
+
 ## [2.37.2] - 2026-09-12
 
 ### Fixed
