@@ -90,7 +90,7 @@ The plugin uses **dynamic block discovery** (aludra.php `init` callback). At run
 3. Skips any block disabled in the `aludra_enabled` option (managed by the admin settings page)
 4. Auto-registers each remaining block via `register_block_type()`
 
-Blocks are auto-discovered — no manual registration needed when adding new blocks. The `aludra_enabled` default array in `aludra.php` and the admin settings page (`includes/admin/settings-page.php`) both enumerate known blocks; when adding a block that should be toggleable, add it to both. Carousel's Slick assets are also skipped when carousel is disabled in settings.
+Registration is automatic — no `register_block_type()` call per block — but the settings system enumerates every block in four places, and a new block must be added to all of them (see [Adding a New Block](#adding-a-new-block)). Carousel's Slick assets are also skipped when carousel is disabled in settings.
 
 ### Block Structure
 
@@ -236,11 +236,18 @@ Metadata from block.json is the single source of truth, with Edit/Save implement
 
 1. Create `/blocks/newblock/` directory
 2. Add standard file structure (see Block Structure above)
-3. Create `src/block.json` with block metadata
+3. Create `src/block.json` with block metadata — `"version": "1.0.0"` and a `category` registered in `aludra.php` (`aludra-hero`, `aludra-proof`, `aludra-features`, `aludra-layout`, `aludra-convert` or `aludra-navigation`)
 4. Implement `src/index.js`, `src/edit.js`, `src/save.jsx`
 5. Add `package.json` with build scripts (copy from existing blocks)
-6. Run `npm install && npm run build`
-7. Plugin auto-discovers block on next page load
+6. Run `npm install && npm run build`, and commit the generated `build/` — discovery only registers a block that has `build/block.json`
+7. Add the block's slug to the settings enumerations:
+   - `aludra_get_default_settings()` in `includes/admin/settings-page.php`
+   - `aludra_get_available_blocks()` in the same file — `label`, `description`, `category`, and `parent` for a child block
+   - Both `get_option( 'aludra_enabled', array( … ) )` fallback lists in `aludra.php` — the `init` registration callback and the `wp_enqueue_scripts` Slick callback
+   - `aludra_get_block_glyph()` in `includes/admin/settings-page.php` — the settings-screen icon (without one the block shows a generic square)
+8. Run `composer run test` — `SettingsTest` fails if a discovered block is missing from the defaults, or the available blocks and defaults disagree. It does not check the `aludra.php` fallback lists or the glyph, so check those by hand
+
+For a child block, also set `parent` in `block.json`. The settings dependency comes from `parent` in `aludra_get_available_blocks()`; keep the two in step. The full review checklist for blocks is in `.agents/code-review.md`.
 
 ## Theme Integration Requirements
 
