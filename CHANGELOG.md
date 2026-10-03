@@ -22,6 +22,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `page-store-*` file in the pattern glob, so stores-less sites never see them.
 - The four-up product band needs Aviendha 1.18.4 or later for its grid CSS.
 
+### Fixed
+- Five mega-menu patterns and `page-about` failed `npm run validate` against WordPress 7.1: lists now
+  carry the `wp-block-list` class, the About avatars carry `height:auto`, and the full-width Shop
+  buttons use `style.dimensions.width` instead of the legacy `width` attribute. On WordPress 6.9 the
+  two full-width buttons render at their natural width.
+
 ## [2.37.5] - 2026-10-03
 
 ### Fixed
