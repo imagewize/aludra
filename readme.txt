@@ -228,6 +228,7 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 
 = 2.38.0 =
 * Added: store patterns for WooCommerce sites — a store hero, shop categories, newest products, a brand story, star-rated testimonials and a full store homepage. They appear in their own "Aludra: Store" category, and only when WooCommerce is active.
+* Fixed: text contrast in dark style variations (store patterns, CTA banner button, night hero accents, stat rail highlight), and the Testimonial Grid layout with three cards on wide screens.
 * Fixed: five mega menu patterns and the About page pattern no longer trigger block-validation warnings on WordPress 7.1.
 
 = 2.37.5 =

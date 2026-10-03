@@ -42,8 +42,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"className":"hero-split__media"} -->
 <div class="wp-block-group hero-split__media"><!-- wp:cover {"overlayColor":"primary","isUserOverlayColor":true,"minHeight":480,"minHeightUnit":"px","contentPosition":"bottom left","style":{"border":{"radius":"12px"},"spacing":{"padding":{"top":"24px","right":"24px","bottom":"24px","left":"24px"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-cover has-custom-content-position is-position-bottom-left" style="border-radius:12px;padding-top:24px;padding-right:24px;padding-bottom:24px;padding-left:24px;min-height:480px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}},"textColor":"white","fontSize":"small"} -->
-<p class="has-white-color has-text-color has-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">Handmade since 2018</p>
+<div class="wp-block-cover has-custom-content-position is-position-bottom-left" style="border-radius:12px;padding-top:24px;padding-right:24px;padding-bottom:24px;padding-left:24px;min-height:480px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}},"textColor":"base","fontSize":"small"} -->
+<p class="has-base-color has-text-color has-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">Handmade since 2018</p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:cover --></div>
 <!-- /wp:group --></div></div>
@@ -107,64 +107,64 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:group {"style":{"spacing":{"blockGap":"16px"}},"layout":{"type":"grid","minimumColumnWidth":"16rem"}} -->
 <div class="wp-block-group"><!-- wp:cover {"overlayColor":"main","isUserOverlayColor":true,"minHeight":360,"minHeightUnit":"px","contentPosition":"bottom left","style":{"spacing":{"padding":{"top":"32px","right":"32px","bottom":"32px","left":"32px"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-cover has-custom-content-position is-position-bottom-left" style="padding-top:32px;padding-right:32px;padding-bottom:32px;padding-left:32px;min-height:360px"><span aria-hidden="true" class="wp-block-cover__background has-main-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"8px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}},"textColor":"white","fontSize":"small"} -->
-<p class="has-white-color has-text-color has-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">Collection</p>
+<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}},"textColor":"base","fontSize":"small"} -->
+<p class="has-base-color has-text-color has-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">Collection</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3,"textColor":"white"} -->
-<h3 class="wp-block-heading has-white-color has-text-color">Writing instruments</h3>
+<!-- wp:heading {"level":3,"textColor":"base"} -->
+<h3 class="wp-block-heading has-base-color has-text-color">Writing instruments</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"small"} -->
-<p class="has-white-color has-text-color has-link-color has-small-font-size"><a href="#">Explore →</a></p>
+<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"textColor":"base","fontSize":"small"} -->
+<p class="has-base-color has-text-color has-link-color has-small-font-size"><a href="#">Explore →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div></div>
 <!-- /wp:cover -->
 
 <!-- wp:cover {"overlayColor":"primary","isUserOverlayColor":true,"minHeight":360,"minHeightUnit":"px","contentPosition":"bottom left","style":{"spacing":{"padding":{"top":"32px","right":"32px","bottom":"32px","left":"32px"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-cover has-custom-content-position is-position-bottom-left" style="padding-top:32px;padding-right:32px;padding-bottom:32px;padding-left:32px;min-height:360px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"8px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}},"textColor":"white","fontSize":"small"} -->
-<p class="has-white-color has-text-color has-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">New arrivals</p>
+<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}},"textColor":"base","fontSize":"small"} -->
+<p class="has-base-color has-text-color has-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">New arrivals</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3,"textColor":"white"} -->
-<h3 class="wp-block-heading has-white-color has-text-color">Desk accessories</h3>
+<!-- wp:heading {"level":3,"textColor":"base"} -->
+<h3 class="wp-block-heading has-base-color has-text-color">Desk accessories</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"small"} -->
-<p class="has-white-color has-text-color has-link-color has-small-font-size"><a href="#">Explore →</a></p>
+<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"textColor":"base","fontSize":"small"} -->
+<p class="has-base-color has-text-color has-link-color has-small-font-size"><a href="#">Explore →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div></div>
 <!-- /wp:cover -->
 
 <!-- wp:cover {"overlayColor":"primary-alt","isUserOverlayColor":true,"minHeight":360,"minHeightUnit":"px","contentPosition":"bottom left","style":{"spacing":{"padding":{"top":"32px","right":"32px","bottom":"32px","left":"32px"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-cover has-custom-content-position is-position-bottom-left" style="padding-top:32px;padding-right:32px;padding-bottom:32px;padding-left:32px;min-height:360px"><span aria-hidden="true" class="wp-block-cover__background has-primary-alt-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"8px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}},"textColor":"white","fontSize":"small"} -->
-<p class="has-white-color has-text-color has-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">Collection</p>
+<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}},"textColor":"base","fontSize":"small"} -->
+<p class="has-base-color has-text-color has-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">Collection</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3,"textColor":"white"} -->
-<h3 class="wp-block-heading has-white-color has-text-color">Leather portfolios</h3>
+<!-- wp:heading {"level":3,"textColor":"base"} -->
+<h3 class="wp-block-heading has-base-color has-text-color">Leather portfolios</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"small"} -->
-<p class="has-white-color has-text-color has-link-color has-small-font-size"><a href="#">Explore →</a></p>
+<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"textColor":"base","fontSize":"small"} -->
+<p class="has-base-color has-text-color has-link-color has-small-font-size"><a href="#">Explore →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div></div>
 <!-- /wp:cover -->
 
 <!-- wp:cover {"overlayColor":"secondary","isUserOverlayColor":true,"minHeight":360,"minHeightUnit":"px","contentPosition":"bottom left","style":{"spacing":{"padding":{"top":"32px","right":"32px","bottom":"32px","left":"32px"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-cover has-custom-content-position is-position-bottom-left" style="padding-top:32px;padding-right:32px;padding-bottom:32px;padding-left:32px;min-height:360px"><span aria-hidden="true" class="wp-block-cover__background has-secondary-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"8px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}},"textColor":"white","fontSize":"small"} -->
-<p class="has-white-color has-text-color has-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">Gifting</p>
+<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}},"textColor":"base","fontSize":"small"} -->
+<p class="has-base-color has-text-color has-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">Gifting</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3,"textColor":"white"} -->
-<h3 class="wp-block-heading has-white-color has-text-color">Corporate sets</h3>
+<!-- wp:heading {"level":3,"textColor":"base"} -->
+<h3 class="wp-block-heading has-base-color has-text-color">Corporate sets</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"small"} -->
-<p class="has-white-color has-text-color has-link-color has-small-font-size"><a href="#">Explore →</a></p>
+<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"textColor":"base","fontSize":"small"} -->
+<p class="has-base-color has-text-color has-link-color has-small-font-size"><a href="#">Explore →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div></div>
 <!-- /wp:cover --></div>
@@ -212,14 +212,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:aludra/split-section {"revealOnScroll":true} -->
 <div class="wp-block-aludra-split-section alignfull" data-aludra-reveal="true" style="margin-top:0;margin-bottom:0"><div class="split-section__shell"><div class="split-section__header"><p class="split-section__label">Our story</p><h2 class="split-section__heading">Crafted with <em>purpose</em></h2><p class="split-section__lead">Every piece starts as a question: what would we want to own for ten years?</p></div><div class="split-section__panes"><!-- wp:group {"className":"split-section__media"} -->
 <div class="wp-block-group split-section__media"><!-- wp:cover {"overlayColor":"primary","isUserOverlayColor":true,"minHeight":420,"minHeightUnit":"px","contentPosition":"bottom left","style":{"border":{"radius":"12px"},"spacing":{"padding":{"top":"24px","right":"24px","bottom":"24px","left":"24px"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-cover has-custom-content-position is-position-bottom-left" style="border-radius:12px;padding-top:24px;padding-right:24px;padding-bottom:24px;padding-left:24px;min-height:420px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}},"textColor":"white","fontSize":"small"} -->
-<p class="has-white-color has-text-color has-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">Handmade since 2018</p>
+<div class="wp-block-cover has-custom-content-position is-position-bottom-left" style="border-radius:12px;padding-top:24px;padding-right:24px;padding-bottom:24px;padding-left:24px;min-height:420px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}},"textColor":"base","fontSize":"small"} -->
+<p class="has-base-color has-text-color has-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">Handmade since 2018</p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:cover --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"split-section__content","style":{"spacing":{"padding":{"top":"2.5rem","right":"2.5rem","bottom":"2.5rem","left":"2.5rem"},"blockGap":"1.25rem"},"border":{"radius":"12px"}},"backgroundColor":"main","textColor":"white","layout":{"type":"constrained"}} -->
-<div class="wp-block-group split-section__content has-white-color has-main-background-color has-text-color has-background" style="border-radius:12px;padding-top:2.5rem;padding-right:2.5rem;padding-bottom:2.5rem;padding-left:2.5rem"><!-- wp:paragraph -->
+<!-- wp:group {"className":"split-section__content","style":{"spacing":{"padding":{"top":"2.5rem","right":"2.5rem","bottom":"2.5rem","left":"2.5rem"},"blockGap":"1.25rem"},"border":{"radius":"12px"}},"backgroundColor":"main","textColor":"base","layout":{"type":"constrained"}} -->
+<div class="wp-block-group split-section__content has-base-color has-main-background-color has-text-color has-background" style="border-radius:12px;padding-top:2.5rem;padding-right:2.5rem;padding-bottom:2.5rem;padding-left:2.5rem"><!-- wp:paragraph -->
 <p>We began with a small workshop and a short list of things we refused to compromise on: materials that last, makers who are paid fairly, and nothing in the box you would not keep.</p>
 <!-- /wp:paragraph -->
 
@@ -228,8 +228,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"white","textColor":"main","className":"is-style-fill"} -->
-<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-main-color has-white-background-color has-text-color has-background wp-element-button" href="#">Read our story</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"base","textColor":"main","className":"is-style-fill"} -->
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-main-color has-base-background-color has-text-color has-background wp-element-button" href="#">Read our story</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></div></div></div>
