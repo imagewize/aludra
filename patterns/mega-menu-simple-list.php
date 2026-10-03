@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:separator -->
 
 <!-- wp:list {"style":{"spacing":{"padding":{"left":"0"},"blockGap":"var:preset|spacing|x-small","margin":{"top":"var:preset|spacing|small"}},"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"className":"is-style-list-plain-no-indent"} -->
-<ul style="margin-top:var(--wp--preset--spacing--small);padding-left:0" class="is-style-list-plain-no-indent has-link-color"><!-- wp:list-item -->
+<ul style="margin-top:var(--wp--preset--spacing--small);padding-left:0" class="wp-block-list is-style-list-plain-no-indent has-link-color"><!-- wp:list-item -->
 <li><a href="#">About Us</a></li>
 <!-- /wp:list-item -->
 
@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:separator -->
 
 <!-- wp:list {"style":{"spacing":{"padding":{"left":"0"},"blockGap":"var:preset|spacing|x-small","margin":{"top":"var:preset|spacing|small"}},"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"className":"is-style-list-plain-no-indent"} -->
-<ul style="margin-top:var(--wp--preset--spacing--small);padding-left:0" class="is-style-list-plain-no-indent has-link-color"><!-- wp:list-item -->
+<ul style="margin-top:var(--wp--preset--spacing--small);padding-left:0" class="wp-block-list is-style-list-plain-no-indent has-link-color"><!-- wp:list-item -->
 <li><a href="#">Contact</a></li>
 <!-- /wp:list-item -->
 

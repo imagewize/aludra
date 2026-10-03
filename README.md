@@ -84,6 +84,8 @@ Blocks are the raw components; **patterns** are what you actually build a page f
 | Layout | About, Client Carousel, Split with Steps, Service Intro |
 | Convert | Pricing Tiers, FAQ, CTA Banner, Contact, CTA Columns |
 
+**Store patterns** (`aludra-store` category, only when WooCommerce is active) — Store Hero, Shop Categories, Newest Products, Store Story and Store Testimonials, plus a Store Homepage page pattern that assembles them with the Trust Bar, Stat Rail and CTA Banner.
+
 Every content block is reachable as one of these. The two that are not — Mega Menu and Search Overlay Trigger — belong to a navigation template part rather than to a page; Mega Menu has its own eight template-part patterns below.
 
 **Page patterns** (`patterns/page-*.php`) — eight full layouts assembled from those sections, offered when you create a new page:

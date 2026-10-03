@@ -3,7 +3,7 @@
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
  * Description: A page builder made of real blocks — 32 blocks, 21 section patterns and 8 page layouts for everything between the header and the footer. Native block editor, no shortcodes, no proprietary markup. Built alongside the Aviendha starter theme; works with any theme.
- * Version: 2.37.5
+ * Version: 2.38.0
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.37.5' );
+define( 'ALUDRA_VERSION', '2.38.0' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -453,6 +453,32 @@ add_action(
 );
 
 /**
+ * Whether WooCommerce is active.
+ *
+ * @return bool
+ */
+function aludra_woocommerce_active() {
+	return class_exists( 'WooCommerce' );
+}
+
+/**
+ * Whether a pattern file is a store pattern.
+ *
+ * Store patterns (`section-woo-*.php`, `page-store-*.php`) are built from
+ * `woocommerce/*` blocks, which render as invalid-block placeholders on a site
+ * without WooCommerce. Aludra works with any theme, so they are registered only
+ * when WooCommerce is active.
+ *
+ * @param string $pattern_file Path or basename of a pattern file.
+ * @return bool
+ */
+function aludra_is_store_pattern_file( $pattern_file ) {
+	$name = basename( $pattern_file );
+
+	return 0 === strpos( $name, 'section-woo-' ) || 0 === strpos( $name, 'page-store-' );
+}
+
+/**
  * Register file-based patterns matching a glob, honouring their own headers.
  *
  * Shared by the full-page patterns (patterns/page-*.php) and the section
@@ -481,6 +507,10 @@ function aludra_register_pattern_files( $pattern_glob ) {
 	}
 
 	foreach ( $pattern_files as $pattern_file ) {
+		if ( aludra_is_store_pattern_file( $pattern_file ) && ! aludra_woocommerce_active() ) {
+			continue;
+		}
+
 		$headers = get_file_data(
 			$pattern_file,
 			array(
@@ -593,6 +623,14 @@ add_action(
 					__( 'Mega menu patterns for navigation template parts.', 'aludra' ),
 				),
 			);
+
+			// Store sections are only offered where WooCommerce can render them.
+			if ( aludra_woocommerce_active() ) {
+				$pattern_categories['aludra-store'] = array(
+					__( 'Aludra: Store', 'aludra' ),
+					__( 'WooCommerce sections: product grids and category showcases.', 'aludra' ),
+				);
+			}
 
 			foreach ( $pattern_categories as $category_slug => $category ) {
 				register_block_pattern_category(

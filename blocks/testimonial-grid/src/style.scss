@@ -91,6 +91,21 @@
 	display: flex !important;
 	flex-wrap: wrap !important;
 	gap: 1.875rem;
+	box-sizing: border-box;
+	width: auto; /* fill the full-width block's negative side margins instead of stopping short */
+
+	/* Keep the cards off the viewport edge and inside the same 80rem column the carousel uses */
+	padding-left: max(1.5rem, calc((100% - 80rem) / 2));
+	padding-right: max(1.5rem, calc((100% - 80rem) / 2));
+}
+
+/* The heading takes a whole row. Capped at 65rem it left room for a card beside it on wide screens */
+.wp-block-aludra-testimonial-grid:not(.testimonial-grid--carousel-active) > h1,
+.wp-block-aludra-testimonial-grid:not(.testimonial-grid--carousel-active) > h2,
+.wp-block-aludra-testimonial-grid:not(.testimonial-grid--carousel-active) > h3 {
+	flex: 0 0 100%;
+	max-width: none;
+	margin-bottom: 0;
 }
 
 /* Static grid card sizing */

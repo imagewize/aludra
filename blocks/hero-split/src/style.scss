@@ -189,10 +189,10 @@
 
 		&:not(.has-text-color) {
 			.hero-split__eyebrow {
-				color: color-mix(in oklch, var(--wp--preset--color--primary, #9f1239) 55%, white);
+				color: color-mix(in oklch, var(--wp--preset--color--primary, #9f1239) 30%, var(--wp--preset--color--base, #faf7f2));
 
 				&::before {
-					background: color-mix(in oklch, var(--wp--preset--color--accent, #4d7c0f) 60%, white);
+					background: color-mix(in oklch, var(--wp--preset--color--accent, #4d7c0f) 30%, var(--wp--preset--color--base, #faf7f2));
 				}
 			}
 
@@ -200,7 +200,7 @@
 				color: var(--wp--preset--color--base, #faf7f2);
 
 				em {
-					color: color-mix(in oklch, var(--wp--preset--color--primary, #9f1239) 55%, white);
+					color: color-mix(in oklch, var(--wp--preset--color--primary, #9f1239) 30%, var(--wp--preset--color--base, #faf7f2));
 				}
 			}
 
@@ -212,7 +212,7 @@
 				color: color-mix(in srgb, var(--wp--preset--color--base, #faf7f2) 74%, transparent);
 
 				.hero-split__check {
-					color: color-mix(in oklch, var(--wp--preset--color--accent, #4d7c0f) 60%, white);
+					color: color-mix(in oklch, var(--wp--preset--color--accent, #4d7c0f) 30%, var(--wp--preset--color--base, #faf7f2));
 				}
 			}
 		}

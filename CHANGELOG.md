@@ -7,6 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.38.0] - 2026-10-03
+
+### Added
+- **Store patterns, registered only when WooCommerce is active.** A new `aludra-store` pattern
+  category and six patterns for a quick-to-build store on any theme: `section-woo-hero`,
+  `section-woo-categories` (four palette-coloured cover cards in a `minimumColumnWidth` grid),
+  `section-woo-products` (newest-first `woocommerce/product-collection`, with an empty-store
+  message), `section-woo-story` (split section with a dark story panel),
+  `section-woo-testimonials` (star ratings with a screen-reader text alternative) and
+  `page-store-home`, which assembles them with the existing trust bar, stat rail and CTA banner.
+  Patterns carry generic placeholder copy and use only the 12 palette-contract slugs.
+- `aludra_woocommerce_active()` and `aludra_is_store_pattern_file()` gate any `section-woo-*` or
+  `page-store-*` file in the pattern glob, so stores-less sites never see them.
+- The four-up product band needs Aviendha 1.18.4 or later for its grid CSS.
+
+### Fixed
+- **Contrast in dark style variations.** Checked every text element on the store homepage against
+  WCAG AA (4.5:1, 3:1 for large text) in the default and twilight styles, on desktop and mobile.
+  The store patterns now put `base` text on `main`/`primary` fills instead of `white` (which does not
+  flip with the palette), the CTA banner button uses `base` text on `primary-alt`, and the night
+  hero's italic word and checkmarks and the stat rail's highlighted figure mix toward `base`
+  instead of `white`. Each was 1.1:1 to 3.7:1 in twilight.
+- **`aludra/testimonial-grid` static layout (three or fewer cards):** on a wide screen the heading
+  sat beside the first card, the cards ran to the viewport edge, and the tinted band stopped short of
+  the right edge. The heading now takes its own row and the cards sit in the 80rem column.
+- Five mega-menu patterns and `page-about` failed `npm run validate` against WordPress 7.1: lists now
+  carry the `wp-block-list` class, the About avatars carry `height:auto`, and the full-width Shop
+  buttons use `style.dimensions.width` instead of the legacy `width` attribute. On WordPress 6.9 the
+  two full-width buttons render at their natural width.
+
 ## [2.37.5] - 2026-10-03
 
 ### Fixed

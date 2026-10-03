@@ -87,8 +87,10 @@
 		margin: 0;
 	}
 
+	/* The default band is dark, where `accent` (tuned for light grounds) is only about 3.3:1.
+	   Mix it toward `base` (cream here, near-black in the twilight style where this band turns light) so it clears AA in both; the light style restores it below. */
 	.stat-rail__item.is-good .stat-rail__num {
-		color: var(--wp--preset--color--accent, #4d7c0f);
+		color: color-mix(in oklch, var(--wp--preset--color--accent, #4d7c0f) 30%, var(--wp--preset--color--base, #faf7f2));
 	}
 
 	.stat-rail__cap {
@@ -141,5 +143,9 @@
 
 	.stat-rail__shell {
 		border-bottom: 1px solid var(--aludra-stat-rule);
+	}
+
+	.stat-rail__item.is-good .stat-rail__num {
+		color: var(--wp--preset--color--accent, #4d7c0f);
 	}
 }

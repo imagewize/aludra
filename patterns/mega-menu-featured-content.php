@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:separator -->
 
 <!-- wp:list {"style":{"spacing":{"padding":{"left":"0"},"blockGap":"var:preset|spacing|x-small","margin":{"top":"var:preset|spacing|small"}},"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"className":"is-style-list-plain-no-indent"} -->
-<ul style="margin-top:var(--wp--preset--spacing--small);padding-left:0" class="is-style-list-plain-no-indent has-link-color"><!-- wp:list-item -->
+<ul style="margin-top:var(--wp--preset--spacing--small);padding-left:0" class="wp-block-list is-style-list-plain-no-indent has-link-color"><!-- wp:list-item -->
 <li><a href="#">Women's Fashion</a></li>
 <!-- /wp:list-item -->
 
@@ -58,8 +58,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:image -->
 
 <!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"width":100} -->
-<div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button">Shop Now</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"style":{"dimensions":{"width":"100%"}}} -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Shop Now</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></div>

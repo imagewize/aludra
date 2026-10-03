@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.37.5
+Stable tag: 2.38.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -225,6 +225,11 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.38.0 =
+* Added: store patterns for WooCommerce sites — a store hero, shop categories, newest products, a brand story, star-rated testimonials and a full store homepage. They appear in their own "Aludra: Store" category, and only when WooCommerce is active.
+* Fixed: text contrast in dark style variations (store patterns, CTA banner button, night hero accents, stat rail highlight), and the Testimonial Grid layout with three cards on wide screens.
+* Fixed: five mega menu patterns and the About page pattern no longer trigger block-validation warnings on WordPress 7.1.
 
 = 2.37.5 =
 * Fixed: a Carousel or Testimonial Grid that came from a pattern, template or template part rather than being saved in the page itself showed as an unstyled, non-sliding list.
