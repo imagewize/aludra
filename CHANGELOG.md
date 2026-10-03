@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.37.5] - 2026-10-03
+
+### Fixed
+- **`aludra/carousel` (Slick engine), `aludra/testimonial-grid`:** the Slick stylesheets, script
+  and the carousel's own `view.js` were enqueued only if the current post's own `post_content`
+  held a matching block, so a slider reaching the page through a pattern reference, a template,
+  a template part or a synced pattern rendered as an unstyled stack and never initialised. Same
+  blind spot as the scroll-reveal gate fixed in 2.37.4. Assets are now enqueued from a
+  `render_block` filter when such a block renders. Rail-mode carousels still load nothing.
+  `aludra_blocks_have_slick_carousel()` is removed; the repeated enqueue calls moved into
+  `aludra_enqueue_slick_assets()`, and the settings check into `aludra_is_block_enabled()`.
+
 ## [2.37.4] - 2026-10-03
 
 ### Fixed

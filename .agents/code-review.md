@@ -158,9 +158,9 @@ For every pattern file:
 ### Asset loading
 
 - A front-end script needed only for some configurations of a block is **not** a
-  `viewScript`. Slick is enqueued from `aludra.php` only when
-  `aludra_blocks_have_slick_carousel()` finds a Slick-engine carousel, or when
-  `testimonial-grid` is on the page; `blocks/carousel/js/view.js` lives outside
+  `viewScript`. Slick is enqueued from `aludra.php`, from a
+  `render_block` filter, only when a Slick-engine carousel or a `testimonial-grid`
+  renders (never by scanning `post_content`); `blocks/carousel/js/view.js` lives outside
   `src/` for that reason.
   Why: core enqueues a `viewScript` whenever the block is present, regardless of
   attributes — this is how jQuery came back on carousel pages using the zero-JS

@@ -3,7 +3,7 @@
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
  * Description: A page builder made of real blocks — 32 blocks, 21 section patterns and 8 page layouts for everything between the header and the footer. Native block editor, no shortcodes, no proprietary markup. Built alongside the Aviendha starter theme; works with any theme.
- * Version: 2.37.4
+ * Version: 2.37.5
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.37.4' );
+define( 'ALUDRA_VERSION', '2.37.5' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -187,110 +187,100 @@ add_action(
 );
 
 /**
- * Enqueue Slick Carousel assets conditionally.
+ * Whether a block is enabled in Settings → Aludra.
  *
- * Shared between the carousel and testimonial-grid blocks, both of which use
- * Slick for their frontend slider behaviour.
+ * Mirrors the settings page's default: before anything is saved the option is
+ * absent and every block is on; once saved, only keys set to true are.
+ *
+ * @param string $block Block slug, without the `aludra/` prefix.
+ * @return bool
  */
-add_action(
-	'wp_enqueue_scripts',
-	function () {
-		// Get enabled blocks from settings.
-		$enabled_blocks = get_option(
-			'aludra_enabled',
-			array(
-				'carousel'               => true,
-				'slide'                  => true,
-				'mega-menu'              => true,
-				'faq-tabs'               => true,
-				'faq-tab-answer'         => true,
-				'search-overlay-trigger' => true,
-				'feature-cards'          => true,
-				'icon-grid'              => true,
-				'trust-bar'              => true,
-				'pricing-tiers'          => true,
-				'testimonial-grid'       => true,
-				'cta-columns'            => true,
-				'feature-list-grid'      => true,
-				'contact-section'        => true,
-				'hero-banner'            => true,
-				'cta-banner'             => true,
-				'about'                  => true,
-				'services-block'         => true,
-				'review-profiles'        => true,
-				'hero-split'             => true,
-				'service-intro'          => true,
-				'service-blocks'         => true,
-				'load-waterfall'         => true,
-				'stat-rail'              => true,
-				'stat-item'              => true,
-				'spine-section'          => true,
-				'split-section'          => true,
-				'comparison-table'       => true,
-				'comparison-row'         => true,
-				'comparison-cell'        => true,
-				'photo-grid'             => true,
-				'instagram-embed'        => true,
-			)
-		);
+function aludra_is_block_enabled( $block ) {
+	$enabled = get_option( 'aludra_enabled' );
 
-		$post                    = get_post();
-		$parsed_blocks           = ( $post && has_blocks( $post->post_content ) ) ? parse_blocks( $post->post_content ) : array();
-		$carousel_active         = ! empty( $enabled_blocks['carousel'] ) && aludra_blocks_have_slick_carousel( $parsed_blocks );
-		$testimonial_grid_active = ! empty( $enabled_blocks['testimonial-grid'] ) && has_block( 'aludra/testimonial-grid' );
+	return false === $enabled || ! empty( $enabled[ $block ] );
+}
 
-		// Only load Slick assets if a block that needs them is being used.
-		if ( $carousel_active || $testimonial_grid_active ) {
-			// Enqueue Slick Carousel CSS.
-			wp_enqueue_style(
-				'slick-carousel',
-				ALUDRA_PLUGIN_URL . 'blocks/carousel/slick/slick.css',
-				array(),
-				'1.8.1'
-			);
+/**
+ * Enqueue the Slick Carousel vendor assets.
+ *
+ * Shared by the carousel and testimonial-grid blocks, both of which use Slick
+ * for their frontend slider behaviour. Safe to call once per block: it returns
+ * early if Slick is already enqueued, so the localized data is added only once.
+ */
+function aludra_enqueue_slick_assets() {
+	if ( wp_script_is( 'slick-carousel', 'enqueued' ) ) {
+		return;
+	}
 
-			wp_enqueue_style(
-				'slick-carousel-theme',
-				ALUDRA_PLUGIN_URL . 'blocks/carousel/slick/slick-theme.css',
-				array( 'slick-carousel' ),
-				'1.8.1'
-			);
+	wp_enqueue_style(
+		'slick-carousel',
+		ALUDRA_PLUGIN_URL . 'blocks/carousel/slick/slick.css',
+		array(),
+		'1.8.1'
+	);
 
-			// Enqueue Slick Carousel JS.
-			wp_enqueue_script(
-				'slick-carousel',
-				ALUDRA_PLUGIN_URL . 'blocks/carousel/slick/slick.min.js',
-				array( 'jquery' ),
-				'1.8.1',
-				true
-			);
+	wp_enqueue_style(
+		'slick-carousel-theme',
+		ALUDRA_PLUGIN_URL . 'blocks/carousel/slick/slick-theme.css',
+		array( 'slick-carousel' ),
+		'1.8.1'
+	);
 
-			// Localize script to provide plugin URL for arrow SVGs.
-			wp_localize_script(
-				'slick-carousel',
-				'aludraBlocksData',
-				array(
-					'pluginUrl' => ALUDRA_PLUGIN_URL,
-				)
-			);
-		}
+	wp_enqueue_script(
+		'slick-carousel',
+		ALUDRA_PLUGIN_URL . 'blocks/carousel/slick/slick.min.js',
+		array( 'jquery' ),
+		'1.8.1',
+		true
+	);
 
-		/*
-		 * The carousel's own frontend script is enqueued here rather than
-		 * declared as `viewScript` in block.json, because core enqueues a
-		 * viewScript whenever the block appears on the page — it has no way to
-		 * know the block came in rail mode. view.js opens with
-		 * `( function ( $ ) { … } )( jQuery )`, so on a page whose only
-		 * carousel is a rail it threw "Can't find variable: jQuery" before
-		 * ever reaching its own rail guard, and jQuery wasn't loaded because
-		 * the generated view.asset.php declared no dependencies. Gating it on
-		 * $carousel_active keeps the rail-mode promise of zero JS.
-		 *
-		 * It lives in blocks/carousel/js/ rather than src/ because dropping
-		 * viewScript from block.json also drops it as a webpack entry point —
-		 * and it needs no bundling: hand-written jQuery, no imports.
-		 */
-		if ( $carousel_active ) {
+	// Provide the plugin URL for arrow SVGs.
+	wp_localize_script(
+		'slick-carousel',
+		'aludraBlocksData',
+		array(
+			'pluginUrl' => ALUDRA_PLUGIN_URL,
+		)
+	);
+}
+
+/**
+ * Enqueue Slick and the carousel's own script when a block that needs them renders.
+ *
+ * Hooked to `render_block` rather than scanning the current post's content:
+ * blocks that reach the page through a pattern reference, a template, a
+ * template part or a synced pattern are not in `post_content`, so a content
+ * scan misses them and the slider never initialises. Rendering is the one
+ * point every path goes through. Block themes render the template before
+ * `wp_head`, so the stylesheets still land in the head.
+ *
+ * Rail-mode carousels (`engine: 'rail'`) are a pure CSS scroll-snap track and
+ * load nothing, which keeps the rail-mode promise of zero JS.
+ *
+ * The carousel's own script is enqueued here rather than declared as
+ * `viewScript` in block.json, because core enqueues a viewScript whenever the
+ * block appears on the page — it has no way to know the block came in rail
+ * mode. view.js opens with `( function ( $ ) { … } )( jQuery )`, so on a page
+ * whose only carousel is a rail it threw "Can't find variable: jQuery" before
+ * ever reaching its own rail guard, and jQuery wasn't loaded because the
+ * generated view.asset.php declared no dependencies.
+ *
+ * It lives in blocks/carousel/js/ rather than src/ because dropping viewScript
+ * from block.json also drops it as a webpack entry point — and it needs no
+ * bundling: hand-written jQuery, no imports.
+ */
+add_filter(
+	'render_block',
+	function ( $block_content, $block ) {
+		$name = $block['blockName'] ?? '';
+
+		if ( 'aludra/carousel' === $name
+			&& 'rail' !== ( $block['attrs']['engine'] ?? 'slick' )
+			&& aludra_is_block_enabled( 'carousel' )
+		) {
+			aludra_enqueue_slick_assets();
+
 			wp_enqueue_script(
 				'aludra-carousel-view',
 				ALUDRA_PLUGIN_URL . 'blocks/carousel/js/view.js',
@@ -298,8 +288,14 @@ add_action(
 				ALUDRA_VERSION,
 				true
 			);
+		} elseif ( 'aludra/testimonial-grid' === $name && aludra_is_block_enabled( 'testimonial-grid' ) ) {
+			aludra_enqueue_slick_assets();
 		}
-	}
+
+		return $block_content;
+	},
+	10,
+	2
 );
 
 /**
@@ -332,32 +328,6 @@ add_filter(
 	10,
 	2
 );
-
-/**
- * Recursively check parsed blocks for an `aludra/carousel` that needs Slick.
- *
- * Rail-mode carousels (`engine: 'rail'`) are a pure CSS scroll-snap track and
- * never touch Slick, so a page containing only rail carousels shouldn't load
- * Slick's JS/CSS at all.
- *
- * @param array $blocks Parsed blocks, as returned by parse_blocks().
- * @return bool
- */
-function aludra_blocks_have_slick_carousel( array $blocks ) {
-	foreach ( $blocks as $block ) {
-		if ( 'aludra/carousel' === $block['blockName']
-			&& 'rail' !== ( $block['attrs']['engine'] ?? 'slick' )
-		) {
-			return true;
-		}
-
-		if ( ! empty( $block['innerBlocks'] ) && aludra_blocks_have_slick_carousel( $block['innerBlocks'] ) ) {
-			return true;
-		}
-	}
-
-	return false;
-}
 
 /**
  * Register the Aludra block categories.
