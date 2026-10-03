@@ -3,7 +3,7 @@
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
  * Description: A page builder made of real blocks — 32 blocks, 21 section patterns and 8 page layouts for everything between the header and the footer. Native block editor, no shortcodes, no proprietary markup. Built alongside the Aviendha starter theme; works with any theme.
- * Version: 2.37.3
+ * Version: 2.37.4
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.37.3' );
+define( 'ALUDRA_VERSION', '2.37.4' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -303,55 +303,35 @@ add_action(
 );
 
 /**
- * Enqueue the shared scroll-reveal utility conditionally.
+ * Enqueue the shared scroll-reveal utility when a reveal block renders.
  *
  * Vanilla IntersectionObserver script (assets/js/scroll-reveal.js) that toggles
- * `.is-revealed` on elements carrying `data-aludra-reveal`. Only enqueued on
- * pages that actually contain a block with its `revealOnScroll` attribute set
- * to true, so it never loads on pages that don't use it.
+ * `.is-revealed` on elements carrying `data-aludra-reveal`. Hooked to
+ * `render_block` rather than scanning the current post's content: blocks that
+ * reach the page through a pattern reference, a template, a template part or a
+ * synced pattern are not in `post_content`, so a content scan misses them and
+ * leaves their panes at opacity 0 for good. Rendering is the one point every
+ * path goes through, and it runs before the footer scripts print, so the script
+ * still loads in the footer and never loads on pages without a reveal block.
  */
-add_action(
-	'wp_enqueue_scripts',
-	function () {
-		$post = get_post();
-
-		if ( ! $post || ! has_blocks( $post->post_content ) ) {
-			return;
-		}
-
-		if ( ! aludra_blocks_have_reveal_on_scroll( parse_blocks( $post->post_content ) ) ) {
-			return;
-		}
-
-		wp_enqueue_script(
-			'aludra-scroll-reveal',
-			ALUDRA_PLUGIN_URL . 'assets/js/scroll-reveal.js',
-			array(),
-			ALUDRA_VERSION,
-			true
-		);
-	}
-);
-
-/**
- * Recursively check parsed blocks for a `revealOnScroll` attribute set to true.
- *
- * @param array $blocks Parsed blocks, as returned by parse_blocks().
- * @return bool
- */
-function aludra_blocks_have_reveal_on_scroll( array $blocks ) {
-	foreach ( $blocks as $block ) {
+add_filter(
+	'render_block',
+	function ( $block_content, $block ) {
 		if ( ! empty( $block['attrs']['revealOnScroll'] ) ) {
-			return true;
+			wp_enqueue_script(
+				'aludra-scroll-reveal',
+				ALUDRA_PLUGIN_URL . 'assets/js/scroll-reveal.js',
+				array(),
+				ALUDRA_VERSION,
+				true
+			);
 		}
 
-		if ( ! empty( $block['innerBlocks'] ) && aludra_blocks_have_reveal_on_scroll( $block['innerBlocks'] ) ) {
-			return true;
-		}
-	}
-
-	return false;
-}
+		return $block_content;
+	},
+	10,
+	2
+);
 
 /**
  * Recursively check parsed blocks for an `aludra/carousel` that needs Slick.
