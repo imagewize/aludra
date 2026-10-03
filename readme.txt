@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.37.3
+Stable tag: 2.37.4
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -225,6 +225,9 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.37.4 =
+* Fixed: a Split Section or CTA Columns block with Reveal on Scroll turned on stayed invisible when it came from a pattern, template or template part rather than being saved in the page itself.
 
 = 2.37.3 =
 * Fixed: a Carousel in rail mode inside a Spine Section or Split Section stuck out past the edge of the screen on laptop and tablet widths, giving the whole page a horizontal scrollbar.

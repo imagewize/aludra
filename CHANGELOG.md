@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.37.4] - 2026-10-03
+
+### Fixed
+- **Scroll reveal (`aludra/split-section`, `aludra/cta-columns`):** a block with "Reveal on scroll"
+  enabled stayed invisible when it reached the page through a pattern reference, a template, a
+  template part or a synced pattern. `scroll-reveal.js` was only enqueued if the current post's
+  own `post_content` held a block with `revealOnScroll`, and blocks arriving by those routes are
+  not in `post_content`, so the script never loaded and the panes stayed at opacity 0. The
+  script is now enqueued from a `render_block` filter when such a block renders, which covers
+  every route and still loads only on pages that need it. Removed the now-unused
+  `aludra_blocks_have_reveal_on_scroll()` helper.
+
 ## [2.37.3] - 2026-09-13
 
 ### Fixed
