@@ -365,10 +365,10 @@ The MIT License is GPL-compatible.
 
 == Credits ==
 
-= Plugin Icon =
-The plugin icon is based on IconPark Block One from Blade UI Kit.
-* Source: https://blade-ui-kit.com/blade-icons/iconpark-blockone-o
-* License: MIT License
+= Plugin Icon and Logo =
+The plugin icon (.wordpress-org/icon.svg) and the logo displayed in README.md (assets/logos/h-fireworks.svg) are the Hugeicons fireworks icon from Blade UI Kit (Blade Icons) — a nod to the Nightflower fireworks of the Illuminators in The Wheel of Time, Aludra's namesake. The icon is drawn in an ember gradient on a dark tile; the README logo is a flat ember orange (#D9480F).
+* Fireworks icon source: https://blade-ui-kit.com/blade-icons/hugeicons-fireworks
+* Blade Icons license: https://github.com/driesvints/blade-icons/blob/main/LICENSE.md (MIT License)
 
 = Homepage Pattern Client Icons =
 The bike and noodle-bowl icons used in the homepage pattern's "Our Clients" carousel are from Blade UI Kit (Blade Icons), sourced from the Tabler Icons and Maki Icons sets respectively.
@@ -379,11 +379,6 @@ The bike and noodle-bowl icons used in the homepage pattern's "Our Clients" caro
 = Review Avatar Placeholder =
 The bundled review-avatar placeholder (assets/placeholders/avatar.svg) is the eos-face icon from Blade UI Kit (Blade Icons), sourced from the EOS Icons set and recoloured into Aludra's warm sand/terracotta neutrals.
 * Face icon source: https://blade-ui-kit.com/blade-icons/eos-face
-* Blade Icons license: https://github.com/driesvints/blade-icons/blob/main/LICENSE.md (MIT License)
-
-= README Logo =
-The Aludra logo displayed in README.md (assets/logos/g-flower.svg) is the Lucide flower icon from Blade UI Kit (Blade Icons), drawn in a flat ember orange (#D9480F) that reads on both light and dark backgrounds. The earlier Forkawesome sun mark and the "nightflower" mark colourways remain in assets/logos/ as alternates.
-* Flower icon source: https://blade-ui-kit.com/blade-icons/lucide-flower
 * Blade Icons license: https://github.com/driesvints/blade-icons/blob/main/LICENSE.md (MIT License)
 
 = Mega Menu Implementation =
