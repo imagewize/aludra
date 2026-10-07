@@ -228,6 +228,8 @@ Each block follows standard WordPress block structure:
 = 2.38.1 =
 * Removed: the SVG and WebP upload filter. Core has handled WebP since 5.8, and enabling SVG uploads site-wide without sanitization was a security risk
 * Changed: the carousel patterns, team pattern and two mega menu patterns now use bundled SVG placeholder images instead of linking to external image hosts
+* Fixed: the Hero Carousel and Portfolio Showcase patterns no longer trigger a block-validation (deprecation migration) notice in the editor
+* Changed: the carousel patterns now live in `patterns/carousel-*.php` like the other patterns; slugs and titles are unchanged
 
 = 2.38.0 =
 * Added: store patterns for WooCommerce sites — a store hero, shop categories, newest products, a brand story, star-rated testimonials and a full store homepage. They appear in their own "Aludra: Store" category, and only when WooCommerce is active.
@@ -263,23 +265,7 @@ Each block follows standard WordPress block structure:
 = 2.36.1 =
 * Changed: The distributed zip now ships each block's readable source (`blocks/*/src/`) and its `package.json` alongside the webpack output in `blocks/*/build/`, as WordPress.org guideline 4 requires for compiled JavaScript and CSS
 * Added: `slick.js`, the uncompressed Slick Carousel 1.8.1 build, ships beside the `slick.min.js` the carousel enqueues, so the one third-party compiled asset has its source in the download too. The vendored files are byte-identical to the official 1.8.1 release apart from one documented line of `slick-theme.css`
-* Changed: A `== External Services ==
-
-The Instagram Embed block (`aludra/instagram-embed`) is the only part of Aludra that connects to a third-party service. No other block, pattern or admin screen makes outside requests, and Aludra does not track visitors or send data to its authors.
-
-**Instagram (Meta Platforms, Inc.)**
-
-* **What it is used for:** showing a live feed of a public Instagram profile through Instagram's own embed page, `https://www.instagram.com/<username>/embed`.
-* **When it loads:** only after a visitor clicks the "Load feed" button. Until then the page contains no iframe and makes no request to instagram.com, so the block can sit behind your own consent flow.
-* **What is sent:** the Instagram username you entered in the block, in the iframe address. Once the iframe loads, Instagram receives the visitor's IP address, browser details and any Instagram cookies, as with any Instagram embed.
-* **In the editor:** the same gate applies. The block editor loads the feed preview only when an editor clicks "Load Instagram feed". The plugin's own server never contacts Instagram and stores nothing.
-* **Availability:** this is an undocumented Instagram endpoint that Meta may change or remove. Each block shows a plain link to the profile as a fallback.
-* Instagram Terms of Use: https://help.instagram.com/581066165581870
-* Meta Privacy Policy: https://privacycenter.meta.com/policy
-
-If you do not use the Instagram Embed block, nothing is ever sent to Instagram. You can also turn the block off under Settings → Aludra.
-
-== Source Code ==` section in readme.txt documents the per-block build and where every compiled file's source lives, grouped with Third-Party Libraries and Credits at the end
+* Changed: A `== Source Code ==` section in readme.txt documents the per-block build and where every compiled file's source lives, grouped with Third-Party Libraries and Credits at the end
 * Changed: Readme tags swapped `gutenberg` for `landing-page` — the directory discourages project names as tags, and the five-tag cap left no room to simply add one
 * Changed: The theme section names Ixian alongside Aviendha
 
@@ -332,6 +318,22 @@ Adds WordPress.org distribution infrastructure. No functional changes to blocks.
 
 = 2.2.0 =
 Initial public release with three custom blocks optimized for the Aludra theme.
+
+== External Services ==
+
+The Instagram Embed block (`aludra/instagram-embed`) is the only part of Aludra that connects to a third-party service. No other block, pattern or admin screen makes outside requests, and Aludra does not track visitors or send data to its authors.
+
+**Instagram (Meta Platforms, Inc.)**
+
+* **What it is used for:** showing a live feed of a public Instagram profile through Instagram's own embed page, `https://www.instagram.com/<username>/embed`.
+* **When it loads:** only after a visitor clicks the "Load feed" button. Until then the page contains no iframe and makes no request to instagram.com, so the block can sit behind your own consent flow.
+* **What is sent:** the Instagram username you entered in the block, in the iframe address. Once the iframe loads, Instagram receives the visitor's IP address, browser details and any Instagram cookies, as with any Instagram embed.
+* **In the editor:** the same gate applies. The block editor loads the feed preview only when an editor clicks "Load Instagram feed". The plugin's own server never contacts Instagram and stores nothing.
+* **Availability:** this is an undocumented Instagram endpoint that Meta may change or remove. Each block shows a plain link to the profile as a fallback.
+* Instagram Terms of Use: https://help.instagram.com/581066165581870
+* Meta Privacy Policy: https://privacycenter.meta.com/policy
+
+If you do not use the Instagram Embed block, nothing is ever sent to Instagram. You can also turn the block off under Settings → Aludra.
 
 == Source Code ==
 
