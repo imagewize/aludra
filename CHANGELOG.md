@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.38.1] - 2026-10-07
+
+### Added
+- readme `== External Services ==` section disclosing the Instagram Embed block's connection to instagram.com, as WordPress.org guideline 6 requires.
+
+### Fixed
+- Hero Carousel: the three `core/cover` slides stored the dim overlay `<span>` before the background `<img>`, the opposite of what core's cover block saves now, so the editor reported a deprecation migration on each slide. The image now comes first.
+- Portfolio Showcase: the three resized images stored `style="width:Npx"` where core's image block saves `width:Npx;height:auto`, with the same migration warning.
+
+### Removed
+- The `upload_mimes` filter that enabled SVG and WebP uploads site-wide, with its admin style block. Core supports WebP since 5.8; unsanitized SVG uploads are an XSS risk and outside a block library's scope.
+
+### Changed
+- The five carousel patterns (hero, testimonial, product gallery, portfolio showcase, team members) moved out of `aludra.php` into `patterns/carousel-*.php`, registered through the same file loader as the section and page patterns. Slugs, titles and the "Aludra: Carousels" category are unchanged. As files they are now covered by `npm run validate`, which only reads `patterns/` and had never exercised them.
+- Carousel, team and mega menu patterns use bundled SVG placeholders (`assets/placeholders/image.svg`, `avatar.svg`) instead of hot-linked Unsplash and placehold.co images, as WordPress.org requires bundled assets.
+- Readme contributor slug lowercased to match the wp.org username.
+
 ## [2.38.0] - 2026-10-03
 
 ### Added

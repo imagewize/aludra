@@ -1,10 +1,10 @@
 === Aludra ===
-Contributors: Rhand
+Contributors: rhand
 Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.38.0
+Stable tag: 2.38.1
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -33,7 +33,49 @@ That division is the whole idea, and **Aviendha** (https://github.com/imagewize/
 
 None of that is required. Aludra is theme-neutral — blocks resolve colours from the active theme's palette with fallbacks, so they render correctly on any FSE, block, or classic theme.
 
-= Blocks Included =
+== Installation ==
+
+1. Upload the plugin files to the `/wp-content/plugins/aludra` directory, or install the plugin through the WordPress plugins screen directly.
+2. Activate the plugin through the 'Plugins' screen in WordPress.
+3. Blocks will be automatically available in the Gutenberg editor.
+4. For Mega Menu: Place inside a Navigation block to use the mega menu functionality.
+5. For Carousel: Add a Carousel block, then add Slide blocks inside it.
+
+== Frequently Asked Questions ==
+
+= Does this plugin work with any theme? =
+
+Yes. Aludra is a theme-neutral block library and works with any WordPress theme — FSE, block, or classic. It is used across the Imagewize block themes (Elayne, Aviendha), and blocks reference theme color presets with fallbacks so they render correctly everywhere.
+
+= How do I build the blocks from source? =
+
+Each block has isolated dependencies and must be built separately:
+
+```
+cd blocks/carousel && npm install && npm run build
+cd blocks/mega-menu && npm install && npm run build
+cd blocks/slide && npm install && npm run build
+```
+
+For development mode with watch: `cd blocks/[block-name] && npm start`
+
+= Are the build files included? =
+
+Yes, the `build/` directories are committed to the repository for Packagist distribution, so users get working blocks without needing to run build commands.
+
+= Can I customize the carousel settings? =
+
+Yes, the carousel block uses Slick Carousel which is highly customizable. You can extend the block to add additional Slick settings through the block attributes.
+
+= Does the Mega Menu work with keyboard navigation? =
+
+Yes, the mega menu block includes full keyboard navigation support, outside-click dismissal, and proper focus management for accessibility.
+
+= What is the WordPress Interactivity API? =
+
+It's WordPress's official frontend reactivity system. The mega menu block uses it for modern, reactive user interactions without heavy JavaScript frameworks.
+
+= What blocks are included, and how are they built? =
 
 **Mega Menu Block**
 * Create dropdown mega menus with rich content
@@ -138,7 +180,7 @@ None of that is required. Aludra is theme-neutral — blocks resolve colours fro
 * Collapses to a single stacked column (sticky disabled) below 860px
 * Optional tinted background, and a tunable sticky offset via the --aludra-spine-top custom property
 
-= Key Features =
+**Key Features**
 
 * **Theme Neutral** - Works with any WordPress theme; uses theme color presets with fallbacks
 * **Performance Optimized** - Conditional asset loading (Slick Carousel only loads when needed)
@@ -147,22 +189,21 @@ None of that is required. Aludra is theme-neutral — blocks resolve colours fro
 * **Dynamic Block Discovery** - Automatically discovers and registers all blocks at runtime
 * **Translation Ready** - Full internationalization support with text domain
 
-= Technical Highlights =
+**Technical Highlights**
 
 * Follows WordPress block development best practices
 * Each block has isolated dependencies for independent versioning
 * Block metadata in block.json is single source of truth
 * Build tooling via @wordpress/scripts (Webpack, Babel, etc.)
 * Server-side rendering support (mega-menu)
-* SVG and WebP upload support
 
-= Requirements =
+**Requirements**
 
 * WordPress 6.9 or higher
 * PHP 7.4 or higher
 * Works with any WordPress theme (FSE, block, or classic)
 
-= Block Structure =
+**Block Structure**
 
 Each block follows standard WordPress block structure:
 * `src/block.json` - Block metadata and configuration
@@ -174,48 +215,6 @@ Each block follows standard WordPress block structure:
 * `src/editor.scss` - Editor-only styles
 * `src/style.scss` - Frontend + editor styles
 
-== Installation ==
-
-1. Upload the plugin files to the `/wp-content/plugins/aludra` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Blocks will be automatically available in the Gutenberg editor.
-4. For Mega Menu: Place inside a Navigation block to use the mega menu functionality.
-5. For Carousel: Add a Carousel block, then add Slide blocks inside it.
-
-== Frequently Asked Questions ==
-
-= Does this plugin work with any theme? =
-
-Yes. Aludra is a theme-neutral block library and works with any WordPress theme — FSE, block, or classic. It is used across the Imagewize block themes (Elayne, Aviendha), and blocks reference theme color presets with fallbacks so they render correctly everywhere.
-
-= How do I build the blocks from source? =
-
-Each block has isolated dependencies and must be built separately:
-
-```
-cd blocks/carousel && npm install && npm run build
-cd blocks/mega-menu && npm install && npm run build
-cd blocks/slide && npm install && npm run build
-```
-
-For development mode with watch: `cd blocks/[block-name] && npm start`
-
-= Are the build files included? =
-
-Yes, the `build/` directories are committed to the repository for Packagist distribution, so users get working blocks without needing to run build commands.
-
-= Can I customize the carousel settings? =
-
-Yes, the carousel block uses Slick Carousel which is highly customizable. You can extend the block to add additional Slick settings through the block attributes.
-
-= Does the Mega Menu work with keyboard navigation? =
-
-Yes, the mega menu block includes full keyboard navigation support, outside-click dismissal, and proper focus management for accessibility.
-
-= What is the WordPress Interactivity API? =
-
-It's WordPress's official frontend reactivity system. The mega menu block uses it for modern, reactive user interactions without heavy JavaScript frameworks.
-
 == Screenshots ==
 
 1. Carousel block with multiple slides in the editor
@@ -225,6 +224,12 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.38.1 =
+* Removed: the SVG and WebP upload filter. Core has handled WebP since 5.8, and enabling SVG uploads site-wide without sanitization was a security risk
+* Changed: the carousel patterns, team pattern and two mega menu patterns now use bundled SVG placeholder images instead of linking to external image hosts
+* Fixed: the Hero Carousel and Portfolio Showcase patterns no longer trigger a block-validation (deprecation migration) notice in the editor
+* Changed: the carousel patterns now live in `patterns/carousel-*.php` like the other patterns; slugs and titles are unchanged
 
 = 2.38.0 =
 * Added: store patterns for WooCommerce sites — a store hero, shop categories, newest products, a brand story, star-rated testimonials and a full store homepage. They appear in their own "Aludra: Store" category, and only when WooCommerce is active.
@@ -313,6 +318,22 @@ Adds WordPress.org distribution infrastructure. No functional changes to blocks.
 
 = 2.2.0 =
 Initial public release with three custom blocks optimized for the Aludra theme.
+
+== External Services ==
+
+The Instagram Embed block (`aludra/instagram-embed`) is the only part of Aludra that connects to a third-party service. No other block, pattern or admin screen makes outside requests, and Aludra does not track visitors or send data to its authors.
+
+**Instagram (Meta Platforms, Inc.)**
+
+* **What it is used for:** showing a live feed of a public Instagram profile through Instagram's own embed page, `https://www.instagram.com/<username>/embed`.
+* **When it loads:** only after a visitor clicks the "Load feed" button. Until then the page contains no iframe and makes no request to instagram.com, so the block can sit behind your own consent flow.
+* **What is sent:** the Instagram username you entered in the block, in the iframe address. Once the iframe loads, Instagram receives the visitor's IP address, browser details and any Instagram cookies, as with any Instagram embed.
+* **In the editor:** the same gate applies. The block editor loads the feed preview only when an editor clicks "Load Instagram feed". The plugin's own server never contacts Instagram and stores nothing.
+* **Availability:** this is an undocumented Instagram endpoint that Meta may change or remove. Each block shows a plain link to the profile as a fallback.
+* Instagram Terms of Use: https://help.instagram.com/581066165581870
+* Meta Privacy Policy: https://privacycenter.meta.com/policy
+
+If you do not use the Instagram Embed block, nothing is ever sent to Instagram. You can also turn the block off under Settings → Aludra.
 
 == Source Code ==
 
