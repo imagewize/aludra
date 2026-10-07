@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- `languages/.gitkeep` no longer ships: WordPress.org's automated scan rejects hidden files, and the folder already holds real translation files. `.distignore` now matches `.gitkeep` at any depth — a bare `.gitkeep` only matched the zip root.
+
 ## [2.38.2] - 2026-10-07
 
 ### Added

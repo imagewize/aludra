@@ -12,7 +12,7 @@ node_modules/*
 .distignore
 .gitattributes
 .editorconfig
-.gitkeep
+*.gitkeep
 phpcs.xml
 phpcs.xml.dist
 composer.json
