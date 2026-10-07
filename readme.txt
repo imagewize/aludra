@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.38.1
+Stable tag: 2.38.2
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -225,6 +225,10 @@ Each block follows standard WordPress block structure:
 
 == Changelog ==
 
+= 2.38.2 =
+* Added: WordPress.org directory assets — plugin icon and banners
+* Changed: new fireworks logo and plugin icon, a nod to the Nightflowers of The Wheel of Time; credits updated
+
 = 2.38.1 =
 * Removed: the SVG and WebP upload filter. Core has handled WebP since 5.8, and enabling SVG uploads site-wide without sanitization was a security risk
 * Changed: the carousel patterns, team pattern and two mega menu patterns now use bundled SVG placeholder images instead of linking to external image hosts
@@ -258,38 +262,6 @@ Each block follows standard WordPress block structure:
 
 = 2.36.3 =
 * Security: Bumped the `@imwz/wp-pattern-sentinel` dev dependency to 1.1.1, which pulls in a `js-yaml` fix for GHSA-5p4m-2wfm-xmqj, a quadratic CPU consumption (DoS) bug in `!!omap` YAML resolution. `js-yaml` is only used by sentinel's `--trellis` auto-discovery of `wordpress_sites.yml`; nothing in this plugin's own runtime is affected.
-
-= 2.36.2 =
-* Fixed: The Ixian homepage hero's search-style button group no longer squeezes into a near-square blob on mobile, wrapping the "Browse Templates" label. Nested `.hero-banner__search` groups in the Canvas style now stack vertically at 768px and below with full-width buttons, matching the block's actual selector specificity rather than reaching for `!important` across the board
-
-= 2.36.1 =
-* Changed: The distributed zip now ships each block's readable source (`blocks/*/src/`) and its `package.json` alongside the webpack output in `blocks/*/build/`, as WordPress.org guideline 4 requires for compiled JavaScript and CSS
-* Added: `slick.js`, the uncompressed Slick Carousel 1.8.1 build, ships beside the `slick.min.js` the carousel enqueues, so the one third-party compiled asset has its source in the download too. The vendored files are byte-identical to the official 1.8.1 release apart from one documented line of `slick-theme.css`
-* Changed: A `== Source Code ==` section in readme.txt documents the per-block build and where every compiled file's source lives, grouped with Third-Party Libraries and Credits at the end
-* Changed: Readme tags swapped `gutenberg` for `landing-page` — the directory discourages project names as tags, and the five-tag cap left no room to simply add one
-* Changed: The theme section names Ixian alongside Aviendha
-
-= 2.36.0 =
-* Added: Seven more section patterns, closing the gap between blocks and patterns — split with steps, service detail cards, before/after icon grids, comparison table, CTA columns, testimonial grid and service intro. Every content block is now reachable as a finished section rather than an empty block you have to work out how to fill. Twenty-one sections, forty-two patterns in total
-* Changed: README, readme.txt and the plugin header now say "page builder" rather than describing the division of labour without naming it, and distinguish Aludra from the proprietary builders the term usually implies — native blocks in the editor you already have, no shortcodes, no proprietary markup, nothing that breaks when you switch it off
-* Changed: Copy in the sections extracted from live demo pages was rewritten into the same generic service-business voice as the rest of the library
-* Fixed: The comparison section carries the wp-block-aludra-comparison-row and wp-block-aludra-comparison-cell wrapper classes the editor emits. The markup it was extracted from was missing them, having been inserted programmatically rather than typed into the editor, so the pattern would have inherited a block that fails validation. Pages holding such markup show a recovery prompt in the editor; the frontend is unaffected
-* Changed: No block markup, styles, or attributes changed — existing content is untouched
-
-= 2.35.0 =
-* Added: Fourteen section patterns — the single bands a page is built from (split hero, hero banner, stat rail, trust bar, reviews, capability cards, services grid, feature list, about, client carousel, pricing, FAQ, CTA banner, contact), each pre-filled with plausible copy and the right style variation. Previously the smallest unit available was an empty block; these are finished sections, extracted verbatim from the markup already shipping in the four page patterns
-* Added: Section patterns are grouped into pattern categories mirroring the block categories — Heroes, Proof, Features & Services, Layout, Convert — so a section sits under the same heading as the block it is built from, and the inserter renders each as a live preview
-* Changed: The "aludra" pattern category, which held carousel demos and whole page layouts together, is split into "Aludra: Full Pages" and "Aludra: Carousels"
-* Changed: Page and section patterns are registered by one loader reading Categories and Block Types from each file's own header. Only page patterns declare core/post-content, so section patterns no longer risk crowding the new-page pattern picker
-* Added: Four more page patterns — landing, services overview, pricing and team. Eight full pages now cover the layouts a service business actually needs, each assembled from the section patterns rather than authored fresh
-* Changed: README, readme.txt and the plugin header now lead with the division of labour rather than "a shared custom block library" — a theme gives you the palette, type, header and footer; Aludra gives you everything between them. Deliberately silent on what kind of site that is, and defined as "blocks and patterns" rather than as sections. Aviendha is named as the companion starter theme it is built against, and the tags updated to match how people search for this
-* Changed: The single "Aludra" block category is split into six — Heroes, Proof, Features & Services, Layout, Convert, and Navigation. At thirty blocks one category had become its own haystack. They are registered in the order a page gets built rather than alphabetically, so the inserter panel reads as a sequence rather than an inventory
-* Changed: Settings → Aludra groups its block cards by those same six categories, replacing a second unrelated taxonomy that put 21 of the 30 blocks in one bucket and matched nothing shown in the editor
-* Changed: No block markup, styles, or attributes changed — existing content is untouched
-
-= 2.34.0 =
-* Added: A "Light" style for CTA Banner — the same banner on a white ground with Tertiary background and Contrast text, for themes whose pages are light throughout. The button stays keyed to Primary Alt/Main directly in both styles, since it reads as an accent against either ground. The dark banner is unchanged and remains the default
-* Changed: CTA Banner's background/text colours route through custom properties declared once on the block, so a style variation is a palette swap rather than a second copy of the layout. The rendered dark banner is identical to 2.33.0 and existing content needs no deprecation
 
 Older entries are trimmed to keep this section within the 5000-character
 limit WordPress.org enforces. The complete history is in CHANGELOG.md:
