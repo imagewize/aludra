@@ -1,10 +1,10 @@
 === Aludra ===
-Contributors: Rhand
+Contributors: rhand
 Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.38.0
+Stable tag: 2.38.1
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -154,7 +154,6 @@ None of that is required. Aludra is theme-neutral — blocks resolve colours fro
 * Block metadata in block.json is single source of truth
 * Build tooling via @wordpress/scripts (Webpack, Babel, etc.)
 * Server-side rendering support (mega-menu)
-* SVG and WebP upload support
 
 = Requirements =
 
@@ -225,6 +224,10 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 5. Mega menu dropdown with rich content
 
 == Changelog ==
+
+= 2.38.1 =
+* Removed: the SVG and WebP upload filter. Core has handled WebP since 5.8, and enabling SVG uploads site-wide without sanitization was a security risk
+* Changed: the carousel patterns, team pattern and two mega menu patterns now use bundled SVG placeholder images instead of linking to external image hosts
 
 = 2.38.0 =
 * Added: store patterns for WooCommerce sites — a store hero, shop categories, newest products, a brand story, star-rated testimonials and a full store homepage. They appear in their own "Aludra: Store" category, and only when WooCommerce is active.

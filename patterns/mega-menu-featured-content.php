@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:heading -->
 
 <!-- wp:image {"sizeSlug":"medium","style":{"border":{"radius":"8px"}}} -->
-<figure class="wp-block-image size-medium has-custom-border"><img src="https://placehold.co/300x200" alt="Featured product" style="border-radius:8px"/></figure>
+<figure class="wp-block-image size-medium has-custom-border"><img src="<?php echo esc_url( ALUDRA_PLUGIN_URL . 'assets/placeholders/image.svg' ); ?>" alt="Featured product" style="border-radius:8px"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:buttons -->

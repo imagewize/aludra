@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.38.1] - 2026-10-07
+
+### Removed
+- The `upload_mimes` filter that enabled SVG and WebP uploads site-wide, with its admin style block. Core supports WebP since 5.8; unsanitized SVG uploads are an XSS risk and outside a block library's scope.
+
+### Changed
+- Carousel, team and mega menu patterns use bundled SVG placeholders (`assets/placeholders/image.svg`, `avatar.svg`) instead of hot-linked Unsplash and placehold.co images, as WordPress.org requires bundled assets.
+- Readme contributor slug lowercased to match the wp.org username.
+
 ## [2.38.0] - 2026-10-03
 
 ### Added
