@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.38.2] - 2026-10-07
+
+### Added
+- `.wordpress-org/` with the WordPress.org directory assets: plugin icon (SVG, 128 and 256 PNG) and the two banner sizes. Excluded from the release zip through `.distignore`; the editable banner source is `assets/logos/wporg-banner.svg`. Five screenshots replace the old carousel and mega menu captions in `readme.txt`.
+
+### Changed
+- New logo and plugin icon: the Hugeicons fireworks icon via Blade UI Kit (MIT), a nod to the Illuminators' Nightflowers in *The Wheel of Time*. `README.md` now uses `assets/logos/h-fireworks.svg`; the earlier marks remain in `assets/logos/` as alternates.
+- Credits in `README.md` and `readme.txt` now credit the fireworks icon in place of the Lucide flower and IconPark Block One.
+
 ## [2.38.1] - 2026-10-07
 
 ### Added

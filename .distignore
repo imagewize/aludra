@@ -22,6 +22,9 @@ composer.lock
 yarn.lock
 pnpm-lock.yaml
 
+# WordPress.org marketing assets (banners, icon, screenshots) — pushed to SVN /assets, never shipped in the plugin zip
+.wordpress-org/*
+
 # Documentation and scripts
 # Kept as a guard, not a description: there is no docs/ or designs/ directory
 # here any more. Planning documents and design mockups live in the private
