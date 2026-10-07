@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.38.3] - 2026-10-07
+
+### Fixed
+- `languages/.gitkeep` no longer ships: WordPress.org's automated scan rejects hidden files, and the folder already holds real translation files. `.distignore` now matches `.gitkeep` at any depth — a bare `.gitkeep` only matched the zip root.
+- `languages/aludra.pot` was last generated at 2.5.8 and held 221 strings; it is regenerated and now covers all 580 translatable strings.
+- `languages/aludra-nl_NL.po` had 12 duplicate entries and failed `msgfmt`. De-duplicated and merged with the new template; entries without a Dutch translation yet fall back to English.
+
 ## [2.38.2] - 2026-10-07
 
 ### Added

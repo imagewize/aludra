@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.38.2
+Stable tag: 2.38.3
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -224,6 +224,10 @@ Each block follows standard WordPress block structure:
 5. FAQ section with the first answer expanded
 
 == Changelog ==
+
+= 2.38.3 =
+* Fixed: a stray hidden file no longer ships in the zip, as WordPress.org requires
+* Fixed: the translation template now covers all translatable strings, and the Dutch translation file is repaired
 
 = 2.38.2 =
 * Added: WordPress.org directory assets — plugin icon and banners
