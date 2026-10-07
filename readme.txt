@@ -217,11 +217,11 @@ Each block follows standard WordPress block structure:
 
 == Screenshots ==
 
-1. Carousel block with multiple slides in the editor
-2. Mega menu block configuration panel
-3. Slide block with InnerBlocks content
-4. Frontend carousel display
-5. Mega menu dropdown with rich content
+1. Hero Split section with a Stat Rail directly beneath it
+2. Pricing Tiers section — three plans with the featured tier highlighted
+3. Services section — numbered, icon-led service rows beside a sticky heading
+4. Client reviews section — three testimonial cards
+5. FAQ section with the first answer expanded
 
 == Changelog ==
 
