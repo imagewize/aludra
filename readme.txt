@@ -263,7 +263,23 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 = 2.36.1 =
 * Changed: The distributed zip now ships each block's readable source (`blocks/*/src/`) and its `package.json` alongside the webpack output in `blocks/*/build/`, as WordPress.org guideline 4 requires for compiled JavaScript and CSS
 * Added: `slick.js`, the uncompressed Slick Carousel 1.8.1 build, ships beside the `slick.min.js` the carousel enqueues, so the one third-party compiled asset has its source in the download too. The vendored files are byte-identical to the official 1.8.1 release apart from one documented line of `slick-theme.css`
-* Changed: A `== Source Code ==` section in readme.txt documents the per-block build and where every compiled file's source lives, grouped with Third-Party Libraries and Credits at the end
+* Changed: A `== External Services ==
+
+The Instagram Embed block (`aludra/instagram-embed`) is the only part of Aludra that connects to a third-party service. No other block, pattern or admin screen makes outside requests, and Aludra does not track visitors or send data to its authors.
+
+**Instagram (Meta Platforms, Inc.)**
+
+* **What it is used for:** showing a live feed of a public Instagram profile through Instagram's own embed page, `https://www.instagram.com/<username>/embed`.
+* **When it loads:** only after a visitor clicks the "Load feed" button. Until then the page contains no iframe and makes no request to instagram.com, so the block can sit behind your own consent flow.
+* **What is sent:** the Instagram username you entered in the block, in the iframe address. Once the iframe loads, Instagram receives the visitor's IP address, browser details and any Instagram cookies, as with any Instagram embed.
+* **In the editor:** the same gate applies. The block editor loads the feed preview only when an editor clicks "Load Instagram feed". The plugin's own server never contacts Instagram and stores nothing.
+* **Availability:** this is an undocumented Instagram endpoint that Meta may change or remove. Each block shows a plain link to the profile as a fallback.
+* Instagram Terms of Use: https://help.instagram.com/581066165581870
+* Meta Privacy Policy: https://privacycenter.meta.com/policy
+
+If you do not use the Instagram Embed block, nothing is ever sent to Instagram. You can also turn the block off under Settings → Aludra.
+
+== Source Code ==` section in readme.txt documents the per-block build and where every compiled file's source lives, grouped with Third-Party Libraries and Credits at the end
 * Changed: Readme tags swapped `gutenberg` for `landing-page` — the directory discourages project names as tags, and the five-tag cap left no room to simply add one
 * Changed: The theme section names Ixian alongside Aviendha
 

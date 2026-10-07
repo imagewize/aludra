@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.38.1] - 2026-10-07
 
+### Added
+- readme `== External Services ==` section disclosing the Instagram Embed block's connection to instagram.com, as WordPress.org guideline 6 requires.
+
 ### Removed
 - The `upload_mimes` filter that enabled SVG and WebP uploads site-wide, with its admin style block. Core supports WebP since 5.8; unsanitized SVG uploads are an XSS risk and outside a block library's scope.
 
