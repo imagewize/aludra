@@ -49,7 +49,7 @@ install they have Aludra installed on; adjust paths and site names accordingly.
   (`imagewize/aludra`, `imagewize/aviendha`), installed from Packagist — **not** symlinked to these
   working copies.
 - **Testing unreleased changes: sync, don't release.** Use wp-ops'
-  `scripts/rsync-package-to-site.sh plugin aludra`, with `SITE_ROOT` pointing at the demo site's
+  `scripts/sync/rsync-package-to-site.sh plugin aludra`, with `SITE_ROOT` pointing at the demo site's
   `web/app`; pass `theme aviendha` for the theme. It pushes a dist-faithful tree (`--delete
   --delete-excluded`, honouring `.distignore`), so what you test is what ships, and a `composer
   update` on the demo site puts the released code back. Run the sync **before** `npm run validate`

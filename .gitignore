@@ -77,7 +77,7 @@ extract-translations.sh
 # Pattern validator run logs (@imwz/wp-pattern-sentinel)
 sentinel-*.log.json
 
-# Demo-site sync helper (lives in wp-ops: scripts/rsync-package-to-site.sh)
+# Demo-site sync helper (lives in wp-ops: scripts/sync/rsync-package-to-site.sh)
 bin/sync-demo.sh
 
 # PHPUnit
