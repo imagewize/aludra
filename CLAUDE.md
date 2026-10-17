@@ -11,6 +11,7 @@ Aludra is a shared custom block library for Imagewize block themes (Elayne, Avie
 - **faq-tabs** / **faq-tab-answer** — tabbed FAQ with answer children
 - **search-overlay-trigger** — search icon that opens a full-screen search overlay
 - **testimonial-grid** — testimonial cards that conditionally initialize a Slick carousel based on card count (view.js)
+- **free-shipping-bar** / **sticky-add-to-cart** — WooCommerce store blocks (progress toward free shipping; sticky product bar). Registered only when WooCommerce is active (`aludra_woocommerce_blocks()` in `includes/woocommerce.php`); their `view.js` files are ordinary `viewScript`s. Built for the Winespring theme, which cannot register blocks itself under Theme Check
 - **feature-cards**, **icon-grid**, **trust-bar**, **pricing-tiers**, **cta-columns**, **feature-list-grid** — static content/marketing blocks
 
 Blocks can be individually enabled/disabled via an admin settings page (Settings → Aludra), stored in the `aludra_enabled` option. See `blocks/` for the current, authoritative list.

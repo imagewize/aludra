@@ -13,7 +13,7 @@ A page builder made of real blocks.
 
 ## Description
 
-Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. **32 native blocks, 21 ready-made sections and 8 whole page layouts**, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
+Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. **34 native blocks, 21 ready-made sections and 8 whole page layouts**, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
 
 A theme gives you the palette, the type, the header and the footer; Aludra gives you everything between them — the bands a page is actually made of: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
 
