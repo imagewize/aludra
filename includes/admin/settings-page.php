@@ -86,6 +86,8 @@ function aludra_get_default_settings() {
 		'comparison-cell'        => true,
 		'photo-grid'             => true,
 		'instagram-embed'        => true,
+		'free-shipping-bar'      => true,
+		'sticky-add-to-cart'     => true,
 	);
 }
 
@@ -277,6 +279,16 @@ function aludra_get_available_blocks() {
 			'description' => __( 'Live Instagram profile feed via Instagram\'s public embed iframe, gated behind a click-to-load button. Unofficial and undocumented by Meta — could change without notice.', 'aludra' ),
 			'category'    => 'aludra-proof',
 		),
+		'free-shipping-bar'      => array(
+			'label'       => __( 'Free Shipping Progress', 'aludra' ),
+			'description' => __( 'WooCommerce: shows how far the cart is from free shipping, updating as items are added or removed.', 'aludra' ),
+			'category'    => 'aludra-convert',
+		),
+		'sticky-add-to-cart'     => array(
+			'label'       => __( 'Sticky Add to Cart', 'aludra' ),
+			'description' => __( 'WooCommerce: a bar with the product name, price and button once the add to cart form scrolls out of view.', 'aludra' ),
+			'category'    => 'aludra-convert',
+		),
 	);
 }
 
@@ -354,6 +366,8 @@ function aludra_get_block_glyph( $slug ) {
 		'service-intro'          => '<rect x="4" y="6" width="16" height="12" rx="1.5"/><path d="M7 10h10M7 13h6" stroke-linecap="round"/>',
 		'service-blocks'         => '<rect x="3" y="4" width="18" height="5" rx="1.5"/><rect x="3" y="10.5" width="18" height="5" rx="1.5"/><rect x="3" y="17" width="18" height="5" rx="1.5"/>',
 		'photo-grid'             => '<rect x="3" y="3" width="6" height="6" rx="1"/><rect x="9.5" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="5" height="6" rx="1"/><rect x="3" y="9.5" width="6" height="6" rx="1"/><rect x="9.5" y="9.5" width="6" height="6" rx="1"/><rect x="16" y="9.5" width="5" height="6" rx="1"/>',
+		'free-shipping-bar'      => '<rect x="2" y="7" width="13" height="9" rx="1.5"/><path d="M15 10h4l3 3v3h-7"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="18" cy="18" r="1.8"/>',
+		'sticky-add-to-cart'     => '<rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 17h5"/><path d="M3 5h18M3 9h10"/>',
 		'instagram-embed'        => '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/>',
 	);
 

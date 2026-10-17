@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
- * Description: A page builder made of real blocks — 32 blocks, 21 section patterns and 8 page layouts for everything between the header and the footer. Native block editor, no shortcodes, no proprietary markup. Built alongside the Aviendha starter theme; works with any theme.
- * Version: 2.38.3
+ * Description: A page builder made of real blocks — 34 blocks, 21 section patterns and 8 page layouts for everything between the header and the footer. Native block editor, no shortcodes, no proprietary markup. Built alongside the Aviendha starter theme; works with any theme.
+ * Version: 2.39.0
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,9 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.38.3' );
+define( 'ALUDRA_VERSION', '2.39.0' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+
+require_once ALUDRA_PLUGIN_DIR . 'includes/woocommerce.php';
 
 // Load admin settings page.
 if ( is_admin() ) {
@@ -161,6 +163,8 @@ add_action(
 				'comparison-cell'        => true,
 				'photo-grid'             => true,
 				'instagram-embed'        => true,
+				'free-shipping-bar'      => true,
+				'sticky-add-to-cart'     => true,
 			)
 		);
 
@@ -176,6 +180,11 @@ add_action(
 			if ( file_exists( $block_json_path ) ) {
 				// Skip if block is disabled in settings.
 				if ( isset( $enabled_blocks[ $folder ] ) && ! $enabled_blocks[ $folder ] ) {
+					continue;
+				}
+
+				// Store blocks render nothing without WooCommerce, so keep them out of the inserter.
+				if ( ! class_exists( 'WooCommerce' ) && in_array( $folder, aludra_woocommerce_blocks(), true ) ) {
 					continue;
 				}
 
