@@ -58,6 +58,7 @@ create-pr.sh
 # Verified empirically against both tools; keep any new root-only entry anchored.
 blocks/*/node_modules/*
 blocks/*/package-lock.json
+blocks/*/README.md
 blocks/*/.gitignore
 blocks/*/.npmrc
 blocks/*/eslint.config.js
