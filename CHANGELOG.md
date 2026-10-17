@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.39.0] - 2026-10-17
+
+### Added
+- `aludra/free-shipping-bar`: shows how far the WooCommerce cart is from free shipping, with a progress bar. The threshold is the lowest minimum on an enabled free shipping method in the customer's shipping zone, overridable per block or with the `aludra_free_shipping_threshold` filter. Rendered on the server, then kept current from the Store API when items are added or removed.
+- `aludra/sticky-add-to-cart`: a bar with product name, price and button that appears once the add to cart form leaves the viewport; the button scrolls back to the form so quantity and variation choices are never skipped. Place it in the single product template.
+- `includes/woocommerce.php` with the free shipping threshold lookup. Both blocks are skipped at registration when WooCommerce is not active.
+- Both blocks are in the Settings → Aludra list, under Convert.
+
 ## [2.38.3] - 2026-10-07
 
 ### Fixed

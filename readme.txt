@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.38.3
+Stable tag: 2.39.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -12,7 +12,7 @@ A page builder made of real blocks: 32 blocks and 42 patterns for everything bet
 
 == Description ==
 
-Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. 32 native blocks, 21 ready-made sections and 8 whole page layouts, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
+Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. 34 native blocks, 21 ready-made sections and 8 whole page layouts, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
 
 A theme gives you the palette, the type, the header and the footer; Aludra gives you everything between them — the bands a page is actually made of: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
 
@@ -24,7 +24,7 @@ You rarely start from an empty block. You pick a section — a hero that already
 
 * **21 section patterns** — one page band each, grouped into Heroes, Proof, Features & Services, Layout and Convert. Every content block has one
 * **8 page patterns** — homepage, landing, service, services overview, pricing, about, team and contact, offered when you create a new page
-* **32 blocks** — grouped into six inserter categories that follow the order a page gets built in, and individually enable/disable-able under Settings → Aludra
+* **34 blocks** — grouped into six inserter categories that follow the order a page gets built in, and individually enable/disable-able under Settings → Aludra
 * **13 more patterns** — five pre-configured carousels and eight mega menu layouts for menu template parts
 
 = Building a site with Aludra =
@@ -224,6 +224,10 @@ Each block follows standard WordPress block structure:
 5. FAQ section with the first answer expanded
 
 == Changelog ==
+
+= 2.39.0 =
+* Added: Free Shipping Progress block — a progress bar toward free shipping that updates as the WooCommerce cart changes
+* Added: Sticky Add to Cart block — a product bar that appears when the add to cart form scrolls out of view
 
 = 2.38.3 =
 * Fixed: a stray hidden file no longer ships in the zip, as WordPress.org requires
