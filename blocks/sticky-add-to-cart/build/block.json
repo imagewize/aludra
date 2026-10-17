@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aludra/sticky-add-to-cart",
+  "version": "1.0.0",
+  "title": "Sticky Add to Cart",
+  "category": "aludra-convert",
+  "icon": "cart",
+  "description": "A bar with the product name, price and a button that appears once the main add to cart form has scrolled out of view. Place it in the single product template.",
+  "keywords": [
+    "woocommerce",
+    "cart",
+    "sticky",
+    "product"
+  ],
+  "example": {},
+  "usesContext": [
+    "postId"
+  ],
+  "supports": {
+    "html": false,
+    "color": {
+      "text": true,
+      "background": true
+    },
+    "typography": {
+      "fontSize": true
+    }
+  },
+  "textdomain": "aludra",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

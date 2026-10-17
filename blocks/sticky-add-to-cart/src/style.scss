@@ -1,0 +1,52 @@
+.aludra-sticky-cart {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 90;
+	padding: var(--wp--preset--spacing--x-small) var(--wp--preset--spacing--small);
+	background: var(--wp--preset--color--base);
+	border-top: 1px solid var(--wp--preset--color--border-light);
+	box-shadow: 0 -4px 16px rgb(0 0 0 / 0.06);
+}
+
+.aludra-sticky-cart[hidden] {
+	display: none;
+}
+
+.aludra-sticky-cart__inner {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--small);
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin: 0 auto;
+}
+
+.aludra-sticky-cart__title {
+	flex: 1;
+	margin: 0;
+	overflow: hidden;
+	font-weight: 600;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+
+	.aludra-sticky-cart__price {
+		display: none;
+	}
+}
+
+/* In the editor the bar sits in the flow rather than over the canvas. */
+.aludra-sticky-cart--preview {
+	position: static;
+	box-shadow: none;
+	border: 1px dashed var(--wp--preset--color--border-light, #ccc);
+}
+
+.aludra-sticky-cart__note {
+	margin: 0.5rem 0 0;
+	font-size: 0.8em;
+	opacity: 0.7;
+}
