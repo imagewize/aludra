@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.39.1] - 2026-10-21
+
+### Changed
+- The repo is now an npm workspace (`blocks/*`): one `npm ci` at the root replaces a separate install in each block directory, so the blocks share a single `node_modules` instead of ~34 copies. Build with `npm run build --workspace=blocks/<name>` or `npm run build --workspaces --if-present`.
+- The root `package-lock.json` is now committed so installs are reproducible; it is excluded from the release zip by `.distignore`.
+- `webpack-dev-server` is pinned through `overrides` in the root `package.json` only. npm ignores `overrides` in a workspace member, so the per-block copies are removed.
+- `free-shipping-bar`, `instagram-embed` and `sticky-add-to-cart` move from `@wordpress/element` `^6.23.0` to `^8.2.0` to match every other block. Their built output is unchanged.
+- `CLAUDE.md`, `AGENTS.md` and `CONTRIBUTING.md` describe the workspace commands.
+
+No block markup, styles or PHP changed, so no block `version` is bumped and `build/` is untouched.
+
 ## [2.39.0] - 2026-10-17
 
 ### Added

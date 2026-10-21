@@ -25,8 +25,5 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^32.6.0"
-	},
-	"overrides": {
-		"webpack-dev-server": "^5.2.2"
 	}
 }

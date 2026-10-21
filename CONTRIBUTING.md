@@ -12,33 +12,32 @@ Thanks for your interest in improving Aludra.
 
 ## Development Setup
 
-Each block is isolated and has its own `package.json`.
+Each block has its own `package.json`, but the repo is an npm workspace: install once from the repo root and all blocks share a single `node_modules`.
 
 ```bash
-cd blocks/carousel
-npm install
+npm ci
 ```
 
 ## Build
 
 ```bash
-npm run build
+npm run build --workspace=blocks/carousel
 ```
 
 For watch mode:
 
 ```bash
-npm start
+npm start --workspace=blocks/carousel
 ```
 
-Repeat for other blocks (`mega-menu`, `slide`, `faq-tabs`, `search-overlay-trigger`) as needed.
+To build every block: `npm run build --workspaces --if-present`. Running the scripts from inside a block directory works too.
 
 ## Linting and Formatting
 
 ```bash
-npm run lint:js
-npm run lint:css
-npm run format
+npm run lint:js --workspace=blocks/carousel
+npm run lint:css --workspace=blocks/carousel
+npm run format --workspace=blocks/carousel
 ```
 
 ## Testing

@@ -22,16 +22,26 @@ Blocks can be individually enabled/disabled via an admin settings page (Settings
 
 ## Build Commands
 
-Each block has isolated `node_modules` and must be built separately from its own directory. Blocks: `carousel`, `slide`, `mega-menu`, `faq-tabs`, `faq-tab-answer`, `search-overlay-trigger`.
+The repo is an npm workspace (`"workspaces": ["blocks/*"]` in the root `package.json`): one `npm install` at the root puts a single shared `node_modules` in the root, and a block directory has none of its own. The root `package-lock.json` is committed — use `npm ci` for a reproducible install.
 
 ```bash
-# Build one block (repeat per block dir)
-cd blocks/carousel && npm install && npm run build
+# Install once, from the repo root
+npm ci
+
+# Build one block
+npm run build --workspace=blocks/carousel
+
+# Build every block
+npm run build --workspaces --if-present
 
 # Development mode (watch for changes)
-cd blocks/[block-name] && npm start
+npm start --workspace=blocks/[block-name]
+```
 
-# Per-block JS/CSS tooling (run inside a block dir)
+`cd blocks/<block> && npm run build` also works. The block-level scripts below can be run the same way, or with `--workspace`:
+
+```bash
+# Per-block JS/CSS tooling (add --workspace=blocks/<block>, or run inside a block dir)
 npm run lint:js    # JavaScript linting (wp-scripts)
 npm run lint:css   # CSS linting (wp-scripts)
 npm run format     # Format code (wp-scripts)
@@ -109,8 +119,7 @@ blocks/[block-name]/
 │   ├── editor.scss      # Editor-only styles
 │   └── style.scss       # Frontend + editor styles
 ├── build/               # wp-scripts output (committed for Packagist)
-├── package.json
-└── node_modules/
+└── package.json         # deps install into the root node_modules (npm workspace)
 ```
 
 ### Parent-Child Block Relationships
@@ -240,7 +249,7 @@ Metadata from block.json is the single source of truth, with Edit/Save implement
 3. Create `src/block.json` with block metadata — `"version": "1.0.0"` and a `category` registered in `aludra.php` (`aludra-hero`, `aludra-proof`, `aludra-features`, `aludra-layout`, `aludra-convert` or `aludra-navigation`)
 4. Implement `src/index.js`, `src/edit.js`, `src/save.jsx`
 5. Add `package.json` with build scripts (copy from existing blocks)
-6. Run `npm install && npm run build`, and commit the generated `build/` — discovery only registers a block that has `build/block.json`
+6. Run `npm install` from the repo root (the new block joins the workspace via `blocks/*`), then `npm run build --workspace=blocks/newblock`, and commit the generated `build/` — discovery only registers a block that has `build/block.json`
 7. Add the block's slug to the settings enumerations:
    - `aludra_get_default_settings()` in `includes/admin/settings-page.php`
    - `aludra_get_available_blocks()` in the same file — `label`, `description`, `category`, and `parent` for a child block
@@ -460,7 +469,7 @@ The older format with inline `opacity` styles and custom background colors is in
 
 ## Development Notes
 
-- Each block has isolated `node_modules` (allows independent versioning)
+- Blocks share one root `node_modules` (npm workspaces). Keep `@wordpress/*` version ranges identical across blocks — a block that pins a different major gets its own nested copy and loses the saving. `overrides` only take effect in the root `package.json`, so put them there, never in a block's
 - Block names use namespace/blockname format (aludra/carousel, aludra/mega-menu)
 - Attributes in block.json define all user-customizable data
 - InnerBlocks pattern used for nested content (carousel/slide relationship)
