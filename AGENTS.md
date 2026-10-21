@@ -8,13 +8,13 @@
 - Third-party assets for the carousel are vendored in `blocks/carousel/slick/`.
 
 ## Build, Test, and Development Commands
-Run commands from each block directory (they are isolated):
-- `npm install`: install block dependencies.
-- `npm run build`: production build to `build/`.
-- `npm start`: dev build with watch mode.
-- `npm run lint:js`: JS linting via `@wordpress/scripts`.
-- `npm run lint:css`: style linting via `@wordpress/scripts`.
-- `npm run format`: format code via `@wordpress/scripts`.
+The repo is an npm workspace; blocks share one root `node_modules`. Install once from the repo root, then run a block's scripts with `--workspace=blocks/<block-name>` (or from inside the block directory):
+- `npm ci`: install all dependencies (root; uses the committed `package-lock.json`).
+- `npm run build --workspace=blocks/<block-name>`: production build to `build/`; `npm run build --workspaces --if-present` builds every block.
+- `npm start --workspace=blocks/<block-name>`: dev build with watch mode.
+- `npm run lint:js --workspace=blocks/<block-name>`: JS linting via `@wordpress/scripts`.
+- `npm run lint:css --workspace=blocks/<block-name>`: style linting via `@wordpress/scripts`.
+- `npm run format --workspace=blocks/<block-name>`: format code via `@wordpress/scripts`.
 
 Note: `blocks/mega-menu` uses `--experimental-modules` in its build/start scripts.
 

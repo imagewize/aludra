@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.39.0
+Stable tag: 2.39.1
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -224,6 +224,9 @@ Each block follows standard WordPress block structure:
 5. FAQ section with the first answer expanded
 
 == Changelog ==
+
+= 2.39.1 =
+* Changed: development tooling only — blocks now build from a shared npm workspace; no change to the blocks themselves
 
 = 2.39.0 =
 * Added: Free Shipping Progress block — a progress bar toward free shipping that updates as the WooCommerce cart changes
