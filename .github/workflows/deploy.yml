@@ -1,0 +1,47 @@
+name: Deploy to WordPress.org
+
+# Publishing a GitHub release (not a pre-release) commits the tagged code to
+# plugins.svn.wordpress.org/aludra: trunk is replaced and tags/<version> is
+# copied from it, and .wordpress-org/ is synced to the SVN assets directory.
+# A version already tagged in SVN is skipped, so editing a release never
+# redeploys it.
+#
+# Needs the SVN_USERNAME and SVN_PASSWORD repository secrets (the WordPress.org
+# account with commit access to the plugin).
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      # The tag and both version headers must agree, or WordPress.org would
+      # tag one version while sites read another.
+      - name: Check the tag matches the plugin version
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          grep -q "^ \* Version: ${version}$" aludra.php || { echo "aludra.php Version is not ${version}"; exit 1; }
+          grep -q "^Stable tag: ${version}$" readme.txt || { echo "readme.txt Stable tag is not ${version}"; exit 1; }
+
+      # Build the same tree as the release zip (create-release.yml). The deploy
+      # action's own .distignore pass uses rsync, which reads `.agents/*`-style
+      # entries as "drop the contents" and would add empty .agents/, .github/,
+      # tests/ and similar folders to SVN; zip drops them entirely.
+      - name: Build the release tree
+        run: |
+          zip -qr "$RUNNER_TEMP/aludra.zip" . -x@.distignore
+          mkdir -p "$RUNNER_TEMP/aludra"
+          unzip -q "$RUNNER_TEMP/aludra.zip" -d "$RUNNER_TEMP/aludra"
+
+      - name: Deploy
+        uses: 10up/action-wordpress-plugin-deploy@2.3.0
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: aludra
+          BUILD_DIR: ${{ runner.temp }}/aludra
