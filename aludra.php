@@ -189,51 +189,12 @@ add_action(
 					continue;
 				}
 
-				$block_type = register_block_type( $block_json_path );
-
-				if ( $block_type ) {
-					aludra_set_block_script_translations( $block_type );
-				}
+				register_block_type( $block_json_path );
 			}
 		}
 	},
 	10
 );
-
-/**
- * Load the plugin's own translations from languages/.
- *
- * A language pack from translate.wordpress.org, when one is installed, still
- * takes precedence: WordPress checks wp-content/languages/plugins first and
- * only falls back to this path.
- */
-add_action(
-	'init',
-	function () {
-		load_plugin_textdomain( 'aludra', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-	},
-	5
-);
-
-/**
- * Point a block's scripts at the JSON translations in languages/.
- *
- * The text domain from block.json is already set by register_block_type(), but
- * without a path WordPress only looks in wp-content/languages/plugins, so the
- * JSON files this plugin ships would never be read.
- *
- * @param WP_Block_Type $block_type The registered block type.
- */
-function aludra_set_block_script_translations( $block_type ) {
-	$handles = array_merge(
-		(array) $block_type->editor_script_handles,
-		(array) $block_type->view_script_handles
-	);
-
-	foreach ( $handles as $handle ) {
-		wp_set_script_translations( $handle, 'aludra', ALUDRA_PLUGIN_DIR . 'languages' );
-	}
-}
 
 /**
  * Whether a block is enabled in Settings → Aludra.
