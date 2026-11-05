@@ -228,6 +228,7 @@ Each block follows standard WordPress block structure:
 = 2.40.0 =
 * Added: Free Shipping Progress and Sticky Add to Cart are inserted automatically into the Winespring theme's announcement bar and single product template; other themes can opt in with the aludra_store_block_hooks_themes filter
 * Added: Settings → Aludra → Store tab to switch the automatic Free Shipping Progress and Sticky Add to Cart placement on or off for the active theme
+* Added: complete Dutch translation, loaded from the plugin's languages folder (language packs from translate.wordpress.org still take precedence)
 
 = 2.39.1 =
 * Changed: development tooling only — blocks now build from a shared npm workspace; no change to the blocks themselves

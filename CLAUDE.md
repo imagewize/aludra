@@ -66,6 +66,25 @@ and `aludra_get_available_blocks()` alike, and the suite fails if they drift), s
 sanitization, and the parent/child dependency rules. Anything needing a database or the block
 registry would need a real integration suite, which this repo does not have.
 
+### Translations (`languages/`)
+
+The plugin loads its own translations: `load_plugin_textdomain()` for PHP and block.json strings,
+and `aludra_set_block_script_translations()` (`aludra.php`) pointing each block's editor and view
+scripts at the JSON files. A translate.wordpress.org language pack, when installed, still wins —
+WordPress checks `wp-content/languages/plugins` first. `aludra-nl_NL.po` is the Dutch translation
+(informal "je") and is kept complete. Before each release:
+
+```bash
+composer run i18n:update   # regenerate aludra.pot, merge it into aludra-nl_NL.po
+# translate new and fuzzy entries in aludra-nl_NL.po
+composer run i18n:compile  # aludra-nl_NL.mo + one JSON per built script
+```
+
+`i18n:compile` deletes the JSON files `wp i18n make-json` writes for `blocks/*/src/` references:
+WordPress only ever loads the `build/` scripts, so only their JSON (named by an md5 of that path)
+is read. Rebuild the blocks before compiling, since a changed `build/index.js` keeps its path but
+may carry new strings.
+
 ### End-to-end / diagnostics
 
 `tests/*.js` are Playwright scripts (root `package.json` provides `@playwright/test`), used mostly for mega-menu positioning/visual diagnostics against a running site. There is no unified `npm test` at the root — run individual scripts with `node` / Playwright as needed.
