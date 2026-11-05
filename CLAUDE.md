@@ -526,6 +526,19 @@ This overrides any default footer/trailer behavior — omit these lines entirely
 - "Co-Authored-By: Claude Sonnet 4.5" ❌
 - Overly long messages with unnecessary details ❌
 
+## Releasing to WordPress.org
+
+Publishing a GitHub release (not a pre-release) runs two workflows: `create-release.yml` attaches
+`aludra.zip`, and `deploy.yml` commits the same tree to `plugins.svn.wordpress.org/aludra` with
+`10up/action-wordpress-plugin-deploy` — `trunk` replaced, `tags/<version>` copied from it, and
+`.wordpress-org/` synced to SVN `assets/`. Both build with `zip -x@.distignore`; `deploy.yml` hands
+the unzipped tree to the action as `BUILD_DIR` because the action's own `.distignore` pass uses
+rsync, which turns `.agents/*`-style entries into empty folders in SVN. The deploy fails if the tag
+(minus its `v`) differs from `Version:` in `aludra.php` or `Stable tag:` in `readme.txt`, and skips
+a version SVN already has, so editing a release is safe. It needs the `SVN_USERNAME` and
+`SVN_PASSWORD` repository secrets. WordPress.org may take a while to show a new version after the
+commit. Releases up to 2.40.0 were committed by hand from the `~/code/aludra-svn` checkout.
+
 ## Version Management
 
 When updating the plugin version, you must update **three files** in sync:

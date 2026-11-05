@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `.github/workflows/deploy.yml`: publishing a GitHub release now deploys it to WordPress.org SVN (trunk, `tags/<version>` and the `assets/` directory), from the same `.distignore`-filtered tree as the release zip. Needs the `SVN_USERNAME` and `SVN_PASSWORD` repository secrets.
+
 ## [2.40.0] - 2026-11-04
 
 ### Added
