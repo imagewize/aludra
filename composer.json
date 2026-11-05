@@ -1,7 +1,7 @@
 {
     "name": "imagewize/aludra",
     "type": "wordpress-plugin",
-    "description": "A page builder made of real blocks \u2014 30 WordPress blocks, 21 section patterns and 8 page layouts for everything between the header and the footer. Native block editor, no shortcodes, theme-neutral.",
+    "description": "A page builder made of real blocks — 30 WordPress blocks, 21 section patterns and 8 page layouts for everything between the header and the footer. Native block editor, no shortcodes, theme-neutral.",
     "keywords": [
         "wordpress",
         "plugin",
@@ -55,6 +55,16 @@
         "wpcs:fix": "@php -d memory_limit=512M ./vendor/squizlabs/php_codesniffer/bin/phpcbf --standard=phpcs.xml.dist .",
         "phpcs": "phpcs -d memory_limit=512M",
         "phpcbf": "phpcbf -d memory_limit=512M",
-        "test": "phpunit"
+        "test": "phpunit",
+        "i18n:update": [
+            "wp i18n make-pot . languages/aludra.pot --slug=aludra --domain=aludra",
+            "msgmerge -q -U --backup=none languages/aludra-nl_NL.po languages/aludra.pot"
+        ],
+        "i18n:compile": [
+            "msgfmt --check -o languages/aludra-nl_NL.mo languages/aludra-nl_NL.po",
+            "rm -f languages/*.json",
+            "wp i18n make-json languages/aludra-nl_NL.po --no-purge",
+            "@php -r 'foreach ( glob( \"languages/*.json\" ) as $f ) { $j = json_decode( file_get_contents( $f ), true ); if ( false !== strpos( $j[\"source\"] ?? \"\", \"/src/\" ) ) { unlink( $f ); } }'"
+        ]
     }
 }

@@ -11,7 +11,7 @@ Aludra is a shared custom block library for Imagewize block themes (Elayne, Avie
 - **faq-tabs** / **faq-tab-answer** — tabbed FAQ with answer children
 - **search-overlay-trigger** — search icon that opens a full-screen search overlay
 - **testimonial-grid** — testimonial cards that conditionally initialize a Slick carousel based on card count (view.js)
-- **free-shipping-bar** / **sticky-add-to-cart** — WooCommerce store blocks (progress toward free shipping; sticky product bar). Registered only when WooCommerce is active (`aludra_woocommerce_blocks()` in `includes/woocommerce.php`); their `view.js` files are ordinary `viewScript`s. Built for the Winespring theme, which cannot register blocks itself under Theme Check
+- **free-shipping-bar** / **sticky-add-to-cart** — WooCommerce store blocks (progress toward free shipping; sticky product bar). Registered only when WooCommerce is active (`aludra_woocommerce_blocks()` in `includes/woocommerce.php`); their `view.js` files are ordinary `viewScript`s. Built for the Winespring theme, which cannot register blocks itself under Theme Check — and, under WordPress.org theme review, cannot place them in its templates either, so `includes/block-hooks.php` inserts them with the Block Hooks API (announcement-bar part, single-product template; on by default per theme via `aludra_store_block_hooks_themes`, overridable per theme on the Settings → Aludra → Store tab, stored in the `aludra_store_hooks` option)
 - **feature-cards**, **icon-grid**, **trust-bar**, **pricing-tiers**, **cta-columns**, **feature-list-grid** — static content/marketing blocks
 
 Blocks can be individually enabled/disabled via an admin settings page (Settings → Aludra), stored in the `aludra_enabled` option. See `blocks/` for the current, authoritative list.
@@ -65,6 +65,27 @@ logic: the block enumerations (a new block must appear in `blocks/`, `aludra_get
 and `aludra_get_available_blocks()` alike, and the suite fails if they drift), settings
 sanitization, and the parent/child dependency rules. Anything needing a database or the block
 registry would need a real integration suite, which this repo does not have.
+
+### Translations (`languages/`)
+
+The `.mo` and JSON files in `languages/` load without any code: since WordPress 6.7, core registers
+each active plugin's `Domain Path` header (`/languages`) as the fallback location, used for PHP,
+block.json and script strings alike whenever no translate.wordpress.org language pack is installed.
+A language pack, when installed, wins. Do not add `load_plugin_textdomain()` — Plugin Check flags it
+(`PluginCheck.CodeAnalysis.DiscouragedFunctions`) and it is not needed — and keep the `Domain Path`
+header in `aludra.php`. `aludra-nl_NL.po` is the Dutch translation
+(informal "je") and is kept complete. Before each release:
+
+```bash
+composer run i18n:update   # regenerate aludra.pot, merge it into aludra-nl_NL.po
+# translate new and fuzzy entries in aludra-nl_NL.po
+composer run i18n:compile  # aludra-nl_NL.mo + one JSON per built script
+```
+
+`i18n:compile` deletes the JSON files `wp i18n make-json` writes for `blocks/*/src/` references:
+WordPress only ever loads the `build/` scripts, so only their JSON (named by an md5 of that path)
+is read. Rebuild the blocks before compiling, since a changed `build/index.js` keeps its path but
+may carry new strings.
 
 ### End-to-end / diagnostics
 

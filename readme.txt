@@ -4,11 +4,11 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.39.1
+Stable tag: 2.40.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-A page builder made of real blocks: 32 blocks and 42 patterns for everything between the header and the footer. Any block theme.
+A page builder made of real blocks: 34 blocks and 42 patterns for everything between the header and the footer. Any block theme.
 
 == Description ==
 
@@ -224,6 +224,11 @@ Each block follows standard WordPress block structure:
 5. FAQ section with the first answer expanded
 
 == Changelog ==
+
+= 2.40.0 =
+* Added: Free Shipping Progress and Sticky Add to Cart are inserted automatically into the Winespring theme's announcement bar and single product template; other themes can opt in with the aludra_store_block_hooks_themes filter
+* Added: Settings → Aludra → Store tab to switch the automatic Free Shipping Progress and Sticky Add to Cart placement on or off for the active theme
+* Added: complete Dutch translation, loaded from the plugin's languages folder (language packs from translate.wordpress.org still take precedence)
 
 = 2.39.1 =
 * Changed: development tooling only — blocks now build from a shared npm workspace; no change to the blocks themselves

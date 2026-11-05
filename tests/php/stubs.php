@@ -22,6 +22,17 @@ if ( ! function_exists( 'add_action' ) ) {
 	}
 }
 
+if ( ! function_exists( 'add_filter' ) ) {
+	/**
+	 * Stub for add_filter().
+	 *
+	 * @return bool Always true.
+	 */
+	function add_filter() {
+		return true;
+	}
+}
+
 if ( ! function_exists( 'add_options_page' ) ) {
 	/**
 	 * Stub for add_options_page().

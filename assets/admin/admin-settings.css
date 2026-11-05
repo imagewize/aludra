@@ -356,6 +356,51 @@
 	color: var(--al-muted);
 }
 
+/* ---- Tabs ---- */
+.aludra-settings .aludra-head:has(+ .aludra-tabs) {
+	margin-bottom: 0;
+	border-bottom: 0;
+}
+
+/* The block count and bulk buttons sit at the top of the Blocks tab. */
+.aludra-settings .aludra-toolbar {
+	justify-content: flex-end;
+	margin: 0 0 22px;
+}
+
+.aludra-settings .aludra-tabs {
+	margin: 0 0 26px;
+}
+
+/* ---- Store tab ---- */
+.aludra-settings .aludra-intro {
+	max-width: 720px;
+	margin: 0 0 22px;
+	font-size: 13.5px;
+	line-height: 1.55;
+	color: var(--al-muted);
+}
+
+.aludra-settings .aludra-status {
+	display: inline-flex;
+	align-self: flex-start;
+	margin-top: 12px;
+	padding: 3px 9px;
+	border-radius: 999px;
+	font-size: 11.5px;
+	font-weight: 600;
+}
+
+.aludra-settings .aludra-status.is-ready {
+	color: #166534;
+	background: #ecfdf3;
+}
+
+.aludra-settings .aludra-status.is-blocked {
+	color: #92400e;
+	background: #fef3c7;
+}
+
 /* Success message spacing */
 .notice.settings-error {
 	margin-top: 15px;
