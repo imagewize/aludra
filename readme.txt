@@ -8,7 +8,7 @@ Stable tag: 2.40.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-A page builder made of real blocks: 32 blocks and 42 patterns for everything between the header and the footer. Any block theme.
+A page builder made of real blocks: 34 blocks and 42 patterns for everything between the header and the footer. Any block theme.
 
 == Description ==
 
