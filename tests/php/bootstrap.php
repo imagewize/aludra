@@ -24,3 +24,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once __DIR__ . '/stubs.php';
 
 require_once ALUDRA_TESTS_ROOT . '/includes/admin/settings-page.php';
+require_once ALUDRA_TESTS_ROOT . '/includes/block-hooks.php';
