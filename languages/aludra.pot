@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Aludra 2.39.1\n"
+"Project-Id-Version: Aludra 2.40.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/aludra\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-17T06:54:12+00:00\n"
+"POT-Creation-Date: 2026-11-05T01:58:32+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: aludra\n"
@@ -40,93 +40,93 @@ msgstr ""
 msgid "https://github.com/imagewize"
 msgstr ""
 
-#: aludra.php:60
+#: aludra.php:61
 msgid "Aludra Icon"
 msgstr ""
 
-#: aludra.php:362
-#: aludra.php:608
+#: aludra.php:363
+#: aludra.php:609
 msgid "Aludra: Heroes"
 msgstr ""
 
-#: aludra.php:367
-#: aludra.php:612
+#: aludra.php:368
+#: aludra.php:613
 msgid "Aludra: Proof"
 msgstr ""
 
-#: aludra.php:372
-#: aludra.php:616
+#: aludra.php:373
+#: aludra.php:617
 msgid "Aludra: Features & Services"
 msgstr ""
 
-#: aludra.php:377
-#: aludra.php:620
+#: aludra.php:378
+#: aludra.php:621
 msgid "Aludra: Layout"
 msgstr ""
 
-#: aludra.php:382
-#: aludra.php:624
+#: aludra.php:383
+#: aludra.php:625
 msgid "Aludra: Convert"
 msgstr ""
 
-#: aludra.php:387
+#: aludra.php:388
 msgid "Aludra: Navigation"
 msgstr ""
 
-#: aludra.php:406
-#: aludra.php:632
+#: aludra.php:407
+#: aludra.php:633
 msgid "Menus"
 msgstr ""
 
-#: aludra.php:407
+#: aludra.php:408
 msgid "Template parts for navigation and mega menu content"
 msgstr ""
 
-#: aludra.php:604
+#: aludra.php:605
 msgid "Aludra: Full Pages"
 msgstr ""
 
-#: aludra.php:605
+#: aludra.php:606
 msgid "Complete page layouts assembled from Aludra sections."
 msgstr ""
 
-#: aludra.php:609
+#: aludra.php:610
 msgid "Opening sections for a page."
 msgstr ""
 
-#: aludra.php:613
+#: aludra.php:614
 msgid "Stats, trust signals, reviews and comparisons."
 msgstr ""
 
-#: aludra.php:617
+#: aludra.php:618
 msgid "Sections describing what you do."
 msgstr ""
 
-#: aludra.php:621
+#: aludra.php:622
 msgid "Structural sections and content bands."
 msgstr ""
 
-#: aludra.php:625
+#: aludra.php:626
 msgid "Pricing, FAQ, contact and call-to-action sections."
 msgstr ""
 
-#: aludra.php:628
+#: aludra.php:629
 msgid "Aludra: Carousels"
 msgstr ""
 
-#: aludra.php:629
+#: aludra.php:630
 msgid "Pre-configured Aludra carousel setups."
 msgstr ""
 
-#: aludra.php:633
+#: aludra.php:634
 msgid "Mega menu patterns for navigation template parts."
 msgstr ""
 
-#: aludra.php:640
+#: aludra.php:641
 msgid "Aludra: Store"
 msgstr ""
 
-#: aludra.php:641
+#: aludra.php:642
 msgid "WooCommerce sections: product grids and category showcases."
 msgstr ""
 
@@ -202,19 +202,19 @@ msgstr ""
 msgid "Aludra Settings"
 msgstr ""
 
-#: includes/admin/settings-page.php:101
+#: includes/admin/settings-page.php:128
 msgid "Heroes"
 msgstr ""
 
-#: includes/admin/settings-page.php:102
+#: includes/admin/settings-page.php:129
 msgid "Proof"
 msgstr ""
 
-#: includes/admin/settings-page.php:103
+#: includes/admin/settings-page.php:130
 msgid "Features & Services"
 msgstr ""
 
-#: includes/admin/settings-page.php:104
+#: includes/admin/settings-page.php:131
 #: blocks/carousel/build/index.js:1
 #: blocks/carousel/src/edit.js:218
 #: blocks/mega-menu/build/index.js:1
@@ -222,338 +222,395 @@ msgstr ""
 msgid "Layout"
 msgstr ""
 
-#: includes/admin/settings-page.php:105
+#: includes/admin/settings-page.php:132
 msgid "Convert"
 msgstr ""
 
-#: includes/admin/settings-page.php:106
+#: includes/admin/settings-page.php:133
 #: blocks/carousel/build/index.js:1
 #: blocks/carousel/src/edit.js:385
 msgid "Navigation"
 msgstr ""
 
-#: includes/admin/settings-page.php:118
+#: includes/admin/settings-page.php:145
 msgid "Carousel"
 msgstr ""
 
-#: includes/admin/settings-page.php:119
+#: includes/admin/settings-page.php:146
 msgid "Create responsive image and content carousels with Slick Carousel."
 msgstr ""
 
-#: includes/admin/settings-page.php:123
+#: includes/admin/settings-page.php:150
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/AnimationControls.jsx:29
 msgid "Slide"
 msgstr ""
 
-#: includes/admin/settings-page.php:124
+#: includes/admin/settings-page.php:151
 msgid "Individual slides placed inside a Carousel block."
 msgstr ""
 
-#: includes/admin/settings-page.php:129
+#: includes/admin/settings-page.php:156
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/AnimationControls.jsx:227
 msgid "Mega Menu"
 msgstr ""
 
-#: includes/admin/settings-page.php:130
+#: includes/admin/settings-page.php:157
 msgid "Add expandable mega menus to a navigation block."
 msgstr ""
 
-#: includes/admin/settings-page.php:134
+#: includes/admin/settings-page.php:161
 msgid "FAQ Tabs"
 msgstr ""
 
-#: includes/admin/settings-page.php:135
+#: includes/admin/settings-page.php:162
 msgid "Interactive FAQ with vertical tabs and content panels."
 msgstr ""
 
-#: includes/admin/settings-page.php:139
+#: includes/admin/settings-page.php:166
 msgid "FAQ Tab Answer"
 msgstr ""
 
-#: includes/admin/settings-page.php:140
+#: includes/admin/settings-page.php:167
 msgid "A single question and answer inside FAQ Tabs."
 msgstr ""
 
-#: includes/admin/settings-page.php:145
+#: includes/admin/settings-page.php:172
 msgid "Search Overlay Trigger"
 msgstr ""
 
-#: includes/admin/settings-page.php:146
+#: includes/admin/settings-page.php:173
 msgid "A search icon that opens a full-screen search overlay."
 msgstr ""
 
-#: includes/admin/settings-page.php:150
+#: includes/admin/settings-page.php:177
 msgid "Feature Cards"
 msgstr ""
 
-#: includes/admin/settings-page.php:151
+#: includes/admin/settings-page.php:178
 msgid "Responsive grid of feature highlight cards with icons."
 msgstr ""
 
-#: includes/admin/settings-page.php:155
+#: includes/admin/settings-page.php:182
 msgid "Icon Grid"
 msgstr ""
 
-#: includes/admin/settings-page.php:156
+#: includes/admin/settings-page.php:183
 msgid "Auto-fit grid of icon and text items with a section header."
 msgstr ""
 
-#: includes/admin/settings-page.php:160
+#: includes/admin/settings-page.php:187
 msgid "Trust Bar"
 msgstr ""
 
-#: includes/admin/settings-page.php:161
+#: includes/admin/settings-page.php:188
 msgid "Inline bar of trust-signal items with icons."
 msgstr ""
 
-#: includes/admin/settings-page.php:165
+#: includes/admin/settings-page.php:192
 msgid "Pricing Tiers"
 msgstr ""
 
-#: includes/admin/settings-page.php:166
+#: includes/admin/settings-page.php:193
 msgid "Three-column pricing table with a featured tier."
 msgstr ""
 
-#: includes/admin/settings-page.php:170
+#: includes/admin/settings-page.php:197
 msgid "Testimonial Grid"
 msgstr ""
 
-#: includes/admin/settings-page.php:171
+#: includes/admin/settings-page.php:198
 msgid "Customer testimonials with metrics; carousels on larger sets."
 msgstr ""
 
-#: includes/admin/settings-page.php:175
+#: includes/admin/settings-page.php:202
 msgid "CTA Columns"
 msgstr ""
 
-#: includes/admin/settings-page.php:176
+#: includes/admin/settings-page.php:203
 msgid "Dual call-to-action cards with headings, text, and buttons."
 msgstr ""
 
-#: includes/admin/settings-page.php:180
+#: includes/admin/settings-page.php:207
 msgid "Feature List Grid"
 msgstr ""
 
-#: includes/admin/settings-page.php:181
+#: includes/admin/settings-page.php:208
 msgid "Two-column grid of features with checkmarks and hover effects."
 msgstr ""
 
-#: includes/admin/settings-page.php:185
+#: includes/admin/settings-page.php:212
 msgid "Contact Section"
 msgstr ""
 
-#: includes/admin/settings-page.php:186
+#: includes/admin/settings-page.php:213
 msgid "Dark contact section with an info column and Contact Form 7 form card."
 msgstr ""
 
-#: includes/admin/settings-page.php:190
+#: includes/admin/settings-page.php:217
 msgid "Hero Banner"
 msgstr ""
 
-#: includes/admin/settings-page.php:191
+#: includes/admin/settings-page.php:218
 msgid "Dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons."
 msgstr ""
 
-#: includes/admin/settings-page.php:195
+#: includes/admin/settings-page.php:222
 msgid "CTA Banner"
 msgstr ""
 
-#: includes/admin/settings-page.php:196
+#: includes/admin/settings-page.php:223
 msgid "Full-width call-to-action band with heading, lead text, and button; colours adapt to the active theme."
 msgstr ""
 
-#: includes/admin/settings-page.php:200
+#: includes/admin/settings-page.php:227
 msgid "About Section"
 msgstr ""
 
-#: includes/admin/settings-page.php:201
+#: includes/admin/settings-page.php:228
 msgid "Full-width about/value-proposition section with heading, lead text, an offer list, and closing copy."
 msgstr ""
 
-#: includes/admin/settings-page.php:205
+#: includes/admin/settings-page.php:232
 msgid "Services Block"
 msgstr ""
 
-#: includes/admin/settings-page.php:206
+#: includes/admin/settings-page.php:233
 msgid "Section header with a two-per-row grid of icon, heading, and text service cards."
 msgstr ""
 
-#: includes/admin/settings-page.php:210
+#: includes/admin/settings-page.php:237
 msgid "Review Profiles"
 msgstr ""
 
-#: includes/admin/settings-page.php:211
+#: includes/admin/settings-page.php:238
 msgid "Full-width client review section with a heading and a row of round avatar photos with quotes."
 msgstr ""
 
-#: includes/admin/settings-page.php:215
+#: includes/admin/settings-page.php:242
 msgid "Hero Split"
 msgstr ""
 
-#: includes/admin/settings-page.php:216
+#: includes/admin/settings-page.php:243
 msgid "Split-pane hero with heading, lead text, and a button on one side, and a desktop/mobile image pair on the other."
 msgstr ""
 
-#: includes/admin/settings-page.php:220
+#: includes/admin/settings-page.php:247
 msgid "Service Intro"
 msgstr ""
 
-#: includes/admin/settings-page.php:221
+#: includes/admin/settings-page.php:248
 msgid "Introductory text section for service pages with constrained-width editable paragraphs."
 msgstr ""
 
-#: includes/admin/settings-page.php:225
+#: includes/admin/settings-page.php:252
 msgid "Service Detail Cards"
 msgstr ""
 
-#: includes/admin/settings-page.php:226
+#: includes/admin/settings-page.php:253
 msgid "Stacked, numbered service cards with a heading, description, and checklist."
 msgstr ""
 
-#: includes/admin/settings-page.php:230
+#: includes/admin/settings-page.php:257
 msgid "Load Waterfall"
 msgstr ""
 
-#: includes/admin/settings-page.php:231
+#: includes/admin/settings-page.php:258
 msgid "Network load-time waterfall panel with an animated LCP marker, for hero sections."
 msgstr ""
 
-#: includes/admin/settings-page.php:235
+#: includes/admin/settings-page.php:262
 msgid "Stat Rail"
 msgstr ""
 
-#: includes/admin/settings-page.php:236
+#: includes/admin/settings-page.php:263
 msgid "Full-width band of big-number stats with captions, for the seam between a hero and the rest of the page."
 msgstr ""
 
-#: includes/admin/settings-page.php:240
+#: includes/admin/settings-page.php:267
 msgid "Stat Item"
 msgstr ""
 
-#: includes/admin/settings-page.php:241
+#: includes/admin/settings-page.php:268
 msgid "A single big-number stat with a caption, used inside Stat Rail."
 msgstr ""
 
-#: includes/admin/settings-page.php:246
+#: includes/admin/settings-page.php:273
 msgid "Spine Section"
 msgstr ""
 
-#: includes/admin/settings-page.php:247
+#: includes/admin/settings-page.php:274
 msgid "Layout host: a sticky label/heading column on the left and section content on the right."
 msgstr ""
 
-#: includes/admin/settings-page.php:251
+#: includes/admin/settings-page.php:278
 msgid "Split Section"
 msgstr ""
 
-#: includes/admin/settings-page.php:252
+#: includes/admin/settings-page.php:279
 msgid "Layout host: a centred header above two panes, media on one side and content on the other."
 msgstr ""
 
-#: includes/admin/settings-page.php:256
+#: includes/admin/settings-page.php:283
 msgid "Comparison Table"
 msgstr ""
 
-#: includes/admin/settings-page.php:257
+#: includes/admin/settings-page.php:284
 msgid "A filterable spec-sheet comparison: pill filters above a bordered table with your column highlighted against up to three competitors."
 msgstr ""
 
-#: includes/admin/settings-page.php:261
+#: includes/admin/settings-page.php:288
 msgid "Comparison Row"
 msgstr ""
 
-#: includes/admin/settings-page.php:262
+#: includes/admin/settings-page.php:289
 msgid "One structural parameter and its four answer cells, used inside Comparison Table."
 msgstr ""
 
-#: includes/admin/settings-page.php:267
+#: includes/admin/settings-page.php:294
 msgid "Comparison Cell"
 msgstr ""
 
-#: includes/admin/settings-page.php:268
+#: includes/admin/settings-page.php:295
 msgid "One vendor's answer for a single comparison row, used inside Comparison Row."
 msgstr ""
 
-#: includes/admin/settings-page.php:273
+#: includes/admin/settings-page.php:300
 msgid "Photo Grid"
 msgstr ""
 
-#: includes/admin/settings-page.php:274
+#: includes/admin/settings-page.php:301
 msgid "Full-width band with a heading, a follow line, and a tight square photo grid, for an Instagram-style feed section. Fully static — no API key or live connection."
 msgstr ""
 
-#: includes/admin/settings-page.php:278
+#: includes/admin/settings-page.php:305
 #: blocks/instagram-embed/build/index.js:2
 #: blocks/instagram-embed/src/edit.js:57
 msgid "Instagram Embed"
 msgstr ""
 
-#: includes/admin/settings-page.php:279
+#: includes/admin/settings-page.php:306
 msgid "Live Instagram profile feed via Instagram's public embed iframe, gated behind a click-to-load button. Unofficial and undocumented by Meta — could change without notice."
 msgstr ""
 
-#: includes/admin/settings-page.php:283
+#: includes/admin/settings-page.php:310
 msgid "Free Shipping Progress"
 msgstr ""
 
-#: includes/admin/settings-page.php:284
+#: includes/admin/settings-page.php:311
 msgid "WooCommerce: shows how far the cart is from free shipping, updating as items are added or removed."
 msgstr ""
 
-#: includes/admin/settings-page.php:288
+#: includes/admin/settings-page.php:315
 msgid "Sticky Add to Cart"
 msgstr ""
 
-#: includes/admin/settings-page.php:289
+#: includes/admin/settings-page.php:316
 msgid "WooCommerce: a bar with the product name, price and button once the add to cart form scrolls out of view."
 msgstr ""
 
 #. translators: %s: block name
-#: includes/admin/settings-page.php:425
+#: includes/admin/settings-page.php:452
 #, php-format
 msgid "Enable %s block"
 msgstr ""
 
 #. translators: %s: parent block name
-#: includes/admin/settings-page.php:437
+#: includes/admin/settings-page.php:464
 #, php-format
 msgid "Requires %s"
 msgstr ""
 
 #. translators: %d: total number of blocks
-#: includes/admin/settings-page.php:489
+#: includes/admin/settings-page.php:519
 #, php-format
 msgid "Block library · %d blocks for Imagewize themes"
 msgstr ""
 
-#: includes/admin/settings-page.php:500
+#: includes/admin/settings-page.php:531
 msgid "enabled"
 msgstr ""
 
-#: includes/admin/settings-page.php:503
+#: includes/admin/settings-page.php:534
 msgid "Enable all"
 msgstr ""
 
-#: includes/admin/settings-page.php:504
+#: includes/admin/settings-page.php:535
 msgid "Disable all"
 msgstr ""
 
+#: includes/admin/settings-page.php:542
+msgid "Blocks"
+msgstr ""
+
+#: includes/admin/settings-page.php:543
+#: blocks/mega-menu/build/index.js:1
+#: blocks/mega-menu/src/components/IconPicker.jsx:34
+msgid "Store"
+msgstr ""
+
 #. translators: %d: number of blocks in category
-#: includes/admin/settings-page.php:535
+#: includes/admin/settings-page.php:575
 #, php-format
 msgid "%d block"
 msgid_plural "%d blocks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin/settings-page.php:550
+#: includes/admin/settings-page.php:590
+#: includes/admin/settings-page.php:661
 msgid "Save changes"
 msgstr ""
 
-#: includes/admin/settings-page.php:551
+#: includes/admin/settings-page.php:591
 msgid "Disabled blocks are hidden from the inserter and their assets stop loading."
+msgstr ""
+
+#: includes/admin/settings-page.php:609
+msgid "Added as the last block of the announcement bar template part."
+msgstr ""
+
+#: includes/admin/settings-page.php:610
+msgid "Added before the footer on the single product template."
+msgstr ""
+
+#: includes/admin/settings-page.php:618
+msgid "Aludra adds these WooCommerce blocks to your theme's templates with the WordPress Block Hooks API, so the theme does not have to ship plugin blocks itself. A hooked block shows up in the Site Editor like any other block, and removing it there keeps it removed for that template."
+msgstr ""
+
+#. translators: %s: active theme name
+#: includes/admin/settings-page.php:627
+#, php-format
+msgid "Active theme: %s"
+msgstr ""
+
+#: includes/admin/settings-page.php:644
+msgid "Needs WooCommerce"
+msgstr ""
+
+#: includes/admin/settings-page.php:646
+msgid "Turned off in the Blocks tab"
+msgstr ""
+
+#. translators: %s: template or template part slug
+#: includes/admin/settings-page.php:649
+#, php-format
+msgid "This theme has no matching %s template"
+msgstr ""
+
+#: includes/admin/settings-page.php:662
+msgid "Choices are saved for the active theme only."
+msgstr ""
+
+#. translators: %s: block name
+#: includes/admin/settings-page.php:710
+#, php-format
+msgid "Add %s automatically"
+msgstr ""
+
+#: includes/admin/settings-page.php:717
+msgid "Template found"
 msgstr ""
 
 #: blocks/carousel/build/index.js:1
@@ -1292,11 +1349,6 @@ msgstr ""
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:33
 msgid "Building"
-msgstr ""
-
-#: blocks/mega-menu/build/index.js:1
-#: blocks/mega-menu/src/components/IconPicker.jsx:34
-msgid "Store"
 msgstr ""
 
 #: blocks/mega-menu/build/index.js:1
