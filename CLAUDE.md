@@ -68,10 +68,12 @@ registry would need a real integration suite, which this repo does not have.
 
 ### Translations (`languages/`)
 
-The plugin loads its own translations: `load_plugin_textdomain()` for PHP and block.json strings,
-and `aludra_set_block_script_translations()` (`aludra.php`) pointing each block's editor and view
-scripts at the JSON files. A translate.wordpress.org language pack, when installed, still wins —
-WordPress checks `wp-content/languages/plugins` first. `aludra-nl_NL.po` is the Dutch translation
+The `.mo` and JSON files in `languages/` load without any code: since WordPress 6.7, core registers
+each active plugin's `Domain Path` header (`/languages`) as the fallback location, used for PHP,
+block.json and script strings alike whenever no translate.wordpress.org language pack is installed.
+A language pack, when installed, wins. Do not add `load_plugin_textdomain()` — Plugin Check flags it
+(`PluginCheck.CodeAnalysis.DiscouragedFunctions`) and it is not needed — and keep the `Domain Path`
+header in `aludra.php`. `aludra-nl_NL.po` is the Dutch translation
 (informal "je") and is kept complete. Before each release:
 
 ```bash
