@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Free Shipping Progress and Sticky Add to Cart now insert themselves, through the Block Hooks API, into the Winespring theme: the free shipping bar as the last block of the `announcement-bar` template part's group, the sticky bar before the footer of the `single-product` template. WordPress.org themes may not ship plugin blocks in their templates, so the theme can no longer place them itself. They appear only while the block is registered (WooCommerce active, block enabled), can be removed in the Site Editor like any block, and are skipped where a saved template already contains them. Other themes are untouched unless added with the new `aludra_store_block_hooks_themes` filter (`includes/block-hooks.php`).
+- A **Store** tab under Settings → Aludra shows these two hooks for the active theme, explains that they come from the Block Hooks API, and lets an admin switch each one on or off. Choices are stored per theme in the new `aludra_store_hooks` option and override the filter's default list in either direction. Each card shows whether the theme has the template the block is added to, and the toggle is disabled when WooCommerce is inactive, the block is off in the Blocks tab, or the template is missing. The option has its own settings group so saving one tab cannot reset the other.
 
 ## [2.39.1] - 2026-10-21
 
