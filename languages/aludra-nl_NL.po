@@ -1,15 +1,17 @@
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Aludra 2.38.3\n"
+"Project-Id-Version: Aludra 2.40.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/aludra\n"
-"POT-Creation-Date: 2026-11-05T01:58:32+00:00\n"
+"POT-Creation-Date: 2026-11-05T02:02:29+00:00\n"
 "PO-Revision-Date: 2026-02-15 00:00+0000\n"
 "Last-Translator: Jasper Frumau <jasper@imagewize.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
-"Language: nl\n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4.2\n"
 "X-POEDIT-BASEFILE: aludra.pot\n"
 "X-POEDIT-KEYWORDSList: "
@@ -18,7 +20,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #: aludra.php includes/admin/settings-page.php:22
 msgid "Aludra"
-msgstr "Aludra Blokken"
+msgstr "Aludra"
 
 #. Plugin URI of the plugin
 #: aludra.php
@@ -33,6 +35,10 @@ msgid ""
 "editor, no shortcodes, no proprietary markup. Built alongside the Aviendha "
 "starter theme; works with any theme."
 msgstr ""
+"Een paginabouwer van echte blokken: 34 blokken, 21 sectiepatronen en 8 "
+"paginalay-outs voor alles tussen de header en de footer. Native blokeditor, "
+"geen shortcodes, geen eigen opmaak. Gebouwd naast het Aviendha-startthema; "
+"werkt met elk thema."
 
 #. Author of the plugin
 #: aludra.php
@@ -46,31 +52,31 @@ msgstr "https://github.com/imagewize"
 
 #: aludra.php:61
 msgid "Aludra Icon"
-msgstr ""
+msgstr "Aludra-icoon"
 
 #: aludra.php:363 aludra.php:609
 msgid "Aludra: Heroes"
-msgstr ""
+msgstr "Aludra: Heroes"
 
 #: aludra.php:368 aludra.php:613
 msgid "Aludra: Proof"
-msgstr ""
+msgstr "Aludra: Bewijs"
 
 #: aludra.php:373 aludra.php:617
 msgid "Aludra: Features & Services"
-msgstr ""
+msgstr "Aludra: Features & diensten"
 
 #: aludra.php:378 aludra.php:621
 msgid "Aludra: Layout"
-msgstr ""
+msgstr "Aludra: Indeling"
 
 #: aludra.php:383 aludra.php:625
 msgid "Aludra: Convert"
-msgstr ""
+msgstr "Aludra: Converteren"
 
 #: aludra.php:388
 msgid "Aludra: Navigation"
-msgstr ""
+msgstr "Aludra: Navigatie"
 
 #: aludra.php:407 aludra.php:633
 msgid "Menus"
@@ -78,55 +84,55 @@ msgstr "Menus"
 
 #: aludra.php:408
 msgid "Template parts for navigation and mega menu content"
-msgstr "Sjabloondeelen voor navigatie en mega menu inhoud"
+msgstr "Sjabloononderdelen voor navigatie en mega menu-inhoud"
 
 #: aludra.php:605
 msgid "Aludra: Full Pages"
-msgstr ""
+msgstr "Aludra: Volledige pagina's"
 
 #: aludra.php:606
 msgid "Complete page layouts assembled from Aludra sections."
-msgstr ""
+msgstr "Complete paginalay-outs samengesteld uit Aludra-secties."
 
 #: aludra.php:610
 msgid "Opening sections for a page."
-msgstr ""
+msgstr "Openingssecties voor een pagina."
 
 #: aludra.php:614
 msgid "Stats, trust signals, reviews and comparisons."
-msgstr ""
+msgstr "Cijfers, vertrouwenssignalen, reviews en vergelijkingen."
 
 #: aludra.php:618
 msgid "Sections describing what you do."
-msgstr ""
+msgstr "Secties die beschrijven wat je doet."
 
 #: aludra.php:622
 msgid "Structural sections and content bands."
-msgstr ""
+msgstr "Structurele secties en contentbanden."
 
 #: aludra.php:626
 msgid "Pricing, FAQ, contact and call-to-action sections."
-msgstr ""
+msgstr "Secties voor prijzen, FAQ, contact en call-to-action."
 
 #: aludra.php:629
 msgid "Aludra: Carousels"
-msgstr ""
+msgstr "Aludra: Carrousels"
 
 #: aludra.php:630
 msgid "Pre-configured Aludra carousel setups."
-msgstr ""
+msgstr "Vooraf ingestelde Aludra-carrousels."
 
 #: aludra.php:634
 msgid "Mega menu patterns for navigation template parts."
-msgstr ""
+msgstr "Mega menu-patronen voor navigatie-sjabloononderdelen."
 
 #: aludra.php:641
 msgid "Aludra: Store"
-msgstr ""
+msgstr "Aludra: Winkel"
 
 #: aludra.php:642
 msgid "WooCommerce sections: product grids and category showcases."
-msgstr ""
+msgstr "WooCommerce-secties: productrasters en categorie-overzichten."
 
 #. translators: %s: order total needed for free shipping.
 #: blocks/free-shipping-bar/build/render.php:37
@@ -135,26 +141,26 @@ msgstr ""
 #: blocks/free-shipping-bar/src/edit.js:24
 #, php-format
 msgid "Free shipping on orders over %s"
-msgstr ""
+msgstr "Gratis verzending bij bestellingen boven %s"
 
 #. translators: %s: amount left to spend to get free shipping.
 #: blocks/free-shipping-bar/build/render.php:39
 #: blocks/free-shipping-bar/src/render.php:39
 #, php-format
 msgid "You are %s away from free shipping"
-msgstr ""
+msgstr "Nog %s tot gratis verzending"
 
 #: blocks/free-shipping-bar/build/render.php:40
 #: blocks/free-shipping-bar/src/render.php:40
 msgid "You have unlocked free shipping"
-msgstr ""
+msgstr "Je hebt gratis verzending"
 
 #: blocks/instagram-embed/build/render.php:37
 #: blocks/instagram-embed/src/render.php:37
 #: blocks/instagram-embed/build/index.js:1
 #: blocks/instagram-embed/src/edit.js:71
 msgid "Load Instagram feed"
-msgstr ""
+msgstr "Instagram-feed laden"
 
 #. translators: %s: Instagram handle, without the leading @.
 #: blocks/instagram-embed/build/render.php:44
@@ -163,12 +169,12 @@ msgstr ""
 #: blocks/instagram-embed/src/edit.js:76
 #, php-format
 msgid "Loads content from instagram.com — @%s"
-msgstr ""
+msgstr "Laadt content van instagram.com — @%s"
 
 #: blocks/instagram-embed/build/render.php:48
 #: blocks/instagram-embed/src/render.php:48
 msgid "Loads content from instagram.com"
-msgstr ""
+msgstr "Laadt content van instagram.com"
 
 #. translators: %s: Instagram handle, without the leading @.
 #: blocks/instagram-embed/build/render.php:65
@@ -177,7 +183,7 @@ msgstr ""
 #: blocks/instagram-embed/src/render.php:76
 #, php-format
 msgid "View @%s on Instagram"
-msgstr ""
+msgstr "Bekijk @%s op Instagram"
 
 #: blocks/mega-menu/build/render.php:191 blocks/mega-menu/src/render.php:191
 msgid "Close menu"
@@ -188,28 +194,28 @@ msgstr "Menu sluiten"
 #: blocks/sticky-add-to-cart/build/index.js:1
 #: blocks/sticky-add-to-cart/src/edit.js:23
 msgid "Add to cart"
-msgstr ""
+msgstr "In winkelwagen"
 
 #: blocks/sticky-add-to-cart/build/render.php:28
 #: blocks/sticky-add-to-cart/src/render.php:28
 msgid "Choose options"
-msgstr ""
+msgstr "Opties kiezen"
 
 #: includes/admin/settings-page.php:21
 msgid "Aludra Settings"
-msgstr ""
+msgstr "Aludra-instellingen"
 
 #: includes/admin/settings-page.php:128
 msgid "Heroes"
-msgstr ""
+msgstr "Heroes"
 
 #: includes/admin/settings-page.php:129
 msgid "Proof"
-msgstr ""
+msgstr "Bewijs"
 
 #: includes/admin/settings-page.php:130
 msgid "Features & Services"
-msgstr ""
+msgstr "Features & diensten"
 
 #: includes/admin/settings-page.php:131 blocks/carousel/build/index.js:1
 #: blocks/carousel/src/edit.js:218 blocks/mega-menu/build/index.js:1
@@ -219,7 +225,7 @@ msgstr "Indeling"
 
 #: includes/admin/settings-page.php:132
 msgid "Convert"
-msgstr ""
+msgstr "Converteren"
 
 #: includes/admin/settings-page.php:133 blocks/carousel/build/index.js:1
 #: blocks/carousel/src/edit.js:385
@@ -228,20 +234,21 @@ msgstr "Navigatie"
 
 #: includes/admin/settings-page.php:145
 msgid "Carousel"
-msgstr ""
+msgstr "Carrousel"
 
 #: includes/admin/settings-page.php:146
 msgid "Create responsive image and content carousels with Slick Carousel."
 msgstr ""
+"Maak responsieve carrousels met afbeeldingen en content met Slick Carousel."
 
 #: includes/admin/settings-page.php:150 blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/AnimationControls.jsx:29
 msgid "Slide"
-msgstr "Schuiven"
+msgstr "Dia"
 
 #: includes/admin/settings-page.php:151
 msgid "Individual slides placed inside a Carousel block."
-msgstr ""
+msgstr "Losse dia's binnen een Carrousel-blok."
 
 #: includes/admin/settings-page.php:156 blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/AnimationControls.jsx:227
@@ -250,255 +257,286 @@ msgstr "Mega Menu"
 
 #: includes/admin/settings-page.php:157
 msgid "Add expandable mega menus to a navigation block."
-msgstr ""
+msgstr "Voeg uitklapbare mega menu's toe aan een navigatieblok."
 
 #: includes/admin/settings-page.php:161
 msgid "FAQ Tabs"
-msgstr ""
+msgstr "FAQ-tabs"
 
 #: includes/admin/settings-page.php:162
 msgid "Interactive FAQ with vertical tabs and content panels."
-msgstr ""
+msgstr "Interactieve FAQ met verticale tabs en inhoudspanelen."
 
 #: includes/admin/settings-page.php:166
 msgid "FAQ Tab Answer"
-msgstr ""
+msgstr "FAQ-tabantwoord"
 
 #: includes/admin/settings-page.php:167
 msgid "A single question and answer inside FAQ Tabs."
-msgstr ""
+msgstr "Eén vraag en antwoord binnen FAQ-tabs."
 
 #: includes/admin/settings-page.php:172
 msgid "Search Overlay Trigger"
-msgstr ""
+msgstr "Zoekoverlay-knop"
 
 #: includes/admin/settings-page.php:173
 msgid "A search icon that opens a full-screen search overlay."
-msgstr ""
+msgstr "Een zoekicoon dat een zoekoverlay over het volledige scherm opent."
 
 #: includes/admin/settings-page.php:177
 msgid "Feature Cards"
-msgstr ""
+msgstr "Featurekaarten"
 
 #: includes/admin/settings-page.php:178
 msgid "Responsive grid of feature highlight cards with icons."
-msgstr ""
+msgstr "Responsief raster van featurekaarten met iconen."
 
 #: includes/admin/settings-page.php:182
 msgid "Icon Grid"
-msgstr ""
+msgstr "Iconenraster"
 
 #: includes/admin/settings-page.php:183
 msgid "Auto-fit grid of icon and text items with a section header."
-msgstr ""
+msgstr "Automatisch passend raster van iconen met tekst, met een sectiekop."
 
 #: includes/admin/settings-page.php:187
 msgid "Trust Bar"
-msgstr ""
+msgstr "Vertrouwensbalk"
 
 #: includes/admin/settings-page.php:188
 msgid "Inline bar of trust-signal items with icons."
-msgstr ""
+msgstr "Balk met vertrouwenssignalen en iconen op één regel."
 
 #: includes/admin/settings-page.php:192
 msgid "Pricing Tiers"
-msgstr ""
+msgstr "Prijspakketten"
 
 #: includes/admin/settings-page.php:193
 msgid "Three-column pricing table with a featured tier."
-msgstr ""
+msgstr "Prijstabel met drie kolommen en een uitgelicht pakket."
 
 #: includes/admin/settings-page.php:197
 msgid "Testimonial Grid"
-msgstr ""
+msgstr "Testimonialraster"
 
 #: includes/admin/settings-page.php:198
 msgid "Customer testimonials with metrics; carousels on larger sets."
-msgstr ""
+msgstr "Klantervaringen met cijfers; een carrousel bij grotere sets."
 
 #: includes/admin/settings-page.php:202
 msgid "CTA Columns"
-msgstr ""
+msgstr "CTA-kolommen"
 
 #: includes/admin/settings-page.php:203
 msgid "Dual call-to-action cards with headings, text, and buttons."
-msgstr ""
+msgstr "Twee call-to-action-kaarten met koppen, tekst en knoppen."
 
 #: includes/admin/settings-page.php:207
 msgid "Feature List Grid"
-msgstr ""
+msgstr "Featurelijstraster"
 
 #: includes/admin/settings-page.php:208
 msgid "Two-column grid of features with checkmarks and hover effects."
-msgstr ""
+msgstr "Raster van features in twee kolommen met vinkjes en hover-effecten."
 
 #: includes/admin/settings-page.php:212
 msgid "Contact Section"
-msgstr ""
+msgstr "Contactsectie"
 
 #: includes/admin/settings-page.php:213
 msgid "Dark contact section with an info column and Contact Form 7 form card."
 msgstr ""
+"Donkere contactsectie met een infokolom en een Contact Form 7-formulierkaart."
 
 #: includes/admin/settings-page.php:217
 msgid "Hero Banner"
-msgstr ""
+msgstr "Hero-banner"
 
 #: includes/admin/settings-page.php:218
 msgid ""
 "Dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA "
 "buttons."
 msgstr ""
+"Donkere hero over de volle breedte met een badge, kop, introtekst en twee "
+"CTA-knoppen."
 
 #: includes/admin/settings-page.php:222
 msgid "CTA Banner"
-msgstr ""
+msgstr "CTA-banner"
 
 #: includes/admin/settings-page.php:223
 msgid ""
 "Full-width call-to-action band with heading, lead text, and button; colours "
 "adapt to the active theme."
 msgstr ""
+"Call-to-action-band over de volle breedte met kop, introtekst en knop; de "
+"kleuren volgen het actieve thema."
 
 #: includes/admin/settings-page.php:227
 msgid "About Section"
-msgstr ""
+msgstr "Over-sectie"
 
 #: includes/admin/settings-page.php:228
 msgid ""
 "Full-width about/value-proposition section with heading, lead text, an offer "
 "list, and closing copy."
 msgstr ""
+"Over-sectie over de volle breedte met kop, introtekst, een aanbodlijst en "
+"afsluitende tekst."
 
 #: includes/admin/settings-page.php:232
 msgid "Services Block"
-msgstr ""
+msgstr "Dienstenblok"
 
 #: includes/admin/settings-page.php:233
 msgid ""
 "Section header with a two-per-row grid of icon, heading, and text service "
 "cards."
 msgstr ""
+"Sectiekop met een raster van dienstkaarten, twee per rij, met icoon, kop en "
+"tekst."
 
 #: includes/admin/settings-page.php:237
 msgid "Review Profiles"
-msgstr ""
+msgstr "Reviewprofielen"
 
 #: includes/admin/settings-page.php:238
 msgid ""
 "Full-width client review section with a heading and a row of round avatar "
 "photos with quotes."
 msgstr ""
+"Klantreviewsectie over de volle breedte met een kop en een rij ronde "
+"profielfoto's met citaten."
 
 #: includes/admin/settings-page.php:242
 msgid "Hero Split"
-msgstr ""
+msgstr "Hero split"
 
 #: includes/admin/settings-page.php:243
 msgid ""
 "Split-pane hero with heading, lead text, and a button on one side, and a "
 "desktop/mobile image pair on the other."
 msgstr ""
+"Gesplitste hero met kop, introtekst en een knop aan de ene kant en een "
+"desktop/mobiel-afbeeldingspaar aan de andere."
 
 #: includes/admin/settings-page.php:247
 msgid "Service Intro"
-msgstr ""
+msgstr "Dienstintro"
 
 #: includes/admin/settings-page.php:248
 msgid ""
 "Introductory text section for service pages with constrained-width editable "
 "paragraphs."
 msgstr ""
+"Inleidende tekstsectie voor dienstpagina's met bewerkbare alinea's van "
+"beperkte breedte."
 
 #: includes/admin/settings-page.php:252
 msgid "Service Detail Cards"
-msgstr ""
+msgstr "Dienstdetailkaarten"
 
 #: includes/admin/settings-page.php:253
 msgid ""
 "Stacked, numbered service cards with a heading, description, and checklist."
 msgstr ""
+"Gestapelde, genummerde dienstkaarten met een kop, beschrijving en checklist."
 
 #: includes/admin/settings-page.php:257
 msgid "Load Waterfall"
-msgstr ""
+msgstr "Laadwaterval"
 
 #: includes/admin/settings-page.php:258
 msgid ""
 "Network load-time waterfall panel with an animated LCP marker, for hero "
 "sections."
 msgstr ""
+"Paneel met een netwerk-laadtijdwaterval en een geanimeerde LCP-markering, "
+"voor hero-secties."
 
 #: includes/admin/settings-page.php:262
 msgid "Stat Rail"
-msgstr ""
+msgstr "Cijferbalk"
 
 #: includes/admin/settings-page.php:263
 msgid ""
 "Full-width band of big-number stats with captions, for the seam between a "
 "hero and the rest of the page."
 msgstr ""
+"Band over de volle breedte met grote cijfers en bijschriften, voor de "
+"overgang tussen een hero en de rest van de pagina."
 
 #: includes/admin/settings-page.php:267
 msgid "Stat Item"
-msgstr ""
+msgstr "Cijfer"
 
 #: includes/admin/settings-page.php:268
 msgid "A single big-number stat with a caption, used inside Stat Rail."
-msgstr ""
+msgstr "Eén groot cijfer met bijschrift, gebruikt binnen Cijferbalk."
 
 #: includes/admin/settings-page.php:273
 msgid "Spine Section"
-msgstr ""
+msgstr "Ruggengraatsectie"
 
 #: includes/admin/settings-page.php:274
 msgid ""
 "Layout host: a sticky label/heading column on the left and section content "
 "on the right."
 msgstr ""
+"Lay-outhouder: een vaste kolom met label en kop links en de sectie-inhoud "
+"rechts."
 
 #: includes/admin/settings-page.php:278
 msgid "Split Section"
-msgstr ""
+msgstr "Gesplitste sectie"
 
 #: includes/admin/settings-page.php:279
 msgid ""
 "Layout host: a centred header above two panes, media on one side and content "
 "on the other."
 msgstr ""
+"Lay-outhouder: een gecentreerde kop boven twee panelen, media aan de ene "
+"kant en content aan de andere."
 
 #: includes/admin/settings-page.php:283
 msgid "Comparison Table"
-msgstr ""
+msgstr "Vergelijkingstabel"
 
 #: includes/admin/settings-page.php:284
 msgid ""
 "A filterable spec-sheet comparison: pill filters above a bordered table with "
 "your column highlighted against up to three competitors."
 msgstr ""
+"Een filterbare specificatievergelijking: filterknoppen boven een tabel met "
+"rand, waarin jouw kolom wordt uitgelicht tegenover maximaal drie "
+"concurrenten."
 
 #: includes/admin/settings-page.php:288
 msgid "Comparison Row"
-msgstr ""
+msgstr "Vergelijkingsrij"
 
 #: includes/admin/settings-page.php:289
 msgid ""
 "One structural parameter and its four answer cells, used inside Comparison "
 "Table."
 msgstr ""
+"Eén structureel kenmerk met zijn vier antwoordcellen, gebruikt binnen "
+"Vergelijkingstabel."
 
 #: includes/admin/settings-page.php:294
 msgid "Comparison Cell"
-msgstr ""
+msgstr "Vergelijkingscel"
 
 #: includes/admin/settings-page.php:295
 msgid ""
 "One vendor's answer for a single comparison row, used inside Comparison Row."
 msgstr ""
+"Het antwoord van één aanbieder voor één vergelijkingsrij, gebruikt binnen "
+"Vergelijkingsrij."
 
 #: includes/admin/settings-page.php:300
 msgid "Photo Grid"
-msgstr ""
+msgstr "Fotoraster"
 
 #: includes/admin/settings-page.php:301
 msgid ""
@@ -506,11 +544,14 @@ msgid ""
 "grid, for an Instagram-style feed section. Fully static — no API key or live "
 "connection."
 msgstr ""
+"Band over de volle breedte met een kop, een volgregel en een strak raster "
+"van vierkante foto's, voor een feedsectie in Instagram-stijl. Volledig "
+"statisch — geen API-sleutel of live verbinding."
 
 #: includes/admin/settings-page.php:305 blocks/instagram-embed/build/index.js:2
 #: blocks/instagram-embed/src/edit.js:57
 msgid "Instagram Embed"
-msgstr ""
+msgstr "Instagram-embed"
 
 #: includes/admin/settings-page.php:306
 msgid ""
@@ -518,60 +559,67 @@ msgid ""
 "behind a click-to-load button. Unofficial and undocumented by Meta — could "
 "change without notice."
 msgstr ""
+"Live Instagram-profielfeed via de openbare embed-iframe van Instagram, pas "
+"geladen na een klik. Onofficieel en niet gedocumenteerd door Meta — kan "
+"zonder aankondiging veranderen."
 
 #: includes/admin/settings-page.php:310
 msgid "Free Shipping Progress"
-msgstr ""
+msgstr "Voortgang gratis verzending"
 
 #: includes/admin/settings-page.php:311
 msgid ""
 "WooCommerce: shows how far the cart is from free shipping, updating as items "
 "are added or removed."
 msgstr ""
+"WooCommerce: laat zien hoe ver de winkelwagen van gratis verzending af is, "
+"en werkt bij als er producten worden toegevoegd of verwijderd."
 
 #: includes/admin/settings-page.php:315
 msgid "Sticky Add to Cart"
-msgstr ""
+msgstr "Vaste in-winkelwagenbalk"
 
 #: includes/admin/settings-page.php:316
 msgid ""
 "WooCommerce: a bar with the product name, price and button once the add to "
 "cart form scrolls out of view."
 msgstr ""
+"WooCommerce: een balk met productnaam, prijs en knop zodra het formulier om "
+"in de winkelwagen te leggen uit beeld scrolt."
 
 #. translators: %s: block name
 #: includes/admin/settings-page.php:452
 #, php-format
 msgid "Enable %s block"
-msgstr ""
+msgstr "Blok %s inschakelen"
 
 #. translators: %s: parent block name
 #: includes/admin/settings-page.php:464
 #, php-format
 msgid "Requires %s"
-msgstr ""
+msgstr "Vereist %s"
 
 #. translators: %d: total number of blocks
 #: includes/admin/settings-page.php:519
 #, php-format
 msgid "Block library · %d blocks for Imagewize themes"
-msgstr ""
+msgstr "Blokkenbibliotheek · %d blokken voor Imagewize-thema's"
 
 #: includes/admin/settings-page.php:531
 msgid "enabled"
-msgstr ""
+msgstr "ingeschakeld"
 
 #: includes/admin/settings-page.php:534
 msgid "Enable all"
-msgstr ""
+msgstr "Alles inschakelen"
 
 #: includes/admin/settings-page.php:535
 msgid "Disable all"
-msgstr ""
+msgstr "Alles uitschakelen"
 
 #: includes/admin/settings-page.php:542
 msgid "Blocks"
-msgstr ""
+msgstr "Blokken"
 
 #: includes/admin/settings-page.php:543 blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:34
@@ -583,67 +631,91 @@ msgstr "Winkel"
 #, php-format
 msgid "%d block"
 msgid_plural "%d blocks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d blok"
+msgstr[1] "%d blokken"
 
-#: includes/admin/settings-page.php:590 includes/admin/settings-page.php:661
+#: includes/admin/settings-page.php:590 includes/admin/settings-page.php:664
 msgid "Save changes"
-msgstr ""
+msgstr "Wijzigingen opslaan"
 
 #: includes/admin/settings-page.php:591
 msgid ""
 "Disabled blocks are hidden from the inserter and their assets stop loading."
 msgstr ""
+"Uitgeschakelde blokken verdwijnen uit de inserter en hun bestanden worden "
+"niet meer geladen."
 
 #: includes/admin/settings-page.php:609
 msgid "Added as the last block of the announcement bar template part."
 msgstr ""
+"Toegevoegd als laatste blok van het sjabloononderdeel voor de "
+"aankondigingsbalk."
 
 #: includes/admin/settings-page.php:610
 msgid "Added before the footer on the single product template."
-msgstr ""
+msgstr "Toegevoegd vóór de footer in het sjabloon voor losse producten."
 
 #: includes/admin/settings-page.php:618
 msgid ""
-"Aludra adds these WooCommerce blocks to your theme's templates with the "
-"WordPress Block Hooks API, so the theme does not have to ship plugin blocks "
-"itself. A hooked block shows up in the Site Editor like any other block, and "
-"removing it there keeps it removed for that template."
+"Aludra adds these WooCommerce blocks to the active theme's templates with "
+"the WordPress Block Hooks API. They are on by default for the Winespring "
+"theme, which is built for them: WordPress.org does not let a theme ship "
+"plugin blocks, so Aludra places them instead. Other themes can switch them "
+"on here."
 msgstr ""
+"Aludra voegt deze WooCommerce-blokken toe aan de sjablonen van het actieve "
+"thema met de Block Hooks API van WordPress. Ze staan standaard aan voor het "
+"thema Winespring, dat ervoor gebouwd is: WordPress.org staat niet toe dat "
+"een thema pluginblokken meelevert, dus plaatst Aludra ze. Voor andere "
+"thema's kun je ze hier inschakelen."
+
+#: includes/admin/settings-page.php:621
+msgid ""
+"Sticky Add to Cart works with any WooCommerce block theme, since each one "
+"has a single product template. Free Shipping Progress needs a template part "
+"with the slug announcement-bar, which Winespring provides. A hooked block "
+"shows up in the Site Editor like any other block, and removing it there "
+"keeps it removed for that template."
+msgstr ""
+"Vaste in-winkelwagenbalk werkt met elk WooCommerce-blokthema, omdat elk "
+"thema een sjabloon voor losse producten heeft. Voortgang gratis verzending "
+"vereist een sjabloononderdeel met de slug announcement-bar, dat Winespring "
+"meelevert. Een toegevoegd blok verschijnt in de site-editor zoals elk ander "
+"blok, en als je het daar verwijdert, blijft het voor dat sjabloon weg."
 
 #. translators: %s: active theme name
-#: includes/admin/settings-page.php:627
+#: includes/admin/settings-page.php:630
 #, php-format
 msgid "Active theme: %s"
-msgstr ""
+msgstr "Actief thema: %s"
 
-#: includes/admin/settings-page.php:644
+#: includes/admin/settings-page.php:647
 msgid "Needs WooCommerce"
-msgstr ""
+msgstr "Vereist WooCommerce"
 
-#: includes/admin/settings-page.php:646
+#: includes/admin/settings-page.php:649
 msgid "Turned off in the Blocks tab"
-msgstr ""
+msgstr "Uitgeschakeld in de tab Blokken"
 
 #. translators: %s: template or template part slug
-#: includes/admin/settings-page.php:649
+#: includes/admin/settings-page.php:652
 #, php-format
 msgid "This theme has no matching %s template"
-msgstr ""
+msgstr "Dit thema heeft geen passend sjabloon %s"
 
-#: includes/admin/settings-page.php:662
+#: includes/admin/settings-page.php:665
 msgid "Choices are saved for the active theme only."
-msgstr ""
+msgstr "Keuzes worden alleen voor het actieve thema opgeslagen."
 
 #. translators: %s: block name
-#: includes/admin/settings-page.php:710
+#: includes/admin/settings-page.php:713
 #, php-format
 msgid "Add %s automatically"
-msgstr ""
+msgstr "%s automatisch toevoegen"
 
-#: includes/admin/settings-page.php:717
+#: includes/admin/settings-page.php:720
 msgid "Template found"
-msgstr ""
+msgstr "Sjabloon gevonden"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:116
 msgid "Click plus (+) to add slides"
@@ -697,27 +769,27 @@ msgstr "Dia's om te scrollen"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:241
 msgid "Center Padding"
-msgstr ""
+msgstr "Centrumopvulling"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:242
 msgid "Amount of adjacent slides visible"
-msgstr ""
+msgstr "Hoeveel van de naastgelegen dia's zichtbaar is"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:260
 msgid "Thumbnails to Show"
-msgstr ""
+msgstr "Aantal miniaturen"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:269
 msgid "Thumbnail Position"
-msgstr ""
+msgstr "Positie miniaturen"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:273
 msgid "Below"
-msgstr ""
+msgstr "Onder"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:277
 msgid "Above"
-msgstr ""
+msgstr "Boven"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:281
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:235
@@ -731,7 +803,7 @@ msgstr "Rechts"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:296
 msgid "Thumbnail Spacing"
-msgstr ""
+msgstr "Ruimte tussen miniaturen"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:311
 msgid "Behavior"
@@ -747,7 +819,7 @@ msgstr "Automatisch afspelen"
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:726
 msgid "Autoplay Speed (ms)"
-msgstr ""
+msgstr "Snelheid automatisch afspelen (ms)"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:334
 #: blocks/testimonial-grid/build/index.js:1
@@ -759,51 +831,51 @@ msgstr "Oneindige lus"
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:659
 msgid "Animation Speed (ms)"
-msgstr ""
+msgstr "Animatiesnelheid (ms)"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:351
 msgid "Lazy Loading"
-msgstr ""
+msgstr "Lazy loading"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:352
 msgid "Improves performance for image-heavy carousels"
-msgstr ""
+msgstr "Verbetert de prestaties van carrousels met veel afbeeldingen"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:358
 msgid "Disabled"
-msgstr ""
+msgstr "Uitgeschakeld"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:360
 msgid "On Demand"
-msgstr ""
+msgstr "Op aanvraag"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:364
 msgid "Progressive"
-msgstr ""
+msgstr "Progressief"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:373
 msgid "Adaptive Height"
-msgstr ""
+msgstr "Aanpasbare hoogte"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:374
 msgid "Auto-adjust height to match active slide"
-msgstr ""
+msgstr "Past de hoogte automatisch aan de actieve dia aan"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:389
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:683
 msgid "Show Arrows"
-msgstr ""
+msgstr "Pijlen tonen"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:396
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:690
 msgid "Show Dots"
-msgstr ""
+msgstr "Stippen tonen"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:404
 msgid "Dots Top Spacing"
-msgstr ""
+msgstr "Ruimte boven stippen"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:419
 msgid "Arrow Style"
@@ -811,19 +883,19 @@ msgstr "Pijlstijl"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:423
 msgid "Arrow Icon"
-msgstr ""
+msgstr "Pijlicoon"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:427
 msgid "Arrow (Default)"
-msgstr ""
+msgstr "Pijl (standaard)"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:431
 msgid "Chevron"
-msgstr ""
+msgstr "Chevron"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:435
 msgid "Caret (Triangle)"
-msgstr ""
+msgstr "Driehoek"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:439
 #: blocks/mega-menu/build/index.js:1
@@ -836,6 +908,8 @@ msgid ""
 "Choose the arrow icon style - all icons are SVG-based for sharp, scalable "
 "rendering"
 msgstr ""
+"Kies de stijl van het pijlicoon — alle iconen zijn SVG, dus scherp en "
+"schaalbaar"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:453
 #: blocks/mega-menu/build/index.js:1
@@ -845,23 +919,23 @@ msgstr "Aangepaste SVG-code"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:458
 msgid "Paste SVG code for custom arrow icon"
-msgstr ""
+msgstr "Plak SVG-code voor een eigen pijlicoon"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:466
 msgid "Arrow Background Shape"
-msgstr ""
+msgstr "Vorm pijlachtergrond"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:470
 msgid "Circle"
-msgstr ""
+msgstr "Cirkel"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:474
 msgid "Rounded Square"
-msgstr ""
+msgstr "Afgerond vierkant"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:478
 msgid "Square"
-msgstr ""
+msgstr "Vierkant"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:482
 #: blocks/mega-menu/build/index.js:1
@@ -871,11 +945,11 @@ msgstr "Geen"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:489
 msgid "Choose the arrow background shape"
-msgstr ""
+msgstr "Kies de vorm van de pijlachtergrond"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:495
 msgid "Arrow Size (px)"
-msgstr ""
+msgstr "Pijlgrootte (px)"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:507
 msgid "Responsive"
@@ -884,15 +958,15 @@ msgstr "Responsief"
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:511
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:404
 msgid "Mobile Breakpoint (px)"
-msgstr ""
+msgstr "Mobiel breekpunt (px)"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:521
 msgid "Mobile: Slides to Show"
-msgstr ""
+msgstr "Mobiel: dia's om te tonen"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:530
 msgid "Mobile: Slides to Scroll"
-msgstr ""
+msgstr "Mobiel: dia's om te scrollen"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:540
 msgid "Advanced"
@@ -900,54 +974,54 @@ msgstr "Geavanceerd"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:544
 msgid "Total Slides"
-msgstr ""
+msgstr "Totaal aantal dia's"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:545
 msgid "Number of slide blocks to generate"
-msgstr ""
+msgstr "Aantal dia-blokken om aan te maken"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:557
 msgid "Slide Padding"
-msgstr ""
+msgstr "Dia-opvulling"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:558
 msgid "Add padding around slides"
-msgstr ""
+msgstr "Opvulling rond dia's toevoegen"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:565
 msgid "RTL Mode"
-msgstr ""
+msgstr "RTL-modus"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:566
 msgid "Right-to-left language support"
-msgstr ""
+msgstr "Ondersteuning voor talen van rechts naar links"
 
 #: blocks/comparison-cell/build/index.js:1
 #: blocks/comparison-cell/src/edit.js:19
 msgid "Short answer…"
-msgstr ""
+msgstr "Kort antwoord…"
 
 #: blocks/comparison-cell/build/index.js:1
 #: blocks/comparison-cell/src/edit.js:27
 msgid "One or two sentences…"
-msgstr ""
+msgstr "Een of twee zinnen…"
 
 #: blocks/comparison-row/build/index.js:1 blocks/comparison-row/src/edit.js:19
 msgid "Our answer"
-msgstr ""
+msgstr "Ons antwoord"
 
 #: blocks/comparison-row/build/index.js:1 blocks/comparison-row/src/edit.js:20
 #: blocks/comparison-row/src/edit.js:21 blocks/comparison-row/src/edit.js:22
 msgid "Competitor"
-msgstr ""
+msgstr "Concurrent"
 
 #: blocks/comparison-row/build/index.js:1 blocks/comparison-row/src/edit.js:33
 msgid "Filter category"
-msgstr ""
+msgstr "Filtercategorie"
 
 #: blocks/comparison-row/build/index.js:1 blocks/comparison-row/src/edit.js:35
 msgid "Category"
-msgstr ""
+msgstr "Categorie"
 
 #: blocks/comparison-row/build/index.js:1 blocks/comparison-row/src/edit.js:36
 msgid ""
@@ -955,28 +1029,31 @@ msgid ""
 "rows that should share a pill — case and wording must match. Leave blank and "
 "the row only ever shows under \"Full Spectrum\"."
 msgstr ""
+"Welke filterknop deze rij toont. Gebruik precies dezelfde spelling voor "
+"rijen die een knop delen — hoofdletters en woorden moeten overeenkomen. Laat "
+"leeg en de rij verschijnt alleen onder \"Full Spectrum\"."
 
 #: blocks/comparison-row/build/index.js:1 blocks/comparison-row/src/edit.js:58
 msgid "PARAMETER"
-msgstr ""
+msgstr "KENMERK"
 
 #: blocks/comparison-row/build/index.js:1 blocks/comparison-row/src/edit.js:68
 msgid "key.name (optional)"
-msgstr ""
+msgstr "key.name (optioneel)"
 
 #: blocks/comparison-table/build/index.js:1
 #: blocks/comparison-table/src/edit.js:87 blocks/spine-section/build/index.js:1
 #: blocks/spine-section/src/edit.js:27 blocks/split-section/build/index.js:1
 #: blocks/split-section/src/edit.js:48
 msgid "Section"
-msgstr ""
+msgstr "Sectie"
 
 #: blocks/comparison-table/build/index.js:1
 #: blocks/comparison-table/src/edit.js:89 blocks/spine-section/build/index.js:1
 #: blocks/spine-section/src/edit.js:29 blocks/split-section/build/index.js:1
 #: blocks/split-section/src/edit.js:77
 msgid "Tinted background"
-msgstr ""
+msgstr "Getinte achtergrond"
 
 #: blocks/comparison-table/build/index.js:1
 #: blocks/comparison-table/src/edit.js:90 blocks/spine-section/build/index.js:1
@@ -985,23 +1062,25 @@ msgstr ""
 msgid ""
 "Alternate sections use a tint so consecutive sections read as separate bands."
 msgstr ""
+"Afwisselende secties krijgen een tint, zodat opeenvolgende secties als "
+"aparte banden te lezen zijn."
 
 #: blocks/comparison-table/build/index.js:1
 #: blocks/comparison-table/src/edit.js:113
 msgid "Eyebrow"
-msgstr ""
+msgstr "Bovenkop"
 
 #: blocks/comparison-table/build/index.js:1
 #: blocks/comparison-table/src/edit.js:123
 #: blocks/spine-section/build/index.js:1 blocks/spine-section/src/edit.js:63
 #: blocks/split-section/build/index.js:1 blocks/split-section/src/edit.js:122
 msgid "Section heading"
-msgstr ""
+msgstr "Sectiekop"
 
 #: blocks/comparison-table/build/index.js:1
 #: blocks/comparison-table/src/edit.js:133
 msgid "One or two sentences (optional)"
-msgstr ""
+msgstr "Een of twee zinnen (optioneel)"
 
 #: blocks/comparison-table/build/index.js:1
 #: blocks/comparison-table/src/edit.js:142
@@ -1009,80 +1088,87 @@ msgid ""
 "Filter pills are built on the front end from each row’s category, and every "
 "row stays visible here while editing."
 msgstr ""
+"Filterknoppen worden aan de voorkant opgebouwd uit de categorie van elke "
+"rij; tijdens het bewerken blijft hier elke rij zichtbaar."
 
 #: blocks/cta-columns/build/index.js:1 blocks/cta-columns/src/edit.js:335
 msgid "Appearance Settings"
-msgstr ""
+msgstr "Weergave-instellingen"
 
 #: blocks/cta-columns/build/index.js:1 blocks/cta-columns/src/edit.js:337
 msgid "Section Background Color"
-msgstr ""
+msgstr "Achtergrondkleur sectie"
 
 #: blocks/cta-columns/build/index.js:1 blocks/cta-columns/src/edit.js:341
 msgid "Default (White/Transparent)"
-msgstr ""
+msgstr "Standaard (wit/transparant)"
 
 #: blocks/cta-columns/build/index.js:1 blocks/cta-columns/src/edit.js:348
 msgid "Light Gray"
-msgstr ""
+msgstr "Lichtgrijs"
 
 #: blocks/cta-columns/build/index.js:1 blocks/cta-columns/src/edit.js:352
 msgid "Light Blue"
-msgstr ""
+msgstr "Lichtblauw"
 
 #: blocks/cta-columns/build/index.js:1 blocks/cta-columns/src/edit.js:355
 msgid "Dark"
-msgstr ""
+msgstr "Donker"
 
 #: blocks/cta-columns/build/index.js:1 blocks/cta-columns/src/edit.js:360
 msgid ""
 "Choose the background color for the entire CTA section (cards remain dark "
 "blue)"
 msgstr ""
+"Kies de achtergrondkleur voor de hele CTA-sectie (de kaarten blijven "
+"donkerblauw)"
 
 #: blocks/cta-columns/build/index.js:1 blocks/cta-columns/src/edit.js:366
 #: blocks/split-section/build/index.js:1 blocks/split-section/src/edit.js:88
 msgid "Reveal on scroll"
-msgstr ""
+msgstr "Tonen bij scrollen"
 
 #: blocks/cta-columns/build/index.js:1 blocks/cta-columns/src/edit.js:371
 msgid "Fade and slide the section into view as it enters the viewport."
 msgstr ""
+"Laat de sectie in beeld vervagen en schuiven zodra die het scherm binnenkomt."
 
 #: blocks/faq-tab-answer/build/index.js:1 blocks/faq-tab-answer/src/edit.js:52
 msgid "Tab Settings"
-msgstr ""
+msgstr "Tabinstellingen"
 
 #: blocks/faq-tab-answer/build/index.js:1 blocks/faq-tab-answer/src/edit.js:54
 msgid "Question Text"
-msgstr ""
+msgstr "Vraagtekst"
 
 #: blocks/faq-tab-answer/build/index.js:1 blocks/faq-tab-answer/src/edit.js:61
 msgid "The question shown in the summary line"
-msgstr ""
+msgstr "De vraag op de samenvattingsregel"
 
 #: blocks/faq-tab-answer/build/index.js:1 blocks/faq-tab-answer/src/edit.js:65
 msgid "The question shown in the tab navigation"
-msgstr ""
+msgstr "De vraag in de tabnavigatie"
 
 #: blocks/faq-tab-answer/build/index.js:1 blocks/faq-tab-answer/src/edit.js:73
 msgid "Open by default"
-msgstr ""
+msgstr "Standaard open"
 
 #: blocks/faq-tab-answer/build/index.js:1 blocks/faq-tab-answer/src/edit.js:74
 msgid ""
 "Renders this entry expanded on page load. Usually reserved for the first "
 "question."
 msgstr ""
+"Toont dit item uitgeklapt bij het laden van de pagina. Meestal alleen voor "
+"de eerste vraag."
 
 #: blocks/faq-tab-answer/build/index.js:1 blocks/faq-tab-answer/src/edit.js:99
 msgid "Enter answer title…"
-msgstr ""
+msgstr "Titel van het antwoord…"
 
 #: blocks/faq-tab-answer/build/index.js:1 blocks/faq-tab-answer/src/edit.js:116
 #: blocks/faq-tabs/build/index.js:1 blocks/faq-tabs/src/edit.js:308
 msgid "Enter question…"
-msgstr ""
+msgstr "Vraag invoeren…"
 
 #: blocks/faq-tab-answer/build/index.js:1 blocks/faq-tab-answer/src/edit.js:126
 msgid ""
@@ -1090,6 +1176,9 @@ msgid ""
 "your specific needs. Our experienced team specializes in delivering high-"
 "quality solutions that drive results and exceed expectations."
 msgstr ""
+"We bieden een breed scala aan professionele diensten, afgestemd op jouw "
+"specifieke behoeften. Ons ervaren team levert hoogwaardige oplossingen die "
+"resultaat opleveren en verwachtingen overtreffen."
 
 #: blocks/faq-tab-answer/build/index.js:1 blocks/faq-tab-answer/src/edit.js:135
 msgid ""
@@ -1097,65 +1186,70 @@ msgid ""
 "development, or ongoing support, we have the expertise and resources to help "
 "you succeed."
 msgstr ""
+"Of je nu op zoek bent naar strategisch advies, creatief ontwerp, technische "
+"ontwikkeling of doorlopende ondersteuning: wij hebben de expertise en "
+"middelen om je te laten slagen."
 
 #: blocks/faq-tabs/build/index.js:1 blocks/faq-tabs/src/edit.js:193
 #: blocks/faq-tabs/src/edit.js:246
 msgid "Tabs"
-msgstr ""
+msgstr "Tabs"
 
 #: blocks/faq-tabs/build/index.js:1 blocks/faq-tabs/src/edit.js:201
 #: blocks/faq-tabs/src/edit.js:250
 msgid "Accordion"
-msgstr ""
+msgstr "Accordeon"
 
 #: blocks/faq-tabs/build/index.js:1 blocks/faq-tabs/src/edit.js:209
 msgid "Native details"
-msgstr ""
+msgstr "Native details"
 
 #: blocks/faq-tabs/build/index.js:1 blocks/faq-tabs/src/edit.js:218
 msgid "Display"
-msgstr ""
+msgstr "Weergave"
 
 #: blocks/faq-tabs/build/index.js:1 blocks/faq-tabs/src/edit.js:220
 msgid "Display Mode"
-msgstr ""
+msgstr "Weergavemodus"
 
 #: blocks/faq-tabs/build/index.js:1 blocks/faq-tabs/src/edit.js:228
 msgid ""
 "Native <details> elements — no JavaScript, works with the browser’s own find-"
 "in-page."
 msgstr ""
+"Native <details>-elementen — geen JavaScript, en het zoeken op de pagina van "
+"de browser werkt gewoon."
 
 #: blocks/faq-tabs/build/index.js:1 blocks/faq-tabs/src/edit.js:234
 msgid "Single-column accordion at every breakpoint."
-msgstr ""
+msgstr "Accordeon met één kolom op elk schermformaat."
 
 #: blocks/faq-tabs/build/index.js:1 blocks/faq-tabs/src/edit.js:238
 msgid "Two-column tabs on desktop, accordion on mobile."
-msgstr ""
+msgstr "Tabs in twee kolommen op desktop, accordeon op mobiel."
 
 #: blocks/faq-tabs/build/index.js:1 blocks/faq-tabs/src/edit.js:254
 msgid "Native"
-msgstr ""
+msgstr "Native"
 
 #: blocks/faq-tabs/build/index.js:1 blocks/faq-tabs/src/edit.js:283
 msgid "Add FAQ Tab Answer blocks to get started"
-msgstr ""
+msgstr "Voeg FAQ-tabantwoord-blokken toe om te beginnen"
 
 #: blocks/free-shipping-bar/build/index.js:2
 #: blocks/free-shipping-bar/src/edit.js:27
 msgid "Free shipping progress (amount set by your shipping zone)"
-msgstr ""
+msgstr "Voortgang gratis verzending (bedrag uit je verzendzone)"
 
 #: blocks/free-shipping-bar/build/index.js:2
 #: blocks/free-shipping-bar/src/edit.js:35
 msgid "Free shipping"
-msgstr ""
+msgstr "Gratis verzending"
 
 #: blocks/free-shipping-bar/build/index.js:2
 #: blocks/free-shipping-bar/src/edit.js:37
 msgid "Threshold override"
-msgstr ""
+msgstr "Drempel overschrijven"
 
 #: blocks/free-shipping-bar/build/index.js:2
 #: blocks/free-shipping-bar/src/edit.js:38
@@ -1163,37 +1257,41 @@ msgid ""
 "Leave at 0 to use the minimum order amount of the free shipping method in "
 "the visitor's shipping zone."
 msgstr ""
+"Laat op 0 staan om het minimale bestelbedrag van de gratis verzendmethode in "
+"de verzendzone van de bezoeker te gebruiken."
 
 #: blocks/instagram-embed/build/index.js:1
 #: blocks/instagram-embed/src/edit.js:97
 msgid "Instagram feed preview"
-msgstr ""
+msgstr "Voorbeeld Instagram-feed"
 
 #: blocks/instagram-embed/build/index.js:2
 #: blocks/instagram-embed/src/edit.js:58
 msgid ""
 "Enter a public Instagram username in the block settings to preview the feed."
 msgstr ""
+"Vul een openbare Instagram-gebruikersnaam in bij de blokinstellingen om de "
+"feed te bekijken."
 
 #: blocks/instagram-embed/build/index.js:2
 #: blocks/instagram-embed/src/edit.js:107
 msgid "Instagram Settings"
-msgstr ""
+msgstr "Instagram-instellingen"
 
 #: blocks/instagram-embed/build/index.js:2
 #: blocks/instagram-embed/src/edit.js:112
 msgid "Instagram username"
-msgstr ""
+msgstr "Instagram-gebruikersnaam"
 
 #: blocks/instagram-embed/build/index.js:2
 #: blocks/instagram-embed/src/edit.js:122
 msgid "Public account only — private accounts will not load."
-msgstr ""
+msgstr "Alleen openbare accounts — privéaccounts laden niet."
 
 #: blocks/instagram-embed/build/index.js:2
 #: blocks/instagram-embed/src/edit.js:129
 msgid "Feed height (px)"
-msgstr ""
+msgstr "Feedhoogte (px)"
 
 #: blocks/instagram-embed/build/index.js:2
 #: blocks/instagram-embed/src/edit.js:139
@@ -1203,44 +1301,51 @@ msgid ""
 "could change or remove it without notice, the way it did the old oEmbed API "
 "in October 2020. Keep a plain link to the profile as a fallback."
 msgstr ""
+"Gebruikt de openbare profiel-embed van Instagram (instagram.com/username/"
+"embed) — geen ontwikkelaarsapp of API-sleutel. Dit is een onofficieel, "
+"ongedocumenteerd endpoint: Meta kan het zonder aankondiging wijzigen of "
+"verwijderen, zoals in oktober 2020 met de oude oEmbed-API gebeurde. Houd een "
+"gewone link naar het profiel als terugval."
 
 #: blocks/load-waterfall/build/index.js:1 blocks/load-waterfall/src/edit.js:20
 msgid "Load waterfall for"
-msgstr ""
+msgstr "Laadwaterval voor"
 
 #: blocks/load-waterfall/build/index.js:1 blocks/load-waterfall/src/edit.js:50
 msgid "Panel"
-msgstr ""
+msgstr "Paneel"
 
 #: blocks/load-waterfall/build/index.js:1 blocks/load-waterfall/src/edit.js:52
 msgid "Rows"
-msgstr ""
+msgstr "Rijen"
 
 #: blocks/load-waterfall/build/index.js:1 blocks/load-waterfall/src/edit.js:53
 msgid ""
 "How many stages the waterfall lists. The LCP marker sits on the 5th row, so "
 "panels shorter than that show no marker."
 msgstr ""
+"Hoeveel fasen de waterval toont. De LCP-markering staat op de 5e rij, dus "
+"kortere panelen tonen geen markering."
 
 #: blocks/load-waterfall/build/index.js:1 blocks/load-waterfall/src/edit.js:41
 msgid "stage"
-msgstr ""
+msgstr "fase"
 
 #: blocks/load-waterfall/build/index.js:1 blocks/load-waterfall/src/edit.js:75
 msgid "site url…"
-msgstr ""
+msgstr "site-url…"
 
 #: blocks/load-waterfall/build/index.js:1 blocks/load-waterfall/src/edit.js:85
 msgid "badge…"
-msgstr ""
+msgstr "badge…"
 
 #: blocks/load-waterfall/build/index.js:1 blocks/load-waterfall/src/edit.js:99
 msgid "row label…"
-msgstr ""
+msgstr "rijlabel…"
 
 #: blocks/load-waterfall/build/index.js:1 blocks/load-waterfall/src/edit.js:126
 msgid "LCP label…"
-msgstr ""
+msgstr "LCP-label…"
 
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:24
@@ -1466,7 +1571,7 @@ msgstr "Zoek pictogrammen..."
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:204
 msgid "No icons found"
-msgstr ""
+msgstr "Geen iconen gevonden"
 
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:224
@@ -1476,12 +1581,12 @@ msgstr "Pictogram wissen"
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:239
 msgid "<svg>...</svg>"
-msgstr ""
+msgstr "<svg>...</svg>"
 
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:243
 msgid "Paste your custom SVG code here"
-msgstr ""
+msgstr "Plak hier je eigen SVG-code"
 
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:253
@@ -1546,7 +1651,7 @@ msgstr "Animatietype"
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/AnimationControls.jsx:86
 msgid "Choose how the mega menu appears and disappears"
-msgstr ""
+msgstr "Kies hoe het mega menu verschijnt en verdwijnt"
 
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/AnimationControls.jsx:146
@@ -1631,7 +1736,7 @@ msgstr "Achtergrond vervaging"
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/StylePanel.jsx:94
 msgid "Add a blur effect to the panel background"
-msgstr ""
+msgstr "Voeg een vervagingseffect toe aan de achtergrond van het paneel"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:124
 msgid "Enable Animations"
@@ -1657,7 +1762,7 @@ msgstr "Beschrijving"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:167
 msgid "Optional description for accessibility"
-msgstr ""
+msgstr "Optionele beschrijving voor toegankelijkheid"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:174
 msgid "Label Color"
@@ -1669,11 +1774,12 @@ msgstr "Selecteer menu sjabloon"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:191
 msgid "Select a template part to display in the mega menu"
-msgstr ""
+msgstr "Kies een sjabloononderdeel om in het mega menu te tonen"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:196
 msgid "No menu template parts found. <a>Create one in the Site Editor</a>"
 msgstr ""
+"Geen menu-sjabloononderdelen gevonden. <a>Maak er een in de site-editor</a>"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:231
 msgid "Dropdown Alignment"
@@ -1686,7 +1792,7 @@ msgstr "Midden"
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:252
 msgid ""
 "Choose how the dropdown panel aligns relative to the menu toggle button."
-msgstr ""
+msgstr "Kies hoe het uitklappaneel uitlijnt ten opzichte van de menuknop."
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:258
 msgid "Dropdown Spacing"
@@ -1694,17 +1800,19 @@ msgstr "Uitklapbare spacing"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:266
 msgid "Vertical space between menu item and dropdown (in pixels)"
-msgstr ""
+msgstr "Verticale ruimte tussen menu-item en uitklapmenu (in pixels)"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:272
 msgid "Maximum Dropdown Width"
-msgstr ""
+msgstr "Maximale breedte uitklapmenu"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:283
 msgid ""
 "Maximum width of the dropdown on desktop (in pixels). Mobile always uses "
 "full width."
 msgstr ""
+"Maximale breedte van het uitklapmenu op desktop (in pixels). Mobiel gebruikt "
+"altijd de volle breedte."
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:290
 msgid "Use Full Width"
@@ -1715,22 +1823,24 @@ msgid ""
 "Align dropdown with theme's wide content width. Enable this and adjust the "
 "offset below to match your header layout."
 msgstr ""
+"Lijn het uitklapmenu uit op de brede inhoudsbreedte van het thema. Schakel "
+"dit in en pas de verschuiving hieronder aan op je header."
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:305
 msgid "Backdrop Color"
-msgstr ""
+msgstr "Kleur achtergrondlaag"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:310
 msgid "e.g., rgba(0, 0, 0, 0.5)"
-msgstr ""
+msgstr "bijv. rgba(0, 0, 0, 0.5)"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:316
 msgid "Activate on Hover"
-msgstr ""
+msgstr "Openen bij hover"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:317
 msgid "Open menu on hover instead of click"
-msgstr ""
+msgstr "Open het menu bij hover in plaats van bij klikken"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:348
 msgid "Icon Position"
@@ -1738,23 +1848,23 @@ msgstr "Pictogrampositie"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:352
 msgid "Left of Label"
-msgstr ""
+msgstr "Links van label"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:356
 msgid "Right of Label"
-msgstr ""
+msgstr "Rechts van label"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:360
 msgid "Above Label"
-msgstr ""
+msgstr "Boven label"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:374
 msgid "Animation"
-msgstr ""
+msgstr "Animatie"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:392
 msgid "Mobile Behavior"
-msgstr ""
+msgstr "Gedrag op mobiel"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:396
 msgid "Enable Mobile Mode"
@@ -1762,132 +1872,132 @@ msgstr "Mobiele modus inschakelen"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:418
 msgid "Panel Effects"
-msgstr ""
+msgstr "Paneeleffecten"
 
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:441
 msgid "Add label…"
-msgstr ""
+msgstr "Label toevoegen…"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:15
 msgid "Choose Your Plan"
-msgstr ""
+msgstr "Kies je pakket"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:25
 msgid "Select the perfect plan for your needs"
-msgstr ""
+msgstr "Kies het pakket dat bij je past"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:74
 msgid "Essential"
-msgstr ""
+msgstr "Essentieel"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:81
 msgid "Perfect for small businesses"
-msgstr ""
+msgstr "Ideaal voor kleine bedrijven"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:94
 msgid "€59"
-msgstr ""
+msgstr "€59"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:97
 #: blocks/pricing-tiers/src/edit.js:309 blocks/pricing-tiers/src/edit.js:514
 msgid "per month"
-msgstr ""
+msgstr "per maand"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:109
 msgid "✓ Basic monitoring"
-msgstr ""
+msgstr "✓ Basismonitoring"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:145
 msgid "✓ Monthly updates"
-msgstr ""
+msgstr "✓ Maandelijkse updates"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:181
 msgid "✓ Email support"
-msgstr ""
+msgstr "✓ Ondersteuning per e-mail"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:214
 msgid "✓ 1 hour response time"
-msgstr ""
+msgstr "✓ Reactie binnen 1 uur"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:238
 #: blocks/pricing-tiers/src/edit.js:450 blocks/pricing-tiers/src/edit.js:655
 msgid "Get Started"
-msgstr ""
+msgstr "Aan de slag"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:280
 msgid "Business"
-msgstr ""
+msgstr "Zakelijk"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:283
 msgid "MOST POPULAR"
-msgstr ""
+msgstr "MEEST GEKOZEN"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:293
 msgid "For growing businesses"
-msgstr ""
+msgstr "Voor groeiende bedrijven"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:306
 msgid "€99"
-msgstr ""
+msgstr "€99"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:321
 msgid "✓ Advanced monitoring"
-msgstr ""
+msgstr "✓ Uitgebreide monitoring"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:357
 msgid "✓ Weekly updates"
-msgstr ""
+msgstr "✓ Wekelijkse updates"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:390
 msgid "✓ Priority support"
-msgstr ""
+msgstr "✓ Ondersteuning met voorrang"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:426
 msgid "✓ 30 min response time"
-msgstr ""
+msgstr "✓ Reactie binnen 30 min"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:491
 msgid "Enterprise"
-msgstr ""
+msgstr "Enterprise"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:498
 msgid "For large organizations"
-msgstr ""
+msgstr "Voor grote organisaties"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:511
 msgid "€199"
-msgstr ""
+msgstr "€199"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:526
 msgid "✓ 24/7 monitoring"
-msgstr ""
+msgstr "✓ Monitoring 24/7"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:562
 msgid "✓ Daily updates"
-msgstr ""
+msgstr "✓ Dagelijkse updates"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:595
 msgid "✓ Dedicated support"
-msgstr ""
+msgstr "✓ Vaste ondersteuning"
 
 #: blocks/pricing-tiers/build/index.js:1 blocks/pricing-tiers/src/edit.js:631
 msgid "✓ 15 min response time"
-msgstr ""
+msgstr "✓ Reactie binnen 15 min"
 
 #: blocks/search-overlay-trigger/build/index.js:1
 #: blocks/search-overlay-trigger/src/edit.js:29
 msgid "Overlay Settings"
-msgstr ""
+msgstr "Overlay-instellingen"
 
 #: blocks/search-overlay-trigger/build/index.js:1
 #: blocks/search-overlay-trigger/src/edit.js:33
 msgid "Overlay Background Color"
-msgstr ""
+msgstr "Achtergrondkleur overlay"
 
 #: blocks/search-overlay-trigger/build/index.js:1
 #: blocks/search-overlay-trigger/src/edit.js:41
 msgid "Search Bar Border Color"
-msgstr ""
+msgstr "Randkleur zoekbalk"
 
 #: blocks/search-overlay-trigger/build/index.js:1
 #: blocks/search-overlay-trigger/src/edit.js:49
@@ -1897,128 +2007,137 @@ msgstr "Sluitknop kleur"
 #: blocks/search-overlay-trigger/build/index.js:1
 #: blocks/search-overlay-trigger/src/edit.js:78
 msgid "(Search icon - click to open overlay)"
-msgstr ""
+msgstr "(Zoekicoon — klik om de overlay te openen)"
 
 #: blocks/slide/build/index.js:1 blocks/slide/src/edit.js:29
 msgid "Slide Settings"
-msgstr ""
+msgstr "Dia-instellingen"
 
 #: blocks/slide/build/index.js:1 blocks/slide/src/edit.js:33
 msgid "Slide ID"
-msgstr ""
+msgstr "Dia-ID"
 
 #: blocks/slide/build/index.js:1 blocks/slide/src/edit.js:38
 msgid "Optional HTML ID for this slide"
-msgstr ""
+msgstr "Optionele HTML-ID voor deze dia"
 
 #: blocks/spine-section/build/index.js:1 blocks/spine-section/src/edit.js:73
 msgid "One-line aside (optional)"
-msgstr ""
+msgstr "Kanttekening van één regel (optioneel)"
 
 #: blocks/split-section/build/index.js:1 blocks/split-section/src/edit.js:50
 msgid "Media on the right"
-msgstr ""
+msgstr "Media rechts"
 
 #: blocks/split-section/build/index.js:1 blocks/split-section/src/edit.js:51
 msgid "Swaps the two panes. The header stays centred either way."
-msgstr ""
+msgstr "Wisselt de twee panelen om. De kop blijft hoe dan ook gecentreerd."
 
 #: blocks/split-section/build/index.js:1 blocks/split-section/src/edit.js:61
 msgid "Media width"
-msgstr ""
+msgstr "Mediabreedte"
 
 #: blocks/split-section/build/index.js:1 blocks/split-section/src/edit.js:62
 msgid ""
 "Share of the row given to the media pane. Both panes stack on narrow screens "
 "regardless."
 msgstr ""
+"Deel van de rij voor het mediapaneel. Op smalle schermen worden beide "
+"panelen hoe dan ook gestapeld."
 
 #: blocks/split-section/build/index.js:1 blocks/split-section/src/edit.js:89
 msgid ""
 "The two panes travel in from opposite sides as the section enters the "
 "viewport. Front end only; respects reduced-motion."
 msgstr ""
+"De twee panelen komen van tegenovergestelde kanten binnen zodra de sectie in "
+"beeld komt. Alleen aan de voorkant; houdt rekening met verminderde beweging."
 
 #: blocks/split-section/build/index.js:1 blocks/split-section/src/edit.js:132
 msgid "One-line lead (optional)"
-msgstr ""
+msgstr "Introregel (optioneel)"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:17
 msgid "None (plain text)"
-msgstr ""
+msgstr "Geen (gewone tekst)"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:18
 msgid "Heading 1"
-msgstr ""
+msgstr "Kop 1"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:19
 msgid "Heading 2"
-msgstr ""
+msgstr "Kop 2"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:20
 msgid "Heading 3"
-msgstr ""
+msgstr "Kop 3"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:21
 msgid "Heading 4"
-msgstr ""
+msgstr "Kop 4"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:22
 msgid "Heading 5"
-msgstr ""
+msgstr "Kop 5"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:23
 msgid "Heading 6"
-msgstr ""
+msgstr "Kop 6"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:80
 msgid "Stat"
-msgstr ""
+msgstr "Cijfer"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:83
 msgid "Highlight (accent color)"
-msgstr ""
+msgstr "Uitlichten (accentkleur)"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:88
 msgid ""
 "Reserve this for the one standout stat in the rail. A number color set below "
 "overrides it."
 msgstr ""
+"Gebruik dit voor het ene cijfer dat eruit moet springen. Een cijferkleur "
+"hieronder gaat hiervoor."
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:95
 msgid "Number heading level"
-msgstr ""
+msgstr "Kopniveau van het cijfer"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:101
 msgid ""
 "Leave this as plain text unless the rail is a real section of the page — "
 "headings appear in the document outline and in screen reader navigation."
 msgstr ""
+"Laat dit gewone tekst, tenzij de balk een echte sectie van de pagina is — "
+"koppen verschijnen in de documentstructuur en in de navigatie van "
+"schermlezers."
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:108
 msgid "Color"
-msgstr ""
+msgstr "Kleur"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:112
 msgid "Number"
-msgstr ""
+msgstr "Getal"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:124
 msgid "Caption"
-msgstr ""
+msgstr "Bijschrift"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:146
 msgid "0.9s"
-msgstr ""
+msgstr "0,9s"
 
 #: blocks/stat-item/build/index.js:1 blocks/stat-item/src/edit.js:157
 msgid "Caption…"
-msgstr ""
+msgstr "Bijschrift…"
 
 #: blocks/sticky-add-to-cart/build/index.js:1
 #: blocks/sticky-add-to-cart/src/edit.js:19
 msgid "Product name"
-msgstr ""
+msgstr "Productnaam"
 
 #: blocks/sticky-add-to-cart/build/index.js:1
 #: blocks/sticky-add-to-cart/src/edit.js:27
@@ -2026,47 +2145,51 @@ msgid ""
 "Shown at the bottom of the screen once the add to cart form scrolls out of "
 "view."
 msgstr ""
+"Verschijnt onderaan het scherm zodra het formulier om in de winkelwagen te "
+"leggen uit beeld scrolt."
 
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:583
 msgid "Click plus (+) to add testimonial cards"
-msgstr ""
+msgstr "Klik op plus (+) om testimonialkaarten toe te voegen"
 
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:633
 msgid "Carousel Settings"
-msgstr ""
+msgstr "Carrouselinstellingen"
 
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:637
 msgid "Slides to Show (Desktop)"
-msgstr ""
+msgstr "Dia's om te tonen (desktop)"
 
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:644
 msgid ""
 "Number of cards visible at once on desktop when carousel is active (4+ cards)"
 msgstr ""
+"Aantal kaarten dat tegelijk zichtbaar is op desktop als de carrousel actief "
+"is (4+ kaarten)"
 
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:669
 msgid "Card Spacing (px)"
-msgstr ""
+msgstr "Ruimte tussen kaarten (px)"
 
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:677
 msgid "Space between slides in carousel mode"
-msgstr ""
+msgstr "Ruimte tussen dia's in carrouselmodus"
 
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:698
 msgid "Dots Bottom Spacing"
-msgstr ""
+msgstr "Ruimte onder stippen"
 
 #: blocks/about/build/block.json blocks/about/src/block.json
 msgctxt "block title"
 msgid "About Section"
-msgstr ""
+msgstr "Over-sectie"
 
 #: blocks/about/build/block.json blocks/about/src/block.json
 msgctxt "block description"
@@ -2074,21 +2197,23 @@ msgid ""
 "Full-width about/value-proposition section with heading, lead text, an offer "
 "list, and closing copy — colours adapt to the active theme's palette."
 msgstr ""
+"Over-sectie over de volle breedte met kop, introtekst, een aanbodlijst en "
+"afsluitende tekst — de kleuren volgen het palet van het actieve thema."
 
 #: blocks/about/build/block.json blocks/about/src/block.json
 msgctxt "block keyword"
 msgid "about"
-msgstr ""
+msgstr "over ons"
 
 #: blocks/about/build/block.json blocks/about/src/block.json
 msgctxt "block keyword"
 msgid "value proposition"
-msgstr ""
+msgstr "waardepropositie"
 
 #: blocks/about/build/block.json blocks/about/src/block.json
 msgctxt "block keyword"
 msgid "offer"
-msgstr ""
+msgstr "aanbod"
 
 #: blocks/about/build/block.json blocks/about/src/block.json
 #: blocks/contact-section/build/block.json
@@ -2097,17 +2222,17 @@ msgstr ""
 #: blocks/split-section/src/block.json
 msgctxt "block keyword"
 msgid "section"
-msgstr ""
+msgstr "sectie"
 
 #: blocks/carousel/build/block.json blocks/carousel/src/block.json
 msgctxt "block title"
 msgid "Carousel"
-msgstr ""
+msgstr "Carrousel"
 
 #: blocks/carousel/build/block.json blocks/carousel/src/block.json
 msgctxt "block description"
 msgid "Create a customizable slideshow of content with this carousel block."
-msgstr ""
+msgstr "Maak een aanpasbare diavoorstelling van content met dit carrouselblok."
 
 #: blocks/carousel/build/block.json blocks/carousel/src/block.json
 #: blocks/slide/build/block.json blocks/slide/src/block.json
@@ -2115,35 +2240,35 @@ msgstr ""
 #: blocks/testimonial-grid/src/block.json
 msgctxt "block keyword"
 msgid "carousel"
-msgstr ""
+msgstr "carrousel"
 
 #: blocks/carousel/build/block.json blocks/carousel/src/block.json
 #: blocks/slide/build/block.json blocks/slide/src/block.json
 msgctxt "block keyword"
 msgid "slider"
-msgstr ""
+msgstr "slider"
 
 #: blocks/carousel/build/block.json blocks/carousel/src/block.json
 msgctxt "block keyword"
 msgid "slideshow"
-msgstr ""
+msgstr "diavoorstelling"
 
 #: blocks/carousel/build/block.json blocks/carousel/src/block.json
 #: blocks/photo-grid/build/block.json blocks/photo-grid/src/block.json
 msgctxt "block keyword"
 msgid "gallery"
-msgstr ""
+msgstr "galerij"
 
 #: blocks/carousel/build/block.json blocks/carousel/src/block.json
 msgctxt "block keyword"
 msgid "slides"
-msgstr ""
+msgstr "dia's"
 
 #: blocks/comparison-cell/build/block.json
 #: blocks/comparison-cell/src/block.json
 msgctxt "block title"
 msgid "Comparison Cell"
-msgstr ""
+msgstr "Vergelijkingscel"
 
 #: blocks/comparison-cell/build/block.json
 #: blocks/comparison-cell/src/block.json
@@ -2153,6 +2278,9 @@ msgid ""
 "plus a description. The first cell in every row is styled as the highlighted "
 "column automatically."
 msgstr ""
+"Het antwoord van één aanbieder voor één rij van een vergelijkingstabel — een "
+"korte kop plus een beschrijving. De eerste cel van elke rij krijgt "
+"automatisch de uitgelichte kolomstijl."
 
 #: blocks/comparison-cell/build/block.json
 #: blocks/comparison-cell/src/block.json blocks/comparison-row/build/block.json
@@ -2162,13 +2290,13 @@ msgstr ""
 #: blocks/pricing-tiers/src/block.json
 msgctxt "block keyword"
 msgid "comparison"
-msgstr ""
+msgstr "vergelijking"
 
 #: blocks/comparison-cell/build/block.json
 #: blocks/comparison-cell/src/block.json
 msgctxt "block keyword"
 msgid "cell"
-msgstr ""
+msgstr "cel"
 
 #: blocks/comparison-cell/build/block.json
 #: blocks/comparison-cell/src/block.json blocks/comparison-row/build/block.json
@@ -2178,12 +2306,12 @@ msgstr ""
 #: blocks/pricing-tiers/src/block.json
 msgctxt "block keyword"
 msgid "table"
-msgstr ""
+msgstr "tabel"
 
 #: blocks/comparison-row/build/block.json blocks/comparison-row/src/block.json
 msgctxt "block title"
 msgid "Comparison Row"
-msgstr ""
+msgstr "Vergelijkingsrij"
 
 #: blocks/comparison-row/build/block.json blocks/comparison-row/src/block.json
 msgctxt "block description"
@@ -2192,24 +2320,27 @@ msgid ""
 "answer cells (yours, then three competitors). Tag it with a category to "
 "control which filter pill reveals it."
 msgstr ""
+"Eén structureel kenmerk in een vergelijkingstabel — een label plus vier "
+"vaste antwoordcellen (die van jou, daarna drie concurrenten). Geef het een "
+"categorie om te bepalen welke filterknop het toont."
 
 #: blocks/comparison-row/build/block.json blocks/comparison-row/src/block.json
 msgctxt "block keyword"
 msgid "row"
-msgstr ""
+msgstr "rij"
 
 #: blocks/comparison-row/build/block.json blocks/comparison-row/src/block.json
 #: blocks/comparison-table/build/block.json
 #: blocks/comparison-table/src/block.json
 msgctxt "block keyword"
 msgid "filter"
-msgstr ""
+msgstr "filter"
 
 #: blocks/comparison-table/build/block.json
 #: blocks/comparison-table/src/block.json
 msgctxt "block title"
 msgid "Comparison Table"
-msgstr ""
+msgstr "Vergelijkingstabel"
 
 #: blocks/comparison-table/build/block.json
 #: blocks/comparison-table/src/block.json
@@ -2219,25 +2350,28 @@ msgid ""
 "filter the table by category, and a bordered table with your own column "
 "highlighted against up to three competitors."
 msgstr ""
+"Een filterbare specificatievergelijking: een gecentreerde kop, een rij "
+"knoppen die de tabel per categorie filteren, en een tabel met rand waarin "
+"jouw kolom wordt uitgelicht tegenover maximaal drie concurrenten."
 
 #: blocks/comparison-table/build/block.json
 #: blocks/comparison-table/src/block.json blocks/pricing-tiers/build/block.json
 #: blocks/pricing-tiers/src/block.json
 msgctxt "block keyword"
 msgid "pricing"
-msgstr ""
+msgstr "prijzen"
 
 #: blocks/comparison-table/build/block.json
 #: blocks/comparison-table/src/block.json
 msgctxt "block keyword"
 msgid "spec sheet"
-msgstr ""
+msgstr "specificaties"
 
 #: blocks/contact-section/build/block.json
 #: blocks/contact-section/src/block.json
 msgctxt "block title"
 msgid "Contact Section"
-msgstr ""
+msgstr "Contactsectie"
 
 #: blocks/contact-section/build/block.json
 #: blocks/contact-section/src/block.json
@@ -2246,44 +2380,46 @@ msgid ""
 "Contact section with info column and Contact Form 7 form card. Dark by "
 "default; the Light style gives a white-ground variant."
 msgstr ""
+"Contactsectie met een infokolom en een Contact Form 7-formulierkaart. "
+"Standaard donker; de stijl Licht geeft een variant op een witte ondergrond."
 
 #: blocks/contact-section/build/block.json
 #: blocks/contact-section/src/block.json blocks/cta-banner/build/block.json
 #: blocks/cta-banner/src/block.json
 msgctxt "block keyword"
 msgid "contact"
-msgstr ""
+msgstr "contact"
 
 #: blocks/contact-section/build/block.json
 #: blocks/contact-section/src/block.json
 msgctxt "block keyword"
 msgid "form"
-msgstr ""
+msgstr "formulier"
 
 #: blocks/contact-section/build/block.json
 #: blocks/contact-section/src/block.json
 msgctxt "block keyword"
 msgid "cf7"
-msgstr ""
+msgstr "cf7"
 
 #: blocks/contact-section/build/block.json
 #: blocks/contact-section/src/block.json blocks/cta-banner/build/block.json
 #: blocks/cta-banner/src/block.json
 msgctxt "block style label"
 msgid "Dark"
-msgstr ""
+msgstr "Donker"
 
 #: blocks/contact-section/build/block.json
 #: blocks/contact-section/src/block.json blocks/cta-banner/build/block.json
 #: blocks/cta-banner/src/block.json
 msgctxt "block style label"
 msgid "Light"
-msgstr ""
+msgstr "Licht"
 
 #: blocks/cta-banner/build/block.json blocks/cta-banner/src/block.json
 msgctxt "block title"
 msgid "CTA Banner"
-msgstr ""
+msgstr "CTA-banner"
 
 #: blocks/cta-banner/build/block.json blocks/cta-banner/src/block.json
 msgctxt "block description"
@@ -2292,41 +2428,44 @@ msgid ""
 "adapt to the active theme's palette. Dark by default; the Light style gives "
 "a white-ground variant."
 msgstr ""
+"Call-to-action-band over de volle breedte met kop, introtekst en knop — de "
+"kleuren volgen het palet van het actieve thema. Standaard donker; de stijl "
+"Licht geeft een variant op een witte ondergrond."
 
 #: blocks/cta-banner/build/block.json blocks/cta-banner/src/block.json
 #: blocks/cta-columns/build/block.json blocks/cta-columns/src/block.json
 #: blocks/hero-banner/build/block.json blocks/hero-banner/src/block.json
 msgctxt "block keyword"
 msgid "cta"
-msgstr ""
+msgstr "cta"
 
 #: blocks/cta-banner/build/block.json blocks/cta-banner/src/block.json
 #: blocks/cta-columns/build/block.json blocks/cta-columns/src/block.json
 msgctxt "block keyword"
 msgid "call to action"
-msgstr ""
+msgstr "call-to-action"
 
 #: blocks/cta-banner/build/block.json blocks/cta-banner/src/block.json
 #: blocks/hero-banner/build/block.json blocks/hero-banner/src/block.json
 #: blocks/hero-split/build/block.json blocks/hero-split/src/block.json
 msgctxt "block keyword"
 msgid "banner"
-msgstr ""
+msgstr "banner"
 
 #: blocks/cta-columns/build/block.json blocks/cta-columns/src/block.json
 msgctxt "block title"
 msgid "CTA Columns"
-msgstr ""
+msgstr "CTA-kolommen"
 
 #: blocks/cta-columns/build/block.json blocks/cta-columns/src/block.json
 msgctxt "block description"
 msgid "Dual call-to-action cards with headings, descriptions, and buttons"
-msgstr ""
+msgstr "Twee call-to-action-kaarten met koppen, beschrijvingen en knoppen"
 
 #: blocks/cta-columns/build/block.json blocks/cta-columns/src/block.json
 msgctxt "block keyword"
 msgid "buttons"
-msgstr ""
+msgstr "knoppen"
 
 #: blocks/cta-columns/build/block.json blocks/cta-columns/src/block.json
 #: blocks/feature-cards/build/block.json blocks/feature-cards/src/block.json
@@ -2334,43 +2473,43 @@ msgstr ""
 #: blocks/services-block/build/block.json blocks/services-block/src/block.json
 msgctxt "block keyword"
 msgid "cards"
-msgstr ""
+msgstr "kaarten"
 
 #: blocks/cta-columns/build/block.json blocks/cta-columns/src/block.json
 msgctxt "block keyword"
 msgid "conversion"
-msgstr ""
+msgstr "conversie"
 
 #: blocks/faq-tab-answer/build/block.json blocks/faq-tab-answer/src/block.json
 msgctxt "block title"
 msgid "FAQ Tab Answer"
-msgstr ""
+msgstr "FAQ-tabantwoord"
 
 #: blocks/faq-tab-answer/build/block.json blocks/faq-tab-answer/src/block.json
 msgctxt "block description"
 msgid "A single FAQ tab answer with customizable content."
-msgstr ""
+msgstr "Eén FAQ-tabantwoord met aanpasbare inhoud."
 
 #: blocks/faq-tab-answer/build/block.json blocks/faq-tab-answer/src/block.json
 #: blocks/faq-tabs/build/block.json blocks/faq-tabs/src/block.json
 msgctxt "block keyword"
 msgid "faq"
-msgstr ""
+msgstr "faq"
 
 #: blocks/faq-tab-answer/build/block.json blocks/faq-tab-answer/src/block.json
 msgctxt "block keyword"
 msgid "answer"
-msgstr ""
+msgstr "antwoord"
 
 #: blocks/faq-tab-answer/build/block.json blocks/faq-tab-answer/src/block.json
 msgctxt "block keyword"
 msgid "content"
-msgstr ""
+msgstr "inhoud"
 
 #: blocks/faq-tabs/build/block.json blocks/faq-tabs/src/block.json
 msgctxt "block title"
 msgid "FAQ Tabs"
-msgstr ""
+msgstr "FAQ-tabs"
 
 #: blocks/faq-tabs/build/block.json blocks/faq-tabs/src/block.json
 msgctxt "block description"
@@ -2378,31 +2517,33 @@ msgid ""
 "FAQ list with vertical tab navigation, a stacked accordion, or native "
 "<details> elements that need no JavaScript."
 msgstr ""
+"FAQ-lijst met verticale tabnavigatie, een gestapelde accordeon of native "
+"<details>-elementen die geen JavaScript nodig hebben."
 
 #: blocks/faq-tabs/build/block.json blocks/faq-tabs/src/block.json
 msgctxt "block keyword"
 msgid "tabs"
-msgstr ""
+msgstr "tabs"
 
 #: blocks/faq-tabs/build/block.json blocks/faq-tabs/src/block.json
 msgctxt "block keyword"
 msgid "accordion"
-msgstr ""
+msgstr "accordeon"
 
 #: blocks/faq-tabs/build/block.json blocks/faq-tabs/src/block.json
 msgctxt "block keyword"
 msgid "questions"
-msgstr ""
+msgstr "vragen"
 
 #: blocks/faq-tabs/build/block.json blocks/faq-tabs/src/block.json
 msgctxt "block keyword"
 msgid "interactive"
-msgstr ""
+msgstr "interactief"
 
 #: blocks/feature-cards/build/block.json blocks/feature-cards/src/block.json
 msgctxt "block title"
 msgid "Feature Cards"
-msgstr ""
+msgstr "Featurekaarten"
 
 #: blocks/feature-cards/build/block.json blocks/feature-cards/src/block.json
 msgctxt "block description"
@@ -2410,6 +2551,8 @@ msgid ""
 "A responsive grid of feature highlight cards with icons, hover effects, and "
 "a section header."
 msgstr ""
+"Een responsief raster van featurekaarten met iconen, hover-effecten en een "
+"sectiekop."
 
 #: blocks/feature-cards/build/block.json blocks/feature-cards/src/block.json
 #: blocks/feature-list-grid/build/block.json
@@ -2418,7 +2561,7 @@ msgstr ""
 #: blocks/services-block/src/block.json
 msgctxt "block keyword"
 msgid "features"
-msgstr ""
+msgstr "features"
 
 #: blocks/feature-cards/build/block.json blocks/feature-cards/src/block.json
 #: blocks/feature-list-grid/build/block.json
@@ -2429,37 +2572,38 @@ msgstr ""
 #: blocks/testimonial-grid/src/block.json
 msgctxt "block keyword"
 msgid "grid"
-msgstr ""
+msgstr "raster"
 
 #: blocks/feature-cards/build/block.json blocks/feature-cards/src/block.json
 #: blocks/trust-bar/build/block.json blocks/trust-bar/src/block.json
 msgctxt "block keyword"
 msgid "icons"
-msgstr ""
+msgstr "iconen"
 
 #: blocks/feature-cards/build/block.json blocks/feature-cards/src/block.json
 msgctxt "block keyword"
 msgid "highlights"
-msgstr ""
+msgstr "hoogtepunten"
 
 #: blocks/feature-list-grid/build/block.json
 #: blocks/feature-list-grid/src/block.json
 msgctxt "block title"
 msgid "Feature List Grid"
-msgstr ""
+msgstr "Featurelijstraster"
 
 #: blocks/feature-list-grid/build/block.json
 #: blocks/feature-list-grid/src/block.json
 msgctxt "block description"
 msgid "Display features in a 2-column grid with checkmarks and hover effects."
 msgstr ""
+"Toon features in een raster van twee kolommen met vinkjes en hover-effecten."
 
 #: blocks/feature-list-grid/build/block.json
 #: blocks/feature-list-grid/src/block.json blocks/icon-grid/build/block.json
 #: blocks/icon-grid/src/block.json
 msgctxt "block keyword"
 msgid "list"
-msgstr ""
+msgstr "lijst"
 
 #: blocks/feature-list-grid/build/block.json
 #: blocks/feature-list-grid/src/block.json blocks/icon-grid/build/block.json
@@ -2467,19 +2611,19 @@ msgstr ""
 #: blocks/service-blocks/src/block.json
 msgctxt "block keyword"
 msgid "checklist"
-msgstr ""
+msgstr "checklist"
 
 #: blocks/feature-list-grid/build/block.json
 #: blocks/feature-list-grid/src/block.json
 msgctxt "block keyword"
 msgid "checkmarks"
-msgstr ""
+msgstr "vinkjes"
 
 #: blocks/free-shipping-bar/build/block.json
 #: blocks/free-shipping-bar/src/block.json
 msgctxt "block title"
 msgid "Free Shipping Progress"
-msgstr ""
+msgstr "Voortgang gratis verzending"
 
 #: blocks/free-shipping-bar/build/block.json
 #: blocks/free-shipping-bar/src/block.json
@@ -2489,12 +2633,16 @@ msgid ""
 "bar that updates as items are added or removed. Needs WooCommerce and a free "
 "shipping method with a minimum order amount."
 msgstr ""
+"Laat zien hoe ver de WooCommerce-winkelwagen van gratis verzending af is, "
+"met een voortgangsbalk die bijwerkt als er producten worden toegevoegd of "
+"verwijderd. Vereist WooCommerce en een gratis verzendmethode met een "
+"minimaal bestelbedrag."
 
 #: blocks/free-shipping-bar/build/block.json
 #: blocks/free-shipping-bar/src/block.json
 msgctxt "block keyword"
 msgid "shipping"
-msgstr ""
+msgstr "verzending"
 
 #: blocks/free-shipping-bar/build/block.json
 #: blocks/free-shipping-bar/src/block.json
@@ -2502,7 +2650,7 @@ msgstr ""
 #: blocks/sticky-add-to-cart/src/block.json
 msgctxt "block keyword"
 msgid "woocommerce"
-msgstr ""
+msgstr "woocommerce"
 
 #: blocks/free-shipping-bar/build/block.json
 #: blocks/free-shipping-bar/src/block.json
@@ -2510,18 +2658,18 @@ msgstr ""
 #: blocks/sticky-add-to-cart/src/block.json
 msgctxt "block keyword"
 msgid "cart"
-msgstr ""
+msgstr "winkelwagen"
 
 #: blocks/free-shipping-bar/build/block.json
 #: blocks/free-shipping-bar/src/block.json
 msgctxt "block keyword"
 msgid "progress"
-msgstr ""
+msgstr "voortgang"
 
 #: blocks/hero-banner/build/block.json blocks/hero-banner/src/block.json
 msgctxt "block title"
 msgid "Hero Banner"
-msgstr ""
+msgstr "Hero-banner"
 
 #: blocks/hero-banner/build/block.json blocks/hero-banner/src/block.json
 msgctxt "block description"
@@ -2529,35 +2677,38 @@ msgid ""
 "Full-width hero with an eyebrow badge, heading, lead text, and dual CTA "
 "buttons. Dark by default; the Canvas style gives a light, centred variant."
 msgstr ""
+"Hero over de volle breedte met een badge, kop, introtekst en twee CTA-"
+"knoppen. Standaard donker; de stijl Canvas geeft een lichte, gecentreerde "
+"variant."
 
 #: blocks/hero-banner/build/block.json blocks/hero-banner/src/block.json
 #: blocks/hero-split/build/block.json blocks/hero-split/src/block.json
 #: blocks/load-waterfall/build/block.json blocks/load-waterfall/src/block.json
 msgctxt "block keyword"
 msgid "hero"
-msgstr ""
+msgstr "hero"
 
 #: blocks/hero-banner/build/block.json blocks/hero-banner/src/block.json
 msgctxt "block keyword"
 msgid "eyebrow"
-msgstr ""
+msgstr "bovenkop"
 
 #: blocks/hero-banner/build/block.json blocks/hero-banner/src/block.json
 #: blocks/hero-split/build/block.json blocks/hero-split/src/block.json
 #: blocks/service-blocks/build/block.json blocks/service-blocks/src/block.json
 msgctxt "block style label"
 msgid "Default"
-msgstr ""
+msgstr "Standaard"
 
 #: blocks/hero-banner/build/block.json blocks/hero-banner/src/block.json
 msgctxt "block style label"
 msgid "Canvas"
-msgstr ""
+msgstr "Canvas"
 
 #: blocks/hero-split/build/block.json blocks/hero-split/src/block.json
 msgctxt "block title"
 msgid "Hero Split"
-msgstr ""
+msgstr "Hero split"
 
 #: blocks/hero-split/build/block.json blocks/hero-split/src/block.json
 msgctxt "block description"
@@ -2566,27 +2717,30 @@ msgid ""
 "desktop/mobile image pair on the other — colours adapt to the active theme's "
 "palette."
 msgstr ""
+"Gesplitste hero met kop, introtekst en een knop aan de ene kant en een "
+"desktop/mobiel-afbeeldingspaar aan de andere — de kleuren volgen het palet "
+"van het actieve thema."
 
 #: blocks/hero-split/build/block.json blocks/hero-split/src/block.json
 #: blocks/split-section/build/block.json blocks/split-section/src/block.json
 msgctxt "block keyword"
 msgid "split"
-msgstr ""
+msgstr "gesplitst"
 
 #: blocks/hero-split/build/block.json blocks/hero-split/src/block.json
 msgctxt "block keyword"
 msgid "image"
-msgstr ""
+msgstr "afbeelding"
 
 #: blocks/hero-split/build/block.json blocks/hero-split/src/block.json
 msgctxt "block style label"
 msgid "Night"
-msgstr ""
+msgstr "Nacht"
 
 #: blocks/icon-grid/build/block.json blocks/icon-grid/src/block.json
 msgctxt "block title"
 msgid "Icon Grid"
-msgstr ""
+msgstr "Iconenraster"
 
 #: blocks/icon-grid/build/block.json blocks/icon-grid/src/block.json
 msgctxt "block description"
@@ -2594,6 +2748,8 @@ msgid ""
 "Responsive auto-fit grid of icon + text items with an eyebrow, title, and "
 "lead."
 msgstr ""
+"Responsief, automatisch passend raster van items met icoon en tekst, met een "
+"bovenkop, titel en intro."
 
 #: blocks/icon-grid/build/block.json blocks/icon-grid/src/block.json
 #: blocks/search-overlay-trigger/build/block.json
@@ -2601,13 +2757,13 @@ msgstr ""
 #: blocks/services-block/build/block.json blocks/services-block/src/block.json
 msgctxt "block keyword"
 msgid "icon"
-msgstr ""
+msgstr "icoon"
 
 #: blocks/instagram-embed/build/block.json
 #: blocks/instagram-embed/src/block.json
 msgctxt "block title"
 msgid "Instagram Embed"
-msgstr ""
+msgstr "Instagram-embed"
 
 #: blocks/instagram-embed/build/block.json
 #: blocks/instagram-embed/src/block.json
@@ -2620,38 +2776,45 @@ msgid ""
 "(Meta's old oEmbed shutdown) — verify it still works before relying on it, "
 "and always give the client a plain profile link as a fallback."
 msgstr ""
+"Live Instagram-profielfeed via de eigen openbare embed-iframe van Instagram "
+"— geen ontwikkelaarsapp of API-sleutel. Laadt pas nadat een bezoeker op "
+"'Feed laden' klikt, dus er wordt niets van instagram.com geladen vóór "
+"toestemming. Onofficieel en niet gedocumenteerd door Meta: hetzelfde soort "
+"endpoint brak in 2020 zonder aankondiging (toen Meta de oude oEmbed "
+"stopzette) — controleer of het nog werkt voordat je erop vertrouwt, en geef "
+"de klant altijd een gewone profiellink als terugval."
 
 #: blocks/instagram-embed/build/block.json
 #: blocks/instagram-embed/src/block.json blocks/photo-grid/build/block.json
 #: blocks/photo-grid/src/block.json
 msgctxt "block keyword"
 msgid "instagram"
-msgstr ""
+msgstr "instagram"
 
 #: blocks/instagram-embed/build/block.json
 #: blocks/instagram-embed/src/block.json blocks/photo-grid/build/block.json
 #: blocks/photo-grid/src/block.json
 msgctxt "block keyword"
 msgid "social"
-msgstr ""
+msgstr "sociaal"
 
 #: blocks/instagram-embed/build/block.json
 #: blocks/instagram-embed/src/block.json blocks/photo-grid/build/block.json
 #: blocks/photo-grid/src/block.json
 msgctxt "block keyword"
 msgid "feed"
-msgstr ""
+msgstr "feed"
 
 #: blocks/instagram-embed/build/block.json
 #: blocks/instagram-embed/src/block.json
 msgctxt "block keyword"
 msgid "embed"
-msgstr ""
+msgstr "embed"
 
 #: blocks/load-waterfall/build/block.json blocks/load-waterfall/src/block.json
 msgctxt "block title"
 msgid "Load Waterfall"
-msgstr ""
+msgstr "Laadwaterval"
 
 #: blocks/load-waterfall/build/block.json blocks/load-waterfall/src/block.json
 msgctxt "block description"
@@ -2659,62 +2822,66 @@ msgid ""
 "A network load-time waterfall panel with an animated LCP marker, for hero "
 "sections that need to show off site speed."
 msgstr ""
+"Een paneel met een netwerk-laadtijdwaterval en een geanimeerde LCP-"
+"markering, voor hero-secties die de snelheid van een site willen laten zien."
 
 #: blocks/load-waterfall/build/block.json blocks/load-waterfall/src/block.json
 msgctxt "block keyword"
 msgid "waterfall"
-msgstr ""
+msgstr "waterval"
 
 #: blocks/load-waterfall/build/block.json blocks/load-waterfall/src/block.json
 msgctxt "block keyword"
 msgid "performance"
-msgstr ""
+msgstr "prestaties"
 
 #: blocks/load-waterfall/build/block.json blocks/load-waterfall/src/block.json
 msgctxt "block keyword"
 msgid "lcp"
-msgstr ""
+msgstr "lcp"
 
 #: blocks/load-waterfall/build/block.json blocks/load-waterfall/src/block.json
 msgctxt "block keyword"
 msgid "speed"
-msgstr ""
+msgstr "snelheid"
 
 #: blocks/mega-menu/build/block.json blocks/mega-menu/src/block.json
 msgctxt "block title"
 msgid "Mega Menu"
-msgstr ""
+msgstr "Mega Menu"
 
 #: blocks/mega-menu/build/block.json blocks/mega-menu/src/block.json
 msgctxt "block description"
 msgid ""
 "Create dynamic mega menus with template parts and advanced styling options."
 msgstr ""
+"Maak dynamische mega menu's met sjabloononderdelen en uitgebreide "
+"stijlopties."
 
 #: blocks/mega-menu/build/block.json blocks/mega-menu/src/block.json
 msgctxt "block keyword"
 msgid "menu"
-msgstr ""
+msgstr "menu"
 
 #: blocks/mega-menu/build/block.json blocks/mega-menu/src/block.json
 msgctxt "block keyword"
 msgid "navigation"
-msgstr ""
+msgstr "navigatie"
 
 #: blocks/mega-menu/build/block.json blocks/mega-menu/src/block.json
 msgctxt "block keyword"
 msgid "mega menu"
-msgstr ""
+msgstr "mega menu"
 
 #: blocks/mega-menu/build/block.json blocks/mega-menu/src/block.json
 msgctxt "block keyword"
 msgid "dropdown"
-msgstr ""
+msgstr "uitklapmenu"
 
 #: blocks/photo-grid/build/block.json blocks/photo-grid/src/block.json
 msgctxt "block title"
 msgid "Photo Grid"
-msgstr ""
+msgstr "Fotoraster"
 
 #: blocks/photo-grid/build/block.json blocks/photo-grid/src/block.json
 msgctxt "block description"
@@ -2724,16 +2891,20 @@ msgid ""
 "photos, no API key or live connection to maintain. Colours adapt to the "
 "active theme's palette."
 msgstr ""
+"Band over de volle breedte met een kop, een volglink en een strak raster van "
+"vierkante foto's — voor een feedsectie in Instagram-stijl. Volledig "
+"statisch: zet je eigen foto's erin, zonder API-sleutel of live verbinding om "
+"te onderhouden. De kleuren volgen het palet van het actieve thema."
 
 #: blocks/photo-grid/build/block.json blocks/photo-grid/src/block.json
 msgctxt "block keyword"
 msgid "photos"
-msgstr ""
+msgstr "foto's"
 
 #: blocks/pricing-tiers/build/block.json blocks/pricing-tiers/src/block.json
 msgctxt "block title"
 msgid "Pricing Tiers"
-msgstr ""
+msgstr "Prijspakketten"
 
 #: blocks/pricing-tiers/build/block.json blocks/pricing-tiers/src/block.json
 msgctxt "block description"
@@ -2742,33 +2913,36 @@ msgid ""
 "columns) with featured tier highlighting — as separate cards (default) or as "
 "one bordered spec sheet split by internal hairlines."
 msgstr ""
+"Toon prijsopties in een vergelijkingsindeling met meerdere kolommen "
+"(standaard 3) en een uitgelicht pakket — als losse kaarten (standaard) of "
+"als één specificatieblad met rand, verdeeld door dunne lijnen."
 
 #: blocks/pricing-tiers/build/block.json blocks/pricing-tiers/src/block.json
 msgctxt "block keyword"
 msgid "tiers"
-msgstr ""
+msgstr "pakketten"
 
 #: blocks/pricing-tiers/build/block.json blocks/pricing-tiers/src/block.json
 msgctxt "block keyword"
 msgid "plans"
-msgstr ""
+msgstr "abonnementen"
 
 #: blocks/pricing-tiers/build/block.json blocks/pricing-tiers/src/block.json
 #: blocks/services-block/build/block.json blocks/services-block/src/block.json
 msgctxt "block style label"
 msgid "Cards"
-msgstr ""
+msgstr "Kaarten"
 
 #: blocks/pricing-tiers/build/block.json blocks/pricing-tiers/src/block.json
 msgctxt "block style label"
 msgid "Spec sheet"
-msgstr ""
+msgstr "Specificatieblad"
 
 #: blocks/review-profiles/build/block.json
 #: blocks/review-profiles/src/block.json
 msgctxt "block title"
 msgid "Review Profiles"
-msgstr ""
+msgstr "Reviewprofielen"
 
 #: blocks/review-profiles/build/block.json
 #: blocks/review-profiles/src/block.json
@@ -2778,6 +2952,9 @@ msgid ""
 "round avatar photos (default) or as avatar-free quote cards with role and "
 "sector attribution. Colours adapt to the active theme's palette."
 msgstr ""
+"Klantreviewsectie over de volle breedte met een kop en een rij citaten — met "
+"ronde profielfoto's (standaard) of als citaatkaarten zonder foto, met "
+"functie en sector. De kleuren volgen het palet van het actieve thema."
 
 #: blocks/review-profiles/build/block.json
 #: blocks/review-profiles/src/block.json
@@ -2785,78 +2962,80 @@ msgstr ""
 #: blocks/testimonial-grid/src/block.json
 msgctxt "block keyword"
 msgid "reviews"
-msgstr ""
+msgstr "reviews"
 
 #: blocks/review-profiles/build/block.json
 #: blocks/review-profiles/src/block.json
 msgctxt "block keyword"
 msgid "testimonials"
-msgstr ""
+msgstr "testimonials"
 
 #: blocks/review-profiles/build/block.json
 #: blocks/review-profiles/src/block.json
 msgctxt "block keyword"
 msgid "clients"
-msgstr ""
+msgstr "klanten"
 
 #: blocks/review-profiles/build/block.json
 #: blocks/review-profiles/src/block.json
 msgctxt "block keyword"
 msgid "avatars"
-msgstr ""
+msgstr "avatars"
 
 #: blocks/review-profiles/build/block.json
 #: blocks/review-profiles/src/block.json
 msgctxt "block style label"
 msgid "Avatars"
-msgstr ""
+msgstr "Avatars"
 
 #: blocks/review-profiles/build/block.json
 #: blocks/review-profiles/src/block.json
 msgctxt "block style label"
 msgid "Quote cards"
-msgstr ""
+msgstr "Citaatkaarten"
 
 #: blocks/search-overlay-trigger/build/block.json
 #: blocks/search-overlay-trigger/src/block.json
 msgctxt "block title"
 msgid "Search Overlay Trigger"
-msgstr ""
+msgstr "Zoekoverlay-knop"
 
 #: blocks/search-overlay-trigger/build/block.json
 #: blocks/search-overlay-trigger/src/block.json
 msgctxt "block description"
 msgid "A search icon that opens a full-screen search overlay when clicked."
 msgstr ""
+"Een zoekicoon dat bij een klik een zoekoverlay over het volledige scherm "
+"opent."
 
 #: blocks/search-overlay-trigger/build/block.json
 #: blocks/search-overlay-trigger/src/block.json
 msgctxt "block keyword"
 msgid "search"
-msgstr ""
+msgstr "zoeken"
 
 #: blocks/search-overlay-trigger/build/block.json
 #: blocks/search-overlay-trigger/src/block.json
 msgctxt "block keyword"
 msgid "overlay"
-msgstr ""
+msgstr "overlay"
 
 #: blocks/search-overlay-trigger/build/block.json
 #: blocks/search-overlay-trigger/src/block.json
 msgctxt "block keyword"
 msgid "trigger"
-msgstr ""
+msgstr "knop"
 
 #: blocks/search-overlay-trigger/build/block.json
 #: blocks/search-overlay-trigger/src/block.json
 msgctxt "block keyword"
 msgid "modal"
-msgstr ""
+msgstr "modal"
 
 #: blocks/service-blocks/build/block.json blocks/service-blocks/src/block.json
 msgctxt "block title"
 msgid "Service Detail Cards"
-msgstr ""
+msgstr "Dienstdetailkaarten"
 
 #: blocks/service-blocks/build/block.json blocks/service-blocks/src/block.json
 msgctxt "block description"
@@ -2864,33 +3043,35 @@ msgid ""
 "Stacked, numbered service cards with a heading, description, and checklist — "
 "colours adapt to the active theme's palette."
 msgstr ""
+"Gestapelde, genummerde dienstkaarten met een kop, beschrijving en checklist "
+"— de kleuren volgen het palet van het actieve thema."
 
 #: blocks/service-blocks/build/block.json blocks/service-blocks/src/block.json
 #: blocks/service-intro/build/block.json blocks/service-intro/src/block.json
 msgctxt "block keyword"
 msgid "service"
-msgstr ""
+msgstr "dienst"
 
 #: blocks/service-blocks/build/block.json blocks/service-blocks/src/block.json
 #: blocks/services-block/build/block.json blocks/services-block/src/block.json
 msgctxt "block keyword"
 msgid "services"
-msgstr ""
+msgstr "diensten"
 
 #: blocks/service-blocks/build/block.json blocks/service-blocks/src/block.json
 msgctxt "block keyword"
 msgid "numbered"
-msgstr ""
+msgstr "genummerd"
 
 #: blocks/service-blocks/build/block.json blocks/service-blocks/src/block.json
 msgctxt "block style label"
 msgid "Numbered steps"
-msgstr ""
+msgstr "Genummerde stappen"
 
 #: blocks/service-intro/build/block.json blocks/service-intro/src/block.json
 msgctxt "block title"
 msgid "Service Intro"
-msgstr ""
+msgstr "Dienstintro"
 
 #: blocks/service-intro/build/block.json blocks/service-intro/src/block.json
 msgctxt "block description"
@@ -2898,26 +3079,28 @@ msgid ""
 "Introductory text section for service pages — constrained width, colours "
 "adapt to the active theme's palette."
 msgstr ""
+"Inleidende tekstsectie voor dienstpagina's — beperkte breedte, de kleuren "
+"volgen het palet van het actieve thema."
 
 #: blocks/service-intro/build/block.json blocks/service-intro/src/block.json
 msgctxt "block keyword"
 msgid "intro"
-msgstr ""
+msgstr "intro"
 
 #: blocks/service-intro/build/block.json blocks/service-intro/src/block.json
 msgctxt "block keyword"
 msgid "text"
-msgstr ""
+msgstr "tekst"
 
 #: blocks/service-intro/build/block.json blocks/service-intro/src/block.json
 msgctxt "block keyword"
 msgid "paragraphs"
-msgstr ""
+msgstr "alinea's"
 
 #: blocks/services-block/build/block.json blocks/services-block/src/block.json
 msgctxt "block title"
 msgid "Services Block"
-msgstr ""
+msgstr "Dienstenblok"
 
 #: blocks/services-block/build/block.json blocks/services-block/src/block.json
 msgctxt "block description"
@@ -2926,31 +3109,35 @@ msgid ""
 "grid (default) or as a numbered hairline list. Colours adapt to the active "
 "theme's palette."
 msgstr ""
+"Sectiekop met diensten bestaande uit icoon, kop en tekst — als kaartraster "
+"met twee per rij (standaard) of als genummerde lijst met dunne lijnen. De "
+"kleuren volgen het palet van het actieve thema."
 
 #: blocks/services-block/build/block.json blocks/services-block/src/block.json
 msgctxt "block style label"
 msgid "Numbered list"
-msgstr ""
+msgstr "Genummerde lijst"
 
 #: blocks/slide/build/block.json blocks/slide/src/block.json
 msgctxt "block title"
 msgid "Slide"
-msgstr ""
+msgstr "Dia"
 
 #: blocks/slide/build/block.json blocks/slide/src/block.json
 msgctxt "block description"
 msgid "A single slide container that can hold any content within the carousel."
 msgstr ""
+"Eén dia-container die elke soort inhoud binnen de carrousel kan bevatten."
 
 #: blocks/slide/build/block.json blocks/slide/src/block.json
 msgctxt "block keyword"
 msgid "slide"
-msgstr ""
+msgstr "dia"
 
 #: blocks/spine-section/build/block.json blocks/spine-section/src/block.json
 msgctxt "block title"
 msgid "Spine Section"
-msgstr ""
+msgstr "Ruggengraatsectie"
 
 #: blocks/spine-section/build/block.json blocks/spine-section/src/block.json
 msgctxt "block description"
@@ -2958,34 +3145,36 @@ msgid ""
 "A page section with a sticky label/heading column on the left and its "
 "content on the right. Collapses to a single stacked column on narrow screens."
 msgstr ""
+"Een paginasectie met links een vaste kolom met label en kop en rechts de "
+"inhoud. Valt op smalle schermen samen tot één gestapelde kolom."
 
 #: blocks/spine-section/build/block.json blocks/spine-section/src/block.json
 msgctxt "block keyword"
 msgid "spine"
-msgstr ""
+msgstr "ruggengraat"
 
 #: blocks/spine-section/build/block.json blocks/spine-section/src/block.json
 msgctxt "block keyword"
 msgid "editorial"
-msgstr ""
+msgstr "redactioneel"
 
 #: blocks/spine-section/build/block.json blocks/spine-section/src/block.json
 #: blocks/sticky-add-to-cart/build/block.json
 #: blocks/sticky-add-to-cart/src/block.json
 msgctxt "block keyword"
 msgid "sticky"
-msgstr ""
+msgstr "vast"
 
 #: blocks/spine-section/build/block.json blocks/spine-section/src/block.json
 #: blocks/split-section/build/block.json blocks/split-section/src/block.json
 msgctxt "block keyword"
 msgid "two column"
-msgstr ""
+msgstr "twee kolommen"
 
 #: blocks/split-section/build/block.json blocks/split-section/src/block.json
 msgctxt "block title"
 msgid "Split Section"
-msgstr ""
+msgstr "Gesplitste sectie"
 
 #: blocks/split-section/build/block.json blocks/split-section/src/block.json
 msgctxt "block description"
@@ -2993,46 +3182,49 @@ msgid ""
 "A page section with a centred header and two panes — media on one side, "
 "content on the other. Collapses to a single stacked column on narrow screens."
 msgstr ""
+"Een paginasectie met een gecentreerde kop en twee panelen — media aan de ene "
+"kant, inhoud aan de andere. Valt op smalle schermen samen tot één gestapelde "
+"kolom."
 
 #: blocks/split-section/build/block.json blocks/split-section/src/block.json
 msgctxt "block keyword"
 msgid "media"
-msgstr ""
+msgstr "media"
 
 #: blocks/split-section/build/block.json blocks/split-section/src/block.json
 msgctxt "block keyword"
 msgid "layout"
-msgstr ""
+msgstr "indeling"
 
 #: blocks/stat-item/build/block.json blocks/stat-item/src/block.json
 msgctxt "block title"
 msgid "Stat Item"
-msgstr ""
+msgstr "Cijfer"
 
 #: blocks/stat-item/build/block.json blocks/stat-item/src/block.json
 msgctxt "block description"
 msgid "A single big-number stat with a caption, used inside Stat Rail."
-msgstr ""
+msgstr "Eén groot cijfer met bijschrift, gebruikt binnen Cijferbalk."
 
 #: blocks/stat-item/build/block.json blocks/stat-item/src/block.json
 msgctxt "block keyword"
 msgid "stat"
-msgstr ""
+msgstr "cijfer"
 
 #: blocks/stat-item/build/block.json blocks/stat-item/src/block.json
 msgctxt "block keyword"
 msgid "metric"
-msgstr ""
+msgstr "meetwaarde"
 
 #: blocks/stat-item/build/block.json blocks/stat-item/src/block.json
 msgctxt "block keyword"
 msgid "number"
-msgstr ""
+msgstr "getal"
 
 #: blocks/stat-rail/build/block.json blocks/stat-rail/src/block.json
 msgctxt "block title"
 msgid "Stat Rail"
-msgstr ""
+msgstr "Cijferbalk"
 
 #: blocks/stat-rail/build/block.json blocks/stat-rail/src/block.json
 msgctxt "block description"
@@ -3040,47 +3232,49 @@ msgid ""
 "A full-width band of big-number stats with captions, for the seam between a "
 "hero and the rest of the page."
 msgstr ""
+"Een band over de volle breedte met grote cijfers en bijschriften, voor de "
+"overgang tussen een hero en de rest van de pagina."
 
 #: blocks/stat-rail/build/block.json blocks/stat-rail/src/block.json
 msgctxt "block keyword"
 msgid "stats"
-msgstr ""
+msgstr "cijfers"
 
 #: blocks/stat-rail/build/block.json blocks/stat-rail/src/block.json
 msgctxt "block keyword"
 msgid "metrics"
-msgstr ""
+msgstr "meetwaarden"
 
 #: blocks/stat-rail/build/block.json blocks/stat-rail/src/block.json
 msgctxt "block keyword"
 msgid "numbers"
-msgstr ""
+msgstr "getallen"
 
 #: blocks/stat-rail/build/block.json blocks/stat-rail/src/block.json
 msgctxt "block keyword"
 msgid "rail"
-msgstr ""
+msgstr "balk"
 
 #: blocks/stat-rail/build/block.json blocks/stat-rail/src/block.json
 msgctxt "block keyword"
 msgid "band"
-msgstr ""
+msgstr "band"
 
 #: blocks/stat-rail/build/block.json blocks/stat-rail/src/block.json
 msgctxt "block style label"
 msgid "Dark band"
-msgstr ""
+msgstr "Donkere band"
 
 #: blocks/stat-rail/build/block.json blocks/stat-rail/src/block.json
 msgctxt "block style label"
 msgid "Light band"
-msgstr ""
+msgstr "Lichte band"
 
 #: blocks/sticky-add-to-cart/build/block.json
 #: blocks/sticky-add-to-cart/src/block.json
 msgctxt "block title"
 msgid "Sticky Add to Cart"
-msgstr ""
+msgstr "Vaste in-winkelwagenbalk"
 
 #: blocks/sticky-add-to-cart/build/block.json
 #: blocks/sticky-add-to-cart/src/block.json
@@ -3090,63 +3284,68 @@ msgid ""
 "add to cart form has scrolled out of view. Place it in the single product "
 "template."
 msgstr ""
+"Een balk met de productnaam, prijs en een knop die verschijnt zodra het "
+"hoofdformulier om in de winkelwagen te leggen uit beeld is gescrold. Plaats "
+"hem in het sjabloon voor losse producten."
 
 #: blocks/sticky-add-to-cart/build/block.json
 #: blocks/sticky-add-to-cart/src/block.json
 msgctxt "block keyword"
 msgid "product"
-msgstr ""
+msgstr "product"
 
 #: blocks/testimonial-grid/build/block.json
 #: blocks/testimonial-grid/src/block.json
 msgctxt "block title"
 msgid "Testimonial Grid"
-msgstr ""
+msgstr "Testimonialraster"
 
 #: blocks/testimonial-grid/build/block.json
 #: blocks/testimonial-grid/src/block.json
 msgctxt "block description"
 msgid "Display customer testimonials in a 3-column grid with metrics."
-msgstr ""
+msgstr "Toon klantervaringen in een raster van drie kolommen met cijfers."
 
 #: blocks/testimonial-grid/build/block.json
 #: blocks/testimonial-grid/src/block.json
 msgctxt "block keyword"
 msgid "testimonial"
-msgstr ""
+msgstr "testimonial"
 
 #: blocks/testimonial-grid/build/block.json
 #: blocks/testimonial-grid/src/block.json
 msgctxt "block keyword"
 msgid "quotes"
-msgstr ""
+msgstr "citaten"
 
 #: blocks/trust-bar/build/block.json blocks/trust-bar/src/block.json
 msgctxt "block title"
 msgid "Trust Bar"
-msgstr ""
+msgstr "Vertrouwensbalk"
 
 #: blocks/trust-bar/build/block.json blocks/trust-bar/src/block.json
 msgctxt "block description"
 msgid "Inline bar of trust-signal items (icon + text) that wraps on mobile."
 msgstr ""
+"Balk met vertrouwenssignalen (icoon + tekst) op één regel, die op mobiel "
+"doorloopt naar de volgende regel."
 
 #: blocks/trust-bar/build/block.json blocks/trust-bar/src/block.json
 msgctxt "block keyword"
 msgid "trust"
-msgstr ""
+msgstr "vertrouwen"
 
 #: blocks/trust-bar/build/block.json blocks/trust-bar/src/block.json
 msgctxt "block keyword"
 msgid "bar"
-msgstr ""
+msgstr "balk"
 
 #: blocks/trust-bar/build/block.json blocks/trust-bar/src/block.json
 msgctxt "block keyword"
 msgid "signals"
-msgstr ""
+msgstr "signalen"
 
 #: blocks/trust-bar/build/block.json blocks/trust-bar/src/block.json
 msgctxt "block keyword"
 msgid "badges"
-msgstr ""
+msgstr "badges"

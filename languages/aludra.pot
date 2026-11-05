@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-05T01:58:32+00:00\n"
+"POT-Creation-Date: 2026-11-05T02:02:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: aludra\n"
@@ -559,7 +559,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: includes/admin/settings-page.php:590
-#: includes/admin/settings-page.php:661
+#: includes/admin/settings-page.php:664
 msgid "Save changes"
 msgstr ""
 
@@ -576,40 +576,44 @@ msgid "Added before the footer on the single product template."
 msgstr ""
 
 #: includes/admin/settings-page.php:618
-msgid "Aludra adds these WooCommerce blocks to your theme's templates with the WordPress Block Hooks API, so the theme does not have to ship plugin blocks itself. A hooked block shows up in the Site Editor like any other block, and removing it there keeps it removed for that template."
+msgid "Aludra adds these WooCommerce blocks to the active theme's templates with the WordPress Block Hooks API. They are on by default for the Winespring theme, which is built for them: WordPress.org does not let a theme ship plugin blocks, so Aludra places them instead. Other themes can switch them on here."
+msgstr ""
+
+#: includes/admin/settings-page.php:621
+msgid "Sticky Add to Cart works with any WooCommerce block theme, since each one has a single product template. Free Shipping Progress needs a template part with the slug announcement-bar, which Winespring provides. A hooked block shows up in the Site Editor like any other block, and removing it there keeps it removed for that template."
 msgstr ""
 
 #. translators: %s: active theme name
-#: includes/admin/settings-page.php:627
+#: includes/admin/settings-page.php:630
 #, php-format
 msgid "Active theme: %s"
 msgstr ""
 
-#: includes/admin/settings-page.php:644
+#: includes/admin/settings-page.php:647
 msgid "Needs WooCommerce"
 msgstr ""
 
-#: includes/admin/settings-page.php:646
+#: includes/admin/settings-page.php:649
 msgid "Turned off in the Blocks tab"
 msgstr ""
 
 #. translators: %s: template or template part slug
-#: includes/admin/settings-page.php:649
+#: includes/admin/settings-page.php:652
 #, php-format
 msgid "This theme has no matching %s template"
 msgstr ""
 
-#: includes/admin/settings-page.php:662
+#: includes/admin/settings-page.php:665
 msgid "Choices are saved for the active theme only."
 msgstr ""
 
 #. translators: %s: block name
-#: includes/admin/settings-page.php:710
+#: includes/admin/settings-page.php:713
 #, php-format
 msgid "Add %s automatically"
 msgstr ""
 
-#: includes/admin/settings-page.php:717
+#: includes/admin/settings-page.php:720
 msgid "Template found"
 msgstr ""
 
