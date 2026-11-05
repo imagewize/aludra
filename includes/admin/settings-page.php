@@ -615,7 +615,10 @@ function aludra_render_store_tab( $blocks, $enabled_blocks ) {
 		<input type="hidden" name="<?php echo esc_attr( \Aludra\ALUDRA_STORE_HOOKS_OPTION ); ?>[form]" value="1" />
 
 		<p class="aludra-intro">
-			<?php esc_html_e( 'Aludra adds these WooCommerce blocks to your theme\'s templates with the WordPress Block Hooks API, so the theme does not have to ship plugin blocks itself. A hooked block shows up in the Site Editor like any other block, and removing it there keeps it removed for that template.', 'aludra' ); ?>
+			<?php esc_html_e( 'Aludra adds these WooCommerce blocks to the active theme\'s templates with the WordPress Block Hooks API. They are on by default for the Winespring theme, which is built for them: WordPress.org does not let a theme ship plugin blocks, so Aludra places them instead. Other themes can switch them on here.', 'aludra' ); ?>
+		</p>
+		<p class="aludra-intro">
+			<?php esc_html_e( 'Sticky Add to Cart works with any WooCommerce block theme, since each one has a single product template. Free Shipping Progress needs a template part with the slug announcement-bar, which Winespring provides. A hooked block shows up in the Site Editor like any other block, and removing it there keeps it removed for that template.', 'aludra' ); ?>
 		</p>
 
 		<section class="aludra-cat">

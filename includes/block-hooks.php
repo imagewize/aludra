@@ -184,12 +184,17 @@ function aludra_merge_store_block_hooks( $saved, $input, $theme, array $block_na
 function aludra_store_block_hook_anchor_found( $block_name ) {
 	$hooks = aludra_store_block_hooks();
 
-	if ( ! isset( $hooks[ $block_name ] ) || ! function_exists( 'get_block_template' ) ) {
+	if ( ! isset( $hooks[ $block_name ] ) || ! function_exists( 'get_block_templates' ) ) {
 		return false;
 	}
 
-	$hook     = $hooks[ $block_name ];
-	$template = get_block_template( get_stylesheet() . '//' . $hook['slug'], $hook['type'] );
+	$hook = $hooks[ $block_name ];
+
+	// get_block_templates() returns the template that actually applies, whether
+	// the theme ships it, it was saved in the Site Editor, or a plugin provides
+	// it — WooCommerce supplies single-product to themes that have none.
+	$templates = get_block_templates( array( 'slug__in' => array( $hook['slug'] ) ), $hook['type'] );
+	$template  = $templates ? reset( $templates ) : null;
 
 	if ( ! $template || ! is_string( $template->content ) ) {
 		return false;
