@@ -526,6 +526,25 @@ This overrides any default footer/trailer behavior — omit these lines entirely
 - "Co-Authored-By: Claude Sonnet 4.5" ❌
 - Overly long messages with unnecessary details ❌
 
+## Releasing to WordPress.org
+
+WordPress.org releases are committed to SVN from your machine with
+[svn-wporg-deploy](https://github.com/imagewize/svn-wporg-deploy) (`~/code/svn-wporg-deploy`), which
+replaced `bin/prepare-svn.sh`. After the version bump is merged and `v<version>` is tagged (the GitHub
+release attaches `aludra.zip` via `create-release.yml`):
+
+```bash
+cd ~/code/aludra && git fetch --tags
+~/code/svn-wporg-deploy/bin/svn-wporg-deploy --dry-run   # stage and review in ~/code/aludra-svn
+~/code/svn-wporg-deploy/bin/svn-wporg-deploy             # same, then confirm the "Release <version>" commit
+```
+
+It builds `trunk/` from the tag with the same `zip -x@.distignore` filter as the release zip, syncs
+`.wordpress-org/` to SVN `assets/`, copies `trunk/` to `tags/<version>/`, and refuses to run if the
+`Version:` header, `ALUDRA_VERSION` and `Stable tag:` disagree or the version is already in SVN. There
+is no CI deploy, so no SVN credentials are stored on GitHub. WordPress.org can take a while to list a
+new version.
+
 ## Version Management
 
 When updating the plugin version, you must update **three files** in sync:

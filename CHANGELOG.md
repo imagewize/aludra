@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- `bin/prepare-svn.sh` is removed: WordPress.org releases are deployed with the standalone [svn-wporg-deploy](https://github.com/imagewize/svn-wporg-deploy) script, which also runs the SVN steps the old script only printed. See "Releasing to WordPress.org" in `CLAUDE.md`. Development tooling only; nothing in the plugin changes.
+
 ## [2.40.0] - 2026-11-04
 
 ### Added
