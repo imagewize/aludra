@@ -362,6 +362,12 @@
 	border-bottom: 0;
 }
 
+/* The block count and bulk buttons sit at the top of the Blocks tab. */
+.aludra-settings .aludra-toolbar {
+	justify-content: flex-end;
+	margin: 0 0 22px;
+}
+
 .aludra-settings .aludra-tabs {
 	margin: 0 0 26px;
 }

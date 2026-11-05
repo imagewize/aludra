@@ -522,20 +522,6 @@ function aludra_settings_page_html() {
 				</div>
 			</div>
 
-			<?php if ( 'blocks' === $tab ) : ?>
-			<div class="aludra-summary">
-				<div class="aludra-count" aria-live="polite">
-					<span class="dot"></span>
-					<b class="aludra-count-num"><?php echo (int) $enabled_count; ?></b>
-					<span class="of">/ <?php echo (int) $total_count; ?></span>
-					<span class="lbl"><?php esc_html_e( 'enabled', 'aludra' ); ?></span>
-				</div>
-				<div class="aludra-bulk">
-					<button type="button" class="button" id="aludra-enable-all"><?php esc_html_e( 'Enable all', 'aludra' ); ?></button>
-					<button type="button" class="button" id="aludra-disable-all"><?php esc_html_e( 'Disable all', 'aludra' ); ?></button>
-				</div>
-			</div>
-			<?php endif; ?>
 		</header>
 
 		<nav class="nav-tab-wrapper aludra-tabs">
@@ -548,6 +534,19 @@ function aludra_settings_page_html() {
 		<?php else : ?>
 		<form action="options.php" method="post">
 			<?php settings_fields( 'aludra_settings' ); ?>
+
+			<div class="aludra-summary aludra-toolbar">
+				<div class="aludra-count" aria-live="polite">
+					<span class="dot"></span>
+					<b class="aludra-count-num"><?php echo (int) $enabled_count; ?></b>
+					<span class="of">/ <?php echo (int) $total_count; ?></span>
+					<span class="lbl"><?php esc_html_e( 'enabled', 'aludra' ); ?></span>
+				</div>
+				<div class="aludra-bulk">
+					<button type="button" class="button" id="aludra-enable-all"><?php esc_html_e( 'Enable all', 'aludra' ); ?></button>
+					<button type="button" class="button" id="aludra-disable-all"><?php esc_html_e( 'Disable all', 'aludra' ); ?></button>
+				</div>
+			</div>
 
 			<?php foreach ( $categories as $cat_slug => $cat_label ) : ?>
 				<?php
@@ -724,6 +723,21 @@ function aludra_render_store_hook_card( $slug, $block_name, $label, $placement, 
 }
 
 /**
+ * Cache-busting version for a settings page asset.
+ *
+ * The file's modification time, so a changed stylesheet or script is never
+ * served stale from the browser cache while the plugin version stays the same.
+ *
+ * @param string $file File name inside assets/admin/.
+ * @return string
+ */
+function aludra_admin_asset_version( $file ) {
+	$mtime = filemtime( ALUDRA_PLUGIN_DIR . 'assets/admin/' . $file );
+
+	return $mtime ? ALUDRA_VERSION . '.' . $mtime : ALUDRA_VERSION;
+}
+
+/**
  * Enqueue admin assets for settings page.
  *
  * @param string $hook The current admin page hook.
@@ -738,14 +752,14 @@ function aludra_enqueue_admin_assets( $hook ) {
 		'aludra-admin',
 		ALUDRA_PLUGIN_URL . 'assets/admin/admin-settings.css',
 		array(),
-		ALUDRA_VERSION
+		aludra_admin_asset_version( 'admin-settings.css' )
 	);
 
 	wp_enqueue_script(
 		'aludra-admin',
 		ALUDRA_PLUGIN_URL . 'assets/admin/admin-settings.js',
 		array( 'jquery' ),
-		ALUDRA_VERSION,
+		aludra_admin_asset_version( 'admin-settings.js' ),
 		true
 	);
 }
