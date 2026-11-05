@@ -44,8 +44,35 @@ function aludra_register_settings() {
 			'default'           => aludra_get_default_settings(),
 		)
 	);
+
+	// Its own group: options.php saves every option in the submitted group, so
+	// sharing `aludra_settings` would let each tab's form wipe the other's.
+	register_setting(
+		'aludra_store_settings',
+		\Aludra\ALUDRA_STORE_HOOKS_OPTION,
+		array(
+			'type'              => 'array',
+			'sanitize_callback' => 'aludra_sanitize_store_hooks',
+			'default'           => array(),
+		)
+	);
 }
 add_action( 'admin_init', 'aludra_register_settings' );
+
+/**
+ * Sanitize the Store tab: merge the active theme's choices into the option.
+ *
+ * @param mixed $input Raw input from the Store tab, or an already stored value.
+ * @return array Per-theme store block choices.
+ */
+function aludra_sanitize_store_hooks( $input ) {
+	return \Aludra\aludra_merge_store_block_hooks(
+		get_option( \Aludra\ALUDRA_STORE_HOOKS_OPTION, array() ),
+		$input,
+		get_stylesheet(),
+		array_keys( \Aludra\aludra_store_block_hooks() )
+	);
+}
 
 /**
  * Get default settings (all blocks enabled).
@@ -468,6 +495,9 @@ function aludra_settings_page_html() {
 		aludra_get_default_settings()
 	);
 
+	// Read-only tab switch; the forms post to options.php with their own nonce.
+	$tab = isset( $_GET['tab'] ) && 'store' === sanitize_key( wp_unslash( $_GET['tab'] ) ) ? 'store' : 'blocks'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
 	$total_count   = count( $blocks );
 	$enabled_count = 0;
 	foreach ( $blocks as $slug => $block ) {
@@ -492,6 +522,7 @@ function aludra_settings_page_html() {
 				</div>
 			</div>
 
+			<?php if ( 'blocks' === $tab ) : ?>
 			<div class="aludra-summary">
 				<div class="aludra-count" aria-live="polite">
 					<span class="dot"></span>
@@ -504,8 +535,17 @@ function aludra_settings_page_html() {
 					<button type="button" class="button" id="aludra-disable-all"><?php esc_html_e( 'Disable all', 'aludra' ); ?></button>
 				</div>
 			</div>
+			<?php endif; ?>
 		</header>
 
+		<nav class="nav-tab-wrapper aludra-tabs">
+			<a href="<?php echo esc_url( admin_url( 'options-general.php?page=aludra' ) ); ?>" class="nav-tab<?php echo 'blocks' === $tab ? ' nav-tab-active" aria-current="page' : ''; ?>"><?php esc_html_e( 'Blocks', 'aludra' ); ?></a>
+			<a href="<?php echo esc_url( admin_url( 'options-general.php?page=aludra&tab=store' ) ); ?>" class="nav-tab<?php echo 'store' === $tab ? ' nav-tab-active" aria-current="page' : ''; ?>"><?php esc_html_e( 'Store', 'aludra' ); ?></a>
+		</nav>
+
+		<?php if ( 'store' === $tab ) : ?>
+			<?php aludra_render_store_tab( $blocks, $enabled_blocks ); ?>
+		<?php else : ?>
 		<form action="options.php" method="post">
 			<?php settings_fields( 'aludra_settings' ); ?>
 
@@ -551,7 +591,132 @@ function aludra_settings_page_html() {
 				<span class="hint"><?php esc_html_e( 'Disabled blocks are hidden from the inserter and their assets stop loading.', 'aludra' ); ?></span>
 			</div>
 		</form>
+		<?php endif; ?>
 	</div>
+	<?php
+}
+
+/**
+ * Render the Store tab: where the WooCommerce blocks are added automatically.
+ *
+ * @param array $blocks         Block metadata, from aludra_get_available_blocks().
+ * @param array $enabled_blocks Block enabled-state map from the Blocks tab.
+ */
+function aludra_render_store_tab( $blocks, $enabled_blocks ) {
+	$theme       = wp_get_theme();
+	$woocommerce = class_exists( 'WooCommerce' );
+	$placements  = array(
+		'aludra/free-shipping-bar'  => __( 'Added as the last block of the announcement bar template part.', 'aludra' ),
+		'aludra/sticky-add-to-cart' => __( 'Added before the footer on the single product template.', 'aludra' ),
+	);
+	?>
+	<form action="options.php" method="post">
+		<?php settings_fields( 'aludra_store_settings' ); ?>
+		<input type="hidden" name="<?php echo esc_attr( \Aludra\ALUDRA_STORE_HOOKS_OPTION ); ?>[form]" value="1" />
+
+		<p class="aludra-intro">
+			<?php esc_html_e( 'Aludra adds these WooCommerce blocks to your theme\'s templates with the WordPress Block Hooks API, so the theme does not have to ship plugin blocks itself. A hooked block shows up in the Site Editor like any other block, and removing it there keeps it removed for that template.', 'aludra' ); ?>
+		</p>
+
+		<section class="aludra-cat">
+			<div class="aludra-cat-head">
+				<span class="aludra-cat-eyebrow">
+					<?php echo aludra_star_svg( 'tick' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- hard-coded SVG markup. ?>
+					<?php
+					/* translators: %s: active theme name */
+					printf( esc_html__( 'Active theme: %s', 'aludra' ), esc_html( $theme->get( 'Name' ) ) );
+					?>
+				</span>
+				<span class="aludra-cat-rule"></span>
+			</div>
+			<div class="aludra-grid">
+				<?php
+				foreach ( \Aludra\aludra_store_block_hooks() as $block_name => $hook ) {
+					$slug = substr( $block_name, strlen( 'aludra/' ) );
+
+					if ( ! isset( $blocks[ $slug ] ) ) {
+						continue;
+					}
+
+					$on = \Aludra\aludra_store_block_hook_enabled( $block_name );
+
+					if ( ! $woocommerce ) {
+						$status = __( 'Needs WooCommerce', 'aludra' );
+					} elseif ( empty( $enabled_blocks[ $slug ] ) ) {
+						$status = __( 'Turned off in the Blocks tab', 'aludra' );
+					} elseif ( ! \Aludra\aludra_store_block_hook_anchor_found( $block_name ) ) {
+						/* translators: %s: template or template part slug */
+						$status = sprintf( __( 'This theme has no matching %s template', 'aludra' ), $hook['slug'] );
+					} else {
+						$status = '';
+					}
+
+					aludra_render_store_hook_card( $slug, $block_name, $blocks[ $slug ]['label'], $placements[ $block_name ] ?? '', $on, $status );
+				}
+				?>
+			</div>
+		</section>
+
+		<div class="aludra-save">
+			<?php submit_button( __( 'Save changes', 'aludra' ), 'primary', 'submit', false ); ?>
+			<span class="hint"><?php esc_html_e( 'Choices are saved for the active theme only.', 'aludra' ); ?></span>
+		</div>
+	</form>
+	<?php
+}
+
+/**
+ * Render one Store tab card.
+ *
+ * A card that cannot apply (no WooCommerce, block off, no matching template)
+ * shows its toggle disabled; a hidden field keeps its stored choice, since a
+ * disabled checkbox is not posted and would otherwise save as off.
+ *
+ * @param string $slug       Block slug.
+ * @param string $block_name Hooked block name.
+ * @param string $label      Block label.
+ * @param string $placement  Where the block is added.
+ * @param bool   $on         Whether the hook is on for the active theme.
+ * @param string $status     Why it cannot apply, or '' when it can.
+ */
+function aludra_render_store_hook_card( $slug, $block_name, $label, $placement, $on, $status ) {
+	$field       = \Aludra\ALUDRA_STORE_HOOKS_OPTION . '[blocks][' . $block_name . ']';
+	$checkbox_id = 'aludra_store_' . $slug;
+	?>
+	<article class="aludra-card <?php echo esc_attr( $on ? 'is-on' : 'is-off' ); ?>">
+		<div class="aludra-card-top">
+			<span class="aludra-glyph"><?php echo aludra_get_block_glyph( $slug ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- hard-coded SVG markup. ?></span>
+			<div class="aludra-card-heading">
+				<h3 class="aludra-card-title"><?php echo esc_html( $label ); ?></h3>
+				<span class="aludra-card-slug"><?php echo esc_html( $block_name ); ?></span>
+			</div>
+			<?php if ( $status && $on ) : ?>
+				<input type="hidden" name="<?php echo esc_attr( $field ); ?>" value="1" />
+			<?php endif; ?>
+			<label class="aludra-toggle">
+				<input
+					type="checkbox"
+					name="<?php echo esc_attr( $field ); ?>"
+					value="1"
+					id="<?php echo esc_attr( $checkbox_id ); ?>"
+					class="aludra-store-checkbox"
+					<?php checked( $on ); ?>
+					<?php disabled( '' !== $status ); ?>
+				/>
+				<span class="aludra-track" aria-hidden="true"></span>
+				<span class="screen-reader-text">
+					<?php
+					/* translators: %s: block name */
+					printf( esc_html__( 'Add %s automatically', 'aludra' ), esc_html( $label ) );
+					?>
+				</span>
+			</label>
+		</div>
+		<p class="aludra-card-desc"><?php echo esc_html( $placement ); ?></p>
+		<span class="aludra-status <?php echo esc_attr( $status ? 'is-blocked' : 'is-ready' ); ?>">
+			<?php echo esc_html( $status ? $status : __( 'Template found', 'aludra' ) ); ?>
+		</span>
+	</article>
 	<?php
 }
 

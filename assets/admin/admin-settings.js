@@ -109,6 +109,11 @@
 			}
 		});
 
+		// Store tab toggles only restyle their card.
+		$('.aludra-store-checkbox').on('change', function () {
+			syncCard($(this));
+		});
+
 		// Initial sync on page load.
 		refresh();
 	});
