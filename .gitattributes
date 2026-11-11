@@ -1,6 +1,7 @@
 /blocks/*/node_modules export-ignore
 /node_modules export-ignore
 /tests export-ignore
+/phpunit.xml export-ignore
 
 # docs/ is public reference for GitHub readers and stays out of Composer
 # archives; designs/ is a guard, since mockups live in the private

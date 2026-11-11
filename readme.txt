@@ -33,7 +33,7 @@ You rarely start from an empty block. You pick a section — a hero that already
 
 That division is the whole idea, and **Aviendha** (https://github.com/imagewize/aviendha) is the theme built to it — a starter FSE theme developed alongside this plugin that ships no blocks or patterns of its own and composes its pages entirely from Aludra sections. **Ixian** (https://github.com/imagewize/ixian) is the opinionated sibling: forked from Aviendha, with finished page patterns for service businesses and SaaS, every one of them built from Aludra blocks.
 
-None of that is required. Aludra is theme-neutral — blocks resolve colours from the active theme's palette with fallbacks, so they render correctly on any FSE, block, or classic theme.
+None of that is required. Aludra works with any FSE, block, or classic theme. Themes that use Aviendha's colour names fit as they are; on other themes, Twenty Twenty-Five and its dark style variations included, Aludra maps its colours onto the theme's own palette, and you can pick the brand colour under Settings → Aludra → Start.
 
 == Installation ==
 
@@ -55,7 +55,7 @@ Yes, on WordPress 7.1 and later. Switch the editor's preview (the Desktop menu i
 
 = Does this plugin work with any theme? =
 
-Yes. Aludra is a theme-neutral block library and works with any WordPress theme — FSE, block, or classic. It is used across the Imagewize block themes (Elayne, Aviendha), and blocks reference theme color presets with fallbacks so they render correctly everywhere.
+Yes, with any WordPress theme: FSE, block, or classic. Aludra names its colours the way the Imagewize themes (Aviendha, Elayne) and Ollie-based themes do. When a theme does not define one of those colours, Aludra derives it from the theme's own palette: the brand colour is the first colour in the palette that your background colour reads well on, and tints, borders and muted text are blends of your background and text colours. A theme's own colours are never overridden. To use a different brand colour, pick one of your theme's colours under Settings → Aludra → Start.
 
 = How do I build the blocks from source? =
 

@@ -510,3 +510,67 @@
 		flex-wrap: wrap;
 	}
 }
+
+/* ---- Start tab: brand colour ---- */
+.aludra-settings .aludra-swatches {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 10px;
+	max-width: 900px;
+	margin: 0 0 16px;
+	padding: 0;
+	border: 0;
+}
+
+.aludra-settings .aludra-swatch-option {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px 12px;
+	background: var(--al-card);
+	border: 1px solid var(--al-border);
+	border-radius: var(--al-radius);
+	cursor: pointer;
+}
+
+.aludra-settings .aludra-swatch-option:has(input:checked) {
+	border-color: var(--al-brand);
+	box-shadow: 0 0 0 1px var(--al-brand);
+}
+
+.aludra-settings .aludra-swatch-option:has(input:focus-visible) {
+	outline: 2px solid var(--al-brand);
+	outline-offset: 2px;
+}
+
+.aludra-settings .aludra-swatch-option input {
+	margin: 0;
+}
+
+.aludra-settings .aludra-swatch {
+	flex: none;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	box-shadow: inset 0 0 0 1px rgba(22, 24, 43, .15);
+}
+
+.aludra-settings .aludra-swatch-text {
+	display: grid;
+	min-width: 0;
+}
+
+.aludra-settings .aludra-swatch-text b {
+	font-size: 13px;
+	color: var(--al-ink);
+}
+
+.aludra-settings .aludra-swatch-text span {
+	font-size: 12px;
+	color: var(--al-muted);
+	overflow-wrap: anywhere;
+}
+
+.aludra-settings .aludra-swatch-text .is-warning {
+	color: #b45309;
+}

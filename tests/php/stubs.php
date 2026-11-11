@@ -103,3 +103,15 @@ if ( ! function_exists( 'wp_parse_args' ) ) {
 		return array_merge( $defaults, (array) $args );
 	}
 }
+
+if ( ! function_exists( 'sanitize_key' ) ) {
+	/**
+	 * Stub for sanitize_key().
+	 *
+	 * @param string $key Key to sanitize.
+	 * @return string Lowercase alphanumerics, dashes and underscores.
+	 */
+	function sanitize_key( $key ) {
+		return preg_replace( '/[^a-z0-9_\-]/', '', strtolower( $key ) );
+	}
+}

@@ -22,7 +22,7 @@ Your theme sets the colours, fonts, header and footer. Aludra provides everythin
 - **Light on the front end.** Assets load per block, only where the block is used. Carousels start as a CSS scroll-snap rail with no JavaScript; jQuery and Slick load only for the Slider engine.
 - **Per-device control.** Hide any section on mobile, tablet or desktop (WordPress 7.0+), and give it its own spacing, colours and typography per device (WordPress 7.1+), with the block editor's own controls.
 - **Start from a layout.** Settings → Aludra → Start creates a draft page from any layout in one click.
-- **Any theme.** Blocks use the active theme's palette, with fallbacks, on FSE, block and classic themes.
+- **Any theme.** Built alongside [Aviendha](https://github.com/imagewize/aviendha), so themes that use the same colour names fit as they are. On other themes, Twenty Twenty-Five and its dark variations included, Aludra maps its colours onto the theme's own palette, and you can pick the brand colour on the Start tab. See [Themes](docs/themes.md#colours-on-any-theme).
 
 It is not a free-form drag-and-drop canvas with styling on every element. You get the block editor's controls plus each block's settings: the parts of a page builder most sites use, without the rest.
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aludra 2.41.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/aludra\n"
-"POT-Creation-Date: 2026-11-11T09:03:49+00:00\n"
+"POT-Creation-Date: 2026-11-11T10:14:32+00:00\n"
 "PO-Revision-Date: 2026-11-11 09:00+0700\n"
 "Last-Translator: Jasper Frumau <jasper@imagewize.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -48,87 +48,87 @@ msgstr "Jasper Frumau"
 msgid "https://github.com/imagewize"
 msgstr "https://github.com/imagewize"
 
-#: aludra.php:62
+#: aludra.php:63
 msgid "Aludra Icon"
 msgstr "Aludra-icoon"
 
-#: aludra.php:364 aludra.php:610
+#: aludra.php:365 aludra.php:611
 msgid "Aludra: Heroes"
 msgstr "Aludra: Heroes"
 
-#: aludra.php:369 aludra.php:614
+#: aludra.php:370 aludra.php:615
 msgid "Aludra: Proof"
 msgstr "Aludra: Bewijs"
 
-#: aludra.php:374 aludra.php:618
+#: aludra.php:375 aludra.php:619
 msgid "Aludra: Features & Services"
 msgstr "Aludra: Features & diensten"
 
-#: aludra.php:379 aludra.php:622
+#: aludra.php:380 aludra.php:623
 msgid "Aludra: Layout"
 msgstr "Aludra: Indeling"
 
-#: aludra.php:384 aludra.php:626
+#: aludra.php:385 aludra.php:627
 msgid "Aludra: Convert"
 msgstr "Aludra: Converteren"
 
-#: aludra.php:389
+#: aludra.php:390
 msgid "Aludra: Navigation"
 msgstr "Aludra: Navigatie"
 
-#: aludra.php:408 aludra.php:634
+#: aludra.php:409 aludra.php:635
 msgid "Menus"
 msgstr "Menus"
 
-#: aludra.php:409
+#: aludra.php:410
 msgid "Template parts for navigation and mega menu content"
 msgstr "Sjabloononderdelen voor navigatie en mega menu-inhoud"
 
-#: aludra.php:606
+#: aludra.php:607
 msgid "Aludra: Full Pages"
 msgstr "Aludra: Volledige pagina's"
 
-#: aludra.php:607
+#: aludra.php:608
 msgid "Complete page layouts assembled from Aludra sections."
 msgstr "Complete paginalay-outs samengesteld uit Aludra-secties."
 
-#: aludra.php:611
+#: aludra.php:612
 msgid "Opening sections for a page."
 msgstr "Openingssecties voor een pagina."
 
-#: aludra.php:615
+#: aludra.php:616
 msgid "Stats, trust signals, reviews and comparisons."
 msgstr "Cijfers, vertrouwenssignalen, reviews en vergelijkingen."
 
-#: aludra.php:619
+#: aludra.php:620
 msgid "Sections describing what you do."
 msgstr "Secties die beschrijven wat je doet."
 
-#: aludra.php:623
+#: aludra.php:624
 msgid "Structural sections and content bands."
 msgstr "Structurele secties en contentbanden."
 
-#: aludra.php:627
+#: aludra.php:628
 msgid "Pricing, FAQ, contact and call-to-action sections."
 msgstr "Secties voor prijzen, FAQ, contact en call-to-action."
 
-#: aludra.php:630
+#: aludra.php:631
 msgid "Aludra: Carousels"
 msgstr "Aludra: Carrousels"
 
-#: aludra.php:631
+#: aludra.php:632
 msgid "Pre-configured Aludra carousel setups."
 msgstr "Vooraf ingestelde Aludra-carrousels."
 
-#: aludra.php:635
+#: aludra.php:636
 msgid "Mega menu patterns for navigation template parts."
 msgstr "Mega menu-patronen voor navigatie-sjabloononderdelen."
 
-#: aludra.php:642
+#: aludra.php:643
 msgid "Aludra: Store"
 msgstr "Aludra: Winkel"
 
-#: aludra.php:643
+#: aludra.php:644
 msgid "WooCommerce sections: product grids and category showcases."
 msgstr "WooCommerce-secties: productrasters en categorie-overzichten."
 
@@ -203,38 +203,38 @@ msgstr "Opties kiezen"
 msgid "Aludra Settings"
 msgstr "Aludra-instellingen"
 
-#: includes/admin/settings-page.php:128
+#: includes/admin/settings-page.php:156
 msgid "Heroes"
 msgstr "Heroes"
 
-#: includes/admin/settings-page.php:129
+#: includes/admin/settings-page.php:157
 msgid "Proof"
 msgstr "Bewijs"
 
-#: includes/admin/settings-page.php:130
+#: includes/admin/settings-page.php:158
 msgid "Features & Services"
 msgstr "Features & diensten"
 
-#: includes/admin/settings-page.php:131 blocks/carousel/build/index.js:1
-#: blocks/carousel/src/edit.js:267 blocks/mega-menu/build/index.js:1
+#: includes/admin/settings-page.php:159 blocks/carousel/build/index.js:1
+#: blocks/carousel/src/edit.js:270 blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/edit.js:218
 msgid "Layout"
 msgstr "Indeling"
 
-#: includes/admin/settings-page.php:132
+#: includes/admin/settings-page.php:160
 msgid "Convert"
 msgstr "Converteren"
 
-#: includes/admin/settings-page.php:133 blocks/carousel/build/index.js:1
-#: blocks/carousel/src/edit.js:453
+#: includes/admin/settings-page.php:161 blocks/carousel/build/index.js:1
+#: blocks/carousel/src/edit.js:456
 msgid "Navigation"
 msgstr "Navigatie"
 
-#: includes/admin/settings-page.php:145
+#: includes/admin/settings-page.php:173
 msgid "Carousel"
 msgstr "Carrousel"
 
-#: includes/admin/settings-page.php:146
+#: includes/admin/settings-page.php:174
 msgid ""
 "A no-JavaScript scroll rail, or a Slick slider with arrows, dots and "
 "autoplay."
@@ -242,118 +242,118 @@ msgstr ""
 "Een scrollrail zonder JavaScript, of een Slick-slider met pijlen, stippen en "
 "automatisch afspelen."
 
-#: includes/admin/settings-page.php:150 blocks/mega-menu/build/index.js:1
+#: includes/admin/settings-page.php:178 blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/AnimationControls.jsx:29
 msgid "Slide"
 msgstr "Dia"
 
-#: includes/admin/settings-page.php:151
+#: includes/admin/settings-page.php:179
 msgid "Individual slides placed inside a Carousel block."
 msgstr "Losse dia's binnen een Carrousel-blok."
 
-#: includes/admin/settings-page.php:156 blocks/mega-menu/build/index.js:1
+#: includes/admin/settings-page.php:184 blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/AnimationControls.jsx:227
 msgid "Mega Menu"
 msgstr "Mega Menu"
 
-#: includes/admin/settings-page.php:157
+#: includes/admin/settings-page.php:185
 msgid "Add expandable mega menus to a navigation block."
 msgstr "Voeg uitklapbare mega menu's toe aan een navigatieblok."
 
-#: includes/admin/settings-page.php:161
+#: includes/admin/settings-page.php:189
 msgid "FAQ Tabs"
 msgstr "FAQ-tabs"
 
-#: includes/admin/settings-page.php:162
+#: includes/admin/settings-page.php:190
 msgid "Interactive FAQ with vertical tabs and content panels."
 msgstr "Interactieve FAQ met verticale tabs en inhoudspanelen."
 
-#: includes/admin/settings-page.php:166
+#: includes/admin/settings-page.php:194
 msgid "FAQ Tab Answer"
 msgstr "FAQ-tabantwoord"
 
-#: includes/admin/settings-page.php:167
+#: includes/admin/settings-page.php:195
 msgid "A single question and answer inside FAQ Tabs."
 msgstr "Eén vraag en antwoord binnen FAQ-tabs."
 
-#: includes/admin/settings-page.php:172
+#: includes/admin/settings-page.php:200
 msgid "Search Overlay Trigger"
 msgstr "Zoekoverlay-knop"
 
-#: includes/admin/settings-page.php:173
+#: includes/admin/settings-page.php:201
 msgid "A search icon that opens a full-screen search overlay."
 msgstr "Een zoekicoon dat een zoekoverlay over het volledige scherm opent."
 
-#: includes/admin/settings-page.php:177
+#: includes/admin/settings-page.php:205
 msgid "Feature Cards"
 msgstr "Featurekaarten"
 
-#: includes/admin/settings-page.php:178
+#: includes/admin/settings-page.php:206
 msgid "Responsive grid of feature highlight cards with icons."
 msgstr "Responsief raster van featurekaarten met iconen."
 
-#: includes/admin/settings-page.php:182
+#: includes/admin/settings-page.php:210
 msgid "Icon Grid"
 msgstr "Iconenraster"
 
-#: includes/admin/settings-page.php:183
+#: includes/admin/settings-page.php:211
 msgid "Auto-fit grid of icon and text items with a section header."
 msgstr "Automatisch passend raster van iconen met tekst, met een sectiekop."
 
-#: includes/admin/settings-page.php:187
+#: includes/admin/settings-page.php:215
 msgid "Trust Bar"
 msgstr "Vertrouwensbalk"
 
-#: includes/admin/settings-page.php:188
+#: includes/admin/settings-page.php:216
 msgid "Inline bar of trust-signal items with icons."
 msgstr "Balk met vertrouwenssignalen en iconen op één regel."
 
-#: includes/admin/settings-page.php:192
+#: includes/admin/settings-page.php:220
 msgid "Pricing Tiers"
 msgstr "Prijspakketten"
 
-#: includes/admin/settings-page.php:193
+#: includes/admin/settings-page.php:221
 msgid "Three-column pricing table with a featured tier."
 msgstr "Prijstabel met drie kolommen en een uitgelicht pakket."
 
-#: includes/admin/settings-page.php:197
+#: includes/admin/settings-page.php:225
 msgid "Testimonial Grid"
 msgstr "Testimonialraster"
 
-#: includes/admin/settings-page.php:198
+#: includes/admin/settings-page.php:226
 msgid "Customer testimonials with metrics; carousels on larger sets."
 msgstr "Klantervaringen met cijfers; een carrousel bij grotere sets."
 
-#: includes/admin/settings-page.php:202
+#: includes/admin/settings-page.php:230
 msgid "CTA Columns"
 msgstr "CTA-kolommen"
 
-#: includes/admin/settings-page.php:203
+#: includes/admin/settings-page.php:231
 msgid "Dual call-to-action cards with headings, text, and buttons."
 msgstr "Twee call-to-action-kaarten met koppen, tekst en knoppen."
 
-#: includes/admin/settings-page.php:207
+#: includes/admin/settings-page.php:235
 msgid "Feature List Grid"
 msgstr "Featurelijstraster"
 
-#: includes/admin/settings-page.php:208
+#: includes/admin/settings-page.php:236
 msgid "Two-column grid of features with checkmarks and hover effects."
 msgstr "Raster van features in twee kolommen met vinkjes en hover-effecten."
 
-#: includes/admin/settings-page.php:212
+#: includes/admin/settings-page.php:240
 msgid "Contact Section"
 msgstr "Contactsectie"
 
-#: includes/admin/settings-page.php:213
+#: includes/admin/settings-page.php:241
 msgid "Dark contact section with an info column and Contact Form 7 form card."
 msgstr ""
 "Donkere contactsectie met een infokolom en een Contact Form 7-formulierkaart."
 
-#: includes/admin/settings-page.php:217
+#: includes/admin/settings-page.php:245
 msgid "Hero Banner"
 msgstr "Hero-banner"
 
-#: includes/admin/settings-page.php:218
+#: includes/admin/settings-page.php:246
 msgid ""
 "Dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA "
 "buttons."
@@ -361,11 +361,11 @@ msgstr ""
 "Donkere hero over de volle breedte met een badge, kop, introtekst en twee "
 "CTA-knoppen."
 
-#: includes/admin/settings-page.php:222
+#: includes/admin/settings-page.php:250
 msgid "CTA Banner"
 msgstr "CTA-banner"
 
-#: includes/admin/settings-page.php:223
+#: includes/admin/settings-page.php:251
 msgid ""
 "Full-width call-to-action band with heading, lead text, and button; colours "
 "adapt to the active theme."
@@ -373,11 +373,11 @@ msgstr ""
 "Call-to-action-band over de volle breedte met kop, introtekst en knop; de "
 "kleuren volgen het actieve thema."
 
-#: includes/admin/settings-page.php:227
+#: includes/admin/settings-page.php:255
 msgid "About Section"
 msgstr "Over-sectie"
 
-#: includes/admin/settings-page.php:228
+#: includes/admin/settings-page.php:256
 msgid ""
 "Full-width about/value-proposition section with heading, lead text, an offer "
 "list, and closing copy."
@@ -385,11 +385,11 @@ msgstr ""
 "Over-sectie over de volle breedte met kop, introtekst, een aanbodlijst en "
 "afsluitende tekst."
 
-#: includes/admin/settings-page.php:232
+#: includes/admin/settings-page.php:260
 msgid "Services Block"
 msgstr "Dienstenblok"
 
-#: includes/admin/settings-page.php:233
+#: includes/admin/settings-page.php:261
 msgid ""
 "Section header with a two-per-row grid of icon, heading, and text service "
 "cards."
@@ -397,11 +397,11 @@ msgstr ""
 "Sectiekop met een raster van dienstkaarten, twee per rij, met icoon, kop en "
 "tekst."
 
-#: includes/admin/settings-page.php:237
+#: includes/admin/settings-page.php:265
 msgid "Review Profiles"
 msgstr "Reviewprofielen"
 
-#: includes/admin/settings-page.php:238
+#: includes/admin/settings-page.php:266
 msgid ""
 "Full-width client review section with a heading and a row of round avatar "
 "photos with quotes."
@@ -409,11 +409,11 @@ msgstr ""
 "Klantreviewsectie over de volle breedte met een kop en een rij ronde "
 "profielfoto's met citaten."
 
-#: includes/admin/settings-page.php:242
+#: includes/admin/settings-page.php:270
 msgid "Hero Split"
 msgstr "Hero split"
 
-#: includes/admin/settings-page.php:243
+#: includes/admin/settings-page.php:271
 msgid ""
 "Split-pane hero with heading, lead text, and a button on one side, and a "
 "desktop/mobile image pair on the other."
@@ -421,11 +421,11 @@ msgstr ""
 "Gesplitste hero met kop, introtekst en een knop aan de ene kant en een "
 "desktop/mobiel-afbeeldingspaar aan de andere."
 
-#: includes/admin/settings-page.php:247
+#: includes/admin/settings-page.php:275
 msgid "Service Intro"
 msgstr "Dienstintro"
 
-#: includes/admin/settings-page.php:248
+#: includes/admin/settings-page.php:276
 msgid ""
 "Introductory text section for service pages with constrained-width editable "
 "paragraphs."
@@ -433,21 +433,21 @@ msgstr ""
 "Inleidende tekstsectie voor dienstpagina's met bewerkbare alinea's van "
 "beperkte breedte."
 
-#: includes/admin/settings-page.php:252
+#: includes/admin/settings-page.php:280
 msgid "Service Detail Cards"
 msgstr "Dienstdetailkaarten"
 
-#: includes/admin/settings-page.php:253
+#: includes/admin/settings-page.php:281
 msgid ""
 "Stacked, numbered service cards with a heading, description, and checklist."
 msgstr ""
 "Gestapelde, genummerde dienstkaarten met een kop, beschrijving en checklist."
 
-#: includes/admin/settings-page.php:257
+#: includes/admin/settings-page.php:285
 msgid "Load Waterfall"
 msgstr "Laadwaterval"
 
-#: includes/admin/settings-page.php:258
+#: includes/admin/settings-page.php:286
 msgid ""
 "Network load-time waterfall panel with an animated LCP marker, for hero "
 "sections."
@@ -455,11 +455,11 @@ msgstr ""
 "Paneel met een netwerk-laadtijdwaterval en een geanimeerde LCP-markering, "
 "voor hero-secties."
 
-#: includes/admin/settings-page.php:262
+#: includes/admin/settings-page.php:290
 msgid "Stat Rail"
 msgstr "Cijferbalk"
 
-#: includes/admin/settings-page.php:263
+#: includes/admin/settings-page.php:291
 msgid ""
 "Full-width band of big-number stats with captions, for the seam between a "
 "hero and the rest of the page."
@@ -467,19 +467,19 @@ msgstr ""
 "Band over de volle breedte met grote cijfers en bijschriften, voor de "
 "overgang tussen een hero en de rest van de pagina."
 
-#: includes/admin/settings-page.php:267
+#: includes/admin/settings-page.php:295
 msgid "Stat Item"
 msgstr "Cijfer"
 
-#: includes/admin/settings-page.php:268
+#: includes/admin/settings-page.php:296
 msgid "A single big-number stat with a caption, used inside Stat Rail."
 msgstr "Eén groot cijfer met bijschrift, gebruikt binnen Cijferbalk."
 
-#: includes/admin/settings-page.php:273
+#: includes/admin/settings-page.php:301
 msgid "Spine Section"
 msgstr "Ruggengraatsectie"
 
-#: includes/admin/settings-page.php:274
+#: includes/admin/settings-page.php:302
 msgid ""
 "Layout host: a sticky label/heading column on the left and section content "
 "on the right."
@@ -487,11 +487,11 @@ msgstr ""
 "Lay-outhouder: een vaste kolom met label en kop links en de sectie-inhoud "
 "rechts."
 
-#: includes/admin/settings-page.php:278
+#: includes/admin/settings-page.php:306
 msgid "Split Section"
 msgstr "Gesplitste sectie"
 
-#: includes/admin/settings-page.php:279
+#: includes/admin/settings-page.php:307
 msgid ""
 "Layout host: a centred header above two panes, media on one side and content "
 "on the other."
@@ -499,11 +499,11 @@ msgstr ""
 "Lay-outhouder: een gecentreerde kop boven twee panelen, media aan de ene "
 "kant en content aan de andere."
 
-#: includes/admin/settings-page.php:283
+#: includes/admin/settings-page.php:311
 msgid "Comparison Table"
 msgstr "Vergelijkingstabel"
 
-#: includes/admin/settings-page.php:284
+#: includes/admin/settings-page.php:312
 msgid ""
 "A filterable spec-sheet comparison: pill filters above a bordered table with "
 "your column highlighted against up to three competitors."
@@ -512,11 +512,11 @@ msgstr ""
 "rand, waarin jouw kolom wordt uitgelicht tegenover maximaal drie "
 "concurrenten."
 
-#: includes/admin/settings-page.php:288
+#: includes/admin/settings-page.php:316
 msgid "Comparison Row"
 msgstr "Vergelijkingsrij"
 
-#: includes/admin/settings-page.php:289
+#: includes/admin/settings-page.php:317
 msgid ""
 "One structural parameter and its four answer cells, used inside Comparison "
 "Table."
@@ -524,22 +524,22 @@ msgstr ""
 "Eén structureel kenmerk met zijn vier antwoordcellen, gebruikt binnen "
 "Vergelijkingstabel."
 
-#: includes/admin/settings-page.php:294
+#: includes/admin/settings-page.php:322
 msgid "Comparison Cell"
 msgstr "Vergelijkingscel"
 
-#: includes/admin/settings-page.php:295
+#: includes/admin/settings-page.php:323
 msgid ""
 "One vendor's answer for a single comparison row, used inside Comparison Row."
 msgstr ""
 "Het antwoord van één aanbieder voor één vergelijkingsrij, gebruikt binnen "
 "Vergelijkingsrij."
 
-#: includes/admin/settings-page.php:300
+#: includes/admin/settings-page.php:328
 msgid "Photo Grid"
 msgstr "Fotoraster"
 
-#: includes/admin/settings-page.php:301
+#: includes/admin/settings-page.php:329
 msgid ""
 "Full-width band with a heading, a follow line, and a tight square photo "
 "grid, for an Instagram-style feed section. Fully static — no API key or live "
@@ -549,12 +549,12 @@ msgstr ""
 "van vierkante foto's, voor een feedsectie in Instagram-stijl. Volledig "
 "statisch — geen API-sleutel of live verbinding."
 
-#: includes/admin/settings-page.php:305 blocks/instagram-embed/build/index.js:2
+#: includes/admin/settings-page.php:333 blocks/instagram-embed/build/index.js:2
 #: blocks/instagram-embed/src/edit.js:57
 msgid "Instagram Embed"
 msgstr "Instagram-embed"
 
-#: includes/admin/settings-page.php:306
+#: includes/admin/settings-page.php:334
 msgid ""
 "Live Instagram profile feed via Instagram's public embed iframe, gated "
 "behind a click-to-load button. Unofficial and undocumented by Meta — could "
@@ -564,11 +564,11 @@ msgstr ""
 "geladen na een klik. Onofficieel en niet gedocumenteerd door Meta — kan "
 "zonder aankondiging veranderen."
 
-#: includes/admin/settings-page.php:310
+#: includes/admin/settings-page.php:338
 msgid "Free Shipping Progress"
 msgstr "Voortgang gratis verzending"
 
-#: includes/admin/settings-page.php:311
+#: includes/admin/settings-page.php:339
 msgid ""
 "WooCommerce: shows how far the cart is from free shipping, updating as items "
 "are added or removed."
@@ -576,11 +576,11 @@ msgstr ""
 "WooCommerce: laat zien hoe ver de winkelwagen van gratis verzending af is, "
 "en werkt bij als er producten worden toegevoegd of verwijderd."
 
-#: includes/admin/settings-page.php:315
+#: includes/admin/settings-page.php:343
 msgid "Sticky Add to Cart"
 msgstr "Vaste in-winkelwagenbalk"
 
-#: includes/admin/settings-page.php:316
+#: includes/admin/settings-page.php:344
 msgid ""
 "WooCommerce: a bar with the product name, price and button once the add to "
 "cart form scrolls out of view."
@@ -589,78 +589,78 @@ msgstr ""
 "in de winkelwagen te leggen uit beeld scrolt."
 
 #. translators: %s: block name
-#: includes/admin/settings-page.php:452
+#: includes/admin/settings-page.php:480
 #, php-format
 msgid "Enable %s block"
 msgstr "Blok %s inschakelen"
 
 #. translators: %s: parent block name
-#: includes/admin/settings-page.php:464
+#: includes/admin/settings-page.php:492
 #, php-format
 msgid "Requires %s"
 msgstr "Vereist %s"
 
 #. translators: %d: total number of blocks
-#: includes/admin/settings-page.php:524
+#: includes/admin/settings-page.php:552
 #, php-format
 msgid "Page builder · %d blocks for any block theme"
 msgstr "Paginabouwer · %d blokken voor elk blokthema"
 
-#: includes/admin/settings-page.php:533
+#: includes/admin/settings-page.php:561
 msgid "Start"
 msgstr "Start"
 
-#: includes/admin/settings-page.php:534 includes/admin/start-tab.php:298
+#: includes/admin/settings-page.php:562 includes/admin/start-tab.php:345
 msgid "Blocks"
 msgstr "Blokken"
 
-#: includes/admin/settings-page.php:535 blocks/mega-menu/build/index.js:1
+#: includes/admin/settings-page.php:563 blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:34
 msgid "Store"
 msgstr "Winkel"
 
-#: includes/admin/settings-page.php:551
+#: includes/admin/settings-page.php:579
 msgid "enabled"
 msgstr "ingeschakeld"
 
-#: includes/admin/settings-page.php:554
+#: includes/admin/settings-page.php:582
 msgid "Enable all"
 msgstr "Alles inschakelen"
 
-#: includes/admin/settings-page.php:555
+#: includes/admin/settings-page.php:583
 msgid "Disable all"
 msgstr "Alles uitschakelen"
 
 #. translators: %d: number of blocks in category
-#: includes/admin/settings-page.php:582
+#: includes/admin/settings-page.php:610
 #, php-format
 msgid "%d block"
 msgid_plural "%d blocks"
 msgstr[0] "%d blok"
 msgstr[1] "%d blokken"
 
-#: includes/admin/settings-page.php:597 includes/admin/settings-page.php:671
+#: includes/admin/settings-page.php:625 includes/admin/settings-page.php:699
 msgid "Save changes"
 msgstr "Wijzigingen opslaan"
 
-#: includes/admin/settings-page.php:598
+#: includes/admin/settings-page.php:626
 msgid ""
 "Disabled blocks are hidden from the inserter and their assets stop loading."
 msgstr ""
 "Uitgeschakelde blokken verdwijnen uit de inserter en hun bestanden worden "
 "niet meer geladen."
 
-#: includes/admin/settings-page.php:616
+#: includes/admin/settings-page.php:644
 msgid "Added as the last block of the announcement bar template part."
 msgstr ""
 "Toegevoegd als laatste blok van het sjabloononderdeel voor de "
 "aankondigingsbalk."
 
-#: includes/admin/settings-page.php:617
+#: includes/admin/settings-page.php:645
 msgid "Added before the footer on the single product template."
 msgstr "Toegevoegd vóór de footer in het sjabloon voor losse producten."
 
-#: includes/admin/settings-page.php:625
+#: includes/admin/settings-page.php:653
 msgid ""
 "Aludra adds these WooCommerce blocks to the active theme's templates with "
 "the WordPress Block Hooks API. They are on by default for the Winespring "
@@ -674,7 +674,7 @@ msgstr ""
 "een thema pluginblokken meelevert, dus plaatst Aludra ze. Voor andere "
 "thema's kun je ze hier inschakelen."
 
-#: includes/admin/settings-page.php:628
+#: includes/admin/settings-page.php:656
 msgid ""
 "Sticky Add to Cart works with any WooCommerce block theme, since each one "
 "has a single product template. Free Shipping Progress needs a template part "
@@ -689,52 +689,52 @@ msgstr ""
 "blok, en als je het daar verwijdert, blijft het voor dat sjabloon weg."
 
 #. translators: %s: active theme name
-#: includes/admin/settings-page.php:637
+#: includes/admin/settings-page.php:665
 #, php-format
 msgid "Active theme: %s"
 msgstr "Actief thema: %s"
 
-#: includes/admin/settings-page.php:654 includes/admin/start-tab.php:189
+#: includes/admin/settings-page.php:682 includes/admin/start-tab.php:234
 msgid "Needs WooCommerce"
 msgstr "Vereist WooCommerce"
 
-#: includes/admin/settings-page.php:656
+#: includes/admin/settings-page.php:684
 msgid "Turned off in the Blocks tab"
 msgstr "Uitgeschakeld in de tab Blokken"
 
 #. translators: %s: template or template part slug
-#: includes/admin/settings-page.php:659
+#: includes/admin/settings-page.php:687
 #, php-format
 msgid "This theme has no matching %s template"
 msgstr "Dit thema heeft geen passend sjabloon %s"
 
-#: includes/admin/settings-page.php:672
+#: includes/admin/settings-page.php:700
 msgid "Choices are saved for the active theme only."
 msgstr "Keuzes worden alleen voor het actieve thema opgeslagen."
 
 #. translators: %s: block name
-#: includes/admin/settings-page.php:720
+#: includes/admin/settings-page.php:748
 #, php-format
 msgid "Add %s automatically"
 msgstr "%s automatisch toevoegen"
 
-#: includes/admin/settings-page.php:727
+#: includes/admin/settings-page.php:755
 msgid "Template found"
 msgstr "Sjabloon gevonden"
 
-#: includes/admin/start-tab.php:70
+#: includes/admin/start-tab.php:114
 msgid "You are not allowed to create pages."
 msgstr "Je mag geen pagina's aanmaken."
 
-#: includes/admin/start-tab.php:79
+#: includes/admin/start-tab.php:123
 msgid "That page layout is not available."
 msgstr "Die pagina-indeling is niet beschikbaar."
 
-#: includes/admin/start-tab.php:117
+#: includes/admin/start-tab.php:162
 msgid "Get started"
 msgstr "Aan de slag"
 
-#: includes/admin/start-tab.php:156
+#: includes/admin/start-tab.php:201
 msgid ""
 "Aludra builds pages from sections: a hero, a stat rail, pricing, an FAQ, a "
 "call to action. Start from a whole page layout and replace the copy, or add "
@@ -746,12 +746,12 @@ msgstr ""
 "de tekst, of voeg secties één voor één toe aan elke pagina. Je thema bepaalt "
 "nog steeds de kleuren, lettertypen, header en footer."
 
-#: includes/admin/start-tab.php:163
+#: includes/admin/start-tab.php:208
 msgid "Start a page from a layout"
 msgstr "Begin een pagina met een indeling"
 
 #. translators: %d: number of page layouts
-#: includes/admin/start-tab.php:169
+#: includes/admin/start-tab.php:214
 #, php-format
 msgid "%d layout"
 msgid_plural "%d layouts"
@@ -760,24 +760,24 @@ msgstr[1] "%d indelingen"
 
 #. translators: %d: number of sections in a page layout
 #. translators: %d: number of section patterns
-#: includes/admin/start-tab.php:182 includes/admin/start-tab.php:225
+#: includes/admin/start-tab.php:227 includes/admin/start-tab.php:270
 #, php-format
 msgid "%d section"
 msgid_plural "%d sections"
 msgstr[0] "%d sectie"
 msgstr[1] "%d secties"
 
-#: includes/admin/start-tab.php:196
+#: includes/admin/start-tab.php:241
 msgid "Create page"
 msgstr "Pagina aanmaken"
 
 #. translators: %s: page layout title
-#: includes/admin/start-tab.php:200
+#: includes/admin/start-tab.php:245
 #, php-format
 msgid "from the %s layout"
 msgstr "met de indeling %s"
 
-#: includes/admin/start-tab.php:211
+#: includes/admin/start-tab.php:256
 msgid ""
 "Each button creates a draft page and opens it in the editor; nothing is "
 "published. The same layouts are offered when you add a new page yourself."
@@ -786,11 +786,11 @@ msgstr ""
 "niets gepubliceerd. Dezelfde indelingen krijg je ook te zien als je zelf een "
 "nieuwe pagina toevoegt."
 
-#: includes/admin/start-tab.php:219
+#: includes/admin/start-tab.php:264
 msgid "Add sections to any page"
 msgstr "Secties toevoegen aan elke pagina"
 
-#: includes/admin/start-tab.php:230
+#: includes/admin/start-tab.php:275
 msgid ""
 "In the editor, open the block inserter, switch to Patterns and pick one of "
 "the Aludra categories. Each section arrives with its copy and style in place."
@@ -798,15 +798,15 @@ msgstr ""
 "Open in de editor de blokinvoeger, ga naar Patronen en kies een van de "
 "Aludra-categorieën. Elke sectie komt met tekst en stijl al op hun plek."
 
-#: includes/admin/start-tab.php:251
+#: includes/admin/start-tab.php:298
 msgid "This site"
 msgstr "Deze site"
 
-#: includes/admin/start-tab.php:260
+#: includes/admin/start-tab.php:307
 msgid "Block theme active"
 msgstr "Blokthema actief"
 
-#: includes/admin/start-tab.php:261
+#: includes/admin/start-tab.php:308
 msgid ""
 "Aludra works with any theme. With a block theme you can also edit headers, "
 "footers and mega menus in the Site Editor."
@@ -814,11 +814,11 @@ msgstr ""
 "Aludra werkt met elk thema. Met een blokthema bewerk je ook headers, footers "
 "en megamenu's in de site-editor."
 
-#: includes/admin/start-tab.php:265
+#: includes/admin/start-tab.php:312
 msgid "Hide sections per device"
 msgstr "Secties per apparaat verbergen"
 
-#: includes/admin/start-tab.php:266
+#: includes/admin/start-tab.php:313
 msgid ""
 "Show or hide any section on mobile, tablet or desktop. Needs WordPress 7.0 "
 "or later."
@@ -826,11 +826,11 @@ msgstr ""
 "Toon of verberg elke sectie op mobiel, tablet of desktop. Vereist WordPress "
 "7.0 of hoger."
 
-#: includes/admin/start-tab.php:270
+#: includes/admin/start-tab.php:317
 msgid "Different styles per device"
 msgstr "Andere stijlen per apparaat"
 
-#: includes/admin/start-tab.php:271
+#: includes/admin/start-tab.php:318
 msgid ""
 "Give a section its own spacing, colours and typography on tablet or mobile: "
 "switch the editor preview to that device. Needs WordPress 7.1 or later."
@@ -839,11 +839,11 @@ msgstr ""
 "zet de voorbeeldweergave in de editor op dat apparaat. Vereist WordPress 7.1 "
 "of hoger."
 
-#: includes/admin/start-tab.php:275
+#: includes/admin/start-tab.php:322
 msgid "Store blocks"
 msgstr "Winkelblokken"
 
-#: includes/admin/start-tab.php:276
+#: includes/admin/start-tab.php:323
 msgid ""
 "Free Shipping Progress and Sticky Add to Cart, plus the store homepage "
 "layout. Need WooCommerce."
@@ -851,16 +851,16 @@ msgstr ""
 "Voortgang gratis verzending en Vaste in-winkelwagenbalk, plus de indeling "
 "voor de winkelhomepage. Vereisen WooCommerce."
 
-#: includes/admin/start-tab.php:284
+#: includes/admin/start-tab.php:331
 msgid "Available"
 msgstr "Beschikbaar"
 
-#: includes/admin/start-tab.php:284
+#: includes/admin/start-tab.php:331
 msgid "Not available"
 msgstr "Niet beschikbaar"
 
 #. translators: 1: link to the Blocks tab, 2: link to the WordPress.org reviews page
-#: includes/admin/start-tab.php:297
+#: includes/admin/start-tab.php:344
 #, php-format
 msgid ""
 "Turn individual blocks on or off on the %1$s tab. Enjoying Aludra? A %2$s "
@@ -869,67 +869,123 @@ msgstr ""
 "Zet afzonderlijke blokken aan of uit op het tabblad %1$s. Blij met Aludra? "
 "Een %2$s helpt anderen het te vinden."
 
-#: includes/admin/start-tab.php:299
+#: includes/admin/start-tab.php:346
 msgid "review on WordPress.org"
 msgstr "review op WordPress.org"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:117
+#: includes/admin/start-tab.php:379
+msgid "Text colour"
+msgstr "Tekstkleur"
+
+#: includes/admin/start-tab.php:390 includes/admin/start-tab.php:421
+msgid "Brand colour"
+msgstr "Merkkleur"
+
+#. translators: %s: active theme name
+#: includes/admin/start-tab.php:399
+#, php-format
+msgid ""
+"%s defines its own brand colour, so Aludra's buttons, call-to-action bands "
+"and highlights use it. There is nothing to set here: change the colour in "
+"the Site Editor under Styles."
+msgstr "%s heeft een eigen merkkleur, dus de knoppen, call-to-action-banden en accenten van Aludra gebruiken die. Je hoeft hier niets in te stellen: wijzig de kleur in de site-editor onder Stijlen."
+
+#. translators: %s: active theme name
+#: includes/admin/start-tab.php:406
+#, php-format
+msgid "%s has no colour palette, so Aludra uses its own default colours."
+msgstr "%s heeft geen kleurenpalet, dus Aludra gebruikt zijn eigen standaardkleuren."
+
+#. translators: %s: active theme name
+#: includes/admin/start-tab.php:413
+#, php-format
+msgid ""
+"%s does not name a brand colour the way Aludra does, so Aludra picks one "
+"from its palette for buttons, call-to-action bands and highlights: the first "
+"colour that your background colour reads well on as text. Choose another one "
+"here. The choice is saved for this theme only, and follows its style "
+"variations."
+msgstr "%s benoemt geen merkkleur zoals Aludra dat doet, dus Aludra kiest er een uit het palet voor knoppen, call-to-action-banden en accenten: de eerste kleur waarop je achtergrondkleur goed leesbaar is als tekst. Kies hier een andere. De keuze geldt alleen voor dit thema en volgt de stijlvariaties ervan."
+
+#: includes/admin/start-tab.php:426
+#
+msgid "Automatic"
+msgstr "Automatisch"
+
+#: includes/admin/start-tab.php:444
+msgid "Text in your background colour is hard to read on this colour."
+msgstr "Tekst in je achtergrondkleur is slecht leesbaar op deze kleur."
+
+#: includes/admin/start-tab.php:445
+#
+msgid "Low contrast"
+msgstr "Weinig contrast"
+
+#: includes/admin/start-tab.php:446
+msgid ": text in your background colour is hard to read on this colour."
+msgstr ": tekst in je achtergrondkleur is slecht leesbaar op deze kleur."
+
+#: includes/admin/start-tab.php:455
+msgid "Save brand colour"
+msgstr "Merkkleur opslaan"
+
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:120
 msgid "Click plus (+) to add slides"
 msgstr "Klik op plus (+) om dia's toe te voegen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:153
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:156
 msgid "Center Mode"
 msgstr "Centrummodus"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:161
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:164
 msgid "Thumbnail Navigation"
 msgstr "Miniatuur navigatie"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:171
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:174
 msgid "Variable Width"
 msgstr "Variabele breedte"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:189
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:192
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:596
 msgid "Arrow Color"
 msgstr "Pijlkleur"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:195
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:198
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:602
 msgid "Arrow Background"
 msgstr "Pijl achtergrond"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:202
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:205
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:609
 msgid "Arrow Hover Color"
 msgstr "Pijl hover kleur"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:209
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:212
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:616
 msgid "Arrow Hover Background"
 msgstr "Pijl hover achtergrond"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:226
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:229
 msgid "Engine"
 msgstr "Engine"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:230
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:233
 msgid "Carousel engine"
 msgstr "Carrousel-engine"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:234
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:237
 msgid "Scroll rail (no JavaScript)"
 msgstr "Scrollrail (geen JavaScript)"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:241
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:244
 msgid "Slider (Slick, loads jQuery)"
 msgstr "Slider (Slick, laadt jQuery)"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:253
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:256
 msgid ""
 "A swipeable, scroll-snapping row of slides. Loads no scripts. Arrows, dots, "
 "autoplay and the other slider settings apply to the Slick engine only."
@@ -938,7 +994,7 @@ msgstr ""
 "scripts. Pijlen, stippen, automatisch afspelen en de andere "
 "sliderinstellingen gelden alleen voor de Slick-engine."
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:257
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:260
 msgid ""
 "A JavaScript slider with arrows, dots, autoplay and thumbnails. Loads jQuery "
 "and Slick on pages that use it."
@@ -946,153 +1002,153 @@ msgstr ""
 "Een JavaScript-slider met pijlen, stippen, automatisch afspelen en "
 "miniaturen. Laadt jQuery en Slick op pagina's die hem gebruiken."
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:271
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:274
 msgid "Slides to Show"
 msgstr "Dia's om te tonen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:280
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:283
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:650
 msgid "Slides to Scroll"
 msgstr "Dia's om te scrollen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:290
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:293
 msgid "Center Padding"
 msgstr "Centrumopvulling"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:291
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:294
 msgid "Amount of adjacent slides visible"
 msgstr "Hoeveel van de naastgelegen dia's zichtbaar is"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:309
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:312
 msgid "Thumbnails to Show"
 msgstr "Aantal miniaturen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:323
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:326
 msgid "Thumbnail Position"
 msgstr "Positie miniaturen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:330
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:333
 msgid "Below"
 msgstr "Onder"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:334
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:337
 msgid "Above"
 msgstr "Boven"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:338
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:341
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:235
 msgid "Left"
 msgstr "Links"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:342
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:345
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:239
 msgid "Right"
 msgstr "Rechts"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:353
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:356
 msgid "Thumbnail Spacing"
 msgstr "Ruimte tussen miniaturen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:371
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:374
 msgid "Behavior"
 msgstr "Gedrag"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:375
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:378
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:718
 msgid "Autoplay"
 msgstr "Automatisch afspelen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:383
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:386
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:726
 msgid "Autoplay Speed (ms)"
 msgstr "Snelheid automatisch afspelen (ms)"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:399
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:402
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:711
 msgid "Infinite Loop"
 msgstr "Oneindige lus"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:406
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:409
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:659
 msgid "Animation Speed (ms)"
 msgstr "Animatiesnelheid (ms)"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:416
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:419
 msgid "Lazy Loading"
 msgstr "Lazy loading"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:417
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:420
 msgid "Improves performance for image-heavy carousels"
 msgstr "Verbetert de prestaties van carrousels met veel afbeeldingen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:424
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:427
 msgid "Disabled"
 msgstr "Uitgeschakeld"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:428
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:431
 msgid "On Demand"
 msgstr "Op aanvraag"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:432
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:435
 msgid "Progressive"
 msgstr "Progressief"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:441
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:444
 msgid "Adaptive Height"
 msgstr "Aanpasbare hoogte"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:442
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:445
 msgid "Auto-adjust height to match active slide"
 msgstr "Past de hoogte automatisch aan de actieve dia aan"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:457
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:460
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:683
 msgid "Show Arrows"
 msgstr "Pijlen tonen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:464
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:467
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:690
 msgid "Show Dots"
 msgstr "Stippen tonen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:472
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:475
 msgid "Dots Top Spacing"
 msgstr "Ruimte boven stippen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:489
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:492
 msgid "Arrow Style"
 msgstr "Pijlstijl"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:493
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:496
 msgid "Arrow Icon"
 msgstr "Pijlicoon"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:497
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:500
 msgid "Arrow (Default)"
 msgstr "Pijl (standaard)"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:504
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:507
 msgid "Chevron"
 msgstr "Chevron"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:508
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:511
 msgid "Caret (Triangle)"
 msgstr "Driehoek"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:515
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:518
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:107
 msgid "Custom SVG"
 msgstr "Aangepast SVG"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:522
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:525
 msgid ""
 "Choose the arrow icon style - all icons are SVG-based for sharp, scalable "
 "rendering"
@@ -1100,88 +1156,88 @@ msgstr ""
 "Kies de stijl van het pijlicoon — alle iconen zijn SVG, dus scherp en "
 "schaalbaar"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:529
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:532
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:233
 msgid "Custom SVG Code"
 msgstr "Aangepaste SVG-code"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:539
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:542
 msgid "Paste SVG code for custom arrow icon"
 msgstr "Plak SVG-code voor een eigen pijlicoon"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:547
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:550
 msgid "Arrow Background Shape"
 msgstr "Vorm pijlachtergrond"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:554
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:557
 msgid "Circle"
 msgstr "Cirkel"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:558
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:561
 msgid "Rounded Square"
 msgstr "Afgerond vierkant"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:565
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:568
 msgid "Square"
 msgstr "Vierkant"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:569
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:572
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/StylePanel.jsx:41
 msgid "None"
 msgstr "Geen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:578
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:581
 msgid "Choose the arrow background shape"
 msgstr "Kies de vorm van de pijlachtergrond"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:584
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:587
 msgid "Arrow Size (px)"
 msgstr "Pijlgrootte (px)"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:596
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:599
 msgid "Responsive"
 msgstr "Responsief"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:600
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:603
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:404
 msgid "Mobile Breakpoint (px)"
 msgstr "Mobiel breekpunt (px)"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:613
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:616
 msgid "Mobile: Slides to Show"
 msgstr "Mobiel: dia's om te tonen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:625
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:628
 msgid "Mobile: Slides to Scroll"
 msgstr "Mobiel: dia's om te scrollen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:642
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:645
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:646
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:649
 msgid "Total Slides"
 msgstr "Totaal aantal dia's"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:647
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:650
 msgid "Number of slide blocks to generate"
 msgstr "Aantal dia-blokken om aan te maken"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:659
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:662
 msgid "Slide Padding"
 msgstr "Dia-opvulling"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:660
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:663
 msgid "Add padding around slides"
 msgstr "Opvulling rond dia's toevoegen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:667
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:670
 msgid "RTL Mode"
 msgstr "RTL-modus"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:668
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:671
 msgid "Right-to-left language support"
 msgstr "Ondersteuning voor talen van rechts naar links"
 
@@ -1532,7 +1588,7 @@ msgstr "badge…"
 msgid "row label…"
 msgstr "rijlabel…"
 
-#: blocks/load-waterfall/build/index.js:1 blocks/load-waterfall/src/edit.js:126
+#: blocks/load-waterfall/build/index.js:1 blocks/load-waterfall/src/edit.js:125
 msgid "LCP label…"
 msgstr "LCP-label…"
 
