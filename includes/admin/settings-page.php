@@ -143,7 +143,7 @@ function aludra_get_available_blocks() {
 	return array(
 		'carousel'               => array(
 			'label'       => __( 'Carousel', 'aludra' ),
-			'description' => __( 'Create responsive image and content carousels with Slick Carousel.', 'aludra' ),
+			'description' => __( 'A no-JavaScript scroll rail, or a Slick slider with arrows, dots and autoplay.', 'aludra' ),
 			'category'    => 'aludra-layout',
 		),
 		'slide'                  => array(
