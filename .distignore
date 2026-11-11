@@ -26,10 +26,10 @@ pnpm-lock.yaml
 .wordpress-org/*
 
 # Documentation and scripts
-# Kept as a guard, not a description: there is no docs/ or designs/ directory
-# here any more. Planning documents and design mockups live in the private
-# imagewize.com repo under docs/aludra/ and designs/aludra/ (see CLAUDE.md).
-# These entries stay so that a stray file re-added here never reaches a zip.
+# docs/ is public reference for GitHub readers (blocks, patterns, themes,
+# credits); users get readme.txt instead. designs/ is a guard: mockups live in
+# the private imagewize.com repo (see CLAUDE.md).
+docs/
 docs/*
 designs/
 designs/*

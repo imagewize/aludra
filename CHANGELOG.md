@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Settings → Aludra → Start**, now the first tab: one card per page layout with a **Create page** button that creates a draft page from it and opens the editor, the section pattern categories with their counts, and checks for a block theme, WordPress 7.0+ (per-device visibility) and WooCommerce. The Plugins screen gains a **Get started** link to it; there is no redirect on activation.
+
 ### Changed
 - **`aludra/carousel`:** new carousels start on the rail engine, a CSS scroll-snap track that loads no JavaScript, so inserting a carousel no longer puts jQuery and Slick on the page. The sidebar gains an **Engine** panel to switch between rail and the Slick slider, and hides the slider-only settings (toolbar buttons, arrows, dots, autoplay, responsive) while rail is selected. Existing carousels are unchanged: the `engine` attribute still defaults to Slick, and the rail default comes from an inserter variation that writes `"engine":"rail"` explicitly. Block version 1.2.0.
 - `bin/prepare-svn.sh` is removed: WordPress.org releases are deployed with the standalone [svn-wporg-deploy](https://github.com/imagewize/svn-wporg-deploy) script, which also runs the SVN steps the old script only printed. See "Releasing to WordPress.org" in `CLAUDE.md`. Development tooling only; nothing in the plugin changes.

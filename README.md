@@ -8,139 +8,47 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
 [![License](https://img.shields.io/packagist/l/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
 
-A page builder made of real blocks.
+A lightweight page builder made of native blocks.
 </div>
 
-## Description
+## What it is
 
-Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. **34 native blocks, 21 ready-made sections and 8 whole page layouts**, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
+Aludra gives you what people install a page builder like Elementor for (ready-made sections, whole page layouts, per-device control) without the second editor, the heavy front end or the lock-in. **34 blocks, 21 sections and 8 page layouts**, built and edited in the block editor WordPress already has.
 
-A theme gives you the palette, the type, the header and the footer; Aludra gives you everything between them — the bands a page is actually made of: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
+Your theme sets the colours, fonts, header and footer. Aludra provides everything between them: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
 
-That holds whatever the site is for. The same sections build a portfolio, a services site, a one-page launch, or a straightforward online presence for a business — the bands are the same, the copy is not.
+- **One editor.** Every section is a normal block you can move, copy, style and reuse.
+- **No lock-in.** Content is standard block markup. Switch Aludra off and nothing turns into shortcodes.
+- **Light on the front end.** Assets load per block, only where the block is used. Carousels start as a CSS scroll-snap rail with no JavaScript; jQuery and Slick load only for the Slider engine.
+- **Per-device control.** Hide any section on mobile, tablet or desktop with the editor's own visibility setting (WordPress 7.0+).
+- **Start from a layout.** Settings → Aludra → Start creates a draft page from any layout in one click.
+- **Any theme.** Blocks use the active theme's palette, with fallbacks, on FSE, block and classic themes.
 
-You rarely start from an empty block. You pick a **section** — a hero that already has its eyebrow, heading, lead and buttons, in the right style variation — drop it in, and replace the copy. Or you pick a whole **page pattern** and delete the parts you don't need. Everything is grouped into six categories (Heroes, Proof, Features & Services, Layout, Convert, Navigation) that follow the order a page gets built in, so both the block inserter and the Patterns tab read as a sequence rather than an inventory.
+It is not a free-form drag-and-drop canvas with styling on every element. You get the block editor's controls plus each block's settings: the parts of a page builder most sites use, without the rest.
 
-### Building a site with Aludra
+## Getting started
 
-The division above is the whole idea, and **[Aviendha](https://github.com/imagewize/aviendha)** is the theme built to that division — a starter FSE theme developed alongside this plugin, which ships no blocks or patterns of its own and composes its pages entirely from `aludra/*`:
+1. Install from the WordPress.org plugin directory, or with Composer: `composer require imagewize/aludra`
+2. Activate it, then click **Get started** on the Plugins screen (or open **Settings → Aludra**).
+3. On the **Start** tab, create a page from a layout and replace the copy. Add more sections from the inserter's Patterns tab.
 
-```bash
-composer require imagewize/aviendha imagewize/aludra
-```
+Requires WordPress 6.9+ and PHP 7.4+. WooCommerce is optional and enables the store blocks and patterns.
 
-Then activate Aviendha, activate Aludra, and create a page — the eight page patterns are offered in the Site Editor's pattern picker, and the twenty-one section patterns are in the inserter's Patterns tab.
+## Documentation
 
-**None of this is required.** Aludra is theme-neutral: blocks resolve colours from the active theme's palette with fallbacks, so they render correctly on **[Elayne](https://github.com/imagewize/elayne)**, on **[Ixian](https://github.com/imagewize/ixian)**, or on any other FSE, block, or classic theme. Blocks are individually enable/disable-able under Settings → Aludra.
-
-**For WooCommerce stores, pair it with [Winespring](https://github.com/imagewize/winespring)**, the store theme built alongside Aludra's store blocks and patterns. With Winespring active, Aludra adds the Free Shipping Progress bar to the announcement bar and the Sticky Add to Cart bar to product pages on its own, through the WordPress Block Hooks API, so the theme stays free of plugin blocks as WordPress.org requires. Both can be switched off for the active theme under **Settings → Aludra → Store**, and other themes can be switched on there or by default with the `aludra_store_block_hooks_themes` filter. The store patterns work on any theme with WooCommerce active.
-
-> The plugin exists in the first place because WordPress.org Theme Review prohibits themes from registering custom blocks. Many blocks were originally ported from the **[Nynaeve](https://github.com/imagewize/nynaeve)** theme's native block library, generalised for theme neutrality.
-
-> **Lineage:** Aludra is the direct continuation of the [**Elayne Blocks**](https://github.com/imagewize/elayne-blocks) plugin (versions ≤ 2.7.1). It was renamed to a builder-themed name (Aludra — the inventor/engineer of the *dragons* in *The Wheel of Time*) and generalised into a shared library, since it now serves multiple themes rather than Elayne alone. See `CHANGELOG.md` for the migration notes.
-
-## Included Blocks
-
-- **About Section Block** (`aludra/about`) - Content section with heading, lead paragraph, offer list, and closing copy
-- **Carousel Block** (`aludra/carousel`) - Responsive image/content carousel with Slick Carousel integration, thumbnails, and arrow customization
-- **Comparison Table Block** (`aludra/comparison-table`) - Filterable spec-sheet comparison: a centred eyebrow/heading/lead, pill filters, and a bordered table with your column highlighted against up to three competitors; composed of Comparison Row and Comparison Cell children
-- **Contact Section Block** (`aludra/contact-section`) - Dark contact section with info column and Contact Form 7 form card
-- **CTA Banner Block** (`aludra/cta-banner`) - Full-width call-to-action band with heading, lead text, and button
-- **CTA Columns Block** (`aludra/cta-columns`) - Dual call-to-action cards with headings, descriptions, and buttons
-- **FAQ Tab Answer Block** (`aludra/faq-tab-answer`) - Individual answer child block for FAQ Tabs
-- **FAQ Tabs Block** (`aludra/faq-tabs`) - Interactive FAQ with vertical tab navigation and dynamic content display
-- **Feature Cards Block** (`aludra/feature-cards`) - Responsive grid of feature highlight cards with icons
-- **Feature List Grid Block** (`aludra/feature-list-grid`) - Two-column grid of features with checkmarks and hover effects
-- **Hero Banner Block** (`aludra/hero-banner`) - Dark full-width hero with an eyebrow badge, heading, lead text, and dual CTA buttons
-- **Hero Split Block** (`aludra/hero-split`) - Split-pane hero with heading, lead text, CTA button, and a desktop/mobile image pair
-- **Icon Grid Block** (`aludra/icon-grid`) - Auto-fit grid of icon + text items with a section header
-- **Instagram Embed Block** (`aludra/instagram-embed`) - Live Instagram profile feed via Instagram's public embed iframe, gated behind a click-to-load button for consent-friendly loading; unofficial/undocumented endpoint
-- **Load Waterfall Block** (`aludra/load-waterfall`) - Animated network load-time waterfall panel with an LCP marker, for hero sections
-- **Mega Menu Block** (`aludra/mega-menu`) - Advanced navigation menu with mega menu functionality (works best with FSE/block themes)
-- **Photo Grid Block** (`aludra/photo-grid`) - Heading, follow line, and a tight square photo grid for an Instagram-style feed section; fully static, no API key or live connection
-- **Pricing Tiers Block** (`aludra/pricing-tiers`) - Three-column pricing comparison table with featured tier highlighting
-- **Review Profiles Block** (`aludra/review-profiles`) - Heading plus a row of round avatar photos with client quotes
-- **Search Overlay Trigger Block** (`aludra/search-overlay-trigger`) - Search icon that opens a full-screen search overlay
-- **Service Detail Cards Block** (`aludra/service-blocks`) - Stacked, numbered service cards with a heading, description, and checklist
-- **Service Intro Block** (`aludra/service-intro`) - Introductory text section for service pages with constrained-width editable paragraphs
-- **Services Block** (`aludra/services-block`) - Section header with a two-per-row grid of icon, heading, and text service cards
-- **Slide Block** (`aludra/slide`) - Individual carousel slides with InnerBlocks support
-- **Spine Section Block** (`aludra/spine-section`) - Page section with a sticky label/heading column beside its content, collapsing to one column on narrow screens
-- **Split Section Block** (`aludra/split-section`) - Page section with a centred header above two panes, media on one side and content on the other, collapsing to one column on narrow screens
-- **Stat Item Block** (`aludra/stat-item`) - Single big-number stat with a caption, used inside Stat Rail; number and caption colours are set independently, and the number can render as a heading
-- **Stat Rail Block** (`aludra/stat-rail`) - Full-width band of big-number stats, for the seam between a hero and the rest of the page, in a dark or light band style
-- **Testimonial Grid Block** (`aludra/testimonial-grid`) - Customer testimonial grid with metrics, using Slick Carousel on larger sets
-- **Trust Bar Block** (`aludra/trust-bar`) - Inline bar of trust-signal items that wraps on mobile
-
-## Patterns
-
-Blocks are the raw components; **patterns** are what you actually build a page from. Both appear in the editor's Patterns tab as live previews of the real blocks.
-
-**Section patterns** (`patterns/section-*.php`) — the single bands a page is made of, each pre-filled with plausible copy, the right style variation, and its layout host already in place. Grouped into the same categories as the blocks:
-
-| Category | Sections |
-| --- | --- |
-| Heroes | Split Hero, Hero Banner |
-| Proof | Stat Rail, Trust Bar, Client Reviews, Comparison Table, Testimonial Grid |
-| Features & Services | Capability Cards, Services Grid, Feature List, Service Detail Cards, Before and After Icon Grids |
-| Layout | About, Client Carousel, Split with Steps, Service Intro |
-| Convert | Pricing Tiers, FAQ, CTA Banner, Contact, CTA Columns |
-
-**Store patterns** (`aludra-store` category, only when WooCommerce is active) — Store Hero, Shop Categories, Newest Products, Store Story and Store Testimonials, plus a Store Homepage page pattern that assembles them with the Trust Bar, Stat Rail and CTA Banner.
-
-Every content block is reachable as one of these. The two that are not — Mega Menu and Search Overlay Trigger — belong to a navigation template part rather than to a page; Mega Menu has its own eight template-part patterns below.
-
-**Page patterns** (`patterns/page-*.php`) — eight full layouts assembled from those sections, offered when you create a new page:
-
-| Page | Composition |
-| --- | --- |
-| Homepage | Split hero, about, client carousel, CTA, pricing, services, reviews, FAQ |
-| Landing | Split hero, stat rail, capabilities, pricing, reviews, FAQ, CTA |
-| Service | Hero, trust bar, capabilities, why-us, pricing, FAQ, CTA |
-| Services Overview | Hero, trust bar, intro, services grid, capabilities, FAQ, CTA |
-| Pricing | Hero, pricing tiers, what's included, FAQ, CTA |
-| About | Hero, trust bar, studio story, capabilities, client types, reviews, CTA |
-| Team | Hero, trust bar, studio story, the people, how we work, CTA |
-| Contact | Contact details + Contact Form 7 card |
-
-**Carousel patterns** — five pre-configured carousel setups (hero, testimonials, product gallery, portfolio, team), plus eight **mega menu patterns** for building menu template parts.
-
-## Requirements
-
-- WordPress 6.9 or higher
-- PHP 7.4 or higher
-- Works with any WordPress theme (FSE, block, or classic)
-
-## Installation
-
-1. Upload the `aludra` folder to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. The blocks will be available in the block editor
-
-## Contributing
-
-See `CONTRIBUTING.md` for development workflow and build instructions.
+- [Blocks](docs/blocks.md): every block and what it does
+- [Patterns](docs/patterns.md): sections, page layouts, store, carousel and mega menu patterns
+- [Themes](docs/themes.md): Aviendha, Elayne, Ixian and Winespring, store block hooks, and where Aludra came from
+- [Credits](docs/credits.md): ported blocks, icons and libraries
+- [Changelog](CHANGELOG.md)
+- [Contributing](CONTRIBUTING.md): development workflow and build instructions
 
 ## License
 
-GPL v3 or later - https://www.gnu.org/licenses/gpl-3.0.html
-
-## Credits
-
-- Based on blocks originally developed for the Imagewize block themes
-- Feature Cards, Icon Grid, Trust Bar, Pricing Tiers, Testimonial Grid, CTA Columns, Feature List Grid, Contact Section, Hero Banner, About Section, Services Block, Review Profiles, CTA Banner, Service Intro, and Service Detail Cards blocks ported from the **Nynaeve** theme and generalised for theme neutrality
-- Logo: [Hugeicons fireworks](https://blade-ui-kit.com/blade-icons/hugeicons-fireworks) icon via [Blade UI Kit](https://github.com/driesvints/blade-icons) (MIT License), drawn in a flat ember orange that holds up on both light and dark backgrounds — a nod to the fireworks ("Nightflowers") made by the Guild of Illuminators in *The Wheel of Time*, Aludra's namesake. The earlier Lucide flower, Forkawesome sun and "nightflower" marks remain in `assets/logos/` as alternates.
-- Homepage pattern "Our Clients" carousel: the bike and noodle-bowl icons are [Tabler](https://blade-ui-kit.com/blade-icons/tabler-bike) and [Maki](https://blade-ui-kit.com/blade-icons/maki-restaurant-noodle) icons via [Blade UI Kit](https://blade-ui-kit.com/blade-icons) (MIT License). The five client-site mockups themselves live in `assets/clients/`.
-- Mega Menu block originally inspired by [Human Made's HM Mega Menu Block](https://github.com/humanmade/hm-mega-menu-block) and substantially enhanced with multiple layout modes, advanced positioning, focus management, and accessibility features
-- Carousel block originally inspired by the [Carousel Block Plugin](https://wordpress.org/plugins/carousel-block/) by Virgiliu Diaconu, but completely reimplemented using Slick Carousel with a different feature set, extensive customization options, and distinct functionality
-- Built with `@wordpress/scripts`
-- Uses [Slick Carousel](https://kenwheeler.github.io/slick/) library for carousel functionality
+GPL v3 or later. See https://www.gnu.org/licenses/gpl-3.0.html
 
 ## Support
 
-For issues and feature requests, please visit:
-https://github.com/imagewize/aludra
+Issues and feature requests: https://github.com/imagewize/aludra/issues
 
-## Author
-
-Jasper Frumau - https://github.com/imagewize
+Built by [Imagewize](https://github.com/imagewize).
