@@ -27,6 +27,7 @@ You rarely start from an empty block. You pick a section — a hero that already
 * **34 blocks** — grouped into six inserter categories that follow the order a page gets built in, and individually enable/disable-able under Settings → Aludra
 * **13 more patterns** — five pre-configured carousels and eight mega menu layouts for menu template parts
 * **Show or hide any section per device** — every Aludra block works with the block editor's own visibility controls, so a band can be hidden on mobile, tablet or desktop (WordPress 7.0 and later). No extra markup or scripts: core adds one class and one media query
+* **Different styles per device** — on WordPress 7.1 and later, switch the editor's preview to Tablet or Mobile and change a block's spacing, colours or typography for that device only. Works on every Aludra block with those settings
 
 = Building a site with Aludra =
 
@@ -47,6 +48,10 @@ None of that is required. Aludra is theme-neutral — blocks resolve colours fro
 = Can I hide a section on mobile? =
 
 Yes. On WordPress 7.0 and later, select the block and use the editor's Show / Hide setting to pick the devices it should be hidden on. This is the block editor's own visibility setting, so it works the same on Aludra blocks as on core blocks. The breakpoints come from your theme (480px and 782px by default).
+
+= Can a section look different on mobile? =
+
+Yes, on WordPress 7.1 and later. Switch the editor's preview (the Desktop menu in the top bar) to Tablet or Mobile and turn on styling for that device; spacing, colour and typography changes then apply to that device only. This is the block editor's own feature and works on every Aludra block that has those settings.
 
 = Does this plugin work with any theme? =
 
