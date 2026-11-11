@@ -1,47 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1544" height="500" viewBox="0 0 1544 500">
-<defs>
-<radialGradient id="glow" cx="1150.0" cy="250.0" r="330.0" gradientUnits="userSpaceOnUse">
-<stop offset="0" stop-color="#FFC23D" stop-opacity=".22"/><stop offset=".5" stop-color="#FF5A4E" stop-opacity=".07"/><stop offset="1" stop-color="#FF5A4E" stop-opacity="0"/>
-</radialGradient>
-</defs>
+<defs><radialGradient id="glow" cx="1170.0" cy="210.0" r="300.0" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#2D5BFF" stop-opacity=".28"/><stop offset="1" stop-color="#2D5BFF" stop-opacity="0"/></radialGradient></defs>
 <rect width="1544" height="500" fill="#0D1B2A"/>
-<rect x="960.0" y="40.0" width="380.0" height="64.0" rx="6.0" fill="none" stroke="#8FA3B8" stroke-opacity=".16" stroke-width="1.50"/><rect x="960.0" y="112.0" width="380.0" height="26.0" rx="6.0" fill="none" stroke="#8FA3B8" stroke-opacity=".16" stroke-width="1.50"/><rect x="960.0" y="146.0" width="380.0" height="88.0" rx="6.0" fill="none" stroke="#8FA3B8" stroke-opacity=".16" stroke-width="1.50"/><rect x="960.0" y="242.0" width="380.0" height="46.0" rx="6.0" fill="none" stroke="#8FA3B8" stroke-opacity=".16" stroke-width="1.50"/><rect x="960.0" y="296.0" width="380.0" height="96.0" rx="6.0" fill="none" stroke="#8FA3B8" stroke-opacity=".16" stroke-width="1.50"/><rect x="960.0" y="400.0" width="380.0" height="60.0" rx="6.0" fill="none" stroke="#8FA3B8" stroke-opacity=".16" stroke-width="1.50"/>
+<rect x="960.0" y="40.0" width="380.0" height="64.0" rx="6.0" fill="none" stroke="#9AABBF" stroke-opacity=".18" stroke-width="1.50"/><rect x="960.0" y="112.0" width="380.0" height="26.0" rx="6.0" fill="none" stroke="#9AABBF" stroke-opacity=".18" stroke-width="1.50"/><rect x="960.0" y="146.0" width="380.0" height="88.0" rx="6.0" fill="none" stroke="#9AABBF" stroke-opacity=".18" stroke-width="1.50"/><rect x="960.0" y="242.0" width="380.0" height="46.0" rx="6.0" fill="none" stroke="#9AABBF" stroke-opacity=".18" stroke-width="1.50"/><rect x="960.0" y="296.0" width="380.0" height="96.0" rx="6.0" fill="none" stroke="#9AABBF" stroke-opacity=".18" stroke-width="1.50"/><rect x="960.0" y="400.0" width="380.0" height="60.0" rx="6.0" fill="none" stroke="#9AABBF" stroke-opacity=".18" stroke-width="1.50"/>
 <rect width="1544" height="500" fill="url(#glow)"/>
-<rect x="1387.5" y="145.5" width="9.0" height="9.0" rx="2.2" fill="#FF5A4E"/><rect x="908.0" y="406.0" width="8.0" height="8.0" rx="1.9" fill="#FF8C3A"/><rect x="1331.5" y="466.5" width="7.0" height="7.0" rx="1.7" fill="#FF5A4E"/>
-<rect x="1123.60" y="210.40" width="52.80" height="52.80" rx="11.22" fill="#FFC23D"/>
-<rect x="1160.02" y="162.39" width="33.00" height="33.00" rx="7.92" fill="#FFC23D"/>
-<rect x="1176.82" y="136.43" width="29.70" height="29.70" rx="7.13" fill="#FFC23D"/>
-<rect x="1194.29" y="115.13" width="25.08" height="25.08" rx="6.02" fill="#FF8C3A"/>
-<rect x="1211.12" y="98.56" width="20.46" height="20.46" rx="4.91" fill="#FF5A4E"/>
-<rect x="1197.52" y="199.89" width="33.00" height="33.00" rx="7.92" fill="#FFC23D"/>
-<rect x="1235.76" y="195.37" width="29.70" height="29.70" rx="7.13" fill="#FFC23D"/>
-<rect x="1274.66" y="195.50" width="25.08" height="25.08" rx="6.02" fill="#FF8C3A"/>
-<rect x="1312.03" y="199.46" width="20.46" height="20.46" rx="4.91" fill="#FF5A4E"/>
-<rect x="1197.52" y="252.93" width="33.00" height="33.00" rx="7.92" fill="#FFC23D"/>
-<rect x="1235.76" y="278.72" width="29.70" height="29.70" rx="7.13" fill="#FFC23D"/>
-<rect x="1274.66" y="309.15" width="25.08" height="25.08" rx="6.02" fill="#FF8C3A"/>
-<rect x="1312.03" y="342.17" width="20.46" height="20.46" rx="4.91" fill="#FF5A4E"/>
-<rect x="1160.02" y="290.44" width="33.00" height="33.00" rx="7.92" fill="#FFC23D"/>
-<rect x="1176.82" y="337.65" width="29.70" height="29.70" rx="7.13" fill="#FFC23D"/>
-<rect x="1194.29" y="389.52" width="25.08" height="25.08" rx="6.02" fill="#FF8C3A"/>
-<rect x="1211.12" y="443.07" width="20.46" height="20.46" rx="4.91" fill="#FF5A4E"/>
-<rect x="1106.98" y="290.44" width="33.00" height="33.00" rx="7.92" fill="#FFC23D"/>
-<rect x="1093.48" y="337.65" width="29.70" height="29.70" rx="7.13" fill="#FFC23D"/>
-<rect x="1080.63" y="389.52" width="25.08" height="25.08" rx="6.02" fill="#FF8C3A"/>
-<rect x="1068.42" y="443.07" width="20.46" height="20.46" rx="4.91" fill="#FF5A4E"/>
-<rect x="1069.48" y="252.93" width="33.00" height="33.00" rx="7.92" fill="#FFC23D"/>
-<rect x="1034.54" y="278.72" width="29.70" height="29.70" rx="7.13" fill="#FFC23D"/>
-<rect x="1000.26" y="309.15" width="25.08" height="25.08" rx="6.02" fill="#FF8C3A"/>
-<rect x="967.51" y="342.17" width="20.46" height="20.46" rx="4.91" fill="#FF5A4E"/>
-<rect x="1069.48" y="199.89" width="33.00" height="33.00" rx="7.92" fill="#FFC23D"/>
-<rect x="1034.54" y="195.37" width="29.70" height="29.70" rx="7.13" fill="#FFC23D"/>
-<rect x="1000.26" y="195.50" width="25.08" height="25.08" rx="6.02" fill="#FF8C3A"/>
-<rect x="967.51" y="199.46" width="20.46" height="20.46" rx="4.91" fill="#FF5A4E"/>
-<rect x="1106.98" y="162.39" width="33.00" height="33.00" rx="7.92" fill="#FFC23D"/>
-<rect x="1093.48" y="136.43" width="29.70" height="29.70" rx="7.13" fill="#FFC23D"/>
-<rect x="1080.63" y="115.13" width="25.08" height="25.08" rx="6.02" fill="#FF8C3A"/>
-<rect x="1068.42" y="98.56" width="20.46" height="20.46" rx="4.91" fill="#FF5A4E"/>
-<text x="112.0" y="262.0" font-family="Avenir Next Condensed" font-weight="800" font-size="150.0" letter-spacing="-1.0" fill="#F3F6FA">Aludra</text>
-<text x="116.0" y="326.0" font-family="Avenir Next" font-weight="500" font-size="33.0" fill="#8FA3B8">A lightweight page builder</text>
-<text x="116.0" y="370.0" font-family="Avenir Next" font-weight="500" font-size="33.0" fill="#8FA3B8">made of native blocks.</text>
+<g transform="translate(1160.0 215.0) scale(3.350) rotate(40)"><path d="M-13,-22 Q-11,-37 0,-49 Q11,-37 13,-22Z" fill="#FFB020"/><rect x="-13" y="-24" width="26" height="42" rx="4" fill="#2D5BFF"/><rect x="-13" y="-6" width="26" height="6" fill="#FFFFFF"/><path d="M-13,6 L-23,24 Q-17,22 -13,19Z" fill="#FFB020"/><path d="M13,6 L23,24 Q17,22 13,19Z" fill="#FFB020"/><rect x="-6.00" y="24.00" width="12.00" height="12.00" rx="3.00" fill="#FFB020"/><rect x="-4.44" y="41.00" width="8.88" height="8.88" rx="2.22" fill="#FFB020"/><rect x="-3.29" y="54.88" width="6.57" height="6.57" rx="1.64" fill="#FFB020"/><rect x="-2.43" y="66.45" width="4.86" height="4.86" rx="1.22" fill="#FFB020"/><rect x="-1.80" y="76.31" width="3.60" height="3.60" rx="0.90" fill="#FFB020"/></g>
+<text x="112.0" y="250.0" font-family="Avenir Next Condensed" font-weight="800" font-size="150.0" letter-spacing="-1.0" fill="#F3F6FA">Aludra</text>
+<text x="116.0" y="318.0" font-family="Avenir Next" font-weight="500" font-size="33.0" fill="#9AABBF">Everything a page builder gives you,</text>
+<text x="116.0" y="362.0" font-family="Avenir Next" font-weight="500" font-size="33.0" fill="#9AABBF">inside the editor you already have.</text>
 </svg>

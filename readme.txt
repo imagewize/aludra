@@ -8,7 +8,7 @@ Stable tag: 2.41.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-A page builder made of real blocks: 34 blocks and 42 patterns for everything between the header and the footer. Any block theme.
+Ready-made sections and full page layouts for the WordPress block editor. No second editor, no shortcodes, any block theme.
 
 == Description ==
 
@@ -238,7 +238,7 @@ Each block follows standard WordPress block structure:
 = 2.41.0 =
 * Added: Settings → Aludra opens on a new Start tab — create a draft page from any page layout in one click, find the section patterns, and see which optional features your site supports. A Get started link on the Plugins screen leads there
 * Changed: new carousels start on the rail engine, a scroll-snapping row that loads no JavaScript; an Engine setting switches to the Slick slider. Existing carousels are unchanged
-* Changed: new logo, plugin icon and banner — a firework built from blocks
+* Changed: new logo, plugin icon and banner — a firework rocket trailing a line of blocks; tagline "Everything a page builder gives you, inside the editor you already have."
 * Changed: readme documents hiding sections and changing styles per device with the block editor's own controls (WordPress 7.0 and 7.1)
 * Changed: Dutch translation updated for all new strings
 
@@ -371,7 +371,7 @@ The MIT License is GPL-compatible.
 == Credits ==
 
 = Plugin Icon and Logo =
-The plugin icon, banner and logo are original artwork made for Aludra, released under the plugin's own GPL v3 license: a firework built from blocks, cooling from gold at the core to coral at the tips. It is a nod to the Nightflower fireworks of the Illuminators in The Wheel of Time, Aludra's namesake.
+The plugin icon, banner and logo are original artwork made for Aludra, released under the plugin's own GPL v3 license: a firework rocket trailing a line of blocks, in blue and amber that stay distinct for colour-blind viewers. It is a nod to the Nightflower fireworks of the Illuminators in The Wheel of Time, Aludra's namesake.
 
 = Homepage Pattern Client Icons =
 The bike and noodle-bowl icons used in the homepage pattern's "Our Clients" carousel are from Blade UI Kit (Blade Icons), sourced from the Tabler Icons and Maki Icons sets respectively.

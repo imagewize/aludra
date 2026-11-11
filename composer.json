@@ -1,7 +1,7 @@
 {
     "name": "imagewize/aludra",
     "type": "wordpress-plugin",
-    "description": "A page builder made of real blocks — 30 WordPress blocks, 21 section patterns and 8 page layouts for everything between the header and the footer. Native block editor, no shortcodes, theme-neutral.",
+    "description": "Everything a page builder gives you, inside the editor you already have: 34 WordPress blocks, 21 section patterns and 8 page layouts. No second editor, no shortcodes, any theme.",
     "keywords": [
         "wordpress",
         "plugin",

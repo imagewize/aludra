@@ -8,7 +8,7 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
 [![License](https://img.shields.io/packagist/l/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
 
-A lightweight page builder made of native blocks.
+Everything a page builder gives you,<br>inside the editor you already have.
 </div>
 
 ## What it is

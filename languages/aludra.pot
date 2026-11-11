@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-11T08:56:31+00:00\n"
+"POT-Creation-Date: 2026-11-11T09:03:49+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: aludra\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #. Description of the plugin
 #: aludra.php
-msgid "A page builder made of real blocks — 34 blocks, 21 section patterns and 8 page layouts for everything between the header and the footer. Native block editor, no shortcodes, no proprietary markup. Built alongside the Aviendha starter theme; works with any theme."
+msgid "Everything a page builder gives you, inside the editor you already have: 34 blocks, 21 section patterns and 8 page layouts. No second editor, no shortcodes, any theme."
 msgstr ""
 
 #. Author of the plugin
