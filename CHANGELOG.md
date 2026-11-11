@@ -7,10 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.41.0] - 2026-11-11
+
 ### Added
 - **Settings → Aludra → Start**, now the first tab: one card per page layout with a **Create page** button that creates a draft page from it and opens the editor, the section pattern categories with their counts, and checks for a block theme, WordPress 7.0+ (per-device visibility) and WooCommerce. The Plugins screen gains a **Get started** link to it; there is no redirect on activation.
 
 ### Changed
+- New logo, plugin icon and WordPress.org banner: original artwork, a firework built from blocks that cools from gold at the core to coral at the tips. `README.md` uses `assets/logos/aludra-mark.svg`; the banner sources are `assets/logos/wporg-banner.svg` and `wporg-banner-772.svg`. Replaces the Hugeicons fireworks icon, so the credits no longer list it.
+- `README.md` states the positioning briefly and links to `docs/` (blocks, patterns, themes, credits), which stays out of the release zip and Composer archives.
+- Dutch translation updated for every new string (Start tab, carousel Engine panel, settings description).
 - `readme.txt`: documents hiding a section per device with the block editor's own visibility controls (WordPress 7.0+), which every Aludra block supports, and per-device spacing, colour and typography (WordPress 7.1+); the carousel FAQ describes the rail and Slider engines; the build FAQ describes the npm workspace instead of per-block installs.
 - **`aludra/carousel`:** new carousels start on the rail engine, a CSS scroll-snap track that loads no JavaScript, so inserting a carousel no longer puts jQuery and Slick on the page. The sidebar gains an **Engine** panel to switch between rail and the Slick slider, and hides the slider-only settings (toolbar buttons, arrows, dots, autoplay, responsive) while rail is selected. Existing carousels are unchanged: the `engine` attribute still defaults to Slick, and the rail default comes from an inserter variation that writes `"engine":"rail"` explicitly. Block version 1.2.0.
 - `bin/prepare-svn.sh` is removed: WordPress.org releases are deployed with the standalone [svn-wporg-deploy](https://github.com/imagewize/svn-wporg-deploy) script, which also runs the SVN steps the old script only printed. See "Releasing to WordPress.org" in `CLAUDE.md`. Development tooling only; nothing in the plugin changes.

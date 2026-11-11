@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logos/h-fireworks.svg" alt="Aludra Logo" width="128" height="128">
+  <img src="assets/logos/aludra-mark.svg" alt="Aludra" width="128" height="128">
 </p>
 <div align="center">
 <h1>Aludra</h1>
