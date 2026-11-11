@@ -14,9 +14,10 @@
  * its three colour classes, derived from the theme's own colours:
  *
  * - `base` and `contrast`: the lightest and darkest colours in the palette.
- * - `primary`: the first saturated colour that white text is legible on
- *   (4.5:1, else 3:1), so a pale accent such as TT5's yellow `accent-1` is
- *   skipped and its purple `accent-3` is used. With none, `contrast`.
+ * - `primary`: the first saturated colour that the page background colour
+ *   is legible on as text (4.5:1, else 3:1). On TT5 that skips the yellow
+ *   `accent-1` and lands on the purple `accent-3`; on its dark variations it
+ *   picks a light accent. With none, `contrast`.
  * - Every other slug: a `color-mix()` of those three, so tints, borders and
  *   muted text follow the theme, dark style variations included.
  *
@@ -69,16 +70,6 @@ function aludra_palette_luminance( $rgb ) {
 }
 
 /**
- * WCAG contrast ratio of an RGB colour against white.
- *
- * @param int[] $rgb Red, green and blue (0–255).
- * @return float Ratio between 1 and 21.
- */
-function aludra_palette_contrast_with_white( $rgb ) {
-	return 1.05 / ( aludra_palette_luminance( $rgb ) + 0.05 );
-}
-
-/**
  * HSL saturation of an RGB colour, to tell a brand colour from a grey.
  *
  * @param int[] $rgb Red, green and blue (0–255).
@@ -96,16 +87,43 @@ function aludra_palette_saturation( $rgb ) {
 }
 
 /**
+ * WCAG contrast ratio between two RGB colours.
+ *
+ * @param int[] $a Red, green and blue (0–255).
+ * @param int[] $b Red, green and blue (0–255).
+ * @return float Ratio between 1 and 21.
+ */
+function aludra_palette_contrast( $a, $b ) {
+	$la = aludra_palette_luminance( $a );
+	$lb = aludra_palette_luminance( $b );
+	return ( max( $la, $lb ) + 0.05 ) / ( min( $la, $lb ) + 0.05 );
+}
+
+/**
  * Choose the brand colour from a palette.
  *
+ * Text on the brand colour is `base`, the page background: aludra/cta-banner
+ * pairs them, and so do the patterns' buttons. That is the convention of the
+ * Ollie family of themes, whose dark style variations swap `primary` to a
+ * light colour while `base` turns dark. So the brand must be legible under
+ * `base`: 4.5:1, else 3:1. On a light theme that means a colour white-ish
+ * text reads on; on a dark one, a light colour dark text reads on. The same
+ * test keeps the brand from disappearing into the page.
+ *
  * @param array[] $palette Palette entries (`slug`, `color`), in theme order.
+ * @param int[]   $base    The page background colour.
  * @return string|null Slug of the chosen colour, or null when none qualifies.
  */
-function aludra_palette_pick_brand( $palette ) {
+function aludra_palette_pick_brand( $palette, $base ) {
 	foreach ( array( 4.5, 3.0 ) as $min_ratio ) {
 		foreach ( $palette as $entry ) {
+			// The page and text colours are the ground the brand stands on, not the brand.
+			if ( in_array( $entry['slug'] ?? '', array( 'base', 'contrast' ), true ) ) {
+				continue;
+			}
+
 			$rgb = aludra_palette_parse_hex( $entry['color'] ?? '' );
-			if ( $rgb && aludra_palette_saturation( $rgb ) >= 0.25 && aludra_palette_contrast_with_white( $rgb ) >= $min_ratio ) {
+			if ( $rgb && aludra_palette_saturation( $rgb ) >= 0.25 && aludra_palette_contrast( $rgb, $base ) >= $min_ratio ) {
 				return $entry['slug'];
 			}
 		}
@@ -165,7 +183,26 @@ function aludra_palette_fallback_map( $palette ) {
 
 	$light = aludra_palette_pick_extreme( $palette, false );
 	$dark  = aludra_palette_pick_extreme( $palette, true );
-	$brand = aludra_palette_pick_brand( $palette );
+
+	// The page background: the theme's own `base` when it is a plain colour,
+	// else the lightest colour, else white.
+	$colors = array();
+	foreach ( $palette as $entry ) {
+		if ( isset( $entry['slug'], $entry['color'] ) ) {
+			$colors[ $entry['slug'] ] = $entry['color'];
+		}
+	}
+	$base_rgb = aludra_palette_parse_hex( $colors['base'] ?? '' );
+	if ( ! $base_rgb && $light ) {
+		$base_rgb = aludra_palette_parse_hex( $colors[ $light ] );
+	}
+	if ( ! $base_rgb ) {
+		$base_rgb = array( 255, 255, 255 );
+	}
+
+	// With no qualifying colour, the text colour: `base` text reads on it on
+	// light and dark themes alike.
+	$brand = aludra_palette_pick_brand( $palette, $base_rgb );
 
 	$map = array(
 		'base'           => $light ? $var( $light ) : '#ffffff',

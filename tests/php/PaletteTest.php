@@ -175,4 +175,80 @@ class PaletteTest extends TestCase {
 		$this->assertStringContainsString( '.has-primary-background-color{', $css );
 		$this->assertStringContainsString( '.has-primary-border-color{', $css );
 	}
+
+	/**
+	 * TT5 dark variations: the brand is a light colour that dark `base` text reads on.
+	 *
+	 * @dataProvider dark_variations
+	 *
+	 * @param string[] $colors   Variation palette.
+	 * @param string   $expected Expected `primary` value.
+	 */
+	public function test_dark_variation_brand( $colors, $expected ) {
+		$map = aludra_palette_fallback_map( $this->palette( $colors ) );
+
+		$this->assertSame( $expected, $map['primary'] );
+	}
+
+	/**
+	 * Palettes from twentytwentyfive/styles/*.json.
+	 *
+	 * @return array[] Palette and expected brand per variation.
+	 */
+	public static function dark_variations() {
+		return array(
+			'Evening'  => array(
+				array(
+					'base'     => '#1B1B1B',
+					'contrast' => '#F0F0F0',
+					'accent-1' => '#786D0A',
+					'accent-2' => '#442369',
+					'accent-3' => '#D1D0EA',
+					'accent-4' => '#CBCBCB',
+					'accent-5' => '#353535',
+				),
+				// The olive accent-1 reaches only 3.3:1 against the page.
+				'var(--wp--preset--color--accent-3)',
+			),
+			'Twilight' => array(
+				array(
+					'base'     => '#131313',
+					'contrast' => '#FFFFFF',
+					'accent-1' => '#4B52FF',
+					'accent-2' => '#FF7A5C',
+					'accent-3' => '#252525',
+					'accent-4' => '#FFFFFF',
+					'accent-5' => '#252525',
+				),
+				// The blue accent-1 reaches only 3.5:1; the coral accent-2 7:1.
+				'var(--wp--preset--color--accent-2)',
+			),
+			// Its saturated wine page must not become the brand.
+			'Sunrise'  => array(
+				array(
+					'base'     => '#330616',
+					'contrast' => '#FFFFFF',
+					'accent-1' => '#F0FDA6',
+					'accent-2' => '#DB9AB1',
+					'accent-3' => '#C1E4E7',
+					'accent-4' => '#DB9AB1',
+					'accent-5' => '#4A1628',
+				),
+				'var(--wp--preset--color--accent-1)',
+			),
+			// Purple page; the first light accent is the mint accent-4.
+			'Midnight' => array(
+				array(
+					'base'     => '#4433A6',
+					'contrast' => '#79F3B1',
+					'accent-1' => '#5644BC',
+					'accent-2' => '#372696',
+					'accent-3' => '#251D51',
+					'accent-4' => '#79F3B1',
+					'accent-5' => '#E8B7FF',
+				),
+				'var(--wp--preset--color--accent-4)',
+			),
+		);
+	}
 }
