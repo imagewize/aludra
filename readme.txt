@@ -26,6 +26,7 @@ You rarely start from an empty block. You pick a section — a hero that already
 * **8 page patterns** — homepage, landing, service, services overview, pricing, about, team and contact, offered when you create a new page
 * **34 blocks** — grouped into six inserter categories that follow the order a page gets built in, and individually enable/disable-able under Settings → Aludra
 * **13 more patterns** — five pre-configured carousels and eight mega menu layouts for menu template parts
+* **Show or hide any section per device** — every Aludra block works with the block editor's own visibility controls, so a band can be hidden on mobile, tablet or desktop (WordPress 7.0 and later). No extra markup or scripts: core adds one class and one media query
 
 = Building a site with Aludra =
 
@@ -43,21 +44,25 @@ None of that is required. Aludra is theme-neutral — blocks resolve colours fro
 
 == Frequently Asked Questions ==
 
+= Can I hide a section on mobile? =
+
+Yes. On WordPress 7.0 and later, select the block and use the editor's Show / Hide setting to pick the devices it should be hidden on. This is the block editor's own visibility setting, so it works the same on Aludra blocks as on core blocks. The breakpoints come from your theme (480px and 782px by default).
+
 = Does this plugin work with any theme? =
 
 Yes. Aludra is a theme-neutral block library and works with any WordPress theme — FSE, block, or classic. It is used across the Imagewize block themes (Elayne, Aviendha), and blocks reference theme color presets with fallbacks so they render correctly everywhere.
 
 = How do I build the blocks from source? =
 
-Each block has isolated dependencies and must be built separately:
+The blocks share one npm workspace. Install once from the repository root, then build:
 
 ```
-cd blocks/carousel && npm install && npm run build
-cd blocks/mega-menu && npm install && npm run build
-cd blocks/slide && npm install && npm run build
+npm ci
+npm run build --workspaces --if-present
+npm run build --workspace=blocks/carousel
 ```
 
-For development mode with watch: `cd blocks/[block-name] && npm start`
+The first build command builds every block, the second just one. For development mode with watch: `npm start --workspace=blocks/[block-name]`
 
 = Are the build files included? =
 
@@ -65,7 +70,7 @@ Yes, the `build/` directories are committed to the repository for Packagist dist
 
 = Can I customize the carousel settings? =
 
-Yes, the carousel block uses Slick Carousel which is highly customizable. You can extend the block to add additional Slick settings through the block attributes.
+Yes. A new carousel starts as a scroll rail: a swipeable row of slides that loads no JavaScript. Switch the Engine setting in the sidebar to Slider for arrows, dots, autoplay, center mode and thumbnail navigation; that engine uses Slick Carousel and loads jQuery only on pages where such a carousel appears.
 
 = Does the Mega Menu work with keyboard navigation? =
 
