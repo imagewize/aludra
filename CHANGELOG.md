@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Aludra's blocks and patterns now follow the colours of themes that do not use Aviendha's palette. They name colours such as `primary`, `main`, `tertiary` and `border-light`; on a theme without them (Twenty Twenty-Five names its colours `base`, `contrast` and `accent-1` to `accent-6`), the block stylesheets fell back to hardcoded Aviendha colours and the pattern colour classes had no CSS at all. For each such colour the theme does not define, `includes/palette.php` now defines the variable and its `has-*-color`, `-background-color` and `-border-color` classes from the theme's own palette: the brand colour is the first saturated colour white text is legible on (on Twenty Twenty-Five, `accent-3`, skipping the yellow and pink accents), and tints, borders and muted text are `color-mix()` blends of the theme's base and contrast colours. Colours a theme defines are never touched, and nothing is printed for themes that define them all, such as Aviendha. The `aludra_palette_fallbacks` filter changes or removes the map.
+
+### Changed
+- Settings → Aludra → Start: **Create page** puts the new page on the theme's title-less page template (`page-no-title` on Twenty Twenty-Five) when the theme's default page template prints the post title, so the title no longer sits above the layout's own hero. Themes whose default page template has no title keep it. The `aludra_layout_page_templates` filter adds other template slugs to try.
+
+### Added
 - **`aludra/carousel`:** spacing support. Top and bottom margin, and **Block spacing** for the gap between slides, on both engines: the rail's grid gap, Slick's per-slide padding (half the gap each side) and the editor's slide row. Core writes `blockGap` only for blocks with layout support, so the carousel publishes the value as the `--aludra-carousel-gap` custom property itself (`src/gap.js`). Left and right margin are not offered, because the rail's negative inline margin is what lets it bleed to the edge. Carousels without a gap set save exactly as before, so no deprecation is needed. Block version 1.3.0.
 
 ### Fixed

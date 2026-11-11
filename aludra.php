@@ -29,6 +29,7 @@ define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 require_once ALUDRA_PLUGIN_DIR . 'includes/woocommerce.php';
 require_once ALUDRA_PLUGIN_DIR . 'includes/block-hooks.php';
+require_once ALUDRA_PLUGIN_DIR . 'includes/palette.php';
 
 // Load admin settings page.
 if ( is_admin() ) {
