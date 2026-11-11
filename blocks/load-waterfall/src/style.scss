@@ -84,6 +84,15 @@
 		}
 	}
 
+	/* Each bar starts 0.15s after the one above it. Kept in CSS, not in an
+	   inline style, because KSES strips `animation-delay` from the markup of
+	   users without unfiltered_html (see rows.js). Covers MAX_ROWS rows. */
+	@for $i from 1 through 12 {
+		.wf-row:nth-child(#{$i}) .wf-bar {
+			animation-delay: #{0.1 + ($i - 1) * 0.15}s;
+		}
+	}
+
 	.wf-axis {
 		display: grid;
 		grid-template-columns: 5.6rem 1fr;

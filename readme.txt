@@ -101,6 +101,7 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 * Parent block that only accepts Slide blocks as children
 * Assets loaded conditionally only when carousel is present on page
 * Fully customizable carousel settings
+* Top and bottom margin and the gap between slides set from the block's Spacing panel
 
 **Slide Block**
 * Individual slides for use within Carousel blocks
