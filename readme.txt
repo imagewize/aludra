@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.41.0
+Stable tag: 2.42.1
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -235,6 +235,15 @@ Each block follows standard WordPress block structure:
 5. FAQ section with the first answer expanded
 
 == Changelog ==
+
+= 2.42.1 =
+* Added: Aludra now takes on the colours of any block theme. On a theme that does not use Aviendha's colour names, such as Twenty Twenty-Five, its sections use the theme's own palette, dark style variations included, instead of Aviendha's colours
+* Added: Settings → Aludra → Start has a Brand colour section to pick which of your theme's colours Aludra uses for buttons, call-to-action bands and highlights
+* Added: the Carousel block has margin and block spacing (gap between slides) settings
+* Changed: pages created from the Start tab use your theme's title-less page template when it has one, so the page title no longer appears above the layout's hero
+* Changed: Dutch translation updated for all new strings
+* Fixed: the Load Waterfall block no longer becomes invalid when saved by a user without the unfiltered_html capability, such as an author, or any role below super admin on a multisite
+* Version 2.42.0 was tagged without its version number set; 2.42.1 is the same release
 
 = 2.41.0 =
 * Added: Settings → Aludra opens on a new Start tab — create a draft page from any page layout in one click, find the section patterns, and see which optional features your site supports. A Get started link on the Plugins screen leads there
