@@ -496,7 +496,12 @@ function aludra_settings_page_html() {
 	);
 
 	// Read-only tab switch; the forms post to options.php with their own nonce.
-	$tab = isset( $_GET['tab'] ) && 'store' === sanitize_key( wp_unslash( $_GET['tab'] ) ) ? 'store' : 'blocks'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	// Start is the default, so the plain menu link and the Plugins screen's
+	// "Get started" link both land on it.
+	$tab = isset( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : 'start'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	if ( ! in_array( $tab, array( 'start', 'blocks', 'store' ), true ) ) {
+		$tab = 'start';
+	}
 
 	$total_count   = count( $blocks );
 	$enabled_count = 0;
@@ -516,7 +521,7 @@ function aludra_settings_page_html() {
 					<span class="sub">
 						<?php
 						/* translators: %d: total number of blocks */
-						printf( esc_html__( 'Block library · %d blocks for Imagewize themes', 'aludra' ), (int) $total_count );
+						printf( esc_html__( 'Page builder · %d blocks for any block theme', 'aludra' ), (int) $total_count );
 						?>
 					</span>
 				</div>
@@ -525,11 +530,14 @@ function aludra_settings_page_html() {
 		</header>
 
 		<nav class="nav-tab-wrapper aludra-tabs">
-			<a href="<?php echo esc_url( admin_url( 'options-general.php?page=aludra' ) ); ?>" class="nav-tab<?php echo 'blocks' === $tab ? ' nav-tab-active" aria-current="page' : ''; ?>"><?php esc_html_e( 'Blocks', 'aludra' ); ?></a>
+			<a href="<?php echo esc_url( admin_url( 'options-general.php?page=aludra' ) ); ?>" class="nav-tab<?php echo 'start' === $tab ? ' nav-tab-active" aria-current="page' : ''; ?>"><?php esc_html_e( 'Start', 'aludra' ); ?></a>
+			<a href="<?php echo esc_url( admin_url( 'options-general.php?page=aludra&tab=blocks' ) ); ?>" class="nav-tab<?php echo 'blocks' === $tab ? ' nav-tab-active" aria-current="page' : ''; ?>"><?php esc_html_e( 'Blocks', 'aludra' ); ?></a>
 			<a href="<?php echo esc_url( admin_url( 'options-general.php?page=aludra&tab=store' ) ); ?>" class="nav-tab<?php echo 'store' === $tab ? ' nav-tab-active" aria-current="page' : ''; ?>"><?php esc_html_e( 'Store', 'aludra' ); ?></a>
 		</nav>
 
-		<?php if ( 'store' === $tab ) : ?>
+		<?php if ( 'start' === $tab ) : ?>
+			<?php aludra_render_start_tab(); ?>
+		<?php elseif ( 'store' === $tab ) : ?>
 			<?php aludra_render_store_tab( $blocks, $enabled_blocks ); ?>
 		<?php else : ?>
 		<form action="options.php" method="post">

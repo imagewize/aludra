@@ -33,6 +33,7 @@ require_once ALUDRA_PLUGIN_DIR . 'includes/block-hooks.php';
 // Load admin settings page.
 if ( is_admin() ) {
 	require_once ALUDRA_PLUGIN_DIR . 'includes/admin/settings-page.php';
+	require_once ALUDRA_PLUGIN_DIR . 'includes/admin/start-tab.php';
 }
 
 /**

@@ -2,10 +2,9 @@
 /node_modules export-ignore
 /tests export-ignore
 
-# Guards, not descriptions: docs/ and designs/ no longer exist here. Planning
-# documents and design mockups live in the private imagewize.com repo, under
-# docs/aludra/ and designs/aludra/ (see CLAUDE.md). Kept in step with
-# .distignore so a stray file re-added here stays out of source archives too.
+# docs/ is public reference for GitHub readers and stays out of Composer
+# archives; designs/ is a guard, since mockups live in the private
+# imagewize.com repo (see CLAUDE.md). Kept in step with .distignore.
 /docs export-ignore
 /designs export-ignore
 /bin export-ignore

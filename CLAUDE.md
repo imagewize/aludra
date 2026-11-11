@@ -322,10 +322,15 @@ add_filter( 'default_wp_template_part_areas', function( $areas ) {
 
 ## Where docs and design mockups live
 
-**Not in this repo.** Planning documents, roadmaps, block/palette/font contracts and HTML design
-mockups belong in the `imagewize/imagewize.com` repo, under `docs/aludra/` and `designs/aludra/` —
-the same per-project layout Aviendha, Elayne and Nynaeve use. Elayne and Nynaeve ship no `docs/` or
-`designs/` directory at all; keep it that way here.
+**`docs/` here is public reference only** — what ships, written for GitHub readers: `blocks.md`,
+`patterns.md`, `themes.md`, `credits.md`, linked from a deliberately short `README.md`. Update it
+with the change that makes it stale. It is excluded from the release zip (`.distignore`) and from
+Composer archives (`.gitattributes` `export-ignore`); WordPress.org users get `readme.txt`.
+
+**Planning is not in this repo.** Planning documents, roadmaps, block/palette/font contracts and HTML
+design mockups belong in the `imagewize/imagewize.com` repo, under `docs/aludra/` and
+`designs/aludra/` — the same per-project layout Aviendha, Elayne and Nynaeve use. Never add a
+`designs/` directory here, and never put unshipped plans in `docs/`.
 
 **That repo is private, and access is limited to the Imagewize team.** Contributors outside the
 team cannot read it, so nothing here — no code comment, no README, no issue reply — should treat a
@@ -340,8 +345,8 @@ from the first (every file in the old `designs/aviendha/` was already duplicated
 before this rule).
 
 Durable rationale for a change belongs in the commit message and in code comments, not in a
-document — that is what makes the split cost nothing. `.distignore` and `.gitattributes` still
-carry `docs/` and `designs/` entries as a guard, so a stray file never reaches a release zip.
+document — that is what makes the split cost nothing. `.distignore` and `.gitattributes` carry a
+`designs/` entry as a guard, so a stray file never reaches a release zip.
 
 ## Pattern Development Guidelines
 
