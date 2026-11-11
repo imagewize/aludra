@@ -31,7 +31,7 @@ export default function save( { attributes } ) {
 						<div className="wf-track">
 							<i
 								className={ `wf-bar${ row.variant ? ` ${ row.variant }` : '' }` }
-								style={ { left: `${ row.left }%`, width: `${ row.width }%`, animationDelay: `${ row.delay }s` } }
+								style={ { left: `${ row.left }%`, width: `${ row.width }%` } }
 							/>
 							{ row.hasLcpMarker && (
 								<b className="wf-lcp" style={ { left: `${ row.left }%` } }>

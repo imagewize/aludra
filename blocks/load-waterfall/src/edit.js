@@ -106,7 +106,6 @@ export default function Edit( { attributes, setAttributes } ) {
 									style={ {
 										left: `${ row.left }%`,
 										width: `${ row.width }%`,
-										animationDelay: `${ row.delay }s`,
 									} }
 								/>
 								{ row.hasLcpMarker && (

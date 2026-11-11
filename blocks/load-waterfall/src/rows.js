@@ -1,9 +1,16 @@
 /**
- * Row geometry for the waterfall panel — offsets, widths, animation delays and
- * bar colour variants, the first six ported from the mockup
+ * Row geometry for the waterfall panel — offsets, widths and bar colour
+ * variants, the first six ported from the mockup
  * (designs/aviendha/aviendha-redesign.html, ~lines 375-389). These stay
  * structural constants rather than block attributes: only the row labels, site
  * URL, badge and LCP label are editable (see block.json).
+ *
+ * The staggered animation delay is not here: it lives in style.scss, keyed on
+ * the row's position. As an inline `animation-delay` it was stripped by KSES
+ * (`safecss_filter_attr()` does not allow the property) whenever someone
+ * without `unfiltered_html` saved the post — every role below super admin on
+ * a multisite — which broke block validation and made all bars grow at once.
+ * `left` and `width` are on the KSES allow list and stay inline.
  *
  * How many rows render is driven by how many labels `rowLabels` carries, up to
  * MAX_ROWS. The panel was previously hardcoded to exactly six — save() mapped
@@ -19,18 +26,18 @@
  * three-row panel.
  */
 export const ROWS = [
-	{ left: 0, width: 22, delay: 0.1, variant: 'is-doc' },
-	{ left: 22, width: 14, delay: 0.25, variant: 'is-css' },
-	{ left: 26, width: 26, delay: 0.4, variant: 'is-img' },
-	{ left: 30, width: 18, delay: 0.55, variant: null },
-	{ left: 52, width: 20, delay: 0.7, variant: null, hasLcpMarker: true },
-	{ left: 72, width: 12, delay: 0.85, variant: null },
-	{ left: 78, width: 10, delay: 1, variant: null },
-	{ left: 82, width: 9, delay: 1.15, variant: null },
-	{ left: 84, width: 8, delay: 1.3, variant: null },
-	{ left: 86, width: 7, delay: 1.45, variant: null },
-	{ left: 88, width: 6, delay: 1.6, variant: null },
-	{ left: 90, width: 6, delay: 1.75, variant: null },
+	{ left: 0, width: 22, variant: 'is-doc' },
+	{ left: 22, width: 14, variant: 'is-css' },
+	{ left: 26, width: 26, variant: 'is-img' },
+	{ left: 30, width: 18, variant: null },
+	{ left: 52, width: 20, variant: null, hasLcpMarker: true },
+	{ left: 72, width: 12, variant: null },
+	{ left: 78, width: 10, variant: null },
+	{ left: 82, width: 9, variant: null },
+	{ left: 84, width: 8, variant: null },
+	{ left: 86, width: 7, variant: null },
+	{ left: 88, width: 6, variant: null },
+	{ left: 90, width: 6, variant: null },
 ];
 
 /**
