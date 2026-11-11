@@ -60,6 +60,50 @@ function aludra_get_page_layouts() {
 }
 
 /**
+ * The page template a page layout should use, or '' for the theme's default.
+ *
+ * Every page layout opens with its own hero, so a theme whose default page
+ * template prints the post title would show that title, and its spacing, above
+ * the hero. Twenty Twenty-Five does this and ships a `page-no-title` template
+ * for exactly this case. A no-title template is chosen only when the default
+ * template really prints a title; themes such as Aviendha, whose default page
+ * template has none, keep their default.
+ *
+ * @return string Template slug, or '' to leave the page on the default.
+ */
+function aludra_get_layout_page_template() {
+	if ( ! wp_is_block_theme() ) {
+		return '';
+	}
+
+	$default = get_block_template( get_stylesheet() . '//page' );
+	if ( ! $default || false === strpos( $default->content, '<!-- wp:post-title' ) ) {
+		return '';
+	}
+
+	/**
+	 * Filters the template slugs tried, in order, for pages created from a
+	 * page layout. A theme whose title-less page template uses another slug
+	 * can add it here.
+	 *
+	 * @param string[] $candidates Template slugs.
+	 */
+	$candidates = apply_filters(
+		'aludra_layout_page_templates',
+		array( 'page-no-title', 'page-without-title', 'no-title', 'page-blank', 'blank' )
+	);
+
+	$available = wp_get_theme()->get_page_templates( null, 'page' );
+	foreach ( (array) $candidates as $slug ) {
+		if ( isset( $available[ $slug ] ) ) {
+			return $slug;
+		}
+	}
+
+	return '';
+}
+
+/**
  * Create a draft page from a page layout and open it in the editor.
  *
  * Runs on admin-post.php, so it is a real POST with a nonce rather than a GET
@@ -84,10 +128,11 @@ function aludra_handle_create_page() {
 	$page_id = wp_insert_post(
 		wp_slash(
 			array(
-				'post_type'    => 'page',
-				'post_status'  => 'draft',
-				'post_title'   => $layouts[ $slug ]['title'],
-				'post_content' => $layouts[ $slug ]['content'],
+				'post_type'     => 'page',
+				'post_status'   => 'draft',
+				'post_title'    => $layouts[ $slug ]['title'],
+				'post_content'  => $layouts[ $slug ]['content'],
+				'page_template' => aludra_get_layout_page_template(),
 			)
 		),
 		true
