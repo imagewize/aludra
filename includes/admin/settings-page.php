@@ -56,8 +56,36 @@ function aludra_register_settings() {
 			'default'           => array(),
 		)
 	);
+
+	register_setting(
+		'aludra_brand_settings',
+		ALUDRA_BRAND_OPTION,
+		array(
+			'type'              => 'array',
+			'sanitize_callback' => 'aludra_sanitize_brand_color',
+			'default'           => array(),
+		)
+	);
 }
 add_action( 'admin_init', 'aludra_register_settings' );
+
+/**
+ * Sanitize the Start tab's brand colour: merge the active theme's choice into
+ * the option, accepting only a slug from the theme's own palette.
+ *
+ * @param mixed $input Raw input from the Start tab, or an already stored value.
+ * @return array Per-theme brand colour slugs.
+ */
+function aludra_sanitize_brand_color( $input ) {
+	$palettes = aludra_palette_site_palettes();
+
+	return aludra_merge_brand_choice(
+		get_option( ALUDRA_BRAND_OPTION, array() ),
+		$input,
+		get_stylesheet(),
+		wp_list_pluck( $palettes['own'], 'slug' )
+	);
+}
 
 /**
  * Sanitize the Store tab: merge the active theme's choices into the option.

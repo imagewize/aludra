@@ -289,6 +289,8 @@ function aludra_render_start_tab() {
 		</ul>
 	</section>
 
+	<?php aludra_render_brand_colour_section(); ?>
+
 	<section class="aludra-cat">
 		<div class="aludra-cat-head">
 			<span class="aludra-cat-eyebrow">
@@ -345,6 +347,115 @@ function aludra_render_start_tab() {
 			);
 			?>
 		</p>
+	</section>
+	<?php
+}
+
+/**
+ * Render the Start tab's brand colour section.
+ *
+ * Only themes without a `primary` colour of their own get a choice: for them
+ * Aludra picks the brand colour from the palette (see includes/palette.php),
+ * and this lets an admin pick a different palette colour. The choice is a
+ * palette slug saved per theme, so it follows the theme's style variations.
+ */
+function aludra_render_brand_colour_section() {
+	$status  = aludra_palette_brand_status();
+	$theme   = wp_get_theme()->get( 'Name' );
+	$colors  = array();
+	$names   = array();
+	$current = $status['override'];
+	foreach ( $status['palette'] as $entry ) {
+		if ( isset( $entry['slug'], $entry['color'] ) ) {
+			$colors[ $entry['slug'] ] = $entry['color'];
+			$names[ $entry['slug'] ]  = $entry['name'] ?? $entry['slug'];
+		}
+	}
+
+	// The colour automatic resolves to, for its swatch: the picked slug, or the
+	// text colour when no palette colour qualifies.
+	$auto_slug  = $status['auto'] ? $status['auto'] : 'contrast';
+	$auto_color = $colors[ $auto_slug ] ?? '#111111';
+	$auto_name  = $names[ $auto_slug ] ?? __( 'Text colour', 'aludra' );
+
+	// A saved choice the palette no longer has is ignored, so show automatic.
+	if ( '' !== $current && ! isset( $colors[ $current ] ) ) {
+		$current = '';
+	}
+	?>
+	<section class="aludra-cat">
+		<div class="aludra-cat-head">
+			<span class="aludra-cat-eyebrow">
+				<?php echo aludra_star_svg( 'tick' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- hard-coded SVG markup. ?>
+				<?php esc_html_e( 'Brand colour', 'aludra' ); ?>
+			</span>
+			<span class="aludra-cat-rule"></span>
+		</div>
+
+		<?php if ( $status['theme_primary'] ) : ?>
+			<p class="aludra-intro">
+				<?php
+				/* translators: %s: active theme name */
+				printf( esc_html__( '%s defines its own brand colour, so Aludra\'s buttons, call-to-action bands and highlights use it. There is nothing to set here: change the colour in the Site Editor under Styles.', 'aludra' ), esc_html( $theme ) );
+				?>
+			</p>
+		<?php elseif ( empty( $colors ) ) : ?>
+			<p class="aludra-intro">
+				<?php
+				/* translators: %s: active theme name */
+				printf( esc_html__( '%s has no colour palette, so Aludra uses its own default colours.', 'aludra' ), esc_html( $theme ) );
+				?>
+			</p>
+		<?php else : ?>
+			<p class="aludra-intro">
+				<?php
+				/* translators: %s: active theme name */
+				printf( esc_html__( '%s does not name a brand colour the way Aludra does, so Aludra picks one from its palette for buttons, call-to-action bands and highlights: the first colour that your background colour reads well on as text. Choose another one here. The choice is saved for this theme only, and follows its style variations.', 'aludra' ), esc_html( $theme ) );
+				?>
+			</p>
+			<?php if ( current_user_can( 'manage_options' ) ) : ?>
+				<form action="options.php" method="post">
+					<?php settings_fields( 'aludra_brand_settings' ); ?>
+					<input type="hidden" name="<?php echo esc_attr( ALUDRA_BRAND_OPTION ); ?>[form]" value="1" />
+					<fieldset class="aludra-swatches">
+						<legend class="screen-reader-text"><?php esc_html_e( 'Brand colour', 'aludra' ); ?></legend>
+						<label class="aludra-swatch-option">
+							<input type="radio" name="<?php echo esc_attr( ALUDRA_BRAND_OPTION ); ?>[slug]" value="" <?php checked( $current, '' ); ?> />
+							<span class="aludra-swatch" style="background: <?php echo esc_attr( $auto_color ); ?>"></span>
+							<span class="aludra-swatch-text">
+								<b><?php esc_html_e( 'Automatic', 'aludra' ); ?></b>
+								<span><?php echo esc_html( $auto_name ); ?></span>
+							</span>
+						</label>
+						<?php foreach ( $colors as $slug => $color ) : ?>
+							<?php
+							if ( 'base' === $slug ) {
+								continue; // The page background itself is never a usable brand colour.
+							}
+							$rgb = aludra_palette_parse_hex( $color );
+							$low = $rgb && aludra_palette_contrast( $rgb, $status['base'] ) < 3;
+							?>
+							<label class="aludra-swatch-option">
+								<input type="radio" name="<?php echo esc_attr( ALUDRA_BRAND_OPTION ); ?>[slug]" value="<?php echo esc_attr( $slug ); ?>" <?php checked( $current, $slug ); ?> />
+								<span class="aludra-swatch" style="background: <?php echo esc_attr( $color ); ?>"></span>
+								<span class="aludra-swatch-text">
+									<b><?php echo esc_html( $names[ $slug ] ); ?></b>
+									<?php if ( $low ) : ?>
+										<span class="is-warning" title="<?php esc_attr_e( 'Text in your background colour is hard to read on this colour.', 'aludra' ); ?>">
+											<?php esc_html_e( 'Low contrast', 'aludra' ); ?>
+											<span class="screen-reader-text"><?php esc_html_e( ': text in your background colour is hard to read on this colour.', 'aludra' ); ?></span>
+										</span>
+									<?php else : ?>
+										<span><?php echo esc_html( $slug ); ?></span>
+									<?php endif; ?>
+								</span>
+							</label>
+						<?php endforeach; ?>
+					</fieldset>
+					<?php submit_button( __( 'Save brand colour', 'aludra' ), 'primary', 'submit', false ); ?>
+				</form>
+			<?php endif; ?>
+		<?php endif; ?>
 	</section>
 	<?php
 }

@@ -23,7 +23,9 @@
  *
  * Slugs the theme defines are never touched, and nothing is printed when the
  * theme defines all of them (Aviendha and the themes built on its palette).
- * Filter `aludra_palette_fallbacks` to change the map, or return an empty
+ * An administrator can pick a different brand colour from the theme's palette
+ * on the Start tab (`ALUDRA_BRAND_OPTION`, per theme). Filter
+ * `aludra_palette_fallbacks` to change the map after that, or return an empty
  * array to switch this off.
  *
  * @package Aludra
@@ -159,14 +161,41 @@ function aludra_palette_pick_extreme( $palette, $darkest ) {
 }
 
 /**
+ * The page background colour of a palette: its `base` when that is a plain
+ * colour, else its lightest colour, else white.
+ *
+ * @param array[] $palette Palette entries (`slug`, `color`).
+ * @return int[] Red, green and blue (0–255).
+ */
+function aludra_palette_base_rgb( $palette ) {
+	$colors = array();
+	foreach ( $palette as $entry ) {
+		if ( isset( $entry['slug'], $entry['color'] ) ) {
+			$colors[ $entry['slug'] ] = $entry['color'];
+		}
+	}
+
+	$rgb = aludra_palette_parse_hex( $colors['base'] ?? '' );
+	if ( ! $rgb ) {
+		$light = aludra_palette_pick_extreme( $palette, false );
+		$rgb   = $light ? aludra_palette_parse_hex( $colors[ $light ] ) : null;
+	}
+
+	return $rgb ? $rgb : array( 255, 255, 255 );
+}
+
+/**
  * Fallback values for the Aludra colour slugs a palette lacks.
  *
- * Pure function of the palette, so it can be tested without WordPress.
+ * Pure function of its arguments, so it can be tested without WordPress.
  *
- * @param array[] $palette Palette entries (`slug`, `color`) the site defines.
+ * @param array[] $palette        Palette entries (`slug`, `color`) the site defines.
+ * @param string  $brand_override Palette slug chosen as brand on the Start tab,
+ *                                or '' for automatic. Ignored when the palette
+ *                                does not contain it.
  * @return string[] CSS value per missing slug; empty when nothing is missing.
  */
-function aludra_palette_fallback_map( $palette ) {
+function aludra_palette_fallback_map( $palette, $brand_override = '' ) {
 	$defined = array();
 	foreach ( $palette as $entry ) {
 		if ( isset( $entry['slug'] ) ) {
@@ -184,25 +213,12 @@ function aludra_palette_fallback_map( $palette ) {
 	$light = aludra_palette_pick_extreme( $palette, false );
 	$dark  = aludra_palette_pick_extreme( $palette, true );
 
-	// The page background: the theme's own `base` when it is a plain colour,
-	// else the lightest colour, else white.
-	$colors = array();
-	foreach ( $palette as $entry ) {
-		if ( isset( $entry['slug'], $entry['color'] ) ) {
-			$colors[ $entry['slug'] ] = $entry['color'];
-		}
-	}
-	$base_rgb = aludra_palette_parse_hex( $colors['base'] ?? '' );
-	if ( ! $base_rgb && $light ) {
-		$base_rgb = aludra_palette_parse_hex( $colors[ $light ] );
-	}
-	if ( ! $base_rgb ) {
-		$base_rgb = array( 255, 255, 255 );
-	}
-
 	// With no qualifying colour, the text colour: `base` text reads on it on
-	// light and dark themes alike.
-	$brand = aludra_palette_pick_brand( $palette, $base_rgb );
+	// light and dark themes alike. A choice made on the Start tab wins, as
+	// long as the palette still has that colour.
+	$brand = ( '' !== $brand_override && 'primary' !== $brand_override && isset( $defined[ $brand_override ] ) )
+		? $brand_override
+		: aludra_palette_pick_brand( $palette, aludra_palette_base_rgb( $palette ) );
 
 	$map = array(
 		'base'           => $light ? $var( $light ) : '#ffffff',
@@ -258,21 +274,109 @@ function aludra_palette_fallback_css( $map ) {
 }
 
 /**
- * Print the fallbacks for the active theme, in the editor and on the front end.
+ * Option holding the brand colour chosen on the Start tab, per theme: an array
+ * of stylesheet => palette slug. Per theme, because palettes differ per theme;
+ * a slug rather than a colour, so the choice follows the theme's style
+ * variations.
  */
-function aludra_enqueue_palette_fallbacks() {
-	$palette = array();
+const ALUDRA_BRAND_OPTION = 'aludra_brand_color';
+
+/**
+ * The site's palettes.
+ *
+ * @return array[] `own`: the theme's palette, or the user's when they edited it
+ *                 in the Site Editor (that is what replaces it); `all`: every
+ *                 entry from every origin, core's defaults included.
+ */
+function aludra_palette_site_palettes() {
+	$all     = array();
 	$origins = wp_get_global_settings( array( 'color', 'palette' ) );
 	foreach ( array( 'default', 'theme', 'custom' ) as $origin ) {
 		if ( ! empty( $origins[ $origin ] ) && is_array( $origins[ $origin ] ) ) {
-			$palette = array_merge( $palette, $origins[ $origin ] );
+			$all = array_merge( $all, $origins[ $origin ] );
 		}
 	}
 
+	return array(
+		'own' => ! empty( $origins['custom'] ) ? $origins['custom'] : ( $origins['theme'] ?? array() ),
+		'all' => $all,
+	);
+}
+
+/**
+ * The brand colour chosen on the Start tab for the active theme.
+ *
+ * @return string Palette slug, or '' for automatic.
+ */
+function aludra_get_brand_override() {
+	$choices = get_option( ALUDRA_BRAND_OPTION, array() );
+	$slug    = is_array( $choices ) ? ( $choices[ get_stylesheet() ] ?? '' ) : '';
+
+	return is_string( $slug ) ? $slug : '';
+}
+
+/**
+ * Merge a Start tab brand choice into the stored option.
+ *
+ * Pure function, so it can be tested without WordPress.
+ *
+ * @param mixed    $stored     The option as stored.
+ * @param mixed    $input      Submitted form data (`form` marker plus `slug`), or
+ *                             an already stored value passed back through
+ *                             sanitization by update_option().
+ * @param string   $stylesheet The active theme.
+ * @param string[] $slugs      Slugs in the active theme's palette.
+ * @return string[] Stylesheet => palette slug.
+ */
+function aludra_merge_brand_choice( $stored, $input, $stylesheet, $slugs ) {
+	$stored = is_array( $stored ) ? $stored : array();
+
+	// Not a form submission: an already stored value. Keep string entries only.
+	if ( ! is_array( $input ) || empty( $input['form'] ) ) {
+		return is_array( $input ) ? array_filter( $input, 'is_string' ) : $stored;
+	}
+
+	$slug = isset( $input['slug'] ) && is_string( $input['slug'] ) ? $input['slug'] : '';
+	if ( '' !== $slug && in_array( $slug, $slugs, true ) ) {
+		$stored[ $stylesheet ] = $slug;
+	} else {
+		unset( $stored[ $stylesheet ] );
+	}
+
+	return $stored;
+}
+
+/**
+ * What the Start tab shows about the brand colour.
+ *
+ * @return array `theme_primary`: whether the theme defines `primary` itself;
+ *               `palette`: the theme's own palette entries; `auto`: the slug
+ *               Aludra would pick (null for the text colour); `override`: the
+ *               saved choice, '' for automatic; `base`: the page background RGB.
+ */
+function aludra_palette_brand_status() {
+	$palettes = aludra_palette_site_palettes();
+	$slugs    = wp_list_pluck( $palettes['own'], 'slug' );
+
+	return array(
+		'theme_primary' => in_array( 'primary', $slugs, true ),
+		'palette'       => $palettes['own'],
+		'auto'          => aludra_palette_pick_brand( $palettes['own'], aludra_palette_base_rgb( $palettes['own'] ) ),
+		'override'      => aludra_get_brand_override(),
+		'base'          => aludra_palette_base_rgb( $palettes['own'] ),
+	);
+}
+
+/**
+ * Print the fallbacks for the active theme, in the editor and on the front end.
+ */
+function aludra_enqueue_palette_fallbacks() {
+	$palettes = aludra_palette_site_palettes();
+	$palette  = $palettes['all'];
+
 	// Pick base, contrast and brand from the theme's (or the user's) own
 	// colours, never from core's default palette of named vivid colours.
-	$own = ! empty( $origins['custom'] ) ? $origins['custom'] : ( $origins['theme'] ?? array() );
-	$map = aludra_palette_fallback_map( $own );
+	$map = aludra_palette_fallback_map( $palettes['own'], aludra_get_brand_override() );
 
 	// Slugs defined only by core's default palette (e.g. `white`) count as defined.
 	foreach ( $palette as $entry ) {
@@ -281,6 +385,7 @@ function aludra_enqueue_palette_fallbacks() {
 
 	/**
 	 * Filters the colour slugs Aludra defines for a theme that lacks them.
+	 * Runs after the Start tab's brand colour choice is applied.
 	 *
 	 * @param string[] $map     CSS value per missing slug.
 	 * @param array[]  $palette Every palette entry the site defines.

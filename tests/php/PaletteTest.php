@@ -251,4 +251,65 @@ class PaletteTest extends TestCase {
 			),
 		);
 	}
+
+	/**
+	 * A brand colour chosen on the Start tab replaces the automatic pick.
+	 */
+	public function test_brand_override_wins() {
+		$map = aludra_palette_fallback_map( $this->tt5(), 'accent-1' );
+
+		$this->assertSame( 'var(--wp--preset--color--accent-1)', $map['primary'] );
+	}
+
+	/**
+	 * A saved choice the palette no longer has falls back to automatic.
+	 */
+	public function test_brand_override_missing_from_palette_is_ignored() {
+		$map = aludra_palette_fallback_map( $this->tt5(), 'accent-9' );
+
+		$this->assertSame( 'var(--wp--preset--color--accent-3)', $map['primary'] );
+	}
+
+	/**
+	 * Saving stores the slug for the active theme only, and keeps other themes' choices.
+	 */
+	public function test_merge_brand_choice_is_per_theme() {
+		$stored = array( 'other-theme' => 'accent-2' );
+		$input  = array(
+			'form' => '1',
+			'slug' => 'accent-1',
+		);
+
+		$this->assertSame(
+			array(
+				'other-theme'      => 'accent-2',
+				'twentytwentyfive' => 'accent-1',
+			),
+			aludra_merge_brand_choice( $stored, $input, 'twentytwentyfive', array( 'base', 'accent-1' ) )
+		);
+	}
+
+	/**
+	 * Automatic, or a slug outside the theme's palette, removes the theme's entry.
+	 */
+	public function test_merge_brand_choice_clears_on_automatic_or_unknown_slug() {
+		$stored = array( 'twentytwentyfive' => 'accent-1' );
+
+		foreach ( array( '', 'not-a-slug' ) as $slug ) {
+			$input = array(
+				'form' => '1',
+				'slug' => $slug,
+			);
+			$this->assertSame( array(), aludra_merge_brand_choice( $stored, $input, 'twentytwentyfive', array( 'accent-1' ) ) );
+		}
+	}
+
+	/**
+	 * A stored value passed back through sanitization by update_option() is kept.
+	 */
+	public function test_merge_brand_choice_keeps_stored_value() {
+		$stored = array( 'twentytwentyfive' => 'accent-1' );
+
+		$this->assertSame( $stored, aludra_merge_brand_choice( array(), $stored, 'twentytwentyfive', array() ) );
+	}
 }
