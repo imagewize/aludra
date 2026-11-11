@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logos/h-fireworks.svg" alt="Aludra Logo" width="128" height="128">
+  <img src="assets/logos/aludra-mark.svg" alt="Aludra" width="128" height="128">
 </p>
 <div align="center">
 <h1>Aludra</h1>
@@ -8,7 +8,7 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
 [![License](https://img.shields.io/packagist/l/imagewize/aludra.svg)](https://packagist.org/packages/imagewize/aludra)
 
-A lightweight page builder made of native blocks.
+Everything a page builder gives you,<br>inside the editor you already have.
 </div>
 
 ## What it is

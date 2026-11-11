@@ -7,10 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.41.0] - 2026-11-11
+
 ### Added
 - **Settings → Aludra → Start**, now the first tab: one card per page layout with a **Create page** button that creates a draft page from it and opens the editor, the section pattern categories with their counts, and checks for a block theme, WordPress 7.0+ (per-device visibility) and WooCommerce. The Plugins screen gains a **Get started** link to it; there is no redirect on activation.
 
 ### Changed
+- New logo, plugin icon and WordPress.org banner: original artwork, a one-colour firework rocket: a block for a body, a separate cone and a curled fuse. Blue `#2D5BFF` on light backgrounds, white on the blue icon tile, a lighter blue on the dark banner; a single colour, so nothing depends on telling hues apart. `README.md` uses `assets/logos/aludra-mark.svg`; the banner sources are `assets/logos/wporg-banner.svg` and `wporg-banner-772.svg`. Replaces the Hugeicons fireworks icon, so the credits no longer list it.
+- New tagline, "Everything a page builder gives you, inside the editor you already have.", in `README.md`, the banner, the plugin header, `composer.json` and the GitHub description; the `readme.txt` short description reads "Ready-made sections and full page layouts for the WordPress block editor. No second editor, no shortcodes, any block theme."
+- `README.md` states the positioning briefly and links to `docs/` (blocks, patterns, themes, credits), which stays out of the release zip and Composer archives.
+- Dutch translation updated for every new string (Start tab, carousel Engine panel, settings description).
 - `readme.txt`: documents hiding a section per device with the block editor's own visibility controls (WordPress 7.0+), which every Aludra block supports, and per-device spacing, colour and typography (WordPress 7.1+); the carousel FAQ describes the rail and Slider engines; the build FAQ describes the npm workspace instead of per-block installs.
 - **`aludra/carousel`:** new carousels start on the rail engine, a CSS scroll-snap track that loads no JavaScript, so inserting a carousel no longer puts jQuery and Slick on the page. The sidebar gains an **Engine** panel to switch between rail and the Slick slider, and hides the slider-only settings (toolbar buttons, arrows, dots, autoplay, responsive) while rail is selected. Existing carousels are unchanged: the `engine` attribute still defaults to Slick, and the rail default comes from an inserter variation that writes `"engine":"rail"` explicitly. Block version 1.2.0.
 - `bin/prepare-svn.sh` is removed: WordPress.org releases are deployed with the standalone [svn-wporg-deploy](https://github.com/imagewize/svn-wporg-deploy) script, which also runs the SVN steps the old script only printed. See "Releasing to WordPress.org" in `CLAUDE.md`. Development tooling only; nothing in the plugin changes.

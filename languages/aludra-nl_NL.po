@@ -1,10 +1,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Aludra 2.40.0\n"
+"Project-Id-Version: Aludra 2.41.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/aludra\n"
-"POT-Creation-Date: 2026-11-05T02:02:29+00:00\n"
-"PO-Revision-Date: 2026-11-05 09:00+0700\n"
+"POT-Creation-Date: 2026-11-11T09:03:49+00:00\n"
+"PO-Revision-Date: 2026-11-11 09:00+0700\n"
 "Last-Translator: Jasper Frumau <jasper@imagewize.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "Language: nl_NL\n"
@@ -30,15 +30,13 @@ msgstr "https://github.com/imagewize/aludra"
 #. Description of the plugin
 #: aludra.php
 msgid ""
-"A page builder made of real blocks — 34 blocks, 21 section patterns and 8 "
-"page layouts for everything between the header and the footer. Native block "
-"editor, no shortcodes, no proprietary markup. Built alongside the Aviendha "
-"starter theme; works with any theme."
+"Everything a page builder gives you, inside the editor you already have: 34 "
+"blocks, 21 section patterns and 8 page layouts. No second editor, no "
+"shortcodes, any theme."
 msgstr ""
-"Een paginabouwer van echte blokken: 34 blokken, 21 sectiepatronen en 8 "
-"paginalay-outs voor alles tussen de header en de footer. Native blokeditor, "
-"geen shortcodes, geen eigen opmaak. Gebouwd naast het Aviendha-startthema; "
-"werkt met elk thema."
+"Alles wat een paginabouwer je geeft, in de editor die je al hebt: 34 "
+"blokken, 21 sectiepatronen en 8 pagina-indelingen. Geen tweede editor, geen "
+"shortcodes, elk thema."
 
 #. Author of the plugin
 #: aludra.php
@@ -50,87 +48,87 @@ msgstr "Jasper Frumau"
 msgid "https://github.com/imagewize"
 msgstr "https://github.com/imagewize"
 
-#: aludra.php:61
+#: aludra.php:62
 msgid "Aludra Icon"
 msgstr "Aludra-icoon"
 
-#: aludra.php:363 aludra.php:609
+#: aludra.php:364 aludra.php:610
 msgid "Aludra: Heroes"
 msgstr "Aludra: Heroes"
 
-#: aludra.php:368 aludra.php:613
+#: aludra.php:369 aludra.php:614
 msgid "Aludra: Proof"
 msgstr "Aludra: Bewijs"
 
-#: aludra.php:373 aludra.php:617
+#: aludra.php:374 aludra.php:618
 msgid "Aludra: Features & Services"
 msgstr "Aludra: Features & diensten"
 
-#: aludra.php:378 aludra.php:621
+#: aludra.php:379 aludra.php:622
 msgid "Aludra: Layout"
 msgstr "Aludra: Indeling"
 
-#: aludra.php:383 aludra.php:625
+#: aludra.php:384 aludra.php:626
 msgid "Aludra: Convert"
 msgstr "Aludra: Converteren"
 
-#: aludra.php:388
+#: aludra.php:389
 msgid "Aludra: Navigation"
 msgstr "Aludra: Navigatie"
 
-#: aludra.php:407 aludra.php:633
+#: aludra.php:408 aludra.php:634
 msgid "Menus"
 msgstr "Menus"
 
-#: aludra.php:408
+#: aludra.php:409
 msgid "Template parts for navigation and mega menu content"
 msgstr "Sjabloononderdelen voor navigatie en mega menu-inhoud"
 
-#: aludra.php:605
+#: aludra.php:606
 msgid "Aludra: Full Pages"
 msgstr "Aludra: Volledige pagina's"
 
-#: aludra.php:606
+#: aludra.php:607
 msgid "Complete page layouts assembled from Aludra sections."
 msgstr "Complete paginalay-outs samengesteld uit Aludra-secties."
 
-#: aludra.php:610
+#: aludra.php:611
 msgid "Opening sections for a page."
 msgstr "Openingssecties voor een pagina."
 
-#: aludra.php:614
+#: aludra.php:615
 msgid "Stats, trust signals, reviews and comparisons."
 msgstr "Cijfers, vertrouwenssignalen, reviews en vergelijkingen."
 
-#: aludra.php:618
+#: aludra.php:619
 msgid "Sections describing what you do."
 msgstr "Secties die beschrijven wat je doet."
 
-#: aludra.php:622
+#: aludra.php:623
 msgid "Structural sections and content bands."
 msgstr "Structurele secties en contentbanden."
 
-#: aludra.php:626
+#: aludra.php:627
 msgid "Pricing, FAQ, contact and call-to-action sections."
 msgstr "Secties voor prijzen, FAQ, contact en call-to-action."
 
-#: aludra.php:629
+#: aludra.php:630
 msgid "Aludra: Carousels"
 msgstr "Aludra: Carrousels"
 
-#: aludra.php:630
+#: aludra.php:631
 msgid "Pre-configured Aludra carousel setups."
 msgstr "Vooraf ingestelde Aludra-carrousels."
 
-#: aludra.php:634
+#: aludra.php:635
 msgid "Mega menu patterns for navigation template parts."
 msgstr "Mega menu-patronen voor navigatie-sjabloononderdelen."
 
-#: aludra.php:641
+#: aludra.php:642
 msgid "Aludra: Store"
 msgstr "Aludra: Winkel"
 
-#: aludra.php:642
+#: aludra.php:643
 msgid "WooCommerce sections: product grids and category showcases."
 msgstr "WooCommerce-secties: productrasters en categorie-overzichten."
 
@@ -218,7 +216,7 @@ msgid "Features & Services"
 msgstr "Features & diensten"
 
 #: includes/admin/settings-page.php:131 blocks/carousel/build/index.js:1
-#: blocks/carousel/src/edit.js:218 blocks/mega-menu/build/index.js:1
+#: blocks/carousel/src/edit.js:267 blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/edit.js:218
 msgid "Layout"
 msgstr "Indeling"
@@ -228,7 +226,7 @@ msgid "Convert"
 msgstr "Converteren"
 
 #: includes/admin/settings-page.php:133 blocks/carousel/build/index.js:1
-#: blocks/carousel/src/edit.js:385
+#: blocks/carousel/src/edit.js:453
 msgid "Navigation"
 msgstr "Navigatie"
 
@@ -237,9 +235,12 @@ msgid "Carousel"
 msgstr "Carrousel"
 
 #: includes/admin/settings-page.php:146
-msgid "Create responsive image and content carousels with Slick Carousel."
+msgid ""
+"A no-JavaScript scroll rail, or a Slick slider with arrows, dots and "
+"autoplay."
 msgstr ""
-"Maak responsieve carrousels met afbeeldingen en content met Slick Carousel."
+"Een scrollrail zonder JavaScript, of een Slick-slider met pijlen, stippen en "
+"automatisch afspelen."
 
 #: includes/admin/settings-page.php:150 blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/AnimationControls.jsx:29
@@ -600,62 +601,66 @@ msgid "Requires %s"
 msgstr "Vereist %s"
 
 #. translators: %d: total number of blocks
-#: includes/admin/settings-page.php:519
+#: includes/admin/settings-page.php:524
 #, php-format
-msgid "Block library · %d blocks for Imagewize themes"
-msgstr "Blokkenbibliotheek · %d blokken voor Imagewize-thema's"
+msgid "Page builder · %d blocks for any block theme"
+msgstr "Paginabouwer · %d blokken voor elk blokthema"
 
-#: includes/admin/settings-page.php:531
-msgid "enabled"
-msgstr "ingeschakeld"
+#: includes/admin/settings-page.php:533
+msgid "Start"
+msgstr "Start"
 
-#: includes/admin/settings-page.php:534
-msgid "Enable all"
-msgstr "Alles inschakelen"
-
-#: includes/admin/settings-page.php:535
-msgid "Disable all"
-msgstr "Alles uitschakelen"
-
-#: includes/admin/settings-page.php:542
+#: includes/admin/settings-page.php:534 includes/admin/start-tab.php:298
 msgid "Blocks"
 msgstr "Blokken"
 
-#: includes/admin/settings-page.php:543 blocks/mega-menu/build/index.js:1
+#: includes/admin/settings-page.php:535 blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:34
 msgid "Store"
 msgstr "Winkel"
 
+#: includes/admin/settings-page.php:551
+msgid "enabled"
+msgstr "ingeschakeld"
+
+#: includes/admin/settings-page.php:554
+msgid "Enable all"
+msgstr "Alles inschakelen"
+
+#: includes/admin/settings-page.php:555
+msgid "Disable all"
+msgstr "Alles uitschakelen"
+
 #. translators: %d: number of blocks in category
-#: includes/admin/settings-page.php:575
+#: includes/admin/settings-page.php:582
 #, php-format
 msgid "%d block"
 msgid_plural "%d blocks"
 msgstr[0] "%d blok"
 msgstr[1] "%d blokken"
 
-#: includes/admin/settings-page.php:590 includes/admin/settings-page.php:664
+#: includes/admin/settings-page.php:597 includes/admin/settings-page.php:671
 msgid "Save changes"
 msgstr "Wijzigingen opslaan"
 
-#: includes/admin/settings-page.php:591
+#: includes/admin/settings-page.php:598
 msgid ""
 "Disabled blocks are hidden from the inserter and their assets stop loading."
 msgstr ""
 "Uitgeschakelde blokken verdwijnen uit de inserter en hun bestanden worden "
 "niet meer geladen."
 
-#: includes/admin/settings-page.php:609
+#: includes/admin/settings-page.php:616
 msgid "Added as the last block of the announcement bar template part."
 msgstr ""
 "Toegevoegd als laatste blok van het sjabloononderdeel voor de "
 "aankondigingsbalk."
 
-#: includes/admin/settings-page.php:610
+#: includes/admin/settings-page.php:617
 msgid "Added before the footer on the single product template."
 msgstr "Toegevoegd vóór de footer in het sjabloon voor losse producten."
 
-#: includes/admin/settings-page.php:618
+#: includes/admin/settings-page.php:625
 msgid ""
 "Aludra adds these WooCommerce blocks to the active theme's templates with "
 "the WordPress Block Hooks API. They are on by default for the Winespring "
@@ -669,7 +674,7 @@ msgstr ""
 "een thema pluginblokken meelevert, dus plaatst Aludra ze. Voor andere "
 "thema's kun je ze hier inschakelen."
 
-#: includes/admin/settings-page.php:621
+#: includes/admin/settings-page.php:628
 msgid ""
 "Sticky Add to Cart works with any WooCommerce block theme, since each one "
 "has a single product template. Free Shipping Progress needs a template part "
@@ -684,226 +689,410 @@ msgstr ""
 "blok, en als je het daar verwijdert, blijft het voor dat sjabloon weg."
 
 #. translators: %s: active theme name
-#: includes/admin/settings-page.php:630
+#: includes/admin/settings-page.php:637
 #, php-format
 msgid "Active theme: %s"
 msgstr "Actief thema: %s"
 
-#: includes/admin/settings-page.php:647
+#: includes/admin/settings-page.php:654 includes/admin/start-tab.php:189
 msgid "Needs WooCommerce"
 msgstr "Vereist WooCommerce"
 
-#: includes/admin/settings-page.php:649
+#: includes/admin/settings-page.php:656
 msgid "Turned off in the Blocks tab"
 msgstr "Uitgeschakeld in de tab Blokken"
 
 #. translators: %s: template or template part slug
-#: includes/admin/settings-page.php:652
+#: includes/admin/settings-page.php:659
 #, php-format
 msgid "This theme has no matching %s template"
 msgstr "Dit thema heeft geen passend sjabloon %s"
 
-#: includes/admin/settings-page.php:665
+#: includes/admin/settings-page.php:672
 msgid "Choices are saved for the active theme only."
 msgstr "Keuzes worden alleen voor het actieve thema opgeslagen."
 
 #. translators: %s: block name
-#: includes/admin/settings-page.php:713
+#: includes/admin/settings-page.php:720
 #, php-format
 msgid "Add %s automatically"
 msgstr "%s automatisch toevoegen"
 
-#: includes/admin/settings-page.php:720
+#: includes/admin/settings-page.php:727
 msgid "Template found"
 msgstr "Sjabloon gevonden"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:116
+#: includes/admin/start-tab.php:70
+msgid "You are not allowed to create pages."
+msgstr "Je mag geen pagina's aanmaken."
+
+#: includes/admin/start-tab.php:79
+msgid "That page layout is not available."
+msgstr "Die pagina-indeling is niet beschikbaar."
+
+#: includes/admin/start-tab.php:117
+msgid "Get started"
+msgstr "Aan de slag"
+
+#: includes/admin/start-tab.php:156
+msgid ""
+"Aludra builds pages from sections: a hero, a stat rail, pricing, an FAQ, a "
+"call to action. Start from a whole page layout and replace the copy, or add "
+"sections one at a time to any page. Your theme still sets the colours, "
+"fonts, header and footer."
+msgstr ""
+"Aludra bouwt pagina's uit secties: een hero, een cijferbalk, prijzen, een "
+"FAQ, een call-to-action. Begin met een complete pagina-indeling en vervang "
+"de tekst, of voeg secties één voor één toe aan elke pagina. Je thema bepaalt "
+"nog steeds de kleuren, lettertypen, header en footer."
+
+#: includes/admin/start-tab.php:163
+msgid "Start a page from a layout"
+msgstr "Begin een pagina met een indeling"
+
+#. translators: %d: number of page layouts
+#: includes/admin/start-tab.php:169
+#, php-format
+msgid "%d layout"
+msgid_plural "%d layouts"
+msgstr[0] "%d indeling"
+msgstr[1] "%d indelingen"
+
+#. translators: %d: number of sections in a page layout
+#. translators: %d: number of section patterns
+#: includes/admin/start-tab.php:182 includes/admin/start-tab.php:225
+#, php-format
+msgid "%d section"
+msgid_plural "%d sections"
+msgstr[0] "%d sectie"
+msgstr[1] "%d secties"
+
+#: includes/admin/start-tab.php:196
+msgid "Create page"
+msgstr "Pagina aanmaken"
+
+#. translators: %s: page layout title
+#: includes/admin/start-tab.php:200
+#, php-format
+msgid "from the %s layout"
+msgstr "met de indeling %s"
+
+#: includes/admin/start-tab.php:211
+msgid ""
+"Each button creates a draft page and opens it in the editor; nothing is "
+"published. The same layouts are offered when you add a new page yourself."
+msgstr ""
+"Elke knop maakt een conceptpagina aan en opent die in de editor; er wordt "
+"niets gepubliceerd. Dezelfde indelingen krijg je ook te zien als je zelf een "
+"nieuwe pagina toevoegt."
+
+#: includes/admin/start-tab.php:219
+msgid "Add sections to any page"
+msgstr "Secties toevoegen aan elke pagina"
+
+#: includes/admin/start-tab.php:230
+msgid ""
+"In the editor, open the block inserter, switch to Patterns and pick one of "
+"the Aludra categories. Each section arrives with its copy and style in place."
+msgstr ""
+"Open in de editor de blokinvoeger, ga naar Patronen en kies een van de "
+"Aludra-categorieën. Elke sectie komt met tekst en stijl al op hun plek."
+
+#: includes/admin/start-tab.php:251
+msgid "This site"
+msgstr "Deze site"
+
+#: includes/admin/start-tab.php:260
+msgid "Block theme active"
+msgstr "Blokthema actief"
+
+#: includes/admin/start-tab.php:261
+msgid ""
+"Aludra works with any theme. With a block theme you can also edit headers, "
+"footers and mega menus in the Site Editor."
+msgstr ""
+"Aludra werkt met elk thema. Met een blokthema bewerk je ook headers, footers "
+"en megamenu's in de site-editor."
+
+#: includes/admin/start-tab.php:265
+msgid "Hide sections per device"
+msgstr "Secties per apparaat verbergen"
+
+#: includes/admin/start-tab.php:266
+msgid ""
+"Show or hide any section on mobile, tablet or desktop. Needs WordPress 7.0 "
+"or later."
+msgstr ""
+"Toon of verberg elke sectie op mobiel, tablet of desktop. Vereist WordPress "
+"7.0 of hoger."
+
+#: includes/admin/start-tab.php:270
+msgid "Different styles per device"
+msgstr "Andere stijlen per apparaat"
+
+#: includes/admin/start-tab.php:271
+msgid ""
+"Give a section its own spacing, colours and typography on tablet or mobile: "
+"switch the editor preview to that device. Needs WordPress 7.1 or later."
+msgstr ""
+"Geef een sectie eigen witruimte, kleuren en typografie op tablet of mobiel: "
+"zet de voorbeeldweergave in de editor op dat apparaat. Vereist WordPress 7.1 "
+"of hoger."
+
+#: includes/admin/start-tab.php:275
+msgid "Store blocks"
+msgstr "Winkelblokken"
+
+#: includes/admin/start-tab.php:276
+msgid ""
+"Free Shipping Progress and Sticky Add to Cart, plus the store homepage "
+"layout. Need WooCommerce."
+msgstr ""
+"Voortgang gratis verzending en Vaste in-winkelwagenbalk, plus de indeling "
+"voor de winkelhomepage. Vereisen WooCommerce."
+
+#: includes/admin/start-tab.php:284
+msgid "Available"
+msgstr "Beschikbaar"
+
+#: includes/admin/start-tab.php:284
+msgid "Not available"
+msgstr "Niet beschikbaar"
+
+#. translators: 1: link to the Blocks tab, 2: link to the WordPress.org reviews page
+#: includes/admin/start-tab.php:297
+#, php-format
+msgid ""
+"Turn individual blocks on or off on the %1$s tab. Enjoying Aludra? A %2$s "
+"helps other people find it."
+msgstr ""
+"Zet afzonderlijke blokken aan of uit op het tabblad %1$s. Blij met Aludra? "
+"Een %2$s helpt anderen het te vinden."
+
+#: includes/admin/start-tab.php:299
+msgid "review on WordPress.org"
+msgstr "review op WordPress.org"
+
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:117
 msgid "Click plus (+) to add slides"
 msgstr "Klik op plus (+) om dia's toe te voegen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:148
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:153
 msgid "Center Mode"
 msgstr "Centrummodus"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:156
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:161
 msgid "Thumbnail Navigation"
 msgstr "Miniatuur navigatie"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:166
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:171
 msgid "Variable Width"
 msgstr "Variabele breedte"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:181
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:189
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:596
 msgid "Arrow Color"
 msgstr "Pijlkleur"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:187
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:195
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:602
 msgid "Arrow Background"
 msgstr "Pijl achtergrond"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:194
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:202
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:609
 msgid "Arrow Hover Color"
 msgstr "Pijl hover kleur"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:201
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:209
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:616
 msgid "Arrow Hover Background"
 msgstr "Pijl hover achtergrond"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:222
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:226
+msgid "Engine"
+msgstr "Engine"
+
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:230
+msgid "Carousel engine"
+msgstr "Carrousel-engine"
+
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:234
+msgid "Scroll rail (no JavaScript)"
+msgstr "Scrollrail (geen JavaScript)"
+
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:241
+msgid "Slider (Slick, loads jQuery)"
+msgstr "Slider (Slick, laadt jQuery)"
+
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:253
+msgid ""
+"A swipeable, scroll-snapping row of slides. Loads no scripts. Arrows, dots, "
+"autoplay and the other slider settings apply to the Slick engine only."
+msgstr ""
+"Een veegbare rij slides die op zijn plek klikt bij het scrollen. Laadt geen "
+"scripts. Pijlen, stippen, automatisch afspelen en de andere "
+"sliderinstellingen gelden alleen voor de Slick-engine."
+
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:257
+msgid ""
+"A JavaScript slider with arrows, dots, autoplay and thumbnails. Loads jQuery "
+"and Slick on pages that use it."
+msgstr ""
+"Een JavaScript-slider met pijlen, stippen, automatisch afspelen en "
+"miniaturen. Laadt jQuery en Slick op pagina's die hem gebruiken."
+
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:271
 msgid "Slides to Show"
 msgstr "Dia's om te tonen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:231
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:280
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:650
 msgid "Slides to Scroll"
 msgstr "Dia's om te scrollen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:241
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:290
 msgid "Center Padding"
 msgstr "Centrumopvulling"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:242
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:291
 msgid "Amount of adjacent slides visible"
 msgstr "Hoeveel van de naastgelegen dia's zichtbaar is"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:260
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:309
 msgid "Thumbnails to Show"
 msgstr "Aantal miniaturen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:269
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:323
 msgid "Thumbnail Position"
 msgstr "Positie miniaturen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:273
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:330
 msgid "Below"
 msgstr "Onder"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:277
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:334
 msgid "Above"
 msgstr "Boven"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:281
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:338
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:235
 msgid "Left"
 msgstr "Links"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:285
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:342
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:239
 msgid "Right"
 msgstr "Rechts"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:296
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:353
 msgid "Thumbnail Spacing"
 msgstr "Ruimte tussen miniaturen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:311
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:371
 msgid "Behavior"
 msgstr "Gedrag"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:315
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:375
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:718
 msgid "Autoplay"
 msgstr "Automatisch afspelen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:323
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:383
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:726
 msgid "Autoplay Speed (ms)"
 msgstr "Snelheid automatisch afspelen (ms)"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:334
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:399
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:711
 msgid "Infinite Loop"
 msgstr "Oneindige lus"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:341
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:406
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:659
 msgid "Animation Speed (ms)"
 msgstr "Animatiesnelheid (ms)"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:351
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:416
 msgid "Lazy Loading"
 msgstr "Lazy loading"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:352
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:417
 msgid "Improves performance for image-heavy carousels"
 msgstr "Verbetert de prestaties van carrousels met veel afbeeldingen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:358
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:424
 msgid "Disabled"
 msgstr "Uitgeschakeld"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:360
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:428
 msgid "On Demand"
 msgstr "Op aanvraag"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:364
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:432
 msgid "Progressive"
 msgstr "Progressief"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:373
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:441
 msgid "Adaptive Height"
 msgstr "Aanpasbare hoogte"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:374
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:442
 msgid "Auto-adjust height to match active slide"
 msgstr "Past de hoogte automatisch aan de actieve dia aan"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:389
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:457
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:683
 msgid "Show Arrows"
 msgstr "Pijlen tonen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:396
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:464
 #: blocks/testimonial-grid/build/index.js:1
 #: blocks/testimonial-grid/src/edit.js:690
 msgid "Show Dots"
 msgstr "Stippen tonen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:404
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:472
 msgid "Dots Top Spacing"
 msgstr "Ruimte boven stippen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:419
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:489
 msgid "Arrow Style"
 msgstr "Pijlstijl"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:423
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:493
 msgid "Arrow Icon"
 msgstr "Pijlicoon"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:427
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:497
 msgid "Arrow (Default)"
 msgstr "Pijl (standaard)"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:431
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:504
 msgid "Chevron"
 msgstr "Chevron"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:435
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:508
 msgid "Caret (Triangle)"
 msgstr "Driehoek"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:439
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:515
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:107
 msgid "Custom SVG"
 msgstr "Aangepast SVG"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:446
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:522
 msgid ""
 "Choose the arrow icon style - all icons are SVG-based for sharp, scalable "
 "rendering"
@@ -911,88 +1100,88 @@ msgstr ""
 "Kies de stijl van het pijlicoon — alle iconen zijn SVG, dus scherp en "
 "schaalbaar"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:453
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:529
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/IconPicker.jsx:233
 msgid "Custom SVG Code"
 msgstr "Aangepaste SVG-code"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:458
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:539
 msgid "Paste SVG code for custom arrow icon"
 msgstr "Plak SVG-code voor een eigen pijlicoon"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:466
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:547
 msgid "Arrow Background Shape"
 msgstr "Vorm pijlachtergrond"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:470
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:554
 msgid "Circle"
 msgstr "Cirkel"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:474
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:558
 msgid "Rounded Square"
 msgstr "Afgerond vierkant"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:478
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:565
 msgid "Square"
 msgstr "Vierkant"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:482
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:569
 #: blocks/mega-menu/build/index.js:1
 #: blocks/mega-menu/src/components/StylePanel.jsx:41
 msgid "None"
 msgstr "Geen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:489
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:578
 msgid "Choose the arrow background shape"
 msgstr "Kies de vorm van de pijlachtergrond"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:495
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:584
 msgid "Arrow Size (px)"
 msgstr "Pijlgrootte (px)"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:507
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:596
 msgid "Responsive"
 msgstr "Responsief"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:511
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:600
 #: blocks/mega-menu/build/index.js:1 blocks/mega-menu/src/edit.js:404
 msgid "Mobile Breakpoint (px)"
 msgstr "Mobiel breekpunt (px)"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:521
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:613
 msgid "Mobile: Slides to Show"
 msgstr "Mobiel: dia's om te tonen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:530
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:625
 msgid "Mobile: Slides to Scroll"
 msgstr "Mobiel: dia's om te scrollen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:540
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:642
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:544
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:646
 msgid "Total Slides"
 msgstr "Totaal aantal dia's"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:545
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:647
 msgid "Number of slide blocks to generate"
 msgstr "Aantal dia-blokken om aan te maken"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:557
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:659
 msgid "Slide Padding"
 msgstr "Dia-opvulling"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:558
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:660
 msgid "Add padding around slides"
 msgstr "Opvulling rond dia's toevoegen"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:565
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:667
 msgid "RTL Mode"
 msgstr "RTL-modus"
 
-#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:566
+#: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:668
 msgid "Right-to-left language support"
 msgstr "Ondersteuning voor talen van rechts naar links"
 
@@ -3349,3 +3538,19 @@ msgstr "signalen"
 msgctxt "block keyword"
 msgid "badges"
 msgstr "badges"
+
+#~ msgid ""
+#~ "A page builder made of real blocks — 34 blocks, 21 section patterns and 8 "
+#~ "page layouts for everything between the header and the footer. Native "
+#~ "block editor, no shortcodes, no proprietary markup. Built alongside the "
+#~ "Aviendha starter theme; works with any theme."
+#~ msgstr ""
+#~ "Een paginabouwer van echte blokken: 34 blokken, 21 sectiepatronen en 8 "
+#~ "paginalay-outs voor alles tussen de header en de footer. Native "
+#~ "blokeditor, geen shortcodes, geen eigen opmaak. Gebouwd naast het "
+#~ "Aviendha-startthema; werkt met elk thema."
+
+#~ msgid "Create responsive image and content carousels with Slick Carousel."
+#~ msgstr ""
+#~ "Maak responsieve carrousels met afbeeldingen en content met Slick "
+#~ "Carousel."

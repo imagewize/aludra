@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="772" height="250" viewBox="0 0 772 250">
+<defs><radialGradient id="glow" cx="575.0" cy="120.0" r="150.0" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#2D5BFF" stop-opacity=".30"/><stop offset="1" stop-color="#2D5BFF" stop-opacity="0"/></radialGradient></defs>
+<rect width="772" height="250" fill="#0D1B2A"/>
+<rect x="480.0" y="20.0" width="190.0" height="32.0" rx="3.0" fill="none" stroke="#9AABBF" stroke-opacity=".18" stroke-width="0.75"/><rect x="480.0" y="56.0" width="190.0" height="13.0" rx="3.0" fill="none" stroke="#9AABBF" stroke-opacity=".18" stroke-width="0.75"/><rect x="480.0" y="73.0" width="190.0" height="44.0" rx="3.0" fill="none" stroke="#9AABBF" stroke-opacity=".18" stroke-width="0.75"/><rect x="480.0" y="121.0" width="190.0" height="23.0" rx="3.0" fill="none" stroke="#9AABBF" stroke-opacity=".18" stroke-width="0.75"/><rect x="480.0" y="148.0" width="190.0" height="48.0" rx="3.0" fill="none" stroke="#9AABBF" stroke-opacity=".18" stroke-width="0.75"/><rect x="480.0" y="200.0" width="190.0" height="30.0" rx="3.0" fill="none" stroke="#9AABBF" stroke-opacity=".18" stroke-width="0.75"/>
+<rect width="772" height="250" fill="url(#glow)"/>
+<g transform="translate(575.0 122.5) scale(1.700) rotate(45) translate(0 -2)"><path d="M-21,-24 L0,-56 L21,-24Z" fill="#5B82FF" stroke="#5B82FF" stroke-width="3" stroke-linejoin="round"/><rect x="-14" y="-15" width="28" height="44" rx="3" fill="#5B82FF"/><path d="M0,29 C0,38 -9,38 -9,46 C-9,53 -2,54 -2,60" fill="none" stroke="#5B82FF" stroke-width="6.5" stroke-linecap="round"/></g>
+<text x="56.0" y="125.0" font-family="Avenir Next Condensed" font-weight="800" font-size="75.0" letter-spacing="-0.5" fill="#F3F6FA">Aludra</text>
+<text x="58.0" y="159.0" font-family="Avenir Next" font-weight="500" font-size="16.5" fill="#9AABBF">Everything a page builder gives you,</text>
+<text x="58.0" y="181.0" font-family="Avenir Next" font-weight="500" font-size="16.5" fill="#9AABBF">inside the editor you already have.</text>
+</svg>
