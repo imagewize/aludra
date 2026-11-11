@@ -266,6 +266,11 @@ function aludra_render_start_tab() {
 					__( 'Show or hide any section on mobile, tablet or desktop. Needs WordPress 7.0 or later.', 'aludra' ),
 				),
 				array(
+					is_wp_version_compatible( '7.1' ),
+					__( 'Different styles per device', 'aludra' ),
+					__( 'Give a section its own spacing, colours and typography on tablet or mobile: switch the editor preview to that device. Needs WordPress 7.1 or later.', 'aludra' ),
+				),
+				array(
 					$woocommerce,
 					__( 'Store blocks', 'aludra' ),
 					__( 'Free Shipping Progress and Sticky Add to Cart, plus the store homepage layout. Need WooCommerce.', 'aludra' ),

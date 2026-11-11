@@ -20,7 +20,7 @@ Your theme sets the colours, fonts, header and footer. Aludra provides everythin
 - **One editor.** Every section is a normal block you can move, copy, style and reuse.
 - **No lock-in.** Content is standard block markup. Switch Aludra off and nothing turns into shortcodes.
 - **Light on the front end.** Assets load per block, only where the block is used. Carousels start as a CSS scroll-snap rail with no JavaScript; jQuery and Slick load only for the Slider engine.
-- **Per-device control.** Hide any section on mobile, tablet or desktop with the editor's own visibility setting (WordPress 7.0+).
+- **Per-device control.** Hide any section on mobile, tablet or desktop (WordPress 7.0+), and give it its own spacing, colours and typography per device (WordPress 7.1+), with the block editor's own controls.
 - **Start from a layout.** Settings → Aludra → Start creates a draft page from any layout in one click.
 - **Any theme.** Blocks use the active theme's palette, with fallbacks, on FSE, block and classic themes.
 
