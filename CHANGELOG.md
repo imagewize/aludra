@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **`aludra/carousel`:** spacing support. Top and bottom margin, and **Block spacing** for the gap between slides, on both engines: the rail's grid gap, Slick's per-slide padding (half the gap each side) and the editor's slide row. Core writes `blockGap` only for blocks with layout support, so the carousel publishes the value as the `--aludra-carousel-gap` custom property itself (`src/gap.js`). Left and right margin are not offered, because the rail's negative inline margin is what lets it bleed to the edge. Carousels without a gap set save exactly as before, so no deprecation is needed. Block version 1.3.0.
+
+### Fixed
+- **`aludra/load-waterfall`:** the bars' staggered animation was written as an inline `animation-delay`, which KSES strips when someone without the `unfiltered_html` capability saves the post: authors and contributors on a single site, and every role below super admin on a multisite. The block then failed validation the next time it was opened in the editor, and on the front end every bar grew at once. The stagger now lives in the block's stylesheet, keyed on row position; `left` and `width` stay inline, since KSES allows them. A deprecation re-saves content that still carries the inline delay, and content KSES already stripped matches the new markup as it is, so it validates again without any change. The four patterns that use the block drop the inline delay. Block version 1.1.1.
+
 ## [2.41.0] - 2026-11-11
 
 ### Added

@@ -24,6 +24,8 @@ import { useSelect, withSelect } from '@wordpress/data';
 import classnames from 'classnames';
 import { compose } from '@wordpress/compose';
 
+import { gapStyle } from './gap';
+
 const ALLOWED_BLOCKS = [ 'aludra/slide' ];
 
 /**
@@ -110,6 +112,7 @@ const Edit = compose(
 				? 'cb-show-scrollbar'
 				: 'cb-hide-scrollbar'
 		),
+		style: gapStyle( attributes ),
 	} );
 
 	const placeholder = (

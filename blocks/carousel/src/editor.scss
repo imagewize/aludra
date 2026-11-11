@@ -21,11 +21,11 @@
 .wp-block-aludra-carousel > .block-editor-inner-blocks > .block-editor-block-list__layout {
     display: flex !important;
     flex-wrap: nowrap !important;
-    gap: 15px;
+    gap: var(--aludra-carousel-gap, 15px);
     overflow-x: auto;
     overflow-y: hidden;
     padding: 2px;
-    margin: 0 -7.5px;
+    margin: 0 calc(var(--aludra-carousel-gap, 15px) / -2);
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -ms-overflow-style: none;

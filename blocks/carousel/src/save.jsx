@@ -1,6 +1,8 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import classnames from 'classnames';
 
+import { gapStyle } from './gap';
+
 export default function save({ attributes }) {
     const {
         engine,
@@ -37,6 +39,10 @@ export default function save({ attributes }) {
         customArrowSvg
     } = attributes;
 
+    // Spread only when set, so a carousel without a gap gets no style attribute.
+    const gap = gapStyle(attributes);
+    const gapProps = gap ? { style: gap } : {};
+
     // Rail mode: CSS scroll-snap, no JS
     if (engine === 'rail') {
         const railProps = useBlockProps.save({
@@ -44,6 +50,7 @@ export default function save({ attributes }) {
                 'aludra-work-rail',
                 'work-rail'
             ),
+            ...gapProps,
         });
 
         return (
@@ -113,7 +120,8 @@ export default function save({ attributes }) {
         'data-arrow-background-style': arrowBackgroundStyle,
         'data-arrow-size': arrowSize,
         'data-custom-arrow-svg': customArrowSvg || undefined,
-        dir: rtl ? 'rtl' : undefined
+        dir: rtl ? 'rtl' : undefined,
+        ...gapProps
     });
 
     return (
