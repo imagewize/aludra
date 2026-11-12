@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.42.2] - 2026-11-12
+
+### Fixed
+- **GitHub release zip now has a top-level `aludra/` folder.** The release workflow zipped the repo root,
+  so `aludra.zip` on GitHub was flat (files at the top level). WordPress 7.1.4 unpacks an uploaded zip
+  into a working directory named `<zip name>-<16 random characters>`, and with a flat zip that directory
+  becomes the plugin folder, so an upload under Plugins > Add New installed Aludra as `aludra-<random>`
+  and offered no "Replace current with uploaded" for an existing `aludra` folder. `create-release.yml`
+  now wraps the same file set (same `.distignore`) in `aludra/`. The WordPress.org package is built
+  separately by svn-wporg-deploy and was not affected; no plugin code changes.
+
 ## [2.42.1] - 2026-11-11
 
 The `v2.42.0` tag was published without the version bump, so its plugin header still reads 2.41.0. 2.42.1 is the same code with the version set; WordPress.org goes from 2.41.0 straight to 2.42.1.

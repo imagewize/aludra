@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.42.1
+Stable tag: 2.42.2
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -235,6 +235,9 @@ Each block follows standard WordPress block structure:
 5. FAQ section with the first answer expanded
 
 == Changelog ==
+
+= 2.42.2 =
+* Fixed: the GitHub release zip now wraps the plugin in its own `aludra/` folder, so uploading it on WordPress 7.1.4 or later installs or replaces `aludra` instead of creating a randomly named folder. The WordPress.org package was not affected.
 
 = 2.42.1 =
 * Added: Aludra now takes on the colours of any block theme. On a theme that does not use Aviendha's colour names, such as Twenty Twenty-Five, its sections use the theme's own palette, dark style variations included, instead of Aviendha's colours

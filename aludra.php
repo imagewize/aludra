@@ -3,7 +3,7 @@
  * Plugin Name: Aludra
  * Plugin URI: https://github.com/imagewize/aludra
  * Description: Everything a page builder gives you, inside the editor you already have: 34 blocks, 21 section patterns and 8 page layouts. No second editor, no shortcodes, any theme.
- * Version: 2.42.1
+ * Version: 2.42.2
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Jasper Frumau
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALUDRA_VERSION', '2.42.1' );
+define( 'ALUDRA_VERSION', '2.42.2' );
 define( 'ALUDRA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ALUDRA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
