@@ -115,6 +115,36 @@ add_action(
 			ALUDRA_VERSION,
 			true
 		);
+
+		// "Section colours" panel: writes an is-aludra-scheme-* class into a
+		// section block's className (see assets/css/section-schemes.css).
+		wp_enqueue_script(
+			'aludra-editor-section-schemes',
+			ALUDRA_PLUGIN_URL . 'assets/js/editor-section-schemes.js',
+			array( 'wp-blocks', 'wp-block-editor', 'wp-components', 'wp-compose', 'wp-element', 'wp-hooks', 'wp-i18n' ),
+			ALUDRA_VERSION . '.' . filemtime( ALUDRA_PLUGIN_DIR . 'assets/js/editor-section-schemes.js' ),
+			true
+		);
+		wp_set_script_translations( 'aludra-editor-section-schemes', 'aludra', ALUDRA_PLUGIN_DIR . 'languages' );
+	}
+);
+
+/**
+ * Section colour schemes, on the front end and inside the editor canvas.
+ *
+ * Loaded on every page rather than gated per block: it is a few hundred bytes
+ * of custom properties, and the class it styles can sit on any core/group,
+ * which would otherwise mean a render_block filter on every group rendered.
+ */
+add_action(
+	'enqueue_block_assets',
+	function () {
+		wp_enqueue_style(
+			'aludra-section-schemes',
+			ALUDRA_PLUGIN_URL . 'assets/css/section-schemes.css',
+			array(),
+			ALUDRA_VERSION . '.' . filemtime( ALUDRA_PLUGIN_DIR . 'assets/css/section-schemes.css' )
+		);
 	}
 );
 

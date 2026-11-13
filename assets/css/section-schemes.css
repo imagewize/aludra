@@ -1,0 +1,130 @@
+/**
+ * Section colour schemes: `is-aludra-scheme-alternate`, `-inverted`, `-brand`.
+ *
+ * Added to a section block's className by the "Section colours" control
+ * (assets/js/editor-section-schemes.js). A scheme does not restyle any block:
+ * it redefines the palette's custom properties inside the section, so
+ * everything in it that already paints with `var(--wp--preset--color--*)` —
+ * Aludra's blocks, core's `has-*-color` classes, the theme's button and link
+ * colours — follows without knowing a scheme exists. That is why one control
+ * works on any section block, and on core/group, without per-block CSS.
+ *
+ * The slugs are Aludra's (Aviendha's) palette; on a theme without them,
+ * includes/palette.php defines them from the theme's own colours first.
+ *
+ * A swap cannot read the value it overwrites on the same element
+ * (`--base: var(--contrast); --contrast: var(--base)` is a cycle), so the
+ * page's palette is copied to `--aludra-o-*` on body once. Custom properties
+ * inherit as computed values, so every scheme reads the page's original
+ * colours, however deeply schemes are nested.
+ *
+ * Schemes are relative to the page, not absolute: "inverted" is a dark band on
+ * a light theme and a light one on a dark style variation (Aviendha's
+ * Twilight), using `main` as its ground — the same colour Aludra's own dark
+ * bands (stat rail, CTA banner, night hero) use, so the two read as one.
+ */
+
+body {
+	--aludra-o-base: var(--wp--preset--color--base);
+	--aludra-o-contrast: var(--wp--preset--color--contrast);
+	--aludra-o-main: var(--wp--preset--color--main);
+	--aludra-o-primary: var(--wp--preset--color--primary);
+	--aludra-o-primary-alt: var(--wp--preset--color--primary-alt);
+	--aludra-o-primary-accent: var(--wp--preset--color--primary-accent);
+	--aludra-o-secondary: var(--wp--preset--color--secondary);
+	--aludra-o-main-accent: var(--wp--preset--color--main-accent);
+	--aludra-o-tertiary: var(--wp--preset--color--tertiary);
+	--aludra-o-border-light: var(--wp--preset--color--border-light);
+	--aludra-o-sand-deep: var(--wp--preset--color--sand-deep);
+	--aludra-o-accent: var(--wp--preset--color--accent);
+	--aludra-o-terracotta: var(--wp--preset--color--terracotta);
+	--aludra-o-white: var(--wp--preset--color--white);
+}
+
+/* Every scheme paints its own ground and text: the page's text colour is
+   resolved on body and inherited as a colour, so without this a swapped
+   `contrast` would not reach plain text in the section. */
+[class*="is-aludra-scheme-"] {
+	background-color: var(--wp--preset--color--base);
+	color: var(--wp--preset--color--contrast);
+}
+
+/* Alternate: the page colour and the tint swap places. On a block
+   on the page colour that gives a tinted band whose cards keep the page colour;
+   on a block tinted by default (split section, comparison table) a plain band
+   with tinted cards. The same card contract as aludra/spine-section's tint. */
+.is-aludra-scheme-alternate {
+	--wp--preset--color--base: var(--aludra-o-tertiary);
+	--wp--preset--color--tertiary: var(--aludra-o-base);
+	--wp--preset--color--white: var(--aludra-o-base);
+	--aludra-band-card: var(--aludra-o-base);
+}
+
+/* Inverted: the page's dark colour as ground, its page colour as text.
+   Tints, borders and muted text are mixes of the two; brand colours are
+   lightened toward the new text colour so they stay legible on the ground,
+   with the ground as text on buttons (theme.json: button text is `base`). */
+.is-aludra-scheme-inverted {
+	--wp--preset--color--base: var(--aludra-o-main);
+	--wp--preset--color--contrast: var(--aludra-o-base);
+	--wp--preset--color--main: var(--aludra-o-base);
+	--wp--preset--color--secondary: color-mix(in srgb, var(--aludra-o-base) 74%, var(--aludra-o-main));
+	--wp--preset--color--main-accent: color-mix(in srgb, var(--aludra-o-base) 60%, var(--aludra-o-main));
+	--wp--preset--color--tertiary: color-mix(in srgb, var(--aludra-o-base) 7%, var(--aludra-o-main));
+	--wp--preset--color--white: color-mix(in srgb, var(--aludra-o-base) 9%, var(--aludra-o-main));
+	--wp--preset--color--border-light: color-mix(in srgb, var(--aludra-o-base) 16%, var(--aludra-o-main));
+	--wp--preset--color--sand-deep: color-mix(in srgb, var(--aludra-o-base) 26%, var(--aludra-o-main));
+	--wp--preset--color--primary: color-mix(in srgb, var(--aludra-o-primary) 40%, var(--aludra-o-base));
+	--wp--preset--color--primary-alt: color-mix(in srgb, var(--aludra-o-primary) 22%, var(--aludra-o-base));
+	--wp--preset--color--primary-accent: color-mix(in srgb, var(--aludra-o-primary) 28%, var(--aludra-o-main));
+	--wp--preset--color--accent: color-mix(in srgb, var(--aludra-o-accent) 45%, var(--aludra-o-base));
+	--wp--preset--color--terracotta: color-mix(in srgb, var(--aludra-o-terracotta) 45%, var(--aludra-o-base));
+	--aludra-band-card: var(--wp--preset--color--white);
+}
+
+/* Brand: the brand colour as ground, the page colour as text. The brand
+   colour itself turns into the page colour, so buttons become light pills
+   with brand-coloured text and links stay legible. */
+.is-aludra-scheme-brand {
+	--wp--preset--color--base: var(--aludra-o-primary);
+	--wp--preset--color--contrast: var(--aludra-o-base);
+	--wp--preset--color--main: var(--aludra-o-base);
+	--wp--preset--color--primary: var(--aludra-o-base);
+	--wp--preset--color--primary-alt: color-mix(in srgb, var(--aludra-o-base) 84%, var(--aludra-o-primary));
+	--wp--preset--color--primary-accent: color-mix(in srgb, var(--aludra-o-base) 16%, var(--aludra-o-primary));
+	--wp--preset--color--secondary: color-mix(in srgb, var(--aludra-o-base) 86%, var(--aludra-o-primary));
+	--wp--preset--color--main-accent: color-mix(in srgb, var(--aludra-o-base) 74%, var(--aludra-o-primary));
+	--wp--preset--color--tertiary: color-mix(in srgb, var(--aludra-o-base) 9%, var(--aludra-o-primary));
+	--wp--preset--color--white: color-mix(in srgb, var(--aludra-o-base) 12%, var(--aludra-o-primary));
+	--wp--preset--color--border-light: color-mix(in srgb, var(--aludra-o-base) 24%, var(--aludra-o-primary));
+	--wp--preset--color--sand-deep: color-mix(in srgb, var(--aludra-o-base) 32%, var(--aludra-o-primary));
+	--wp--preset--color--accent: var(--aludra-o-base);
+	--wp--preset--color--terracotta: var(--aludra-o-base);
+	--aludra-band-card: var(--wp--preset--color--white);
+}
+
+/* Blocks that carry their own dark/light choice as block styles (and a dark
+   default) are drawn for the page's palette. Inside a scheme they get it back,
+   so a CTA banner in an inverted group looks as it does anywhere else. */
+[class*="is-aludra-scheme-"] :is(.wp-block-aludra-stat-rail, .wp-block-aludra-cta-banner, .wp-block-aludra-contact-section, .wp-block-aludra-hero-banner, .wp-block-aludra-hero-split) {
+	--wp--preset--color--base: var(--aludra-o-base);
+	--wp--preset--color--contrast: var(--aludra-o-contrast);
+	--wp--preset--color--main: var(--aludra-o-main);
+	--wp--preset--color--primary: var(--aludra-o-primary);
+	--wp--preset--color--primary-alt: var(--aludra-o-primary-alt);
+	--wp--preset--color--primary-accent: var(--aludra-o-primary-accent);
+	--wp--preset--color--secondary: var(--aludra-o-secondary);
+	--wp--preset--color--main-accent: var(--aludra-o-main-accent);
+	--wp--preset--color--tertiary: var(--aludra-o-tertiary);
+	--wp--preset--color--border-light: var(--aludra-o-border-light);
+	--wp--preset--color--sand-deep: var(--aludra-o-sand-deep);
+	--wp--preset--color--accent: var(--aludra-o-accent);
+	--wp--preset--color--terracotta: var(--aludra-o-terracotta);
+	--wp--preset--color--white: var(--aludra-o-white);
+}
+
+/* Their text colour too, for the light ones that inherit it (hero-split's
+   default) — at zero specificity, so each block's own colour rules win. */
+:where([class*="is-aludra-scheme-"]) :where(.wp-block-aludra-stat-rail, .wp-block-aludra-cta-banner, .wp-block-aludra-contact-section, .wp-block-aludra-hero-banner, .wp-block-aludra-hero-split) {
+	color: var(--aludra-o-contrast);
+}

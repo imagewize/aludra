@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aludra 2.41.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/aludra\n"
-"POT-Creation-Date: 2026-11-11T10:14:32+00:00\n"
+"POT-Creation-Date: 2026-11-13T07:20:03+00:00\n"
 "PO-Revision-Date: 2026-11-11 09:00+0700\n"
 "Last-Translator: Jasper Frumau <jasper@imagewize.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -52,83 +52,83 @@ msgstr "https://github.com/imagewize"
 msgid "Aludra Icon"
 msgstr "Aludra-icoon"
 
-#: aludra.php:365 aludra.php:611
+#: aludra.php:395 aludra.php:641
 msgid "Aludra: Heroes"
 msgstr "Aludra: Heroes"
 
-#: aludra.php:370 aludra.php:615
+#: aludra.php:400 aludra.php:645
 msgid "Aludra: Proof"
 msgstr "Aludra: Bewijs"
 
-#: aludra.php:375 aludra.php:619
+#: aludra.php:405 aludra.php:649
 msgid "Aludra: Features & Services"
 msgstr "Aludra: Features & diensten"
 
-#: aludra.php:380 aludra.php:623
+#: aludra.php:410 aludra.php:653
 msgid "Aludra: Layout"
 msgstr "Aludra: Indeling"
 
-#: aludra.php:385 aludra.php:627
+#: aludra.php:415 aludra.php:657
 msgid "Aludra: Convert"
 msgstr "Aludra: Converteren"
 
-#: aludra.php:390
+#: aludra.php:420
 msgid "Aludra: Navigation"
 msgstr "Aludra: Navigatie"
 
-#: aludra.php:409 aludra.php:635
+#: aludra.php:439 aludra.php:665
 msgid "Menus"
 msgstr "Menus"
 
-#: aludra.php:410
+#: aludra.php:440
 msgid "Template parts for navigation and mega menu content"
 msgstr "Sjabloononderdelen voor navigatie en mega menu-inhoud"
 
-#: aludra.php:607
+#: aludra.php:637
 msgid "Aludra: Full Pages"
 msgstr "Aludra: Volledige pagina's"
 
-#: aludra.php:608
+#: aludra.php:638
 msgid "Complete page layouts assembled from Aludra sections."
 msgstr "Complete paginalay-outs samengesteld uit Aludra-secties."
 
-#: aludra.php:612
+#: aludra.php:642
 msgid "Opening sections for a page."
 msgstr "Openingssecties voor een pagina."
 
-#: aludra.php:616
+#: aludra.php:646
 msgid "Stats, trust signals, reviews and comparisons."
 msgstr "Cijfers, vertrouwenssignalen, reviews en vergelijkingen."
 
-#: aludra.php:620
+#: aludra.php:650
 msgid "Sections describing what you do."
 msgstr "Secties die beschrijven wat je doet."
 
-#: aludra.php:624
+#: aludra.php:654
 msgid "Structural sections and content bands."
 msgstr "Structurele secties en contentbanden."
 
-#: aludra.php:628
+#: aludra.php:658
 msgid "Pricing, FAQ, contact and call-to-action sections."
 msgstr "Secties voor prijzen, FAQ, contact en call-to-action."
 
-#: aludra.php:631
+#: aludra.php:661
 msgid "Aludra: Carousels"
 msgstr "Aludra: Carrousels"
 
-#: aludra.php:632
+#: aludra.php:662
 msgid "Pre-configured Aludra carousel setups."
 msgstr "Vooraf ingestelde Aludra-carrousels."
 
-#: aludra.php:636
+#: aludra.php:666
 msgid "Mega menu patterns for navigation template parts."
 msgstr "Mega menu-patronen voor navigatie-sjabloononderdelen."
 
-#: aludra.php:643
+#: aludra.php:673
 msgid "Aludra: Store"
 msgstr "Aludra: Winkel"
 
-#: aludra.php:644
+#: aludra.php:674
 msgid "WooCommerce sections: product grids and category showcases."
 msgstr "WooCommerce-secties: productrasters en categorie-overzichten."
 
@@ -888,13 +888,17 @@ msgid ""
 "%s defines its own brand colour, so Aludra's buttons, call-to-action bands "
 "and highlights use it. There is nothing to set here: change the colour in "
 "the Site Editor under Styles."
-msgstr "%s heeft een eigen merkkleur, dus de knoppen, call-to-action-banden en accenten van Aludra gebruiken die. Je hoeft hier niets in te stellen: wijzig de kleur in de site-editor onder Stijlen."
+msgstr ""
+"%s heeft een eigen merkkleur, dus de knoppen, call-to-action-banden en "
+"accenten van Aludra gebruiken die. Je hoeft hier niets in te stellen: wijzig "
+"de kleur in de site-editor onder Stijlen."
 
 #. translators: %s: active theme name
 #: includes/admin/start-tab.php:406
 #, php-format
 msgid "%s has no colour palette, so Aludra uses its own default colours."
-msgstr "%s heeft geen kleurenpalet, dus Aludra gebruikt zijn eigen standaardkleuren."
+msgstr ""
+"%s heeft geen kleurenpalet, dus Aludra gebruikt zijn eigen standaardkleuren."
 
 #. translators: %s: active theme name
 #: includes/admin/start-tab.php:413
@@ -905,10 +909,14 @@ msgid ""
 "colour that your background colour reads well on as text. Choose another one "
 "here. The choice is saved for this theme only, and follows its style "
 "variations."
-msgstr "%s benoemt geen merkkleur zoals Aludra dat doet, dus Aludra kiest er een uit het palet voor knoppen, call-to-action-banden en accenten: de eerste kleur waarop je achtergrondkleur goed leesbaar is als tekst. Kies hier een andere. De keuze geldt alleen voor dit thema en volgt de stijlvariaties ervan."
+msgstr ""
+"%s benoemt geen merkkleur zoals Aludra dat doet, dus Aludra kiest er een uit "
+"het palet voor knoppen, call-to-action-banden en accenten: de eerste kleur "
+"waarop je achtergrondkleur goed leesbaar is als tekst. Kies hier een andere. "
+"De keuze geldt alleen voor dit thema en volgt de stijlvariaties ervan."
 
-#: includes/admin/start-tab.php:426
 #
+#: includes/admin/start-tab.php:426
 msgid "Automatic"
 msgstr "Automatisch"
 
@@ -916,8 +924,8 @@ msgstr "Automatisch"
 msgid "Text in your background colour is hard to read on this colour."
 msgstr "Tekst in je achtergrondkleur is slecht leesbaar op deze kleur."
 
-#: includes/admin/start-tab.php:445
 #
+#: includes/admin/start-tab.php:445
 msgid "Low contrast"
 msgstr "Weinig contrast"
 
@@ -928,6 +936,51 @@ msgstr ": tekst in je achtergrondkleur is slecht leesbaar op deze kleur."
 #: includes/admin/start-tab.php:455
 msgid "Save brand colour"
 msgstr "Merkkleur opslaan"
+
+#: assets/js/editor-section-schemes.js:61
+msgid "Page"
+msgstr "Pagina"
+
+#: assets/js/editor-section-schemes.js:62
+msgid "Alternate"
+msgstr "Afwisselend"
+
+#: assets/js/editor-section-schemes.js:63
+msgid "Inverted"
+msgstr "Omgekeerd"
+
+#: assets/js/editor-section-schemes.js:64
+msgid "Brand"
+msgstr "Merk"
+
+#: assets/js/editor-section-schemes.js:68
+msgid "The page colours, as the block is designed."
+msgstr "De paginakleuren, zoals het blok is ontworpen."
+
+#: assets/js/editor-section-schemes.js:69
+msgid ""
+"Page and tint colours swap places: a tinted band, or a plain one on a block "
+"that is tinted by default."
+msgstr "Pagina- en tintkleur wisselen van plaats: een getinte band, of een effen band bij een blok dat standaard getint is."
+
+#: assets/js/editor-section-schemes.js:70
+msgid ""
+"The page colours reversed: a dark band on a light theme, a light band on a "
+"dark style."
+msgstr "De paginakleuren omgedraaid: een donkere band in een licht thema, een lichte band bij een donkere stijl."
+
+#: assets/js/editor-section-schemes.js:71
+msgid "The brand colour as background, with light text and buttons."
+msgstr "De merkkleur als achtergrond, met lichte tekst en knoppen."
+
+#: assets/js/editor-section-schemes.js:107
+#: assets/js/editor-section-schemes.js:124
+msgid "Scheme"
+msgstr "Schema"
+
+#: assets/js/editor-section-schemes.js:137
+msgid "Section colours"
+msgstr "Sectiekleuren"
 
 #: blocks/carousel/build/index.js:1 blocks/carousel/src/edit.js:120
 msgid "Click plus (+) to add slides"
