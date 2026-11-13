@@ -11,8 +11,8 @@
  * The section's own background/text go through custom properties
  * (--aludra-cta-*); `is-style-light` re-declares just those two, same
  * technique as aludra/contact-section's and aludra/stat-rail's is-style-light.
- * The button stays keyed to `primary-alt`/`main` directly in both styles —
- * it's an accent against either ground and doesn't need to change.
+ * The button is the band inverted — the band's text colour as its fill, the
+ * band's colour as its label — so it follows both styles and any palette.
  */
 .wp-block-aludra-cta-banner {
 	--aludra-cta-bg: var(--wp--preset--color--primary, #9f1239);
@@ -62,10 +62,16 @@
 		justify-content: center;
 	}
 
+	/*
+	 * The button used to be `primary-alt` on the `primary` band. That only
+	 * reads where `primary-alt` is a clearly different shade; on themes where
+	 * it is just a darker step (Elayne Store: #0A0A0A on #1A1A1A, 1.1:1) the
+	 * button vanished, and its `main` hover matched the band exactly.
+	 * Inverting the band instead gives the button the same contrast against
+	 * the band as the band's own text, whatever the palette or style variation.
+	 * A colour the author picks (has-background / has-text-color) wins.
+	 */
 	.cta-banner__ctas .wp-block-button__link {
-		background: var(--wp--preset--color--primary-alt, #7f0f2e);
-		/* `base`, not white: `primary-alt` turns light in a dark style variation (3.7:1 with white) */
-		color: var(--wp--preset--color--base, #ffffff);
 		border: none;
 		font-weight: 600;
 		font-size: 15px;
@@ -74,11 +80,22 @@
 		transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 	}
 
+	.cta-banner__ctas .wp-block-button__link:not(.has-background) {
+		background: var(--aludra-cta-text);
+	}
+
+	.cta-banner__ctas .wp-block-button__link:not(.has-text-color) {
+		color: var(--aludra-cta-bg);
+	}
+
 	.cta-banner__ctas .wp-block-button__link:hover {
-		background: var(--wp--preset--color--main, #013f5c);
 		transform: translateY(-1px);
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-		color: var(--wp--preset--color--base, #ffffff);
+	}
+
+	/* Hover lets a little of the band through; the label stays readable. */
+	.cta-banner__ctas .wp-block-button__link:not(.has-background):hover {
+		background: color-mix(in srgb, var(--aludra-cta-text) 85%, transparent);
 	}
 
 	/* ─── RESPONSIVE ─── */
