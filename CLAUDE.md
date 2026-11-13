@@ -17,7 +17,7 @@ Aludra is a shared custom block library for Imagewize block themes (Elayne, Avie
 Blocks can be individually enabled/disabled via an admin settings page (Settings → Aludra), stored in the `aludra_enabled` option. See `blocks/` for the current, authoritative list.
 
 **Requirements:**
-- WordPress 6.9+
+- WordPress 7.0+
 - PHP 7.4+
 
 ## Build Commands

@@ -1,7 +1,7 @@
 === Aludra ===
 Contributors: rhand
 Tags: patterns, page-builder, blocks, sections, landing-page
-Requires at least: 6.9
+Requires at least: 7.0
 Tested up to: 7.1
 Requires PHP: 7.4
 Stable tag: 2.42.2
@@ -12,9 +12,9 @@ Ready-made sections and full page layouts for the WordPress block editor. No sec
 
 == Description ==
 
-Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. 34 native blocks, 21 ready-made sections and 8 whole page layouts, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
+Aludra is a page builder for the WordPress block editor — not a separate editing app bolted on top of it. 34 native blocks, 21 ready-made sections, 8 whole page layouts and 5 headers and footers, built and edited in the editor you already have. No shortcodes, no proprietary markup, and nothing that turns into a wall of broken tags the day you switch it off.
 
-A theme gives you the palette, the type, the header and the footer; Aludra gives you everything between them — the bands a page is actually made of: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands.
+A theme gives you the palette, the type and a default header and footer; Aludra gives you everything between them — the bands a page is actually made of: heroes, stat rails, trust bars, feature grids, pricing tiers, comparison tables, FAQs, reviews, contact sections and CTA bands — plus headers and footers to swap in when the theme's own are not enough.
 
 That holds whatever the site is for. The same sections build a portfolio, a services site, a one-page launch, or a straightforward online presence for a business — the bands are the same, the copy is not.
 
@@ -24,6 +24,7 @@ You rarely start from an empty block. You pick a section — a hero that already
 
 * **21 section patterns** — one page band each, grouped into Heroes, Proof, Features & Services, Layout and Convert. Every content block has one
 * **8 page patterns** — homepage, landing, service, services overview, pricing, about, team and contact, offered when you create a new page
+* **5 header and footer patterns** — a header with a mega menu, a dark header with social icons and full-screen search, a shop header with account and mini cart (WooCommerce), a four-column link footer and a footer with a call-to-action band. Select the header or footer in the Site Editor and choose Replace to use one, in any block theme
 * **34 blocks** — grouped into six inserter categories that follow the order a page gets built in, and individually enable/disable-able under Settings → Aludra
 * **13 more patterns** — five pre-configured carousels and eight mega menu layouts for menu template parts
 * **Show or hide any section per device** — every Aludra block works with the block editor's own visibility controls, so a band can be hidden on mobile, tablet or desktop (WordPress 7.0 and later). No extra markup or scripts: core adds one class and one media query
@@ -49,6 +50,10 @@ None of that is required. Aludra works with any FSE, block, or classic theme. Th
 = Can I hide a section on mobile? =
 
 Yes. On WordPress 7.0 and later, select the block and use the editor's Show / Hide setting to pick the devices it should be hidden on. This is the block editor's own visibility setting, so it works the same on Aludra blocks as on core blocks. The breakpoints come from your theme (480px and 782px by default).
+
+= Can I change my theme's header or footer? =
+
+Yes, in any block theme. In the Site Editor, select the header or footer, choose **Replace** and pick one of Aludra's: Header: Mega Menu, Header: Search and Social, Header: Store (with WooCommerce), Footer: Link Columns or Footer: Call to Action. They use your theme's colours and fonts, and drop extras such as the social icons or the call-to-action button on phones with the block editor's own visibility setting. For the mega menu header, pick the menu's template part in the Mega Menu block's settings.
 
 = Can I put a section on a dark or brand-coloured band? =
 
@@ -215,7 +220,7 @@ It's WordPress's official frontend reactivity system. The mega menu block uses i
 
 **Requirements**
 
-* WordPress 6.9 or higher
+* WordPress 7.0 or higher
 * PHP 7.4 or higher
 * Works with any WordPress theme (FSE, block, or classic)
 
