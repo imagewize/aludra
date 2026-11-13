@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Aludra 2.41.0\n"
+"Project-Id-Version: Aludra 2.42.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/aludra\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-11T10:14:32+00:00\n"
+"POT-Creation-Date: 2026-11-13T07:38:40+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: aludra\n"
@@ -44,89 +44,89 @@ msgstr ""
 msgid "Aludra Icon"
 msgstr ""
 
-#: aludra.php:365
-#: aludra.php:611
+#: aludra.php:395
+#: aludra.php:641
 msgid "Aludra: Heroes"
 msgstr ""
 
-#: aludra.php:370
-#: aludra.php:615
+#: aludra.php:400
+#: aludra.php:645
 msgid "Aludra: Proof"
 msgstr ""
 
-#: aludra.php:375
-#: aludra.php:619
+#: aludra.php:405
+#: aludra.php:649
 msgid "Aludra: Features & Services"
 msgstr ""
 
-#: aludra.php:380
-#: aludra.php:623
+#: aludra.php:410
+#: aludra.php:653
 msgid "Aludra: Layout"
 msgstr ""
 
-#: aludra.php:385
-#: aludra.php:627
+#: aludra.php:415
+#: aludra.php:657
 msgid "Aludra: Convert"
 msgstr ""
 
-#: aludra.php:390
+#: aludra.php:420
 msgid "Aludra: Navigation"
 msgstr ""
 
-#: aludra.php:409
-#: aludra.php:635
+#: aludra.php:439
+#: aludra.php:665
 msgid "Menus"
 msgstr ""
 
-#: aludra.php:410
+#: aludra.php:440
 msgid "Template parts for navigation and mega menu content"
 msgstr ""
 
-#: aludra.php:607
+#: aludra.php:637
 msgid "Aludra: Full Pages"
 msgstr ""
 
-#: aludra.php:608
+#: aludra.php:638
 msgid "Complete page layouts assembled from Aludra sections."
 msgstr ""
 
-#: aludra.php:612
+#: aludra.php:642
 msgid "Opening sections for a page."
 msgstr ""
 
-#: aludra.php:616
+#: aludra.php:646
 msgid "Stats, trust signals, reviews and comparisons."
 msgstr ""
 
-#: aludra.php:620
+#: aludra.php:650
 msgid "Sections describing what you do."
 msgstr ""
 
-#: aludra.php:624
+#: aludra.php:654
 msgid "Structural sections and content bands."
 msgstr ""
 
-#: aludra.php:628
+#: aludra.php:658
 msgid "Pricing, FAQ, contact and call-to-action sections."
 msgstr ""
 
-#: aludra.php:631
+#: aludra.php:661
 msgid "Aludra: Carousels"
 msgstr ""
 
-#: aludra.php:632
+#: aludra.php:662
 msgid "Pre-configured Aludra carousel setups."
 msgstr ""
 
-#: aludra.php:636
+#: aludra.php:666
 msgid "Mega menu patterns for navigation template parts."
 msgstr ""
 
-#: aludra.php:643
+#: aludra.php:673
 msgid "Aludra: Store"
 msgstr ""
 
-#: aludra.php:644
+#: aludra.php:674
 msgid "WooCommerce sections: product grids and category showcases."
 msgstr ""
 
@@ -782,6 +782,47 @@ msgstr ""
 
 #: includes/admin/start-tab.php:455
 msgid "Save brand colour"
+msgstr ""
+
+#: assets/js/editor-section-schemes.js:70
+msgid "Page"
+msgstr ""
+
+#: assets/js/editor-section-schemes.js:71
+msgid "Tint"
+msgstr ""
+
+#: assets/js/editor-section-schemes.js:72
+msgid "Invert"
+msgstr ""
+
+#: assets/js/editor-section-schemes.js:73
+msgid "Brand"
+msgstr ""
+
+#: assets/js/editor-section-schemes.js:77
+msgid "The page colours, as the block is designed."
+msgstr ""
+
+#: assets/js/editor-section-schemes.js:78
+msgid "Page and tint colours swap places: a tinted band, or a plain one on a block that is tinted by default."
+msgstr ""
+
+#: assets/js/editor-section-schemes.js:82
+msgid "The page colours reversed: a dark band on a light theme, a light band on a dark style."
+msgstr ""
+
+#: assets/js/editor-section-schemes.js:86
+msgid "The brand colour as background, with light text and buttons."
+msgstr ""
+
+#: assets/js/editor-section-schemes.js:127
+#: assets/js/editor-section-schemes.js:144
+msgid "Scheme"
+msgstr ""
+
+#: assets/js/editor-section-schemes.js:158
+msgid "Section colours"
 msgstr ""
 
 #: blocks/carousel/build/index.js:1
