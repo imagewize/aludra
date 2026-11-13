@@ -42,11 +42,11 @@ Any section block, or a Group around several, can take one of four schemes from 
 | Scheme | Ground | Text | Class |
 | --- | --- | --- | --- |
 | Page | as designed | as designed | none |
-| Alternate | `tertiary` (cards keep `base`) | `contrast` | `is-aludra-scheme-alternate` |
-| Inverted | `main` | `base` | `is-aludra-scheme-inverted` |
+| Tint | `tertiary` (cards keep `base`) | `contrast` | `is-aludra-scheme-tint` |
+| Invert | `main` | `base` | `is-aludra-scheme-invert` |
 | Brand | `primary` | `base` | `is-aludra-scheme-brand` |
 
-A scheme redefines the colour slugs above inside the section (`assets/css/section-schemes.css`), so everything in it that uses them follows: Aludra's blocks, core's `has-*-color` classes, and the theme's buttons and links. Tints, borders and muted text become `color-mix()` blends of the new ground and text colours. Schemes are built from the page's palette, so on a dark style variation Inverted gives a light band, and on a theme that relies on the fallbacks above they use those. Blocks with their own Dark/Light styles (stat rail, CTA banner, contact section, both heroes) are left out, and keep the page's palette when placed inside a scheme.
+A scheme redefines the colour slugs above inside the section (`assets/css/section-schemes.css`), so everything in it that uses them follows: Aludra's blocks, core's `has-*-color` classes, and the theme's buttons and links. Tints, borders and muted text become `color-mix()` blends of the new ground and text colours. Schemes are built from the page's palette, so on a dark style variation Invert gives a light band, and on a theme that relies on the fallbacks above they use those. Blocks with their own Dark/Light styles (stat rail, CTA banner, contact section, both heroes) are left out, and keep the page's palette when placed inside a scheme.
 
 The scheme is a class in the block's Additional CSS class(es), not a block style, so it combines with a block's own styles. A theme can retune a scheme by overriding the `--wp--preset--color--*` properties on its class; the page's original colours are available as `--aludra-o-<slug>`.
 

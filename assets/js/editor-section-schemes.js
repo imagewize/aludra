@@ -68,18 +68,18 @@
 
 	const SCHEMES = [
 		{ value: 'page', label: __( 'Page', 'aludra' ) },
-		{ value: 'alternate', label: __( 'Alternate', 'aludra' ) },
-		{ value: 'inverted', label: __( 'Inverted', 'aludra' ) },
+		{ value: 'tint', label: __( 'Tint', 'aludra' ) },
+		{ value: 'invert', label: __( 'Invert', 'aludra' ) },
 		{ value: 'brand', label: __( 'Brand', 'aludra' ) },
 	];
 
 	const HELP = {
 		page: __( 'The page colours, as the block is designed.', 'aludra' ),
-		alternate: __(
+		tint: __(
 			'Page and tint colours swap places: a tinted band, or a plain one on a block that is tinted by default.',
 			'aludra'
 		),
-		inverted: __(
+		invert: __(
 			'The page colours reversed: a dark band on a light theme, a light band on a dark style.',
 			'aludra'
 		),

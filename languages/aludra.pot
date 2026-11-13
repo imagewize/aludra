@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-13T07:20:03+00:00\n"
+"POT-Creation-Date: 2026-11-13T07:38:40+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: aludra\n"
@@ -784,44 +784,44 @@ msgstr ""
 msgid "Save brand colour"
 msgstr ""
 
-#: assets/js/editor-section-schemes.js:61
+#: assets/js/editor-section-schemes.js:70
 msgid "Page"
 msgstr ""
 
-#: assets/js/editor-section-schemes.js:62
-msgid "Alternate"
+#: assets/js/editor-section-schemes.js:71
+msgid "Tint"
 msgstr ""
 
-#: assets/js/editor-section-schemes.js:63
-msgid "Inverted"
+#: assets/js/editor-section-schemes.js:72
+msgid "Invert"
 msgstr ""
 
-#: assets/js/editor-section-schemes.js:64
+#: assets/js/editor-section-schemes.js:73
 msgid "Brand"
 msgstr ""
 
-#: assets/js/editor-section-schemes.js:68
+#: assets/js/editor-section-schemes.js:77
 msgid "The page colours, as the block is designed."
 msgstr ""
 
-#: assets/js/editor-section-schemes.js:69
+#: assets/js/editor-section-schemes.js:78
 msgid "Page and tint colours swap places: a tinted band, or a plain one on a block that is tinted by default."
 msgstr ""
 
-#: assets/js/editor-section-schemes.js:70
+#: assets/js/editor-section-schemes.js:82
 msgid "The page colours reversed: a dark band on a light theme, a light band on a dark style."
 msgstr ""
 
-#: assets/js/editor-section-schemes.js:71
+#: assets/js/editor-section-schemes.js:86
 msgid "The brand colour as background, with light text and buttons."
 msgstr ""
 
-#: assets/js/editor-section-schemes.js:107
-#: assets/js/editor-section-schemes.js:124
+#: assets/js/editor-section-schemes.js:127
+#: assets/js/editor-section-schemes.js:144
 msgid "Scheme"
 msgstr ""
 
-#: assets/js/editor-section-schemes.js:137
+#: assets/js/editor-section-schemes.js:158
 msgid "Section colours"
 msgstr ""
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aludra 2.41.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/aludra\n"
-"POT-Creation-Date: 2026-11-13T07:20:03+00:00\n"
+"POT-Creation-Date: 2026-11-13T07:38:40+00:00\n"
 "PO-Revision-Date: 2026-11-11 09:00+0700\n"
 "Last-Translator: Jasper Frumau <jasper@imagewize.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -937,48 +937,52 @@ msgstr ": tekst in je achtergrondkleur is slecht leesbaar op deze kleur."
 msgid "Save brand colour"
 msgstr "Merkkleur opslaan"
 
-#: assets/js/editor-section-schemes.js:61
+#: assets/js/editor-section-schemes.js:70
 msgid "Page"
 msgstr "Pagina"
 
-#: assets/js/editor-section-schemes.js:62
-msgid "Alternate"
-msgstr "Afwisselend"
+#: assets/js/editor-section-schemes.js:71
+msgid "Tint"
+msgstr "Tint"
 
-#: assets/js/editor-section-schemes.js:63
-msgid "Inverted"
-msgstr "Omgekeerd"
+#: assets/js/editor-section-schemes.js:72
+msgid "Invert"
+msgstr "Omkeren"
 
-#: assets/js/editor-section-schemes.js:64
+#: assets/js/editor-section-schemes.js:73
 msgid "Brand"
 msgstr "Merk"
 
-#: assets/js/editor-section-schemes.js:68
+#: assets/js/editor-section-schemes.js:77
 msgid "The page colours, as the block is designed."
 msgstr "De paginakleuren, zoals het blok is ontworpen."
 
-#: assets/js/editor-section-schemes.js:69
+#: assets/js/editor-section-schemes.js:78
 msgid ""
 "Page and tint colours swap places: a tinted band, or a plain one on a block "
 "that is tinted by default."
-msgstr "Pagina- en tintkleur wisselen van plaats: een getinte band, of een effen band bij een blok dat standaard getint is."
+msgstr ""
+"Pagina- en tintkleur wisselen van plaats: een getinte band, of een effen "
+"band bij een blok dat standaard getint is."
 
-#: assets/js/editor-section-schemes.js:70
+#: assets/js/editor-section-schemes.js:82
 msgid ""
 "The page colours reversed: a dark band on a light theme, a light band on a "
 "dark style."
-msgstr "De paginakleuren omgedraaid: een donkere band in een licht thema, een lichte band bij een donkere stijl."
+msgstr ""
+"De paginakleuren omgedraaid: een donkere band in een licht thema, een lichte "
+"band bij een donkere stijl."
 
-#: assets/js/editor-section-schemes.js:71
+#: assets/js/editor-section-schemes.js:86
 msgid "The brand colour as background, with light text and buttons."
 msgstr "De merkkleur als achtergrond, met lichte tekst en knoppen."
 
-#: assets/js/editor-section-schemes.js:107
-#: assets/js/editor-section-schemes.js:124
+#: assets/js/editor-section-schemes.js:127
+#: assets/js/editor-section-schemes.js:144
 msgid "Scheme"
 msgstr "Schema"
 
-#: assets/js/editor-section-schemes.js:137
+#: assets/js/editor-section-schemes.js:158
 msgid "Section colours"
 msgstr "Sectiekleuren"
 
@@ -3647,19 +3651,3 @@ msgstr "signalen"
 msgctxt "block keyword"
 msgid "badges"
 msgstr "badges"
-
-#~ msgid ""
-#~ "A page builder made of real blocks — 34 blocks, 21 section patterns and 8 "
-#~ "page layouts for everything between the header and the footer. Native "
-#~ "block editor, no shortcodes, no proprietary markup. Built alongside the "
-#~ "Aviendha starter theme; works with any theme."
-#~ msgstr ""
-#~ "Een paginabouwer van echte blokken: 34 blokken, 21 sectiepatronen en 8 "
-#~ "paginalay-outs voor alles tussen de header en de footer. Native "
-#~ "blokeditor, geen shortcodes, geen eigen opmaak. Gebouwd naast het "
-#~ "Aviendha-startthema; werkt met elk thema."
-
-#~ msgid "Create responsive image and content carousels with Slick Carousel."
-#~ msgstr ""
-#~ "Maak responsieve carrousels met afbeeldingen en content met Slick "
-#~ "Carousel."

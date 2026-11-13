@@ -1,5 +1,5 @@
 /**
- * Section colour schemes: `is-aludra-scheme-alternate`, `-inverted`, `-brand`.
+ * Section colour schemes: `is-aludra-scheme-tint`, `-invert`, `-brand`.
  *
  * Added to a section block's className by the "Section colours" control
  * (assets/js/editor-section-schemes.js). A scheme does not restyle any block:
@@ -18,7 +18,7 @@
  * inherit as computed values, so every scheme reads the page's original
  * colours, however deeply schemes are nested.
  *
- * Schemes are relative to the page, not absolute: "inverted" is a dark band on
+ * Schemes are relative to the page, not absolute: "invert" is a dark band on
  * a light theme and a light one on a dark style variation (Aviendha's
  * Twilight), using `main` as its ground — the same colour Aludra's own dark
  * bands (stat rail, CTA banner, night hero) use, so the two read as one.
@@ -49,22 +49,22 @@ body {
 	color: var(--wp--preset--color--contrast);
 }
 
-/* Alternate: the page colour and the tint swap places. On a block
+/* Tint: the page colour and the tint swap places. On a block
    on the page colour that gives a tinted band whose cards keep the page colour;
    on a block tinted by default (split section, comparison table) a plain band
    with tinted cards. The same card contract as aludra/spine-section's tint. */
-.is-aludra-scheme-alternate {
+.is-aludra-scheme-tint {
 	--wp--preset--color--base: var(--aludra-o-tertiary);
 	--wp--preset--color--tertiary: var(--aludra-o-base);
 	--wp--preset--color--white: var(--aludra-o-base);
 	--aludra-band-card: var(--aludra-o-base);
 }
 
-/* Inverted: the page's dark colour as ground, its page colour as text.
+/* Invert: the page's dark colour as ground, its page colour as text.
    Tints, borders and muted text are mixes of the two; brand colours are
    lightened toward the new text colour so they stay legible on the ground,
    with the ground as text on buttons (theme.json: button text is `base`). */
-.is-aludra-scheme-inverted {
+.is-aludra-scheme-invert {
 	--wp--preset--color--base: var(--aludra-o-main);
 	--wp--preset--color--contrast: var(--aludra-o-base);
 	--wp--preset--color--main: var(--aludra-o-base);

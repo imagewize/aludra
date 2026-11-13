@@ -28,7 +28,7 @@ You rarely start from an empty block. You pick a section — a hero that already
 * **13 more patterns** — five pre-configured carousels and eight mega menu layouts for menu template parts
 * **Show or hide any section per device** — every Aludra block works with the block editor's own visibility controls, so a band can be hidden on mobile, tablet or desktop (WordPress 7.0 and later). No extra markup or scripts: core adds one class and one media query
 * **Different styles per device** — on WordPress 7.1 and later, switch the editor's preview to Tablet or Mobile and change a block's spacing, colours or typography for that device only. Works on every Aludra block with those settings
-* **Section colours** — give a section, or a Group around several, one of four colour schemes from the Styles tab: Page, Alternate (a tinted band), Inverted (a dark band) or Brand. Everything inside follows, buttons and links included, and every scheme is made from your theme's own colours
+* **Section colours** — give a section, or a Group around several, one of four colour schemes from the Styles tab: Page, Tint (a tinted band), Invert (a dark band) or Brand. Everything inside follows, buttons and links included, and every scheme is made from your theme's own colours
 
 = Building a site with Aludra =
 
@@ -52,7 +52,7 @@ Yes. On WordPress 7.0 and later, select the block and use the editor's Show / Hi
 
 = Can I put a section on a dark or brand-coloured band? =
 
-Yes. Select the section, or a Group block around several sections, open the Styles tab and choose a scheme under **Section colours**: Alternate swaps the page and tint colours, Inverted reverses the page colours (a dark band on a light theme, a light band on a dark style variation), and Brand puts the section on your brand colour. Every block inside follows, including buttons, links and cards, because the scheme changes the theme's colours for that section only. Page removes the scheme again. It works alongside a block's own styles, such as the pricing table's Cards and Spec sheet.
+Yes. Select the section, or a Group block around several sections, open the Styles tab and choose a scheme under **Section colours**: Tint swaps the page and tint colours, Invert reverses the page colours (a dark band on a light theme, a light band on a dark style variation), and Brand puts the section on your brand colour. Every block inside follows, including buttons, links and cards, because the scheme changes the theme's colours for that section only. Page removes the scheme again. It works alongside a block's own styles, such as the pricing table's Cards and Spec sheet.
 
 = Can a section look different on mobile? =
 
