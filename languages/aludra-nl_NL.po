@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aludra 2.41.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/aludra\n"
-"POT-Creation-Date: 2026-11-13T07:38:40+00:00\n"
+"POT-Creation-Date: 2026-11-13T08:23:53+00:00\n"
 "PO-Revision-Date: 2026-11-11 09:00+0700\n"
 "Last-Translator: Jasper Frumau <jasper@imagewize.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -52,23 +52,23 @@ msgstr "https://github.com/imagewize"
 msgid "Aludra Icon"
 msgstr "Aludra-icoon"
 
-#: aludra.php:395 aludra.php:641
+#: aludra.php:395 aludra.php:647
 msgid "Aludra: Heroes"
 msgstr "Aludra: Heroes"
 
-#: aludra.php:400 aludra.php:645
+#: aludra.php:400 aludra.php:651
 msgid "Aludra: Proof"
 msgstr "Aludra: Bewijs"
 
-#: aludra.php:405 aludra.php:649
+#: aludra.php:405 aludra.php:655
 msgid "Aludra: Features & Services"
 msgstr "Aludra: Features & diensten"
 
-#: aludra.php:410 aludra.php:653
+#: aludra.php:410 aludra.php:659
 msgid "Aludra: Layout"
 msgstr "Aludra: Indeling"
 
-#: aludra.php:415 aludra.php:657
+#: aludra.php:415 aludra.php:663
 msgid "Aludra: Convert"
 msgstr "Aludra: Converteren"
 
@@ -76,7 +76,7 @@ msgstr "Aludra: Converteren"
 msgid "Aludra: Navigation"
 msgstr "Aludra: Navigatie"
 
-#: aludra.php:439 aludra.php:665
+#: aludra.php:439 aludra.php:671
 msgid "Menus"
 msgstr "Menus"
 
@@ -84,51 +84,51 @@ msgstr "Menus"
 msgid "Template parts for navigation and mega menu content"
 msgstr "Sjabloononderdelen voor navigatie en mega menu-inhoud"
 
-#: aludra.php:637
+#: aludra.php:643
 msgid "Aludra: Full Pages"
 msgstr "Aludra: Volledige pagina's"
 
-#: aludra.php:638
+#: aludra.php:644
 msgid "Complete page layouts assembled from Aludra sections."
 msgstr "Complete paginalay-outs samengesteld uit Aludra-secties."
 
-#: aludra.php:642
+#: aludra.php:648
 msgid "Opening sections for a page."
 msgstr "Openingssecties voor een pagina."
 
-#: aludra.php:646
+#: aludra.php:652
 msgid "Stats, trust signals, reviews and comparisons."
 msgstr "Cijfers, vertrouwenssignalen, reviews en vergelijkingen."
 
-#: aludra.php:650
+#: aludra.php:656
 msgid "Sections describing what you do."
 msgstr "Secties die beschrijven wat je doet."
 
-#: aludra.php:654
+#: aludra.php:660
 msgid "Structural sections and content bands."
 msgstr "Structurele secties en contentbanden."
 
-#: aludra.php:658
+#: aludra.php:664
 msgid "Pricing, FAQ, contact and call-to-action sections."
 msgstr "Secties voor prijzen, FAQ, contact en call-to-action."
 
-#: aludra.php:661
+#: aludra.php:667
 msgid "Aludra: Carousels"
 msgstr "Aludra: Carrousels"
 
-#: aludra.php:662
+#: aludra.php:668
 msgid "Pre-configured Aludra carousel setups."
 msgstr "Vooraf ingestelde Aludra-carrousels."
 
-#: aludra.php:666
+#: aludra.php:672
 msgid "Mega menu patterns for navigation template parts."
 msgstr "Mega menu-patronen voor navigatie-sjabloononderdelen."
 
-#: aludra.php:673
+#: aludra.php:679
 msgid "Aludra: Store"
 msgstr "Aludra: Winkel"
 
-#: aludra.php:674
+#: aludra.php:680
 msgid "WooCommerce sections: product grids and category showcases."
 msgstr "WooCommerce-secties: productrasters en categorie-overzichten."
 
