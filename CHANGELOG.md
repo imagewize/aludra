@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - **Section colours.** A **Section colours** panel in the Styles tab of `core/group` and the section-level Aludra blocks (spine section, split section, about, services, feature cards and lists, icon grid, CTA columns, pricing, comparison table, FAQ, trust bar, reviews, testimonials, photo grid, Instagram embed) sets one of four schemes: **Page** (none), **Tint** (page and tint colours swap places), **Invert** (the page's `main` colour as ground, its `base` as text) and **Brand** (`primary` as ground). A scheme is one `is-aludra-scheme-*` class in the block's `className`; `assets/css/section-schemes.css` redefines the palette's custom properties inside that element, so every nested block, core's `has-*-color` classes and the theme's button and link colours follow without per-block CSS. The page's own palette is copied to `--aludra-o-*` on `body` first, so schemes can nest and always derive from the page, which keeps them correct on dark style variations such as Aviendha's Twilight, and on themes whose colours come from `includes/palette.php`. Because it is a class rather than a block style, it combines with a block's own styles (Cards / Spec sheet …). Blocks with their own Dark/Light styles (stat rail, CTA banner, contact section, both heroes) are not offered a scheme and keep the page's palette inside one. No `save()` output changes, so existing content and patterns are unaffected.
 
+### Fixed
+- **`aludra/pricing-tiers`** (Spec sheet style): in a narrow column the featured tier's name broke mid-word ("Busin / ess") next to its "Most popular" flag, because the heading's flex row could not wrap and the name was the item that gave way. The row now wraps, so the flag drops below the name instead. Block version 1.0.2.
+
 ## [2.42.2] - 2026-11-12
 
 ### Fixed
