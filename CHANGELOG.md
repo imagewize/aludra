@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.43.0] - 2026-11-13
 
 ### Added
 - **Section colours.** A **Section colours** panel in the Styles tab of `core/group` and the section-level Aludra blocks (spine section, split section, about, services, feature cards and lists, icon grid, CTA columns, pricing, comparison table, FAQ, trust bar, reviews, testimonials, photo grid, Instagram embed) sets one of four schemes: **Page** (none), **Tint** (page and tint colours swap places), **Invert** (the page's `main` colour as ground, its `base` as text) and **Brand** (`primary` as ground). A scheme is one `is-aludra-scheme-*` class in the block's `className`; `assets/css/section-schemes.css` redefines the palette's custom properties inside that element, so every nested block, core's `has-*-color` classes and the theme's button and link colours follow without per-block CSS. The page's own palette is copied to `--aludra-o-*` on `body` first, so schemes can nest and always derive from the page, which keeps them correct on dark style variations such as Aviendha's Twilight, and on themes whose colours come from `includes/palette.php`. Because it is a class rather than a block style, it combines with a block's own styles (Cards / Spec sheet …). Blocks with their own Dark/Light styles (stat rail, CTA banner, contact section, both heroes) are not offered a scheme and keep the page's palette inside one. No `save()` output changes, so existing content and patterns are unaffected.

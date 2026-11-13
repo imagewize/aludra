@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 7.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.42.2
+Stable tag: 2.43.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -245,6 +245,14 @@ Each block follows standard WordPress block structure:
 5. FAQ section with the first answer expanded
 
 == Changelog ==
+
+= 2.43.0 =
+* Added: five header and footer patterns, offered under Replace when you select a header or footer in the Site Editor, in any block theme: Header: Mega Menu, Header: Search and Social, Header: Store (with WooCommerce), Footer: Link Columns and Footer: Call to Action. They drop extras such as social icons or the call-to-action button on phones with the block editor's own visibility setting
+* Added: Section colours — give a section, or a Group around several, a Tint, Invert or Brand colour scheme from the Styles tab. Everything inside follows, buttons and links included
+* Changed: requires WordPress 7.0 or later, for per-device block visibility
+* Fixed: a tall mega menu panel ran off tablet and small laptop screens and could not be scrolled; it now scrolls inside itself, and a wide panel stays within the screen edges
+* Fixed: the CTA Banner button could blend into the band on some themes (Elayne Store); it is now the band's colours inverted, and a button colour picked in the editor is kept
+* Fixed: in the Pricing Tiers Spec sheet style, a featured tier's name no longer breaks mid-word next to its Most popular flag
 
 = 2.42.2 =
 * Fixed: the GitHub release zip now wraps the plugin in its own `aludra/` folder, so uploading it on WordPress 7.1.4 or later installs or replaces `aludra` instead of creating a randomly named folder. The WordPress.org package was not affected.
