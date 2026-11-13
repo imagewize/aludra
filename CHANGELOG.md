@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **Abilities for coding agents.** Five Abilities API abilities (`aludra/list-patterns`, `aludra/get-pattern`, `aludra/list-blocks`, `aludra/compose-page`, `aludra/check-page`) let an agent such as Claude Code, Codex or Mistral Vibe build a page from Aludra patterns over the REST API with an application password. `compose-page` assembles the page from registered pattern markup and swaps only exact text runs, link targets, the style variation and the section colour scheme, so the result opens in the editor without block-validation errors. New pages are drafts by default. See `docs/agents.md`. Disable with the `aludra_abilities_enabled` filter.
+
 ## [2.43.0] - 2026-11-13
 
 ### Added

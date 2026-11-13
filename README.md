@@ -38,6 +38,7 @@ Requires WordPress 7.0+ and PHP 7.4+. WooCommerce is optional and enables the st
 
 - [Blocks](docs/blocks.md): every block and what it does
 - [Patterns](docs/patterns.md): sections, page layouts, headers and footers, store, carousel and mega menu patterns
+- [Agents](docs/agents.md): build pages from patterns over the REST API with Claude Code, Codex or Mistral Vibe
 - [Themes](docs/themes.md): Aviendha, Elayne, Ixian and Winespring, store block hooks, and where Aludra came from
 - [Credits](docs/credits.md): ported blocks, icons and libraries
 - [Changelog](CHANGELOG.md)
