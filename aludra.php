@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/imagewize/aludra
  * Description: Everything a page builder gives you, inside the editor you already have: 34 blocks, 21 section patterns and 8 page layouts. No second editor, no shortcodes, any theme.
  * Version: 2.42.2
- * Requires at least: 6.9
+ * Requires at least: 7.0
  * Requires PHP: 7.4
  * Author: Jasper Frumau
  * Author URI: https://github.com/imagewize
@@ -517,7 +517,9 @@ function aludra_woocommerce_active() {
 function aludra_is_store_pattern_file( $pattern_file ) {
 	$name = basename( $pattern_file );
 
-	return 0 === strpos( $name, 'section-woo-' ) || 0 === strpos( $name, 'page-store-' );
+	return 0 === strpos( $name, 'section-woo-' )
+		|| 0 === strpos( $name, 'page-store-' )
+		|| 0 === strpos( $name, 'header-woo-' );
 }
 
 /**
@@ -582,11 +584,13 @@ function aludra_register_pattern_files( $pattern_glob ) {
 		);
 
 		/*
-		 * Only the page patterns declare Block Types (core/post-content), which
-		 * is what puts them in the Site Editor's "choose a pattern" picker for
-		 * a new page. Section patterns must NOT declare it — a blockTypes entry
-		 * would hijack that same picker and bury the four real page layouts
-		 * among fourteen fragments.
+		 * Page patterns declare Block Types core/post-content, which is what
+		 * puts them in the Site Editor's "choose a pattern" picker for a new
+		 * page. Header and footer patterns declare core/template-part/header
+		 * or /footer, which lists them under "Replace" for that template part.
+		 * Section patterns must NOT declare it — a blockTypes entry would
+		 * hijack the page picker and bury the real page layouts among
+		 * fragments.
 		 */
 		if ( ! empty( $headers['block_types'] ) ) {
 			$args['blockTypes'] = array_map( 'trim', explode( ',', $headers['block_types'] ) );
@@ -597,8 +601,8 @@ function aludra_register_pattern_files( $pattern_glob ) {
 }
 
 /**
- * Register full-page patterns (patterns/page-*.php) and section patterns
- * (patterns/section-*.php).
+ * Register page, section, carousel, header and footer pattern files
+ * (patterns/{page,section,carousel,header,footer}-*.php).
  *
  * Page patterns assemble a whole page and appear in the Site Editor's "choose
  * a pattern" picker when creating one. Section patterns are the single bands a
@@ -612,6 +616,8 @@ add_action(
 		aludra_register_pattern_files( 'page-*.php' );
 		aludra_register_pattern_files( 'section-*.php' );
 		aludra_register_pattern_files( 'carousel-*.php' );
+		aludra_register_pattern_files( 'header-*.php' );
+		aludra_register_pattern_files( 'footer-*.php' );
 	},
 	10
 );

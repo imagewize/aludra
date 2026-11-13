@@ -8,7 +8,8 @@ A flexible mega menu block for WordPress with multiple layout modes and template
 - **Template Part Integration**: Use WordPress template parts for mega menu content
 - **Animations**: Optional entrance animations (fade, slide, scale)
 - **Hover Activation**: Optional hover-to-open for dropdown mode
-- **Responsive**: Mobile-friendly with customizable breakpoint
+- **Responsive**: Mobile-friendly with customizable breakpoint; below 768px the panel goes full-screen
+- **Fits the screen**: A dropdown panel taller than the space below the menu is capped and scrolls inside itself, and one that would run past a screen edge is moved back in
 - **Interactivity API**: Uses WordPress Interactivity API for frontend state
 
 ## Theme Integration Requirements
@@ -63,7 +64,7 @@ The **Aludra theme** includes this by default.
    - **Label**: Button text (e.g., "Shop", "Services")
    - **Menu Slug**: Select the template part slug
    - **Layout Mode**: Choose dropdown or overlay
-   - **Width**: Full width or content width
+   - **Width**: Full width or content width. Full width suits a navigation on the right of the header, as in the *Header: Mega Menu* pattern: a wide panel anchored to a right-hand item has little room to open into
    - **Alignment**: For dropdown mode positioning
 
 ### 3. Customize

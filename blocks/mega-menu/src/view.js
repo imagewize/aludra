@@ -126,6 +126,7 @@ const { state, actions } = store( 'aludra/mega-menu', {
 
 			// Position full-width panels before opening
 			actions.positionFullWidthPanel();
+			actions.fitPanelToViewport();
 
 			// Set open state
 			context.isOpen = true;
@@ -246,6 +247,86 @@ const { state, actions } = store( 'aludra/mega-menu', {
 			panel.style.transform = 'none';
 			panel.style.width = `${ navRect.width }px`;
 		},
+
+		/**
+		 * Keep a dropdown panel inside the viewport.
+		 *
+		 * Above the mobile breakpoint a panel hangs below its trigger with no
+		 * height limit, so a tall template part ran past the bottom of a tablet
+		 * or short laptop screen — and a fixed (full-width) panel does not move
+		 * with the page, so that part could not be reached at all. Cap it at
+		 * the space below its top and let it scroll. Horizontally, an aligned
+		 * panel wider than the room beside its trigger ran off a screen edge;
+		 * shift it back with `translate`, which composes with the alignment
+		 * classes' `transform` instead of overriding it.
+		 *
+		 * Skipped where CSS already makes the panel full-screen (overlay
+		 * layout, below 768px, inside core's open navigation overlay).
+		 * Measuring works before `is-open` lands: the closed panel is hidden
+		 * with opacity/visibility, so it is still laid out.
+		 */
+		fitPanelToViewport() {
+			// Called from toggleMenu, getElement() is the trigger button, not
+			// the block wrapper, so resolve the wrapper before looking down.
+			const { ref: element } = getElement();
+			const ref =
+				element.closest( '.wp-block-aludra-mega-menu' ) || element;
+			const panel = ref.querySelector(
+				'.wp-block-aludra-mega-menu__panel'
+			);
+
+			if ( ! panel ) {
+				return;
+			}
+
+			const context = getContext();
+			panel.style.maxHeight = '';
+			panel.style.overflowY = '';
+			panel.style.overscrollBehavior = '';
+			panel.style.boxSizing = '';
+			panel.style.translate = '';
+
+			if (
+				context.layoutMode === 'overlay' ||
+				window.matchMedia( '(max-width: 768px)' ).matches ||
+				ref.closest(
+					'.wp-block-navigation__responsive-container.is-menu-open'
+				)
+			) {
+				return;
+			}
+
+			const margin = 16;
+			const minHeight = 200;
+			const viewportWidth = document.documentElement.clientWidth;
+			const viewportHeight = window.innerHeight;
+			const rect = panel.getBoundingClientRect();
+
+			const available = viewportHeight - rect.top - margin;
+			if ( rect.height > available ) {
+				panel.style.maxHeight = `${ Math.max( available, minHeight ) }px`;
+				panel.style.overflowY = 'auto';
+				panel.style.overscrollBehavior = 'contain';
+				// The cap is the panel's outer height, padding included.
+				panel.style.boxSizing = 'border-box';
+			}
+
+			// A full-width panel already spans the viewport; nothing to shift.
+			if ( panel.classList.contains( 'mm-full-width' ) ) {
+				return;
+			}
+
+			let shift = 0;
+			if ( rect.right > viewportWidth - margin ) {
+				shift = viewportWidth - margin - rect.right;
+			}
+			if ( rect.left + shift < margin ) {
+				shift = margin - rect.left;
+			}
+			if ( shift !== 0 ) {
+				panel.style.translate = `${ Math.round( shift ) }px 0`;
+			}
+		},
 	},
 
 	callbacks: {
@@ -271,6 +352,9 @@ const { state, actions } = store( 'aludra/mega-menu', {
 					withScope( () => {
 						actions.updateMobileState();
 						actions.positionFullWidthPanel();
+						if ( getContext().isOpen ) {
+							actions.fitPanelToViewport();
+						}
 					} )
 				);
 				context.resizeListenerAdded = true;

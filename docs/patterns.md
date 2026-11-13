@@ -16,6 +16,18 @@ Blocks are the raw components; **patterns** are what you actually build a page f
 
 Every content block is reachable as one of these. The two that are not — Mega Menu and Search Overlay Trigger — belong to a navigation template part rather than to a page; Mega Menu has its own eight template-part patterns below.
 
+**Header and footer patterns** (`patterns/header-*.php`, `patterns/footer-*.php`) — offered under **Replace** when you select a theme's header or footer template part in the Site Editor, in any block theme. They paint with the theme's own palette and fonts, and switch layouts per screen size with WordPress's built-in per-viewport block visibility (WordPress 7.0+), so nothing extra loads.
+
+| Pattern | What it holds | Responsive behaviour |
+| --- | --- | --- |
+| Header: Mega Menu | Logo, navigation with a full-width Mega Menu item, CTA button | CTA hidden on phones; the mega menu opens inside the mobile overlay |
+| Header: Search and Social | Dark bar (Invert scheme): title, navigation, social icons, Search Overlay Trigger | Social icons hidden on phones and tablets |
+| Header: Store | Top offer bar, logo, navigation, account, mini cart (WooCommerce only) | Top bar's contact line hidden on phones |
+| Footer: Link Columns | Dark footer, four headed link columns, bottom bar | Columns stack on phones |
+| Footer: Call to Action | CTA Banner above a compact footer with tagline and navigation | — |
+
+The Mega Menu item ships without a template part selected: pick one in its block settings (see the mega-menu patterns below to create it). Any header or footer can be switched dark or tinted with the **Section colours** control on its group.
+
 **Page patterns** (`patterns/page-*.php`) — eight full layouts assembled from those sections, offered when you create a new page:
 
 | Page | Composition |

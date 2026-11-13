@@ -1,6 +1,6 @@
 # Themes
 
-A theme sets the palette, the type, the header and the footer; Aludra provides everything between them. **[Aviendha](https://github.com/imagewize/aviendha)** is the theme built to that division — a starter FSE theme developed alongside this plugin, which ships no blocks or patterns of its own and composes its pages entirely from `aludra/*`:
+A theme sets the palette, the type and a default header and footer; Aludra provides everything between them, plus [header and footer patterns](patterns.md) to swap in. **[Aviendha](https://github.com/imagewize/aviendha)** is the theme built to that division — a starter FSE theme developed alongside this plugin, which ships no blocks or patterns of its own and composes its pages entirely from `aludra/*`:
 
 ```bash
 composer require imagewize/aviendha imagewize/aludra

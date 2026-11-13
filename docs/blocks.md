@@ -18,7 +18,7 @@ Every block is individually enable/disable-able under **Settings → Aludra → 
 - **Icon Grid Block** (`aludra/icon-grid`) - Auto-fit grid of icon + text items with a section header
 - **Instagram Embed Block** (`aludra/instagram-embed`) - Live Instagram profile feed via Instagram's public embed iframe, gated behind a click-to-load button for consent-friendly loading; unofficial/undocumented endpoint
 - **Load Waterfall Block** (`aludra/load-waterfall`) - Animated network load-time waterfall panel with an LCP marker, for hero sections
-- **Mega Menu Block** (`aludra/mega-menu`) - Advanced navigation menu with mega menu functionality (works best with FSE/block themes)
+- **Mega Menu Block** (`aludra/mega-menu`) - Advanced navigation menu with mega menu functionality (works best with FSE/block themes). A panel taller than the screen scrolls inside itself, and one that would run past a screen edge is moved back in
 - **Photo Grid Block** (`aludra/photo-grid`) - Heading, follow line, and a tight square photo grid for an Instagram-style feed section; fully static, no API key or live connection
 - **Pricing Tiers Block** (`aludra/pricing-tiers`) - Three-column pricing comparison table with featured tier highlighting
 - **Review Profiles Block** (`aludra/review-profiles`) - Heading plus a row of round avatar photos with client quotes
