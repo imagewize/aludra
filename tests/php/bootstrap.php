@@ -26,3 +26,4 @@ require_once __DIR__ . '/stubs.php';
 require_once ALUDRA_TESTS_ROOT . '/includes/admin/settings-page.php';
 require_once ALUDRA_TESTS_ROOT . '/includes/block-hooks.php';
 require_once ALUDRA_TESTS_ROOT . '/includes/palette.php';
+require_once ALUDRA_TESTS_ROOT . '/includes/abilities.php';
