@@ -76,4 +76,32 @@ class AbilitiesTextTest extends TestCase {
 		$this->assertFalse( aludra_abilities_is_text_attr( 'className', 'is-style-night' ) );
 		$this->assertFalse( aludra_abilities_is_text_attr( 'level', 2 ) );
 	}
+
+	/**
+	 * Layout, colour and unit attributes are not copy; stat values are.
+	 */
+	public function test_layout_attrs_are_not_text() {
+		foreach ( array(
+			array( 'width', '58%' ),
+			array( 'verticalAlignment', 'top' ),
+			array( 'borderColor', 'border-light' ),
+			array( 'overlayBackdropColor', 'rgba(0, 0, 0, 0.5)' ),
+			array( 'minHeightUnit', 'px' ),
+			array( 'contentPosition', 'center left' ),
+			array( 'aspectRatio', '3/4' ),
+			array( 'service', 'instagram' ),
+			array( 'dotsBottomSpacing', '-45px' ),
+			array( 'arrowBackground', '#d4ecf5' ),
+			array( 'iconStyle', 'line' ),
+			array( 'iconClass', 'wc-block-customer-account__account-icon' ),
+			array( 'imageSizing', 'thumbnail' ),
+		) as $case ) {
+			$this->assertFalse( aludra_abilities_is_text_attr( $case[0], $case[1] ), $case[0] );
+		}
+
+		foreach ( array( '-71%', '0.9s', '20', '24/7', '1 day' ) as $stat ) {
+			$this->assertTrue( aludra_abilities_is_text_attr( 'number', $stat ), $stat );
+		}
+		$this->assertTrue( aludra_abilities_is_text_attr( 'alt', 'Harbor at sunset' ) );
+	}
 }

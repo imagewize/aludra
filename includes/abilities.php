@@ -62,7 +62,32 @@ const ALUDRA_ABILITIES_STRUCTURAL_ATTRS = array(
 	'engine',
 	'layoutMode',
 	'menuSlug',
+	'width',
+	'height',
+	'scale',
+	'size',
+	'kind',
+	'type',
+	'term',
+	'service',
+	'icon',
+	'overlayMenu',
+	'imageSizing',
 );
+
+/**
+ * Attribute name endings that mark structure, not copy: colours, units,
+ * alignment, positions, ratios, style and class names (borderColor, minHeightUnit,
+ * verticalAlignment, contentPosition, aspectRatio, ...).
+ */
+const ALUDRA_ABILITIES_STRUCTURAL_SUFFIX = '/(Color|ColorValue|Unit|Alignment|Position|Ratio|Style|Class)$/';
+
+/**
+ * Attribute values that are never copy: CSS lengths with a unit and hex
+ * colours. Bare numbers and percentages are left alone, since a stat such as
+ * "-71%" is copy.
+ */
+const ALUDRA_ABILITIES_STRUCTURAL_VALUE = '/^\s*(-?\d+(\.\d+)?(px|em|rem|vh|vw|ch)|#[0-9a-f]{3,8})\s*$/i';
 
 /**
  * Blocks that take a section colour scheme (is-aludra-scheme-*).
@@ -170,7 +195,9 @@ function aludra_abilities_extract_html_texts( $html ) {
 function aludra_abilities_is_text_attr( $key, $value ) {
 	return is_string( $value )
 		&& '' !== trim( $value )
-		&& ! in_array( $key, ALUDRA_ABILITIES_STRUCTURAL_ATTRS, true );
+		&& ! in_array( $key, ALUDRA_ABILITIES_STRUCTURAL_ATTRS, true )
+		&& ! preg_match( ALUDRA_ABILITIES_STRUCTURAL_SUFFIX, $key )
+		&& ! preg_match( ALUDRA_ABILITIES_STRUCTURAL_VALUE, $value );
 }
 
 /**
