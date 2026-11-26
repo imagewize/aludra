@@ -4,7 +4,7 @@ Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 7.0
 Tested up to: 7.2
 Requires PHP: 7.4
-Stable tag: 2.43.0
+Stable tag: 2.44.0
 License: GPL v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -245,6 +245,12 @@ Each block follows standard WordPress block structure:
 5. FAQ section with the first answer expanded
 
 == Changelog ==
+
+= 2.44.0 =
+* Added: Abilities for coding agents. Five Abilities API abilities let an agent such as Claude Code, Codex or Mistral Vibe list Aludra's patterns and blocks, compose a page from them and check it, over the REST API with an application password. New pages are drafts. Turn it off with the `aludra_abilities_enabled` filter
+* Changed: tested with WordPress 7.2
+* Fixed: the Free Shipping Bar settings panel crashed in the block editor; it works again
+* Fixed: the default images in Feature Cards, Review Profiles and Services Block no longer show a "block validation" warning the next time the editor opens them
 
 = 2.43.0 =
 * Added: five header and footer patterns, offered under Replace when you select a header or footer in the Site Editor, in any block theme: Header: Mega Menu, Header: Search and Social, Header: Store (with WooCommerce), Footer: Link Columns and Footer: Call to Action. They drop extras such as social icons or the call-to-action button on phones with the block editor's own visibility setting
