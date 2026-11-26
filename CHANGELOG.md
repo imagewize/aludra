@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - **Abilities for coding agents.** Five Abilities API abilities (`aludra/list-patterns`, `aludra/get-pattern`, `aludra/list-blocks`, `aludra/compose-page`, `aludra/check-page`) let an agent such as Claude Code, Codex or Mistral Vibe build a page from Aludra patterns over the REST API with an application password. `compose-page` assembles the page from registered pattern markup and swaps only exact text runs, link targets, the style variation and the section colour scheme, so the result opens in the editor without block-validation errors. New pages are drafts by default. Layout attributes are never listed or replaced as text: colours, widths, alignment, units, positions, ratios, style and class names, icon and service names, and CSS lengths or hex values. Stat values such as `-71%` stay replaceable. See `docs/agents.md`. Disable with the `aludra_abilities_enabled` filter.
 
+### Changed
+- Confirmed compatibility with WordPress 7.2 (tested on 7.2 RC3). `Tested up to` is now 7.2.
+
 ### Fixed
 - **`aludra/free-shipping-bar`**: the Inspector panel crashed in the block editor ("Element type is invalid") because the block imported `NumberControl` from `@wordpress/components`, which is not a stable export (only `__experimentalNumberControl` exists). The threshold override is now a number `TextControl`. Found while testing against WordPress 7.2 RC3. Block version 1.0.1.
 - **`aludra/feature-cards`, `aludra/review-profiles`, `aludra/services-block`**: the default template images gave `width`/`height` as numbers (`28`, `95`, `26`). That saves, but core stores it as `"width":95` and renders `width:95px`, so the block failed validation the next time the editor opened it (13 invalid image blocks after save and reload). They are now CSS strings (`'28px'`). Block versions 1.0.1.

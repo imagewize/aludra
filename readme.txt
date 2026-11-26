@@ -2,7 +2,7 @@
 Contributors: rhand
 Tags: patterns, page-builder, blocks, sections, landing-page
 Requires at least: 7.0
-Tested up to: 7.1
+Tested up to: 7.2
 Requires PHP: 7.4
 Stable tag: 2.43.0
 License: GPL v3 or later
