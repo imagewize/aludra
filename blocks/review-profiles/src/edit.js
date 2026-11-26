@@ -25,7 +25,7 @@ const reviewItem = ( quote ) => [
 				className: 'review-profiles__avatar',
 				url: '',
 				alt: '',
-				width: 95,
+				width: '95px',
 				style: { border: { radius: '100px' } },
 			},
 		],

@@ -25,8 +25,8 @@ function iconImage( path, alt ) {
 		{
 			url: icons[ path ] ?? '',
 			alt,
-			width: 26,
-			height: 26,
+			width: '26px',
+			height: '26px',
 			sizeSlug: 'full',
 			linkDestination: 'none',
 			metadata: {

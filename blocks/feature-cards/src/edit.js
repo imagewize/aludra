@@ -44,8 +44,8 @@ const card = ( iconPath, alt, title, text ) => [
 					{
 						url: icons[ iconPath ] ?? '',
 						alt,
-						width: 28,
-						height: 28,
+						width: '28px',
+						height: '28px',
 						sizeSlug: 'full',
 						linkDestination: 'none',
 						metadata: {

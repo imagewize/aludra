@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - **`aludra/free-shipping-bar`**: the Inspector panel crashed in the block editor ("Element type is invalid") because the block imported `NumberControl` from `@wordpress/components`, which is not a stable export (only `__experimentalNumberControl` exists). The threshold override is now a number `TextControl`. Found while testing against WordPress 7.2 RC3. Block version 1.0.1.
+- **`aludra/feature-cards`, `aludra/review-profiles`, `aludra/services-block`**: the default template images gave `width`/`height` as numbers (`28`, `95`, `26`). That saves, but core stores it as `"width":95` and renders `width:95px`, so the block failed validation the next time the editor opened it (13 invalid image blocks after save and reload). They are now CSS strings (`'28px'`). Block versions 1.0.1.
+
+### Tests
+- `tests/php/BlockSourceTest.php` reads the block sources and fails on the two patterns above: a template `core/image` with numeric `width`/`height`, and a bare import of a component that `@wordpress/components` exports only as `__experimental*`. Neither is caught by the build, lint or the pattern validator.
 
 ## [2.43.0] - 2026-11-13
 
