@@ -1,6 +1,6 @@
 import { __, sprintf } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, NumberControl } from '@wordpress/components';
+import { PanelBody, TextControl } from '@wordpress/components';
 
 /**
  * Edit component.
@@ -33,14 +33,15 @@ export default function Edit( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Free shipping', 'aludra' ) }>
-					<NumberControl
+					<TextControl
+						type="number"
 						label={ __( 'Threshold override', 'aludra' ) }
 						help={ __(
 							"Leave at 0 to use the minimum order amount of the free shipping method in the visitor's shipping zone.",
 							'aludra'
 						) }
 						min={ 0 }
-						value={ threshold }
+						value={ String( threshold ) }
 						onChange={ ( value ) =>
 							setAttributes( {
 								threshold: parseFloat( value ) || 0,

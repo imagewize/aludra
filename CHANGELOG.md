@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - **Abilities for coding agents.** Five Abilities API abilities (`aludra/list-patterns`, `aludra/get-pattern`, `aludra/list-blocks`, `aludra/compose-page`, `aludra/check-page`) let an agent such as Claude Code, Codex or Mistral Vibe build a page from Aludra patterns over the REST API with an application password. `compose-page` assembles the page from registered pattern markup and swaps only exact text runs, link targets, the style variation and the section colour scheme, so the result opens in the editor without block-validation errors. New pages are drafts by default. Layout attributes are never listed or replaced as text: colours, widths, alignment, units, positions, ratios, style and class names, icon and service names, and CSS lengths or hex values. Stat values such as `-71%` stay replaceable. See `docs/agents.md`. Disable with the `aludra_abilities_enabled` filter.
 
+### Fixed
+- **`aludra/free-shipping-bar`**: the Inspector panel crashed in the block editor ("Element type is invalid") because the block imported `NumberControl` from `@wordpress/components`, which is not a stable export (only `__experimentalNumberControl` exists). The threshold override is now a number `TextControl`. Found while testing against WordPress 7.2 RC3. Block version 1.0.1.
+
 ## [2.43.0] - 2026-11-13
 
 ### Added
